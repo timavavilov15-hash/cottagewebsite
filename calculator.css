@@ -1,0 +1,80 @@
+<!-- 
+  ============================================================================
+  DOMUS VIVA — Breadcrumb Template
+  Шаблон хлебных крошек с поддержкой Schema.org
+  ============================================================================
+  Использование в Nunjucks:
+    {% set breadcrumbs = [
+      { name: 'Главная', url: '/' },
+      { name: 'Проекты', url: '/projects.html' },
+      { name: 'Сосновый бор' }
+    ] %}
+    {% include "templates/breadcrumb.html" with { items: breadcrumbs } %}
+  
+  Переменные:
+    {{items}}          — массив элементов [{name, url}]
+    {{separator}}      — разделитель (по умолчанию: /)
+    {{schema_enabled}} — добавить ли JSON-LD (true/false)
+  ============================================================================
+-->
+
+<nav class="breadcrumbs" 
+     aria-label="Хлебные крошки" 
+     itemscope 
+     itemtype="https://schema.org/BreadcrumbList">
+  <div class="container">
+    <ol class="breadcrumbs__list">
+      
+      {% for item in items %}
+      <li class="breadcrumbs__item" 
+          itemprop="itemListElement" 
+          itemscope 
+          itemtype="https://schema.org/ListItem">
+        
+        {% if item.url and not loop.last %}
+        <a href="{{item.url}}" class="breadcrumbs__link" itemprop="item">
+          <span itemprop="name">{{item.name}}</span>
+        </a>
+        {% else %}
+        <span class="breadcrumbs__current" aria-current="page" itemprop="name">
+          {{item.name}}
+        </span>
+        {% endif %}
+        
+        <meta itemprop="position" content="{{loop.index}}">
+        
+        {% if not loop.last %}
+        <span class="breadcrumbs__separator" aria-hidden="true">
+          {{separator|default('/')}}
+        </span>
+        {% endif %}
+      </li>
+      {% endfor %}
+      
+    </ol>
+  </div>
+</nav>
+
+<!-- 
+  ============================================================================
+  Schema.org JSON-LD для хлебных крошек (SEO)
+  ============================================================================
+-->
+{% if schema_enabled|default(true) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for item in items %}
+    {
+      "@type": "ListItem",
+      "position": {{loop.index}},
+      "name": "{{item.name}}"{% if item.url %},
+      "item": "{{site_url}}{{item.url}}"{% endif %}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

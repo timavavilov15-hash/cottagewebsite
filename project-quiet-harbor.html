@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Газобетон или кирпич: что выбрать для коттеджа в 2026 | DOMUS VIVA</title>
+  <meta name="description" content="Подробный сравнительный анализ газобетона и кирпича: теплопроводность, прочность, стоимость, скорость строительства, долговечность. Реальные цифры из 214 проектов.">
+  <meta name="keywords" content="газобетон или кирпич, материалы для дома, строительство коттеджа, выбор материала стен">
+  <meta name="author" content="Александр Смирнов">
+  <link rel="canonical" href="https://domusviva.example/pages/article-gas-vs-brick.html">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Газобетон или кирпич: что выбрать для коттеджа">
+  <meta property="og:description" content="Сравниваем два самых популярных материала для стен коттеджа по 7 ключевым параметрам на основе опыта DOMUS VIVA.">
+  <meta property="og:image" content="../assets/images/blog/gas-vs-brick-og.jpg">
+  <meta property="article:published_time" content="2026-05-15T08:00:00+03:00">
+  <meta property="article:author" content="Александр Смирнов">
+  <meta property="article:section" content="Технологии">
+  <meta property="article:tag" content="газобетон">
+  <meta property="article:tag" content="кирпич">
+  <meta property="article:tag" content="материалы">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Газобетон или кирпич: полный разбор">
+  <meta name="twitter:description" content="Сравниваем два самых популярных материала для стен коттеджа.">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#B8945A">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Иконки Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+  <!-- Стили проекта (обратная совместимость) -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <!-- Фирменный премиальный стиль Domus Viva -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #B8945A;
+      --gold-lt: #F0E4CC;
+      --dark: #18201A;
+      --mid: #2C3A2E;
+      --cream: #F6F3EE;
+      --muted: #7A8A7C;
+      --border-radius-lg: 12px;
+      --border-radius-md: 8px;
+      --color-text-primary: #18201A;
+      --color-text-secondary: #5A665C;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #edeae4;
+      --color-border-secondary: rgba(24, 32, 26, 0.15);
+      --color-border-tertiary: rgba(24, 32, 26, 0.08);
+      --font-sans: 'Roboto', 'Montserrat', sans-serif;
+      --font-serif: 'Merriweather', serif;
+    }
+    
+    body { 
+      font-family: var(--font-sans); 
+      font-size: 16px; 
+      line-height: 1.6; 
+      color: var(--color-text-primary); 
+      background: var(--cream);
+    }
+    
+    .dv h1, .dv h2, .dv h3 { font-weight: 500; line-height: 1.2; }
+
+    /* ── СИСТЕМА ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-l { opacity: 0; transform: translateX(-28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-l.in { opacity: 1; transform: none; }
+    .rv-r { opacity: 0; transform: translateX(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-r.in { opacity: 1; transform: none; }
+    .rv-s { opacity: 0; transform: scale(.94); transition: opacity .55s ease, transform .55s cubic-bezier(.34,1.56,.64,1); }
+    .rv-s.in { opacity: 1; transform: none; }
+    
+    [data-d="1"] { transition-delay: .1s; }
+    [data-d="2"] { transition-delay: .2s; }
+    [data-d="3"] { transition-delay: .3s; }
+    [data-d="4"] { transition-delay: .4s; }
+
+    /* ── НАВИГАЦИОННАЯ ПАНЕЛЬ ── */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: var(--dark); border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 6px; display: grid; place-items: center; font-size: 13px; font-weight: 500; color: #18201A; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .nav-mark:hover { transform: rotate(8deg) scale(1.1); }
+    .nav-name { font-size: 15px; font-weight: 500; color: #fff; }
+    .nav-sub { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { font-size: 13px; color: rgba(255,255,255,.55); padding: 5px 10px; border-radius: 5px; cursor: pointer; transition: color .15s, background .15s; position: relative; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: 2px; left: 10px; right: 10px; height: 1.5px; background: var(--gold); transform: scaleX(0); transition: transform .25s cubic-bezier(.22,1,.36,1); }
+    .nav-link:hover { color: rgba(255,255,255,.9); }
+    .nav-link:hover::after, .nav-link.a::after { transform: scaleX(1); }
+    .nav-link.a { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: #18201A; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 6px; cursor: pointer; border: none; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+    .nav-cta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 20px rgba(184,148,90,.4); }
+    .nav-cta:active { transform: scale(.97); }
+
+    /* ── ХЛЕБНЫЕ КРОШКИ ── */
+    .breadcrumbs { padding: 20px 28px 10px; font-size: 13px; color: var(--muted); max-width: 1200px; margin: 0 auto; width: 100%; }
+    .breadcrumbs__list { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
+    .breadcrumbs__list a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .breadcrumbs__list a:hover { color: var(--color-text-primary); }
+    .breadcrumbs__list li:not(:last-child)::after { content: '•'; margin-left: 8px; color: rgba(24, 32, 26, 0.2); }
+
+    /* ── ЗАГОЛОВОК СТАТЬИ ── */
+    .article-header { background: var(--dark); padding: 52px 28px; position: relative; color: #fff; overflow: hidden; }
+    .article-header__inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    .article-header__meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 12px; margin-bottom: 20px; color: rgba(255,255,255,0.7); }
+    .blog-category { background: var(--gold); color: #18201A; font-weight: 600; padding: 3px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .article-header__title { font-size: 32px; font-family: var(--font-sans); font-weight: 600; margin-bottom: 14px; line-height: 1.25; color: #fff; }
+    .article-header__subtitle { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 24px; }
+    
+    .article-header__author { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; }
+    .article-header__author img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold); }
+    .article-header__author strong { display: block; font-size: 14px; color: #fff; }
+    .article-header__author span { font-size: 12px; color: rgba(255,255,255,0.5); }
+    
+    .article-header__share { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.5); }
+    .share-btn { width: 30px; height: 30px; border-radius: 50%; border: 0.5px solid rgba(184,148,90,.25); display: grid; place-items: center; color: var(--gold); background: transparent; cursor: pointer; transition: background .2s, transform .2s; }
+    .share-btn:hover { background: var(--gold); color: #18201A; transform: scale(1.1); }
+
+    /* ── СТРУКТУРА СТАТЬИ ── */
+    .article-body { padding: 52px 28px; background: var(--cream); }
+    .article-layout { display: grid; grid-template-columns: 1fr 340px; gap: 40px; max-width: 1200px; margin: 0 auto; }
+    
+    .article-content { 
+      font-family: var(--font-serif); 
+      font-size: 17px; 
+      line-height: 1.8; 
+      color: var(--color-text-primary); 
+      background: #fff; 
+      padding: 40px; 
+      border-radius: var(--border-radius-lg); 
+      border: 1px solid var(--color-border-tertiary);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+    
+    .article-content p { margin-bottom: 1.5em; }
+    .article-content p.lead { font-size: 18px; font-weight: 500; color: var(--dark); line-height: 1.7; }
+    .article-content h2 { font-family: var(--font-sans); font-size: 22px; font-weight: 600; margin: 1.8em 0 0.8em; line-height: 1.3; color: var(--dark); border-left: 3px solid var(--gold); padding-left: 14px; }
+    .article-content h3 { font-family: var(--font-sans); font-size: 17px; font-weight: 600; margin: 1.5em 0 0.6em; color: var(--dark); }
+    .article-content ul, .article-content ol { margin: 1.5em 0; padding-left: 1.5em; }
+    .article-content li { margin-bottom: 0.5em; font-size: 16px; }
+    
+    .article-content blockquote { 
+      border-left: 4px solid var(--gold); 
+      padding: 1.5em; 
+      margin: 2em 0; 
+      background: var(--cream); 
+      font-style: italic; 
+      font-size: 16px; 
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      color: var(--color-text-secondary);
+    }
+    .article-content blockquote footer { font-size: 12px; margin-top: 8px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Таблицы сравнения */
+    .article-content table { width: 100%; border-collapse: collapse; margin: 2em 0; font-size: 15px; font-family: var(--font-sans); }
+    .article-content th, .article-content td { padding: 12px; border: 1px solid #E8E2D9; text-align: left; }
+    .article-content th { background: var(--cream); font-weight: 600; color: var(--dark); }
+    .article-content tr:nth-child(even) { background-color: rgba(246, 243, 238, 0.4); }
+
+    /* Изображения */
+    .article-content figure { margin: 2em 0; text-align: center; }
+    .article-content img { max-width: 100%; height: auto; border-radius: var(--border-radius-lg); }
+    .article-content figcaption { font-size: 12px; color: var(--muted); margin-top: 8px; font-style: italic; font-family: var(--font-sans); }
+    
+    .text-accent { color: var(--gold); font-weight: 600; }
+
+    /* Встроенная плашка CTA */
+    .article-cta { background: var(--mid); border: 1px solid rgba(184, 148, 90, 0.3); border-radius: var(--border-radius-lg); padding: 28px; margin: 2.5em 0; color: #fff; font-family: var(--font-sans); }
+    .article-cta h3 { color: var(--gold) !important; font-size: 18px !important; border-left: none !important; padding-left: 0 !important; margin-top: 0 !important; margin-bottom: 8px !important; }
+    .article-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+    .btn--primary { background: var(--gold); color: #18201A; padding: 10px 20px; border-radius: 6px; font-weight: 600; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; font-size: 13px; text-decoration: none; display: inline-block; }
+    .btn--primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184, 148, 90, 0.3); }
+
+    /* Теги */
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--color-border-tertiary); font-family: var(--font-sans); font-size: 13px; align-items: center; }
+    .article-tag { background: var(--cream); color: var(--color-text-secondary); text-decoration: none; padding: 4px 10px; border-radius: 4px; font-size: 12px; transition: background 0.2s, color 0.2s; }
+    .article-tag:hover { background: var(--dark); color: var(--gold); }
+
+    /* Авторский блок */
+    .article-author-bio { display: flex; gap: 20px; background: var(--cream); border-radius: var(--border-radius-lg); padding: 24px; margin-top: 40px; font-family: var(--font-sans); align-items: flex-start; }
+    .article-author-bio img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
+    .article-author-bio h4 { font-size: 12px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px; }
+    .article-author-bio strong { font-size: 16px; color: var(--dark); display: block; margin-bottom: 4px; }
+    .article-author-bio p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 12px; }
+    .btn--sm { font-size: 11px; padding: 6px 14px; }
+
+    /* ── БОКОВАЯ ПАНЕЛЬ (SIDEBAR) ── */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget { background: #fff; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
+    .sidebar-widget h3 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 16px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 10px; font-family: var(--font-sans); }
+    
+    /* Оглавление */
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .toc-list a { font-size: 13px; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s, padding-left 0.2s; display: block; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+
+    /* Рекомендованные статьи */
+    .sidebar-popular { display: flex; flex-direction: column; gap: 16px; }
+    .sidebar-article { display: flex; gap: 12px; align-items: center; }
+    .sidebar-article__image { width: 64px; height: 64px; border-radius: var(--border-radius-md); overflow: hidden; flex-shrink: 0; }
+    .sidebar-article__image img { width: 100%; height: 100%; object-fit: cover; }
+    .sidebar-article__content h4 { font-size: 13px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+    .sidebar-article__content h4 a { color: var(--dark); text-decoration: none; transition: color 0.2s; }
+    .sidebar-article__content h4 a:hover { color: var(--gold); }
+    .sidebar-article__content time { font-size: 11px; color: var(--muted); }
+
+    /* Форма подписки */
+    .newsletter-box p { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 16px; }
+    .newsletter-form input { width: 100%; padding: 10px 14px; border-radius: 6px; border: 1px solid var(--color-border-secondary); background: var(--cream); font-size: 13px; margin-bottom: 10px; outline: none; transition: border-color 0.2s; }
+    .newsletter-form input:focus { border-color: var(--gold); }
+
+    /* ── СЕКЦИЯ КОММЕНТАРИЕВ ── */
+    .article-comments { padding: 52px 28px; background: var(--color-background-secondary); }
+    .article-comments .section__header { max-width: 800px; margin: 0 auto 24px; }
+    .comments-list { display: flex; flex-direction: column; gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    
+    .comment { display: flex; gap: 16px; background: #fff; padding: 24px; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary); }
+    .comment__avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1px solid var(--color-border-tertiary); }
+    .comment__content { width: 100%; }
+    .comment__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-family: var(--font-sans); }
+    .comment__header strong { font-size: 14px; color: var(--dark); }
+    .comment__header time { font-size: 11px; color: var(--muted); }
+    .comment__badge { background: var(--gold-lt); color: var(--gold); font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
+    .comment__content p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 12px; }
+    .comment__reply { background: transparent; border: none; color: var(--gold); font-size: 12px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .comment__reply:hover { color: var(--dark); }
+
+    /* Форма комментариев */
+    .comment-form { background: #fff; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 32px; max-width: 800px; margin: 0 auto; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
+    .comment-form h3 { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 20px; font-family: var(--font-sans); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-field label { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); font-family: var(--font-sans); }
+    .form-field input, .form-field textarea { padding: 12px 16px; border-radius: 6px; border: 1px solid var(--color-border-secondary); background: var(--cream); font-size: 13px; outline: none; transition: border-color 0.2s; }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--gold); }
+
+    /* ── СЕКЦИЯ CTA ── */
+    .cta-section { padding: 36px 28px; background: var(--dark); }
+    .cta-box { background: var(--mid); border: 0.5px solid rgba(184,148,90,.2); border-radius: var(--border-radius-lg); padding: 36px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; max-width: 1200px; margin: 0 auto; position: relative; overflow: hidden; }
+    .cta-box__content h2 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .cta-box__content p { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+    /* ── ПОДВАЛ (FOOTER) ── */
+    .foot { background: var(--dark); padding: 32px 28px 20px; border-top: 0.5px solid rgba(255,255,255,.07); }
+    .foot-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 0.5px solid rgba(255,255,255,.07); max-width: 1200px; margin: 0 auto; }
+    .foot-desc { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; margin: 12px 0; }
+    .foot-h { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .foot-links { display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-size: 13px; color: rgba(255,255,255,.5); cursor: pointer; transition: color .15s, padding-left .2s; text-decoration: none; }
+    .foot-links a:hover { color: var(--gold); padding-left: 4px; }
+    .foot-contact { display: flex; gap: 8px; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 8px; align-items: flex-start; transition: color .15s; text-decoration: none; }
+    .foot-contact:hover { color: rgba(255,255,255,.8); }
+    .foot-contact i { color: var(--gold); font-size: 15px; margin-top: 2px; flex-shrink: 0; }
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,.3); max-width: 1200px; margin: 0 auto; }
+
+    /* ADAPTIVITY */
+    @media (max-width: 992px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: repeat(2, 1fr); }
+      .cta-box { grid-template-columns: 1fr; text-align: center; }
+      .cta-box__actions { justify-content: center; }
+    }
+    @media (max-width: 576px) {
+      .form-row { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .article-content { padding: 24px; }
+    }
+  </style>
+</head>
+<body class="page-article">
+  
+  <!-- Доступность -->
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  
+  <!-- Прелоадер -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__spinner"></div>
+    <span class="visually-hidden">Загрузка сайта...</span>
+  </div>
+  
+  <!-- Индикатор прогресса чтения -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ГЛАВНАЯ СТРУКТУРНАЯ ОБОЛОЧКА -->
+  <div class="dv">
+
+    <!-- ШАПКА / НАВИГАЦИЯ -->
+    <header class="nav" id="header" role="banner">
+      <a href="../index.html" class="nav-logo" aria-label="Domus Viva - На главную">
+        <div class="nav-mark">DV</div>
+        <div>
+          <div class="nav-name">Domus Viva</div>
+          <div class="nav-sub">Строительство коттеджей</div>
+        </div>
+      </a>
+      
+      <nav class="nav-links" id="mainNav" role="navigation" aria-label="Основное меню">
+        <a href="../index.html" class="nav-link">Главная</a>
+        <a href="/about.html" class="nav-link">О нас</a>
+        <a href="/services.html" class="nav-link">Услуги</a>
+        <a href="/projects.html" class="nav-link">Проекты</a>
+        <a href="/blog.html" class="nav-link a">Блог</a>
+        <a href="/contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      
+      <button class="nav-cta" data-modal="callback">Заказать звонок</button>
+    </header>
+
+    <main id="main-content" role="main">
+      
+      <!-- ХЛЕБНЫЕ КРОШКИ -->
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../blog.html">Блог</a></li>
+          <li aria-current="page">Газобетон или кирпич</li>
+        </ol>
+      </nav>
+
+      <!-- ЗАГОЛОВОК СТАТЬИ -->
+      <header class="article-header rv">
+        <div class="article-header__inner">
+          <div class="article-header__meta">
+            <a href="../blog.html?category=tech" class="blog-category">Технологии</a>
+            <time datetime="2026-05-15">15 мая 2026</time>
+            <span class="article-read-time">⏱ 8 мин чтения</span>
+          </div>
+          <h1 class="article-header__title">Газобетон или кирпич: что выбрать для строительства коттеджа в 2026 году?</h1>
+          <p class="article-header__subtitle">Подробный сравнительный анализ двух самых популярных материалов для стен загородного дома. Реальные цифры из 214 построенных нами проектов.</p>
+          
+          <div class="article-header__author">
+            <img src="../assets/images/team/smirnov.jpg" alt="Александр Смирнов" loading="lazy" width="60" height="60">
+            <div>
+              <strong>Александр Смирнов</strong>
+              <span>Главный архитектор DOMUS VIVA • 18 лет в профессии</span>
+            </div>
+          </div>
+          
+          <div class="article-header__share">
+            <span>Поделиться:</span>
+            <button class="share-btn" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></button>
+            <button class="share-btn" aria-label="VKontakte"><i class="ti ti-brand-vk"></i></button>
+            <button class="share-btn" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp"></i></button>
+            <button class="share-btn" id="copyLinkBtn" aria-label="Скопировать ссылку">
+              <i class="ti ti-link"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ТЕЛО СТАТЬИ И БОКОВАЯ КОЛОНКА -->
+      <section class="article-body">
+        <div class="article-layout">
+          
+          <!-- Основной контент статьи -->
+          <div class="article-content rv-l rv">
+            
+            <figure>
+              <img src="../assets/images/blog/gas-vs-brick-hero.jpg" alt="Сравнение газобетона и кирпича на стройплощадке" loading="eager" width="1200" height="600">
+              <figcaption>Газобетон (слева) и кирпич (справа) — два самых популярных материала для стен коттеджа</figcaption>
+            </figure>
+            
+            <p class="lead">Выбор материала для стен — одно из ключевых решений при строительстве коттеджа. От него зависит не только стоимость дома, но и комфорт проживания, расходы на отопление и даже ликвидность объекта при продаже. В этой статье мы разберём газобетон и кирпич по 7 критериям — с реальными цифрами из 214 проектов, построенных DOMUS VIVA за 12 лет.</p>
+            
+            <h2 id="section-1">Краткий ответ для тех, кто торопится</h2>
+            
+            <p><strong>Газобетон</strong> — оптимален для большинства коттеджей в средней полосе России. Теплее, быстрее в строительстве, дешевле на 20–30%. Требует правильной отделки и защиты от влаги.</p>
+            
+            <p><strong>Кирпич</strong> — выбор для премиальных объектов и регионов с суровым климатом. Прочнее, долговечнее, лучше держит теплоёмкость. Дороже, дольше строится.</p>
+            
+            <blockquote>
+              В 70% наших проектов 2024–2026 годов мы используем комбинированный подход: несущие стены из газобетона D500 + облицовка из кирпича или фасадных панелей. Это даёт оптимальный баланс цены, тепла и эстетики.
+              <footer>— Из практики DOMUS VIVA</footer>
+            </blockquote>
+            
+            <h2 id="section-2">1. Теплопроводность: кто теплее?</h2>
+            
+            <p>Теплопроводность — главный параметр для климата средней полосы России. Чем ниже коэффициент, тем лучше материал сохраняет тепло.</p>
+            
+            <table>
+              <thead>
+                <tr><th>Параметр</th><th>Газобетон D500</th><th>Кирпич пустотелый</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Коэффициент теплопроводности</td><td>0,12 Вт/(м·°С)</td><td>0,41 Вт/(м·°С)</td></tr>
+                <tr><td>Требуемая толщина стены (для R=3,5)</td><td>420 мм</td><td>1430 мм</td></tr>
+                <tr><td>С дополнительным утеплением 100 мм</td><td>300 мм + 100 мм</td><td>510 мм + 100 мм</td></tr>
+              </tbody>
+            </table>
+            
+            <p><strong>Вывод:</strong> газобетон в 3,4 раза теплее кирпича. Для достижения одинакового сопротивления теплопередаче кирпичная стена должна быть в 3 раза толще. На практике кирпичные дома всегда утепляют — но даже с утеплителем газобетон остаётся экономичнее.</p>
+            
+            <h2 id="section-3">2. Стоимость строительства</h2>
+            
+            <p>Сравниваем полную стоимость 1 м² стены с учётом материала, работы и отделки.</p>
+            
+            <table>
+              <thead>
+                <tr><th>Статья расходов</th><th>Газобетон</th><th>Кирпич</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Материал стен</td><td>5 500 ₽/м²</td><td>8 900 ₽/м²</td></tr>
+                <tr><td>Кладка (работа)</td><td>2 500 ₽/м²</td><td>4 200 ₽/м²</td></tr>
+                <tr><td>Утепление 100 мм</td><td>1 200 ₽/м²</td><td>1 200 ₽/м²</td></tr>
+                <tr><td>Отделка фасада</td><td>2 800 ₽/м²</td><td>2 800 ₽/м²</td></tr>
+                <tr><td><strong>ИТОГО</strong></td><td><strong>12 000 ₽/м²</strong></td><td><strong>17 100 ₽/м²</strong></td></tr>
+              </tbody>
+            </table>
+            
+            <p><strong>Вывод:</strong> газобетон дешевле на 30%. Для коттеджа 200 м² это экономия около <strong>1 020 000 ₽</strong> только на стенах.</p>
+            
+            <h2 id="section-4">3. Скорость строительства</h2>
+            
+            <p>Газобетонные блоки в 8 раз больше по объёму, чем кирпич. Один блок заменяет 15–20 кирпичей.</p>
+            
+            <ul>
+              <li><strong>Газобетон:</strong> коробка дома 200 м² — 3–4 недели</li>
+              <li><strong>Кирпич:</strong> коробка дома 200 м² — 8–10 недель</li>
+            </ul>
+            
+            <p>Разница в 2 месяца — это не только время, но и деньги: оплата бригады, аренда лесов, простой техники. На практике кирпичные дома строятся на 15–20% дольше газобетонных при прочих равных.</p>
+            
+            <h2 id="section-5">4. Прочность и несущая способность</h2>
+            
+            <p>Здесь кирпич вне конкуренции.</p>
+            
+            <table>
+              <thead>
+                <tr><th>Параметр</th><th>Газобетон D500</th><th>Кирпич М150</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Прочность на сжатие</td><td>35 кг/см²</td><td>150 кг/см²</td></tr>
+                <tr><td>Этажность без ограничений</td><td>До 3 этажей</td><td>Без ограничений</td></tr>
+                <tr><td>Крепление тяжёлых предметов</td><td>Спец. дюбели</td><td>Обычные дюбели</td></tr>
+              </tbody>
+            </table>
+            
+            <p><strong>Вывод:</strong> для коттеджа в 1–2 этажа прочности газобетона достаточно с большим запасом. Кирпич нужен для многоэтажных домов, домов с тяжёлыми перекрытиями или в сейсмических зонах.</p>
+            
+            <h2 id="section-6">5. Долговечность</h2>
+            
+            <p>Производители заявляют:</p>
+            
+            <ul>
+              <li>Газобетон — 100+ лет</li>
+              <li>Кирпич — 150+ лет</li>
+            </ul>
+            
+            <p>На практике оба материала служат значительно дольше заявленного срока при правильной эксплуатации. Ключевое условие — <strong>защита от влаги</strong>. Газобетон гигроскопичен и требует обязательной внешней отделки (штукатурка, вентфасад, облицовка). Кирпич более устойчив, но также нуждается в защите швов.</p>
+            
+            <h2 id="section-7">6. Экологичность</h2>
+            
+            <p>Оба материала считаются экологичными:</p>
+            
+            <ul>
+              <li><strong>Газобетон:</strong> производится из кварцевого песка, цемента, извести и воды. Не выделяет вредных веществ.</li>
+              <li><strong>Кирпич:</strong> производится из глины путём обжига. Полностью натуральный материал.</li>
+            </ul>
+            
+            <p>С точки зрения «дышащих стен» кирпич выигрывает — он лучше регулирует влажность в помещении. Но современная приточно-вытяжная вентиляция отлично решает этот вопрос для обоих материалов.</p>
+            
+            <h2 id="section-8">7. Ликвидность при продаже</h2>
+            
+            <p>По данным аналитики рынка загородной недвижимости 2025 года:</p>
+            
+            <ul>
+              <li>Кирпичные дома продаются на 10–15% дороже аналогичных газобетонных</li>
+              <li>Срок продажи кирпичного дома — в среднем на 2 месяца меньше</li>
+              <li>Покупатели премиум-сегмента отдают предпочтение кирпичу</li>
+            </ul>
+            
+            <h2 id="section-9">Итоговая таблица сравнения</h2>
+            
+            <table>
+              <thead>
+                <tr><th>Критерий</th><th>Газобетон</th><th>Кирпич</th><th>Победитель</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Теплопроводность</td><td>★★★★★</td><td>★★☆☆☆</td><td>Газобетон</td></tr>
+                <tr><td>Стоимость</td><td>★★★★★</td><td>★★★☆☆</td><td>Газобетон</td></tr>
+                <tr><td>Скорость</td><td>★★★★★</td><td>★★☆☆☆</td><td>Газобетон</td></tr>
+                <tr><td>Прочность</td><td>★★★☆☆</td><td>★★★★★</td><td>Кирпич</td></tr>
+                <tr><td>Долговечность</td><td>★★★★☆</td><td>★★★★★</td><td>Кирпич</td></tr>
+                <tr><td>Экологичность</td><td>★★★★☆</td><td>★★★★★</td><td>Кирпич</td></tr>
+                <tr><td>Ликвидность</td><td>★★★☆☆</td><td>★★★★★</td><td>Кирпич</td></tr>
+              </tbody>
+            </table>
+            
+            <h2 id="section-10">Когда что выбирать: наш опыт</h2>
+            
+            <h3>Выбирайте <span class="text-accent">газобетон</span>, если:</h3>
+            <ul>
+              <li>Бюджет проекта ограничен</li>
+              <li>Нужно построить дом быстро (за 1 сезон)</li>
+              <li>Дом 1–2 этажа без тяжёлых перекрытий</li>
+              <li>Вы планируете жить в доме 10–20 лет</li>
+              <li>Строите в средней полосе России</li>
+            </ul>
+            
+            <h3>Выбирайте <span class="text-accent">кирпич</span>, если:</h3>
+            <ul>
+              <li>Строите премиальный коттедж</li>
+              <li>Бюджет не является главным ограничением</li>
+              <li>Дом 3+ этажа или с тяжёлыми перекрытиями</li>
+              <li>Регион с суровым климатом или сейсмической активностью</li>
+              <li>Планируете передавать дом по наследству (50+ лет)</li>
+              <li>Важна высокая ликвидность при продаже</li>
+            </ul>
+            
+            <h2>Заключение</h2>
+            
+            <p>Идеального материала не существует — есть материал, оптимальный под конкретные задачи. В DOMUS VIVA мы всегда начинаем с анализа потребностей клиента и только потом рекомендуем материал.</p>
+            
+            <p>Если вы стоите перед выбором — запишитесь на бесплатную консультацию с нашим архитектором. Мы разберём ваш участок, бюджет и пожелания, и поможем принять взвешенное решение.</p>
+            
+            <div class="article-cta">
+              <h3>Нужна помощь с выбором материала?</h3>
+              <p>Бесплатная консультация архитектора — разберём ваш проект за 30 минут</p>
+              <button class="btn btn--primary" data-modal="consultation">Записаться на консультацию</button>
+            </div>
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <strong>Теги:</strong>
+              <a href="#" class="article-tag">#газобетон</a>
+              <a href="#" class="article-tag">#кирпич</a>
+              <a href="#" class="article-tag">#материалы</a>
+              <a href="#" class="article-tag">#строительство</a>
+              <a href="#" class="article-tag">#стены</a>
+            </div>
+            
+            <!-- Author Bio -->
+            <aside class="article-author-bio">
+              <img src="../assets/images/team/smirnov.jpg" alt="Александр Смирнов" loading="lazy" width="100" height="100">
+              <div>
+                <h4>Об авторе</h4>
+                <strong>Александр Смирнов</strong>
+                <p>Главный архитектор DOMUS VIVA. 18 лет в профессии, автор 120+ проектов премиальных коттеджей. Специализируется на энергоэффективных домах и BIM-проектировании.</p>
+                <a href="../about.html#team" class="btn btn--sm btn--outline-dark">Все статьи автора</a>
+              </div>
+            </aside>
+            
+          </div>
+          
+          <!-- Боковая колонка (Sidebar) -->
+          <aside class="article-sidebar rv-r rv">
+            
+            <!-- Оглавление статьи -->
+            <div class="sidebar-widget sidebar-widget--toc">
+              <h3>Содержание</h3>
+              <ul class="toc-list">
+                <li><a href="#section-1">Краткий ответ</a></li>
+                <li><a href="#section-2">1. Теплопроводность</a></li>
+                <li><a href="#section-3">2. Стоимость</a></li>
+                <li><a href="#section-4">3. Скорость</a></li>
+                <li><a href="#section-5">4. Прочность</a></li>
+                <li><a href="#section-6">5. Долговечность</a></li>
+                <li><a href="#section-7">6. Экологичность</a></li>
+                <li><a href="#section-8">7. Ликвидность</a></li>
+                <li><a href="#section-9">Итоговая таблица</a></li>
+                <li><a href="#section-10">Когда что выбирать</a></li>
+              </ul>
+            </div>
+            
+            <!-- Рекомендованные материалы -->
+            <div class="sidebar-widget">
+              <h3>Читайте также</h3>
+              <div class="sidebar-popular">
+                <article class="sidebar-article">
+                  <a href="article-energy-efficiency.html" class="sidebar-article__image">
+                    <img src="../assets/images/blog/energy-home-small.jpg" alt="Энергоэффективность" loading="lazy" width="80" height="80">
+                  </a>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-energy-efficiency.html">Дом класса A+: 5 технологий</a></h4>
+                    <time datetime="2026-05-08">8 мая 2026</time>
+                  </div>
+                </article>
+                <article class="sidebar-article">
+                  <a href="article-foundation.html" class="sidebar-article__image">
+                    <img src="../assets/images/blog/foundation-small.jpg" alt="Фундамент" loading="lazy" width="80" height="80">
+                  </a>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-foundation.html">Фундамент для коттеджа: полный гид</a></h4>
+                    <time datetime="2026-03-28">28 мар 2026</time>
+                  </div>
+                </article>
+                <article class="sidebar-article">
+                  <a href="article-smart-home.html" class="sidebar-article__image">
+                    <img src="../assets/images/blog/smart-home-small.jpg" alt="Умный дом" loading="lazy" width="80" height="80">
+                  </a>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-smart-home.html">Умный дом: что работает реально</a></h4>
+                    <time datetime="2026-04-05">5 апр 2026</time>
+                  </div>
+                </article>
+              </div>
+            </div>
+            
+            <!-- Форма подписки на новости -->
+            <div class="sidebar-widget sidebar-widget--newsletter">
+              <div class="newsletter-box">
+                <h3>Подпишитесь</h3>
+                <p>Новые статьи раз в неделю. Без спама.</p>
+                <form class="newsletter-form">
+                  <input type="email" placeholder="Ваш email" autocomplete="email" required>
+                  <button type="submit" class="btn btn--primary" style="width: 100%; border-radius: 6px;">Подписаться</button>
+                </form>
+              </div>
+            </div>
+            
+          </aside>
+          
+        </div>
+      </section>
+
+      <!-- РАЗДЕЛ КОММЕНТАРИЕВ -->
+      <section class="section article-comments" aria-labelledby="comments-title">
+        <div class="container">
+          <header class="section__header rv">
+            <h2 id="comments-title">Комментарии (3)</h2>
+          </header>
+          
+          <div class="comments-list">
+            <article class="comment rv-s rv" data-d="1">
+              <img src="../assets/images/testimonials/default-avatar.jpg" alt="Михаил" class="comment__avatar" width="50" height="50">
+              <div class="comment__content">
+                <header class="comment__header">
+                  <strong>Михаил</strong>
+                  <time datetime="2026-05-16">16 мая 2026</time>
+                </header>
+                <p>Спасибо за статью! Как раз выбираю между газобетоном и кирпичом для своего будущего дома. Остановился на газобетоне с облицовкой кирпичом — идеальный баланс по цене и качеству.</p>
+                <button class="comment__reply"><i class="ti ti-arrow-back-up"></i> Ответить</button>
+              </div>
+            </article>
+            
+            <article class="comment rv-s rv" data-d="2">
+              <img src="../assets/images/team/smirnov-small.jpg" alt="Александр Смирнов" class="comment__avatar" width="50" height="50">
+              <div class="comment__content">
+                <header class="comment__header">
+                  <strong>Александр Смирнов</strong> <span class="comment__badge">Автор</span>
+                  <time datetime="2026-05-16">16 мая 2026</time>
+                </header>
+                <p>Михаил, отличный выбор! Комбинированный подход — действительно оптимум для средней полосы. Если будут вопросы по проекту — пишите, подскажем.</p>
+              </div>
+            </article>
+            
+            <article class="comment rv-s rv" data-d="3">
+              <img src="../assets/images/testimonials/default-avatar.jpg" alt="Елена" class="comment__avatar" width="50" height="50">
+              <div class="comment__content">
+                <header class="comment__header">
+                  <strong>Елена</strong>
+                  <time datetime="2026-05-17">17 мая 2026</time>
+                </header>
+                <p>А что насчёт звукоизоляции? Слышала, что газобетон хуже кирпича в этом плане?</p>
+                <button class="comment__reply"><i class="ti ti-arrow-back-up"></i> Ответить</button>
+              </div>
+            </article>
+          </div>
+          
+          <form class="comment-form rv" id="commentForm" novalidate>
+            <h3>Оставить комментарий</h3>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Имя *</label>
+                <input type="text" name="name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label>Email *</label>
+                <input type="email" name="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Комментарий *</label>
+              <textarea name="comment" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Отправить комментарий</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ПРИЗЫВ К ДЕЙСТВИЮ (CTA) -->
+      <section class="section cta-section bg-dark text-white">
+        <div class="container">
+          <div class="cta-box rv">
+            <div class="cta-box__content">
+              <h2>Не можете определиться с материалом?</h2>
+              <p>Запишитесь на бесплатную консультацию — разберём ваш проект и подберём оптимальный вариант.</p>
+            </div>
+            <div class="cta-box__actions" style="margin-top: 15px;">
+              <button class="btn btn--primary btn--lg" data-modal="consultation">Консультация архитектора</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ПОДВАЛ (FOOTER) -->
+    <footer class="foot" role="contentinfo">
+      <div class="foot-top">
+        <div class="rv">
+          <div class="nav-logo">
+            <div class="nav-mark">DV</div>
+            <div>
+              <div class="nav-name">Domus Viva</div>
+              <div class="nav-sub">Строительство коттеджей</div>
+            </div>
+          </div>
+          <p class="foot-desc">Строим дома, в которых хочется жить. Индивидуальные проекты, премиальные материалы, гарантия 10 лет.</p>
+        </div>
+        
+        <div class="rv" data-d="1">
+          <h4 class="foot-h">Разделы</h4>
+          <div class="foot-links">
+            <a href="/about.html">О компании</a>
+            <a href="/services.html">Услуги</a>
+            <a href="/projects.html">Проекты</a>
+            <a href="/team.html">Команда</a>
+            <a href="/blog.html">Блог</a>
+            <a href="/contacts.html">Контакты</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="2">
+          <h4 class="foot-h">Услуги</h4>
+          <div class="foot-links">
+            <a href="/pages/services/service-build.html">Строительство</a>
+            <a href="/pages/services/service-design.html">Проектирование</a>
+            <a href="/pages/services/service-interior.html">Интерьер</a>
+            <a href="/pages/services/service-engineering.html">Инженерия</a>
+            <a href="/pages/services/service-landscape.html">Ландшафт</a>
+            <a href="/calculator.html">Калькулятор</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="3">
+          <h4 class="foot-h">Контакты</h4>
+          <a href="tel:+74951234567" class="foot-contact"><i class="ti ti-phone" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+          <a href="mailto:info@domusviva.ru" class="foot-contact"><i class="ti ti-mail" aria-hidden="true"></i>info@domusviva.ru</a>
+          <div class="foot-contact"><i class="ti ti-map-pin" aria-hidden="true"></i>Москва, ул. Строителей, 42</div>
+          <div class="foot-contact"><i class="ti ti-clock" aria-hidden="true"></i>Пн–Пт: 9:00–18:00</div>
+        </div>
+      </div>
+      
+      <div class="foot-bottom">
+        <span>© 2008–2026 Domus Viva. Все права защищены.</span>
+        <a href="/privacy.html" style="color:rgba(255,255,255,.3);cursor:pointer;text-decoration:none;">Политика конфиденциальности</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+      <div class="modal__body" id="modalBody">
+        <!-- Сюда динамически инжектится разметка звонка -->
+      </div>
+    </div>
+  </div>
+
+  <!-- КОНТЕЙНЕР ДЛЯ ТОСТОВ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- СКРИПТЫ -->
+  <script src="../js/data.js" defer></script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/modules/header.js" defer></script>
+  <script src="../js/modules/modal.js" defer></script>
+  <script src="../js/modules/form.js" defer></script>
+  <script src="../js/modules/animations.js" defer></script>
+  <script src="../js/modules/toc.js" defer></script>
+  <script src="../js/modules/comments.js" defer></script>
+  <script src="../js/main.js" defer></script>
+
+  <!-- Интегрированная JS-логика -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Плавное отключение прелоадера
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+        }, 300);
+      }
+
+      // Индикатор прогресса чтения
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progressEl = document.getElementById('scrollProgress');
+        if (progressEl) {
+          progressEl.style.width = scrolled + '%';
+        }
+      });
+
+      // Инициализация IntersectionObserver для анимаций плавной прокрутки
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          el.classList.add('in');
+          io.unobserve(el);
+        });
+      }, { threshold: .15, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.rv, .rv-l, .rv-r, .rv-s').forEach(el => io.observe(el));
+
+      // Плавное переключение секций активной навигации при скролле (оглавление статьи)
+      const navLinks = document.querySelectorAll('.toc-list a');
+      const textSections = document.querySelectorAll('h2[id]');
+
+      window.addEventListener('scroll', () => {
+        let currentSec = '';
+        textSections.forEach(sec => {
+          const secTop = sec.offsetTop - 140;
+          if (pageYOffset >= secTop) {
+            currentSec = sec.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.style.color = 'var(--color-text-secondary)';
+          link.style.fontWeight = 'normal';
+          if (link.getAttribute('href').slice(1) === currentSec) {
+            link.style.color = 'var(--gold)';
+            link.style.fontWeight = 'bold';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

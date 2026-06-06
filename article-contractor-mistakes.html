@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Кейс: как мы строили резиденцию «Белый камень» 380 м² | DOMUS VIVA</title>
+  <meta name="description" content="Подробный рассказ о строительстве премиального коттеджа «Белый камень»: 14 месяцев, итальянский мрамор, бассейн, умный дом KNX. От первого эскиза до новоселья.">
+  <meta name="keywords" content="кейс строительства, премиальный коттедж, Белый камень, строительство под ключ, опыт строительства">
+  <meta name="author" content="Александр Смирнов">
+  <link rel="canonical" href="https://domusviva.example/pages/article-case-white-stone.html">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Кейс: резиденция «Белый камень» 380 м²">
+  <meta property="og:description" content="14 месяцев, итальянский мрамор, бассейн, умный дом. Подробный рассказ.">
+  <meta property="og:image" content="../assets/images/blog/case-white-stone-og.jpg">
+  <meta property="article:published_time" content="2026-03-15T08:00:00+03:00">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#B8945A">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Иконки Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+  <!-- Стили проекта (обратная совместимость) -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <!-- Фирменный премиальный стиль Domus Viva -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #B8945A;
+      --gold-lt: #F0E4CC;
+      --dark: #18201A;
+      --mid: #2C3A2E;
+      --cream: #F6F3EE;
+      --muted: #7A8A7C;
+      --border-radius-lg: 12px;
+      --border-radius-md: 8px;
+      --color-text-primary: #18201A;
+      --color-text-secondary: #5A665C;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #edeae4;
+      --color-border-secondary: rgba(24, 32, 26, 0.15);
+      --color-border-tertiary: rgba(24, 32, 26, 0.08);
+      --font-sans: 'Roboto', 'Montserrat', sans-serif;
+      --font-serif: 'Merriweather', serif;
+    }
+    
+    body { 
+      font-family: var(--font-sans); 
+      font-size: 16px; 
+      line-height: 1.6; 
+      color: var(--color-text-primary); 
+      background: var(--cream);
+    }
+    
+    .dv h1, .dv h2, .dv h3 { font-weight: 500; line-height: 1.2; }
+
+    /* ── СИСТЕМА ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-l { opacity: 0; transform: translateX(-28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-l.in { opacity: 1; transform: none; }
+    .rv-r { opacity: 0; transform: translateX(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-r.in { opacity: 1; transform: none; }
+    .rv-s { opacity: 0; transform: scale(.94); transition: opacity .55s ease, transform .55s cubic-bezier(.34,1.56,.64,1); }
+    .rv-s.in { opacity: 1; transform: none; }
+    
+    [data-d="1"] { transition-delay: .1s; }
+    [data-d="2"] { transition-delay: .2s; }
+    [data-d="3"] { transition-delay: .3s; }
+    [data-d="4"] { transition-delay: .4s; }
+
+    /* ── НАВИГАЦИОННАЯ ПАНЕЛЬ ── */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: var(--dark); border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 6px; display: grid; place-items: center; font-size: 13px; font-weight: 500; color: #18201A; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .nav-mark:hover { transform: rotate(8deg) scale(1.1); }
+    .nav-name { font-size: 15px; font-weight: 500; color: #fff; }
+    .nav-sub { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { font-size: 13px; color: rgba(255,255,255,.55); padding: 5px 10px; border-radius: 5px; cursor: pointer; transition: color .15s, background .15s; position: relative; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: 2px; left: 10px; right: 10px; height: 1.5px; background: var(--gold); transform: scaleX(0); transition: transform .25s cubic-bezier(.22,1,.36,1); }
+    .nav-link:hover { color: rgba(255,255,255,.9); }
+    .nav-link:hover::after, .nav-link.a::after { transform: scaleX(1); }
+    .nav-link.a { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: #18201A; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 6px; cursor: pointer; border: none; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+    .nav-cta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 20px rgba(184,148,90,.4); }
+    .nav-cta:active { transform: scale(.97); }
+
+    /* ── ХЛЕБНЫЕ КРОШКИ ── */
+    .breadcrumbs { padding: 20px 28px 10px; font-size: 13px; color: var(--muted); max-width: 1200px; margin: 0 auto; width: 100%; }
+    .breadcrumbs__list { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
+    .breadcrumbs__list a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .breadcrumbs__list a:hover { color: var(--color-text-primary); }
+    .breadcrumbs__list li:not(:last-child)::after { content: '•'; margin-left: 8px; color: rgba(24, 32, 26, 0.2); }
+
+    /* ── ЗАГОЛОВОК СТАТЬИ ── */
+    .article-header { background: var(--dark); padding: 52px 28px; position: relative; color: #fff; overflow: hidden; }
+    .article-header__inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    .article-header__meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 12px; margin-bottom: 20px; color: rgba(255,255,255,0.7); }
+    .blog-category { background: var(--gold); color: #18201A; font-weight: 600; padding: 3px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .article-header__title { font-size: 32px; font-family: var(--font-sans); font-weight: 600; margin-bottom: 14px; line-height: 1.25; color: #fff; }
+    .article-header__subtitle { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 24px; }
+    
+    .article-header__author { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; }
+    .article-header__author img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold); }
+    .article-header__author strong { display: block; font-size: 14px; color: #fff; }
+    .article-header__author span { font-size: 12px; color: rgba(255,255,255,0.5); }
+    
+    .article-header__share { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.5); }
+    .share-btn { width: 30px; height: 30px; border-radius: 50%; border: 0.5px solid rgba(184,148,90,.25); display: grid; place-items: center; color: var(--gold); background: transparent; cursor: pointer; transition: background .2s, transform .2s; }
+    .share-btn:hover { background: var(--gold); color: #18201A; transform: scale(1.1); }
+
+    /* ── СТРУКТУРА СТАТЬИ ── */
+    .article-body { padding: 52px 28px; background: var(--cream); }
+    .article-layout { display: grid; grid-template-columns: 1fr 340px; gap: 40px; max-width: 1200px; margin: 0 auto; }
+    
+    .article-content { 
+      font-family: var(--font-serif); 
+      font-size: 17px; 
+      line-height: 1.8; 
+      color: var(--color-text-primary); 
+      background: #fff; 
+      padding: 40px; 
+      border-radius: var(--border-radius-lg); 
+      border: 1px solid var(--color-border-tertiary);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+    
+    .article-content p { margin-bottom: 1.5em; }
+    .article-content p.lead { font-size: 18px; font-weight: 500; color: var(--dark); line-height: 1.7; }
+    .article-content h2 { font-family: var(--font-sans); font-size: 22px; font-weight: 600; margin: 1.8em 0 0.8em; line-height: 1.3; color: var(--dark); border-left: 3px solid var(--gold); padding-left: 14px; }
+    .article-content h3 { font-family: var(--font-sans); font-size: 17px; font-weight: 600; margin: 1.5em 0 0.6em; color: var(--dark); }
+    .article-content ul, .article-content ol { margin: 1.5em 0; padding-left: 1.5em; }
+    .article-content li { margin-bottom: 0.5em; font-size: 16px; }
+    
+    .article-content blockquote { 
+      border-left: 4px solid var(--gold); 
+      padding: 1.5em; 
+      margin: 2em 0; 
+      background: var(--cream); 
+      font-style: italic; 
+      font-size: 16px; 
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      color: var(--color-text-secondary);
+    }
+    .article-content blockquote cite { font-size: 12px; margin-top: 8px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: block; font-style: normal; }
+
+    /* Изображения */
+    .article-content figure { margin: 2em 0; text-align: center; }
+    .article-content img { max-width: 100%; height: auto; border-radius: var(--border-radius-lg); }
+    .article-content figcaption { font-size: 12px; color: var(--muted); margin-top: 8px; font-style: italic; font-family: var(--font-sans); }
+
+    /* Таблица показателей */
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 2em 0; font-family: var(--font-sans); }
+    .stat-box { text-align: center; padding: 20px 10px; background: var(--cream); border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary); transition: border-color 0.3s; }
+    .stat-box:hover { border-color: var(--gold); }
+    .stat-box__value { font-size: 24px; font-weight: 700; color: var(--gold); display: block; line-height: 1.2; margin-bottom: 4px; }
+    .stat-box__label { font-size: 11px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; display: block; }
+
+    /* Таймлайн инфографики */
+    .timeline-visual { position: relative; padding: 20px 0 20px 40px; margin: 2.5em 0; font-family: var(--font-sans); }
+    .timeline-visual::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--gold), var(--mid)); border-radius: 2px; }
+    .timeline-item-visual { position: relative; margin-bottom: 30px; padding-left: 10px; }
+    .timeline-item-visual::before { content: ''; position: absolute; left: -34px; top: 5px; width: 18px; height: 18px; background: var(--gold); border-radius: 50%; border: 4px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s; }
+    .timeline-item-visual:hover::before { transform: scale(1.2); }
+    .timeline-item-visual__date { font-weight: 700; color: var(--gold); font-size: 13px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .timeline-item-visual__content { background: #fff; padding: 20px; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+    .timeline-item-visual__content h3 { margin-top: 0; font-size: 15px; color: var(--dark); font-weight: 600; margin-bottom: 6px; }
+    .timeline-item-visual__content p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0; }
+
+    /* Встроенная плашка CTA */
+    .article-cta { background: var(--mid); border: 1px solid rgba(184, 148, 90, 0.3); border-radius: var(--border-radius-lg); padding: 28px; margin: 2.5em 0; color: #fff; font-family: var(--font-sans); }
+    .article-cta h3 { color: var(--gold) !important; font-size: 18px !important; border-left: none !important; padding-left: 0 !important; margin-top: 0 !important; margin-bottom: 8px !important; }
+    .article-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+    
+    .btn--primary { background: var(--gold); color: #18201A; padding: 10px 20px; border-radius: 6px; font-weight: 600; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; font-size: 13px; text-decoration: none; display: inline-block; }
+    .btn--primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184, 148, 90, 0.3); }
+
+    /* Теги */
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--color-border-tertiary); font-family: var(--font-sans); font-size: 13px; align-items: center; }
+    .article-tag { background: var(--cream); color: var(--color-text-secondary); text-decoration: none; padding: 4px 10px; border-radius: 4px; font-size: 12px; transition: background 0.2s, color 0.2s; }
+    .article-tag:hover { background: var(--dark); color: var(--gold); }
+
+    /* Авторский блок */
+    .article-author-bio { display: flex; gap: 20px; background: var(--cream); border-radius: var(--border-radius-lg); padding: 24px; margin-top: 40px; font-family: var(--font-sans); align-items: flex-start; }
+    .article-author-bio img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
+    .article-author-bio h4 { font-size: 12px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px; }
+    .article-author-bio strong { font-size: 16px; color: var(--dark); display: block; margin-bottom: 4px; }
+    .article-author-bio p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 12px; }
+    .btn--sm { font-size: 11px; padding: 6px 14px; }
+
+    /* ── БОКОВАЯ ПАНЕЛЬ (SIDEBAR) ── */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget { background: #fff; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
+    .sidebar-widget h3 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 16px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 10px; font-family: var(--font-sans); }
+    
+    /* Оглавление */
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .toc-list a { font-size: 13px; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s, padding-left 0.2s; display: block; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+
+    /* Боковая колонка характеристик */
+    .highlight-box ul { list-style: none; padding: 0; margin: 0; }
+    .highlight-box li { margin-bottom: 14px; font-size: 13px; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 8px; }
+    .highlight-box li strong { display: block; font-size: 18px; color: var(--gold-lt); margin-bottom: 2px; }
+    .highlight-box li span { color: rgba(255,255,255,0.7); }
+
+    /* Рекомендованные статьи */
+    .sidebar-popular { display: flex; flex-direction: column; gap: 16px; }
+    .sidebar-article { display: flex; gap: 12px; align-items: center; }
+    .sidebar-article__image { width: 64px; height: 64px; border-radius: var(--border-radius-md); overflow: hidden; flex-shrink: 0; }
+    .sidebar-article__image img { width: 100%; height: 100%; object-fit: cover; }
+    .sidebar-article__content h4 { font-size: 13px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+    .sidebar-article__content h4 a { color: var(--dark); text-decoration: none; transition: color 0.2s; }
+    .sidebar-article__content h4 a:hover { color: var(--gold); }
+    .sidebar-article__content span { font-size: 11px; color: var(--muted); }
+
+    /* ── СЕКЦИЯ КОММЕНТАРИЕВ ── */
+    .article-comments { padding: 52px 28px; background: var(--color-background-secondary); }
+    .article-comments .section__header { max-width: 800px; margin: 0 auto 24px; }
+    .comments-list { display: flex; flex-direction: column; gap: 16px; max-width: 800px; margin: 0 auto; }
+    
+    .comment { display: flex; gap: 16px; background: #fff; padding: 24px; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary); }
+    .comment__avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1px solid var(--color-border-tertiary); }
+    .comment__content { width: 100%; }
+    .comment__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-family: var(--font-sans); }
+    .comment__header strong { font-size: 14px; color: var(--dark); }
+    .comment__header time { font-size: 11px; color: var(--muted); }
+    .comment__badge { background: var(--gold-lt); color: var(--gold); font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
+    .comment__content p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 0; }
+
+    /* ── СЕКЦИЯ CTA ── */
+    .cta-section { padding: 36px 28px; background: var(--dark); }
+    .cta-box { background: var(--mid); border: 0.5px solid rgba(184,148,90,.2); border-radius: var(--border-radius-lg); padding: 36px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; max-width: 1200px; margin: 0 auto; position: relative; overflow: hidden; }
+    .cta-box__content h2 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .cta-box__content p { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+    /* ── ПОДВАЛ (FOOTER) ── */
+    .foot { background: var(--dark); padding: 32px 28px 20px; border-top: 0.5px solid rgba(255,255,255,.07); }
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,.3); max-width: 1200px; margin: 0 auto; }
+
+    /* ADAPTIVITY */
+    @media (max-width: 992px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .foot-top { grid-template-columns: repeat(2, 1fr); }
+      .cta-box { grid-template-columns: 1fr; text-align: center; }
+      .cta-box__actions { justify-content: center; }
+    }
+    @media (max-width: 576px) {
+      .stats-row { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .article-content { padding: 24px; }
+    }
+  </style>
+</head>
+<body class="page-article">
+  
+  <!-- Доступность -->
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  
+  <!-- Прелоадер -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__spinner"></div>
+    <span class="visually-hidden">Загрузка сайта...</span>
+  </div>
+  
+  <!-- Индикатор прогресса чтения -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ГЛАВНАЯ СТРУКТУРНАЯ ОБОЛОЧКА -->
+  <div class="dv">
+
+    <!-- ШАПКА / НАВИГАЦИЯ -->
+    <header class="nav" id="header" role="banner">
+      <a href="../index.html" class="nav-logo" aria-label="Domus Viva - На главную">
+        <div class="nav-mark">DV</div>
+        <div>
+          <div class="nav-name">Domus Viva</div>
+          <div class="nav-sub">Строительство коттеджей</div>
+        </div>
+      </a>
+      
+      <nav class="nav-links" id="mainNav" role="navigation" aria-label="Основное меню">
+        <a href="../index.html" class="nav-link">Главная</a>
+        <a href="/about.html" class="nav-link">О нас</a>
+        <a href="/services.html" class="nav-link">Услуги</a>
+        <a href="/projects.html" class="nav-link">Проекты</a>
+        <a href="/blog.html" class="nav-link a">Блог</a>
+        <a href="/contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      
+      <button class="nav-cta" data-modal="callback">Заказать звонок</button>
+    </header>
+
+    <main id="main-content" role="main">
+      
+      <!-- ХЛЕБНЫЕ КРОШКИ -->
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../blog.html">Блог</a></li>
+          <li><a href="../blog.html?category=cases">Кейсы</a></li>
+          <li aria-current="page">Кейс «Белый камень»</li>
+        </ol>
+      </nav>
+
+      <!-- ЗАГОЛОВОК СТАТЬИ -->
+      <header class="article-header rv">
+        <div class="article-header__inner">
+          <div class="article-header__meta">
+            <a href="../blog.html?category=cases" class="blog-category">Кейс</a>
+            <time datetime="2026-03-15">15 марта 2026</time>
+            <span class="article-read-time">⏱ 12 мин чтения</span>
+          </div>
+          <h1 class="article-header__title">Кейс: как мы строили резиденцию «Белый камень» 380 м²</h1>
+          <p class="article-header__subtitle">14 месяцев, итальянский мрамор, бассейн, умный дом KNX. Подробный рассказ от первого эскиза до новоселья.</p>
+          
+          <div class="article-header__author">
+            <img src="../assets/images/team/smirnov.jpg" alt="Александр Смирнов" loading="lazy" width="60" height="60">
+            <div>
+              <strong>Александр Смирнов</strong>
+              <span>Главный архитектор DOMUS VIVA</span>
+            </div>
+          </div>
+          
+          <div class="article-header__share">
+            <span>Поделиться:</span>
+            <button class="share-btn" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></button>
+            <button class="share-btn" aria-label="VKontakte"><i class="ti ti-brand-vk"></i></button>
+            <button class="share-btn" id="copyLinkBtn" aria-label="Скопировать ссылку">
+              <i class="ti ti-link"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ТЕЛО СТАТЬИ И БОКОВАЯ КОЛОНКА -->
+      <section class="article-body">
+        <div class="article-layout">
+          
+          <!-- Основной контент статьи -->
+          <div class="article-content rv-l rv">
+            
+            <figure>
+              <img src="../assets/images/blog/case-white-stone-hero.jpg" alt="Резиденция Белый камень — главный фасад" loading="eager" width="1200" height="600">
+              <figcaption>Резиденция «Белый камень» — наш самый сложный и интересный проект 2024 года</figcaption>
+            </figure>
+            
+            <p class="lead">В сентябре 2024 года мы передали ключи от резиденции «Белый камень» — нашего самого амбициозного проекта за последние 5 лет. 380 м², 2 этажа + мансарда, бассейн, гараж на 2 авто, эксплуатируемая кровля, полный умный дом KNX, итальянский мрамор Calacatta во всех мокрых зонах. Строительство заняло 14 месяцев. Бюджет — 21.7 млн рублей. В этой статье я расскажу, как мы это сделали — от первого звонка клиента до новоселья.</p>
+            
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-box__value">380 м²</span>
+                <span class="stat-box__label">Площадь дома</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-box__value">14 мес</span>
+                <span class="stat-box__label">Срок строительства</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-box__value">21.7 млн ₽</span>
+                <span class="stat-box__label">Бюджет</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-box__value">48</span>
+                <span class="stat-box__label">Специалистов задействовано</span>
+              </div>
+            </div>
+            
+            <h2 id="brief">1. Знакомство и бриф (февраль 2023)</h2>
+            
+            <p>Всё началось с звонка. Клиент (назовём его Сергей) сказал: «Мне нужен дом, в котором я буду гордиться каждым квадратным метром. Бюджет не главное — главное качество». Мы встретились в нашем офисе, обсудили пожелания, потом съездили на участок в Рублёво-Успенское шоссе.</p>
+            
+            <h3>Задачи от клиента</h3>
+            
+            <ul>
+              <li>Дом для семьи из 6 человек (родители + 4 ребёнка)</li>
+              <li>Бассейн внутри дома (круглогодичное использование)</li>
+              <li>Гараж на 2 авто с зарядкой для электромобиля</li>
+              <li>Домашний кинотеатр на 8 мест</li>
+              <li>Винный погреб на 500 бутылок</li>
+              <li>SPA-зона с сауной и хаммамом</li>
+              <li>Умный дом с полным управлением со смартфона</li>
+              <li>Премиальные материалы: мрамор, дуб, бронза</li>
+            </ul>
+            
+            <blockquote>
+              <p>«Я не хочу просто дом. Я хочу произведение искусства, в котором можно жить.»</p>
+              <cite>— Сергей, клиент</cite>
+            </blockquote>
+            
+            <h2 id="design">2. Проектирование (февраль–апрель 2023)</h2>
+            
+            <p>Проектирование заняло 12 недель — в 2 раза дольше обычного. Причина: сложная инженерия (бассейн, кинотеатр, винный погреб требуют специальных решений по вентиляции, гидроизоляции, климат-контролю).</p>
+            
+            <h3>Архитектурные решения</h3>
+            
+            <ul>
+              <li><strong>Центральный атриум</strong> — двусветная гостиная с панорамным остеклением в сад</li>
+              <li><strong>Приватная зона</strong> — отдельно стоящее крыло с 4 детскими спальнями и 3 санузлами</li>
+              <li><strong>SPA-зона в цоколе</strong> — бассейн 12×5 м, сауна, хаммам, душевые</li>
+              <li><strong>Эксплуатируемая кровля</strong> — терраса 80 м² с летней кухней и зоной барбекю</li>
+              <li><strong>Гараж</strong> — на 2 авто с подъёмником и мастерской</li>
+            </ul>
+            
+            <h3>Инженерные решения</h3>
+            
+            <ul>
+              <li><strong>Бассейн:</strong> скиммерный, с противотоком и системой озонирования</li>
+              <li><strong>Винный погреб:</strong> климат-контроль +12°C, влажность 70%, дубовые стеллажи</li>
+              <li><strong>Кинотеатр:</strong> звукоизоляция 60 дБ, проектор Sony 4K, Dolby Atmos 7.2.4</li>
+              <li><strong>Умный дом:</strong> полный KNX с голосовым управлением</li>
+              <li><strong>Лифт:</strong> KONE на 3 остановки (цоколь-1-2 этажи)</li>
+            </ul>
+            
+            <h2 id="construction">3. Строительство (май 2023 – июнь 2024)</h2>
+            
+            <div class="timeline-visual">
+              
+              <div class="timeline-item-visual">
+                <div class="timeline-item-visual__date">Май 2023</div>
+                <div class="timeline-item-visual__content">
+                  <h3>Фундамент</h3>
+                  <p>Монолитная плита 400 мм с подогревом и закладными под бассейн. Сложность: высокий уровень грунтовых вод. Решение: дренажная система + гидроизоляция в 3 слоя.</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item-visual">
+                <div class="timeline-item-visual__date">Июнь–сентябрь 2023</div>
+                <div class="timeline-item-visual__content">
+                  <h3>Коробка</h3>
+                  <p>Кирпич Braer + клинкер Feldhaus. Монолитные перекрытия. Эксплуатируемая кровля с мембранной гидроизоляцией. Сложность: двусветный атриум требовал временных опор на 4 месяца.</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item-visual">
+                <div class="timeline-item-visual__date">Октябрь 2023 – январь 2024</div>
+                <div class="timeline-item-visual__content">
+                  <h3>Инженерия</h3>
+                  <p>Бассейн (4 недели), умный дом KNX (6 недель), кинотеатр (3 недели), лифт (2 недели). Параллельная работа 4 бригад. Координация — наш главный инженер Дмитрий.</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item-visual">
+                <div class="timeline-item-visual__date">Февраль–май 2024</div>
+                <div class="timeline-item-visual__content">
+                  <h3>Отделка</h3>
+                  <p>Итальянский мрамор Calacatta и Statuario (доставка из Каррары, 3 недели). Дубовые полы из Франции. Бронзовая фурнитура из Германии. Кухня Bulthaup (ожидание 12 недель на производство).</p>
+                </div>
+              </div>
+              
+              <div class="timeline-item-visual">
+                <div class="timeline-item-visual__date">Июнь 2024</div>
+                <div class="timeline-item-visual__content">
+                  <h3>Сдача</h3>
+                  <p>Финальная проверка всех систем (2 недели). Обучение клиента управлению умным домом (3 дня). Передача ключей, гарантийного паспорта, документации. Новоселье 15 июня 2024.</p>
+                </div>
+              </div>
+              
+            </div>
+            
+            <h2 id="challenges">4. Сложности и решения</h2>
+            
+            <h3>Проблема 1: Бассейн и влажность</h3>
+            
+            <p>Бассейн внутри дома создаёт огромную влажность. Стандартная вентиляция не справлялась. Решение: отдельная приточно-вытяжная установка с осушителем воздуха для зоны бассейна. Дополнительные затраты: 450 000 рублей.</p>
+            
+            <h3>Проблема 2: Звукоизоляция кинотеатра</h3>
+            
+            <p>Кинотеатр на 8 мест с Dolby Atmos требует полной изоляции. Решение: «комната в комнате» — плавающие стены, потолок и пол на виброизоляторах. Толщина конструкций — 400 мм. Дополнительные затраты: 380 000 рублей.</p>
+            
+            <h3>Проблема 3: Эксплуатируемая кровля</h3>
+            
+            <p>Кровля 200 м² должна выдерживать вес людей, мебели, растений. Решение: усиленная монолитная плита + мембранная гидроизоляция + дренажный слой + террасная доска. Сложность: обеспечить уклон для стока воды без нарушения дизайна.</p>
+            
+            <h2 id="results">5. Результаты</h2>
+            
+            <ul>
+              <li><strong>Срок:</strong> 14 месяцев (в договоре было 15 месяцев — сдали на месяц раньше)</li>
+              <li><strong>Бюджет:</strong> 21.7 млн рублей (в договоре было 21.7 млн — ни копейкой больше)</li>
+              <li><strong>Качество:</strong> все системы работают безупречно, клиент доволен</li>
+              <li><strong>Энергоэффективность:</strong> класс A+ (расходы на отопление — 18 000 рублей в год)</li>
+            </ul>
+            
+            <blockquote>
+              <p>«Это не просто дом. Это моя крепость, мой офис, мой спа-салон, мой кинотеатр. Всё в одном месте. DOMUS VIVA создали для меня идеальный мир.»</p>
+              <cite>— Сергей, владелец резиденции «Белый камень»</cite>
+            </blockquote>
+            
+            <h2 id="conclusion">Заключение</h2>
+            
+            <p>Резиденция «Белый камень» — это проект, которым мы гордимся. Он показал, что даже самые сложные задачи решаемы при правильной команде, тщательном проектировании и прозрачном взаимодействии с клиентом.</p>
+            
+            <p>Если вы планируете строительство премиального дома — запишитесь на консультацию. Мы покажем вам этот объект, расскажем о деталях и поможем создать дом вашей мечты.</p>
+            
+            <div class="article-cta">
+              <h3>Хотите такой же дом?</h3>
+              <p>Экскурсия на объект «Белый камень» — увидите качество своими глазами</p>
+              <button class="btn btn--primary" data-modal="inspection">Записаться на экскурсию</button>
+            </div>
+            
+            <div class="article-tags">
+              <strong>Теги:</strong>
+              <a href="#" class="article-tag">#кейс</a>
+              <a href="#" class="article-tag">#премиум</a>
+              <a href="#" class="article-tag">#Белый-камень</a>
+              <a href="#" class="article-tag">#строительство</a>
+              <a href="#" class="article-tag">#умный-дом</a>
+            </div>
+            
+            <aside class="article-author-bio">
+              <img src="../assets/images/team/smirnov.jpg" alt="Александр Смирнов" loading="lazy" width="100" height="100">
+              <div>
+                <h4>Об авторе</h4>
+                <strong>Александр Смирнов</strong>
+                <p>Главный архитектор DOMUS VIVA. Автор проекта «Белый камень». 18 лет в профессии, 120+ проектов.</p>
+                <a href="../about.html#team" class="btn btn--sm btn--outline-dark">Все статьи автора</a>
+              </div>
+            </aside>
+            
+          </div>
+          
+          <!-- Боковая колонка (Sidebar) -->
+          <aside class="article-sidebar rv-r rv">
+            
+            <!-- Оглавление -->
+            <div class="sidebar-widget sidebar-widget--toc">
+              <h3>Содержание</h3>
+              <ul class="toc-list">
+                <li><a href="#brief">1. Знакомство</a></li>
+                <li><a href="#design">2. Проектирование</a></li>
+                <li><a href="#construction">3. Строительство</a></li>
+                <li><a href="#challenges">4. Сложности</a></li>
+                <li><a href="#results">5. Результаты</a></li>
+                <li><a href="#conclusion">Заключение</a></li>
+              </ul>
+            </div>
+            
+            <!-- Боковая колонка характеристик -->
+            <div class="sidebar-widget highlight-box" style="background:var(--mid);color:white;padding:24px;border-radius:12px;margin-bottom:24px; border: 1px solid rgba(184,148,90,0.3);">
+              <h3 style="color:var(--gold);margin-top:0">📊 Цифры проекта</h3>
+              <ul>
+                <li><strong>380 м²</strong><span>площадь дома</span></li>
+                <li><strong>14 месяцев</strong><span>срок строительства</span></li>
+                <li><strong>21.7 млн ₽</strong><span>бюджет</span></li>
+                <li><strong>48 человек</strong><span>задействовано специалистов</span></li>
+              </ul>
+            </div>
+            
+            <!-- Рекомендованные материалы -->
+            <div class="sidebar-widget">
+              <h3>Читайте также</h3>
+              <div class="sidebar-popular">
+                <article class="sidebar-article">
+                  <a href="project-white-stone.html" class="sidebar-article__image">
+                    <img src="../assets/images/projects/white-stone-thumb.jpg" alt="Белый камень" loading="lazy" width="80" height="80">
+                  </a>
+                  <div class="sidebar-article__content">
+                    <h4><a href="project-white-stone.html">Проект «Белый камень»</a></h4>
+                    <span>380 м² • Премиум</span>
+                  </div>
+                </article>
+                <article class="sidebar-article">
+                  <a href="article-smart-home.html" class="sidebar-article__image">
+                    <img src="../assets/images/blog/smart-home-small.jpg" alt="Умный дом" loading="lazy" width="80" height="80">
+                  </a>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-smart-home.html">Умный дом в 2026</a></h4>
+                    <time datetime="2026-04-05">5 апр 2026</time>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </aside>
+          
+        </div>
+      </section>
+
+      <!-- РАЗДЕЛ КОММЕНТАРИЕВ -->
+      <section class="section article-comments" aria-labelledby="comments-title">
+        <div class="container">
+          <header class="section__header rv">
+            <h2 id="comments-title">Комментарии (3)</h2>
+          </header>
+          
+          <div class="comments-list">
+            <article class="comment rv-s rv" data-d="1">
+              <img src="../assets/images/testimonials/default-avatar.jpg" alt="Анна" class="comment__avatar" width="50" height="50">
+              <div class="comment__content">
+                <header class="comment__header">
+                  <strong>Анна</strong>
+                  <time datetime="2026-03-16">16 марта 2026</time>
+                </header>
+                <p>Потрясающий проект! Были на экскурсии — впечатлена качеством отделки. Мрамор Calacatta просто восхитителен.</p>
+              </div>
+            </article>
+            
+            <article class="comment rv-s rv" data-d="2">
+              <img src="../assets/images/team/smirnov-small.jpg" alt="Александр Смирнов" class="comment__avatar" width="50" height="50">
+              <div class="comment__content">
+                <header class="comment__header">
+                  <strong>Александр Смирнов</strong> <span class="comment__badge">Автор</span>
+                  <time datetime="2026-03-16">16 марта 2026</time>
+                </header>
+                <p>Анна, спасибо! Мрамор действительно впечатляет вживую. Фото не передаёт и половины красоты.</p>
+              </div>
+            </article>
+            
+            <article class="comment rv-s rv" data-d="3">
+              <img src="../assets/images/testimonials/default-avatar.jpg" alt="Дмитрий" class="comment__avatar" width="50" height="50">
+              <div class="comment__content">
+                <header class="comment__header">
+                  <strong>Дмитрий</strong>
+                  <time datetime="2026-03-17">17 марта 2026</time>
+                </header>
+                <p>А какая стоимость обслуживания такого дома в год?</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ПРИЗЫВ К ДЕЙСТВИЮ (CTA) -->
+      <section class="section cta-section bg-dark text-white">
+        <div class="container">
+          <div class="cta-box rv">
+            <div class="cta-box__content">
+              <h2>Хотите премиальный дом?</h2>
+              <p>Экскурсия на объект «Белый камень» — увидите качество своими глазами</p>
+            </div>
+            <div class="cta-box__actions" style="margin-top: 15px;">
+              <button class="btn btn--primary btn--lg" data-modal="inspection">Записаться на экскурсию</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ПОДВАЛ (FOOTER) -->
+    <footer class="foot" role="contentinfo">
+      <div class="foot-top">
+        <div class="rv">
+          <div class="nav-logo">
+            <div class="nav-mark">DV</div>
+            <div>
+              <div class="nav-name">Domus Viva</div>
+              <div class="nav-sub">Строительство коттеджей</div>
+            </div>
+          </div>
+          <p class="foot-desc">Строим дома, в которых хочется жить. Индивидуальные проекты, премиальные материалы, гарантия 10 лет.</p>
+        </div>
+        
+        <div class="rv" data-d="1">
+          <h4 class="foot-h">Разделы</h4>
+          <div class="foot-links">
+            <a href="/about.html">О компании</a>
+            <a href="/services.html">Услуги</a>
+            <a href="/projects.html">Проекты</a>
+            <a href="/team.html">Команда</a>
+            <a href="/blog.html">Блог</a>
+            <a href="/contacts.html">Контакты</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="2">
+          <h4 class="foot-h">Услуги</h4>
+          <div class="foot-links">
+            <a href="/pages/services/service-build.html">Строительство</a>
+            <a href="/pages/services/service-design.html">Проектирование</a>
+            <a href="/pages/services/service-interior.html">Интерьер</a>
+            <a href="/pages/services/service-engineering.html">Инженерия</a>
+            <a href="/pages/services/service-landscape.html">Ландшафт</a>
+            <a href="/calculator.html">Калькулятор</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="3">
+          <h4 class="foot-h">Контакты</h4>
+          <a href="tel:+74951234567" class="foot-contact"><i class="ti ti-phone" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+          <a href="mailto:info@domusviva.ru" class="foot-contact"><i class="ti ti-mail" aria-hidden="true"></i>info@domusviva.ru</a>
+          <div class="foot-contact"><i class="ti ti-map-pin" aria-hidden="true"></i>Москва, ул. Строителей, 42</div>
+          <div class="foot-contact"><i class="ti ti-clock" aria-hidden="true"></i>Пн–Пт: 9:00–18:00</div>
+        </div>
+      </div>
+      
+      <div class="foot-bottom">
+        <span>© 2008–2026 Domus Viva. Все права защищены.</span>
+        <a href="/privacy.html" style="color:rgba(255,255,255,.3);cursor:pointer;text-decoration:none;">Политика конфиденциальности</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+      <div class="modal__body" id="modalBody">
+        <!-- Сюда динамически инжектится разметка звонка -->
+      </div>
+    </div>
+  </div>
+
+  <!-- КОНТЕЙНЕР ДЛЯ ТОСТОВ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- СКРИПТЫ -->
+  <script src="../js/data.js" defer></script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/modules/header.js" defer></script>
+  <script src="../js/modules/modal.js" defer></script>
+  <script src="../js/modules/form.js" defer></script>
+  <script src="../js/modules/animations.js" defer></script>
+  <script src="../js/main.js" defer></script>
+
+  <!-- Интегрированная JS-логика -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Плавное отключение прелоадера
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+        }, 300);
+      }
+
+      // Индикатор прогресса чтения
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progressEl = document.getElementById('scrollProgress');
+        if (progressEl) {
+          progressEl.style.width = scrolled + '%';
+        }
+      });
+
+      // Инициализация IntersectionObserver для анимаций плавной прокрутки
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          el.classList.add('in');
+          io.unobserve(el);
+        });
+      }, { threshold: .15, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.rv, .rv-l, .rv-r, .rv-s').forEach(el => io.observe(el));
+
+      // Плавное переключение секций активной навигации при скролле (оглавление статьи)
+      const navLinks = document.querySelectorAll('.toc-list a');
+      const textSections = document.querySelectorAll('h2[id]');
+
+      window.addEventListener('scroll', () => {
+        let currentSec = '';
+        textSections.forEach(sec => {
+          const secTop = sec.offsetTop - 140;
+          if (pageYOffset >= secTop) {
+            currentSec = sec.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.style.color = 'var(--color-text-secondary)';
+          link.style.fontWeight = 'normal';
+          if (link.getAttribute('href').slice(1) === currentSec) {
+            link.style.color = 'var(--gold)';
+            link.style.fontWeight = 'bold';
+          }
+        });
+      });
+
+      // Переключение языка
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const STORAGE_KEY = 'domus-viva-lang';
+      
+      function getCurrentLanguage() {
+        return localStorage.getItem(STORAGE_KEY) || 'ru';
+      }
+
+      function setLanguage(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+        langButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Инициализировать активный язык
+      const currentLang = getCurrentLanguage();
+      setLanguage(currentLang);
+    });
+  </script>
+</body>
+</html>

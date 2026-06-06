@@ -1,0 +1,215 @@
+/**
+ * SEO Module
+ * Динамическая генерация JSON-LD, breadcrumbs, meta-теги
+ */
+
+export class SEO {
+  constructor(config) {
+    this.config = config;
+  }
+
+  /**
+   * Генерировать Schema.org структурированные данные
+   */
+  generateSchema(type, data) {
+    let schema = {
+      '@context': 'https://schema.org',
+      '@type': type
+    };
+
+    switch (type) {
+      case 'LocalBusiness':
+        schema = {
+          ...schema,
+          name: data.name || this.config.name,
+          description: data.description || this.config.description,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: data.address?.street || '',
+            addressLocality: data.address?.city || 'Москва',
+            postalCode: data.address?.zip || '',
+            addressCountry: 'RU'
+          },
+          telephone: data.phone || this.config.phone,
+          image: data.image || this.config.image,
+          url: data.url || this.config.url,
+          sameAs: data.social || []
+        };
+        break;
+
+      case 'Article':
+        schema = {
+          ...schema,
+          headline: data.title,
+          description: data.description,
+          image: data.image,
+          datePublished: data.datePublished,
+          dateModified: data.dateModified || data.datePublished,
+          author: {
+            '@type': 'Person',
+            name: data.author || 'Domus Viva'
+          }
+        };
+        break;
+
+      case 'BreadcrumbList':
+        schema = {
+          ...schema,
+          itemListElement: data.items.map((item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: item.name,
+            item: item.url
+          }))
+        };
+        break;
+
+      case 'Organization':
+        schema = {
+          ...schema,
+          name: data.name || this.config.name,
+          logo: data.logo || this.config.logo,
+          sameAs: data.social || [],
+          contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'Customer Service',
+            telephone: data.phone || this.config.phone
+          }
+        };
+        break;
+    }
+
+    return schema;
+  }
+
+  /**
+   * Добавить JSON-LD на страницу
+   */
+  addJsonLd(type, data) {
+    const schema = this.generateSchema(type, data);
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = JSON.stringify(schema);
+    
+    document.head.appendChild(script);
+  }
+
+  /**
+   * Генерировать Breadcrumb список
+   */
+  generateBreadcrumbs(items) {
+    const schema = this.generateSchema('BreadcrumbList', { items });
+    this.addJsonLd('BreadcrumbList', { items });
+
+    const breadcrumb = document.querySelector('.breadcrumb');
+    if (breadcrumb) {
+      breadcrumb.innerHTML = items.map((item, index) => {
+        if (index === items.length - 1) {
+          return `<li class="active" aria-current="page">${item.name}</li>`;
+        }
+        return `<li><a href="${item.url}">${item.name}</a></li>`;
+      }).join('');
+    }
+  }
+
+  /**
+   * Установить meta-теги
+   */
+  setMetaTags(data) {
+    // Title
+    if (data.title) {
+      document.title = data.title;
+    }
+
+    // Description
+    this.setMetaTag('description', data.description);
+
+    // Keywords
+    if (data.keywords) {
+      this.setMetaTag('keywords', data.keywords);
+    }
+
+    // Open Graph
+    this.setMetaTag('og:title', data.ogTitle || data.title, 'property');
+    this.setMetaTag('og:description', data.ogDescription || data.description, 'property');
+    this.setMetaTag('og:image', data.ogImage || data.image, 'property');
+    this.setMetaTag('og:url', data.url || window.location.href, 'property');
+    this.setMetaTag('og:type', data.ogType || 'website', 'property');
+
+    // Twitter Card
+    this.setMetaTag('twitter:card', data.twitterCard || 'summary_large_image');
+    this.setMetaTag('twitter:title', data.twitterTitle || data.title);
+    this.setMetaTag('twitter:description', data.twitterDescription || data.description);
+    this.setMetaTag('twitter:image', data.twitterImage || data.image);
+
+    // Canonical
+    if (data.canonical) {
+      this.setCanonical(data.canonical);
+    }
+
+    // Robots
+    if (data.robots) {
+      this.setMetaTag('robots', data.robots);
+    }
+  }
+
+  /**
+   * Установить meta-тег
+   */
+  setMetaTag(name, content, type = 'name') {
+    let tag = document.querySelector(`meta[${type}="${name}"]`);
+
+    if (!tag) {
+      tag = document.createElement('meta');
+      tag.setAttribute(type, name);
+      document.head.appendChild(tag);
+    }
+
+    tag.setAttribute('content', content);
+  }
+
+  /**
+   * Установить canonical URL
+   */
+  setCanonical(url) {
+    let link = document.querySelector('link[rel="canonical"]');
+
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'canonical';
+      document.head.appendChild(link);
+    }
+
+    link.href = url;
+  }
+
+  /**
+   * Генерировать sitemap
+   */
+  generateSitemap(pages) {
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+    pages.forEach(page => {
+      xml += '  <url>\n';
+      xml += `    <loc>${page.url}</loc>\n`;
+      if (page.lastmod) {
+        xml += `    <lastmod>${page.lastmod}</lastmod>\n`;
+      }
+      if (page.priority) {
+        xml += `    <priority>${page.priority}</priority>\n`;
+      }
+      if (page.changefreq) {
+        xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
+      }
+      xml += '  </url>\n';
+    });
+
+    xml += '</urlset>';
+
+    return xml;
+  }
+}
+
+export default SEO;

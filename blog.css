@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тренды дизайна интерьеров 2026: тихая роскошь и тактильность | DOMUS VIVA</title>
+  <meta name="description" content="Главные тренды дизайна интерьеров 2026 года: тихая роскошь, тактильные материалы, приглушённые цвета, джапанди. Разбор от ведущего дизайнера DOMUS VIVA Елены Ковалёвой.">
+  <meta name="keywords" content="тренды дизайна 2026, интерьер коттеджа, тихая роскошь, джапанди, натуральные материалы, дизайн интерьера">
+  <meta name="author" content="Елена Ковалева">
+  <link rel="canonical" href="https://domusviva.example/pages/article-trends-2026.html">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Тренды дизайна интерьеров 2026: тихая роскошь и тактильность">
+  <meta property="og:description" content="5 главных трендов, которые определяют дизайн коттеджей в 2026 году.">
+  <meta property="og:image" content="../assets/images/blog/trends-2026-og.jpg">
+  <meta property="article:published_time" content="2026-04-28T08:00:00+03:00">
+  
+  <meta name="theme-color" content="#A67C52">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Премиальная дизайн-система (Quiet Luxury) */
+    :root {
+      --color-bg: #FAF8F5; /* Благородный кремовый / молочный */
+      --color-text-main: #2C2A27; /* Мягкий графит */
+      --color-text-muted: #6E6A64;
+      --color-accent: #A67C52; /* Золотисто-древесный */
+      --color-accent-hover: #8E653C;
+      --color-accent-light: #F5EFE6;
+      --color-dark: #1E1D1B; /* Почти черный */
+      --color-border: #E8E2D9;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Базовый сброс и плавность */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Доступность */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      background: var(--color-accent);
+      color: white;
+      padding: 12px 24px;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      border-radius: 4px;
+    }
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    /* Индикатор прокрутки */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--color-accent);
+      width: 0%;
+      z-index: 1100;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Шапка сайта */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--color-dark);
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .logo svg {
+      fill: var(--color-accent);
+    }
+    .nav__list {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    .nav__link {
+      text-decoration: none;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: var(--transition-smooth);
+      position: relative;
+      padding: 6px 0;
+    }
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-accent);
+      transition: var(--transition-smooth);
+    }
+    .nav__link:hover {
+      color: var(--color-accent);
+    }
+    .nav__link:hover::after, 
+    .nav__link--active::after {
+      width: 100%;
+    }
+    .nav__link--active {
+      color: var(--color-accent);
+    }
+
+    .header__actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .header__phone {
+      text-decoration: none;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+    .header__phone:hover {
+      color: var(--color-accent);
+    }
+
+    /* Кнопки */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+    .btn--primary {
+      background: var(--color-accent);
+      color: white;
+    }
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(166, 124, 82, 0.15);
+    }
+    .btn--sm {
+      padding: 10px 20px;
+      font-size: 0.75rem;
+    }
+    .btn--outline-dark {
+      background: transparent;
+      border: 1px solid var(--color-dark);
+      color: var(--color-dark);
+    }
+    .btn--outline-dark:hover {
+      background: var(--color-dark);
+      color: white;
+    }
+    .btn--accent {
+      background: var(--color-accent-light);
+      color: var(--color-accent-hover);
+      border: 1px solid rgba(166, 124, 82, 0.3);
+    }
+    .btn--accent:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+      width: 24px;
+      height: 24px;
+      justify-content: center;
+    }
+    .burger__line {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--color-dark);
+      transition: var(--transition-smooth);
+    }
+
+    /* Хлебные крошки */
+    .breadcrumbs {
+      padding: 32px 0 16px;
+    }
+    .breadcrumbs__list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .breadcrumbs__list a {
+      text-decoration: none;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    .breadcrumbs__list a:hover {
+      color: var(--color-accent);
+    }
+    .breadcrumbs__list li:not(:last-child)::after {
+      content: '/';
+      margin-left: 8px;
+      color: var(--color-border);
+    }
+    .breadcrumbs__list li[aria-current="page"] {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Шапка статьи */
+    .article-header {
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 48px;
+    }
+    .article-header__meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .blog-category {
+      text-decoration: none;
+      color: white;
+      background: var(--color-accent);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    .article-read-time {
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .article-read-time::before {
+      content: '•';
+    }
+    .article-header__title {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      line-height: 1.15;
+      color: var(--color-dark);
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .article-header__subtitle {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      max-width: 800px;
+      margin-bottom: 32px;
+    }
+    
+    .article-header__author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .article-header__author img {
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .article-header__author strong {
+      display: block;
+      color: var(--color-dark);
+      font-size: 1rem;
+    }
+    .article-header__author span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .article-header__share {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+    }
+    .share-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-main);
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+    .share-btn:hover {
+      background: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    .share-btn svg {
+      fill: currentColor;
+    }
+
+    /* Макет статьи с боковой панелью */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Тело статьи */
+    .article-content {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: var(--color-text-main);
+    }
+    .article-content p {
+      margin-bottom: 1.8em;
+    }
+    .article-content strong {
+      color: var(--color-dark);
+    }
+    .lead {
+      font-size: 1.3rem;
+      line-height: 1.75;
+      color: var(--color-dark);
+      font-weight: 300;
+    }
+    
+    /* Заголовки в тексте */
+    .article-content h2 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--color-dark);
+      margin: 2em 0 1em;
+      line-height: 1.3;
+      font-weight: 600;
+      position: relative;
+    }
+    .article-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--color-dark);
+      margin: 1.5em 0 0.8em;
+      font-weight: 600;
+    }
+
+    /* Медиа/Иллюстрации в тексте */
+    figure {
+      margin: 32px 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      border: 1px solid var(--color-border);
+    }
+    figure svg, figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    figcaption {
+      padding: 16px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-align: center;
+      background: #FAF8F5;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Карточки трендов */
+    .trend-card {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      border-left: 4px solid var(--color-accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      margin: 2em 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      transition: var(--transition-smooth);
+    }
+    .trend-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    }
+    .trend-card__number {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      line-height: 1;
+      opacity: 0.8;
+    }
+    .trend-card h3 {
+      margin: 0 0 8px 0 !important;
+      font-size: 1.4rem;
+    }
+    .trend-card p {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Списки */
+    .article-content ul, .article-content ol {
+      margin: 1.8em 0;
+      padding-left: 1.5em;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+    }
+    .article-content li {
+      margin-bottom: 12px;
+    }
+    .article-content ul li {
+      list-style-type: none;
+      position: relative;
+    }
+    .article-content ul li::before {
+      content: "—";
+      position: absolute;
+      left: -1.2em;
+      color: var(--color-accent);
+      font-weight: bold;
+    }
+
+    /* Цитаты */
+    blockquote {
+      border-left: 3px solid var(--color-accent);
+      padding: 24px 32px;
+      margin: 2.5em 0;
+      background: white;
+      font-style: italic;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+    }
+    blockquote p {
+      margin-bottom: 12px !important;
+      font-size: 1.2rem;
+      color: var(--color-dark);
+    }
+    blockquote cite {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pull-quote {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-style: italic;
+      text-align: center;
+      margin: 2.5em auto;
+      max-width: 90%;
+      color: var(--color-dark);
+      line-height: 1.5;
+    }
+    .pull-quote cite {
+      display: block;
+      margin-top: 16px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--color-accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Сетки галерей */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin: 2.5em 0;
+    }
+    .gallery-grid__item {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    .gallery-grid__item svg {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .gallery-grid__caption {
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      background: #FAF8F5;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Призыв к действию (CTA) внутри статьи */
+    .article-cta {
+      background: var(--color-accent-light);
+      border: 1px solid rgba(166, 124, 82, 0.2);
+      border-radius: 12px;
+      padding: 40px;
+      margin: 3em 0;
+      text-align: center;
+    }
+    .article-cta h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 12px !important;
+    }
+    .article-cta p {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Теги */
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 3em 0 2em;
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+    }
+    .article-tags strong {
+      margin-right: 8px;
+    }
+    .article-tag {
+      text-decoration: none;
+      background: white;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      transition: var(--transition-smooth);
+    }
+    .article-tag:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+    }
+
+    /* Биография автора */
+    .article-author-bio {
+      display: flex;
+      gap: 24px;
+      background: white;
+      border: 1px solid var(--color-border);
+      padding: 32px;
+      border-radius: 12px;
+      margin-top: 3em;
+    }
+    .article-author-bio img {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+    }
+    .article-author-bio h4 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--color-dark);
+      margin-bottom: 4px;
+    }
+    .article-author-bio strong {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--color-accent);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .article-author-bio p {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Боковая панель (Sidebar) */
+    .article-sidebar {
+      position: sticky;
+      top: 112px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .sidebar-widget {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .sidebar-widget h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    /* Содержание */
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .toc-link {
+      text-decoration: none;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      transition: var(--transition-smooth);
+      display: block;
+      line-height: 1.4;
+    }
+    .toc-link:hover, .toc-link--active {
+      color: var(--color-accent);
+      padding-left: 6px;
+    }
+    
+    /* Популярные статьи */
+    .sidebar-popular {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sidebar-article {
+      display: flex;
+      gap: 12px;
+    }
+    .sidebar-article__image {
+      width: 64px;
+      height: 64px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--color-border);
+    }
+    .sidebar-article__image svg {
+      width: 100%;
+      height: 100%;
+    }
+    .sidebar-article__content h4 {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .sidebar-article__content a {
+      color: var(--color-dark);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .sidebar-article__content a:hover {
+      color: var(--color-accent);
+    }
+    .sidebar-article__content time {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Футер */
+    .footer {
+      background: var(--color-dark);
+      color: #A39E95;
+      padding: 64px 0;
+      margin-top: 96px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 32px;
+      font-size: 0.85rem;
+    }
+
+    /* Секция обратной связи */
+    .cta-section {
+      background: var(--color-dark);
+      padding: 80px 0;
+      color: white;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .cta-box p {
+      color: #A39E95;
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    /* Модальное окно */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal--open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 29, 27, 0.6);
+      backdrop-filter: blur(8px);
+    }
+    .modal__content {
+      position: relative;
+      background: var(--color-bg);
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      z-index: 2;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--color-border);
+    }
+    .modal--open .modal__content {
+      transform: translateY(0);
+    }
+    .modal__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    .modal__close:hover {
+      color: var(--color-dark);
+    }
+    .modal__body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .modal__body p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+    
+    /* Форма */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      color: var(--color-text-main);
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--color-border);
+      background: white;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--color-dark);
+      transition: var(--transition-smooth);
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.1);
+    }
+
+    /* Тосты (уведомления) */
+    .toast-container {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 2100;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .toast {
+      background: var(--color-dark);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: toastIn 0.3s forwards;
+    }
+    @keyframes toastIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Адаптивность */
+    @media (max-width: 1024px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .article-sidebar {
+        position: static;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .article-header__title {
+        font-size: 2.2rem;
+      }
+      .article-content {
+        font-size: 1.05rem;
+      }
+      .nav {
+        display: none; /* Для полноценного продакшена тут делается мобильное меню */
+      }
+      .header__actions .header__phone, .header__actions .btn {
+        display: none;
+      }
+      .burger {
+        display: flex;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Тренды дизайна интерьеров 2026: тихая роскошь и тактильность",
+        "image": ["https://domusviva.example/assets/images/blog/trends-2026-hero.jpg"],
+        "datePublished": "2026-04-28T08:00:00+03:00",
+        "author": {
+          "@type": "Person",
+          "name": "Елена Ковалева",
+          "jobTitle": "Ведущий дизайнер интерьеров",
+          "worksFor": {"@type": "Organization", "name": "DOMUS VIVA"}
+        },
+        "publisher": {"@type": "Organization", "name": "DOMUS VIVA"},
+        "description": "5 главных трендов дизайна интерьеров 2026 года",
+        "articleSection": "Дизайн",
+        "wordCount": 2100
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://domusviva.example/"},
+          {"@type": "ListItem", "position": 2, "name": "Блог", "item": "https://domusviva.example/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "Тренды дизайна 2026"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="page-article">
+  
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Прогресс чтения"></div>
+
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="../index.html" class="logo">
+        <!-- Минималистичный премиальный логотип -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M9 21V9h6v12" />
+        </svg>
+        <span class="logo__text">DOMUS VIVA</span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="../about.html" class="nav__link">О компании</a></li>
+          <li><a href="../services.html" class="nav__link">Услуги</a></li>
+          <li><a href="../projects.html" class="nav__link">Проекты</a></li>
+          <li><a href="../blog.html" class="nav__link nav__link--active" aria-current="page">Блог</a></li>
+          <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+78005553535" class="header__phone">+7 (800) 555-35-35</a>
+        <button class="btn btn--primary btn--sm" data-modal-trigger="consultation">Консультация</button>
+        <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol class="breadcrumbs__list">
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../blog.html">Блог</a></li>
+          <li><a href="../blog.html?category=design">Дизайн</a></li>
+          <li aria-current="page">Тренды 2026</li>
+        </ol>
+      </div>
+    </nav>
+
+    <header class="article-header">
+      <div class="container">
+        <div class="article-header__inner">
+          <div class="article-header__meta">
+            <a href="../blog.html?category=design" class="blog-category">Дизайн</a>
+            <time datetime="2026-04-28">28 апреля 2026</time>
+            <span class="article-read-time">10 мин чтения</span>
+          </div>
+          <h1 class="article-header__title">Тренды дизайна интерьеров 2026: тихая роскошь и тактильность</h1>
+          <p class="article-header__subtitle">5 направлений, которые определяют дизайн премиальных коттеджей в этом году. Разбор от ведущего дизайнера DOMUS VIVA.</p>
+          
+          <div class="article-header__author">
+            <!-- Элегантный плейсхолдер для аватара Елены -->
+            <svg width="60" height="60" viewBox="0 0 100 100" style="border-radius: 50%; background: var(--color-accent-light);">
+              <defs>
+                <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#E8DCD0" />
+                  <stop offset="100%" stop-color="#A67C52" />
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="50" fill="url(#avatarGrad)" />
+              <text x="50" y="58" font-family="'Playfair Display', serif" font-size="28" fill="white" font-weight="bold" text-anchor="middle">ЕК</text>
+            </svg>
+            <div>
+              <strong>Елена Ковалева</strong>
+              <span>Ведущий дизайнер DOMUS VIVA • Член Союза Дизайнеров России</span>
+            </div>
+          </div>
+          
+          <div class="article-header__share">
+            <span>Поделиться статьей:</span>
+            <a href="#" class="share-btn" data-share="Pinterest" aria-label="Поделиться на Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.4 7.62 11.14-.1-.95-.2-2.4.04-3.43.22-.93 1.4-5.93 1.4-5.93s-.36-.72-.36-1.77c0-1.66.96-2.9 2.17-2.9 1.02 0 1.51.77 1.51 1.69 0 1.03-.65 2.56-.99 3.98-.28 1.19.6 2.16 1.77 2.16 2.12 0 3.76-2.24 3.76-5.47 0-2.86-2.06-4.86-5-4.86-3.4 0-5.4 2.56-5.4 5.19 0 1.03.4 2.14.9 2.75.1.12.11.23.08.35-.09.37-.29 1.18-.33 1.34-.05.22-.17.27-.4.16-1.47-.68-2.39-2.82-2.39-4.54 0-3.7 2.69-7.1 7.75-7.1 4.07 0 7.23 2.9 7.23 6.77 0 4.04-2.54 7.3-6.07 7.3-1.19 0-2.3-.62-2.68-1.34l-.73 2.78c-.26 1.02-.98 2.3-1.46 3.08C10.74 23.8 11.36 24 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>
+            </a>
+            <a href="#" class="share-btn" data-share="Telegram" aria-label="Поделиться в Telegram">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.017c.24-.213-.053-.334-.373-.12l-6.869 4.32-2.96-.924c-.643-.204-.658-.643.136-.953l11.57-4.46c.538-.196 1.006.128.832.964z"/></svg>
+            </a>
+            <a href="#" class="share-btn" data-share="VKontakte" aria-label="Поделиться во ВКонтакте">
+              <svg width="18" height="18" viewBox="0 0 24 24"><path d="M15.687 12.162c2.256-.224 2.8-1.782 2.831-2.955.034-1.298-.788-2.311-2.37-2.311h-4.302c-1.037 0-1.468.513-1.468 1.488v5.526c0 .878.361 1.341 1.134 1.341h.98v-3.729s.296-.289.605-.289c.309 0 .584.289.584.289v3.729h1.168c1.375 0 2.163-.788 2.21-1.725.048-.954-.361-1.391-1.372-1.663zm-4.302-3.411h2.215c.618 0 .86.299.86.732s-.242.748-.86.748h-2.215V8.751z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <article class="article-body">
+      <div class="container">
+        <div class="article-layout">
+          
+          <div class="article-content">
+            
+            <figure>
+              <!-- Премиальная векторная абстракция интерьера вместо битой картинки -->
+              <svg viewBox="0 0 1200 600" width="100%" height="auto" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color: #ECE5DC;">
+                <rect width="1200" height="600" fill="#ECE5DC" />
+                <path d="M100 100 H1100 V500 H100 Z" fill="#F4EFEB" opacity="0.9" />
+                <!-- Колонны и перспектива -->
+                <path d="M100 500 L300 450 V150 L100 100 Z" fill="#E2D6C8" />
+                <path d="M1100 500 L900 450 V150 L1100 100 Z" fill="#E2D6C8" />
+                <!-- Панорамное окно -->
+                <path d="M300 150 H900 V450 H300 Z" fill="#DFE6E8" />
+                <!-- Силуэты деревьев за окном -->
+                <circle cx="450" cy="300" r="120" fill="#CCD6D3" opacity="0.6" />
+                <circle cx="700" cy="320" r="90" fill="#CCD6D3" opacity="0.4" />
+                <!-- Минималистичная кушетка -->
+                <rect x="400" y="380" width="400" height="50" rx="6" fill="#A67C52" />
+                <rect x="420" y="430" width="20" height="20" fill="#1E1D1B" />
+                <rect x="760" y="430" width="20" height="20" fill="#1E1D1B" />
+                <circle cx="440" cy="360" r="30" fill="#FAF8F5" />
+                <!-- Мягкие лучи света -->
+                <path d="M200 100 L500 500 H600 L300 100 Z" fill="#FFF" opacity="0.15" />
+                <path d="M800 100 L1100 500 H1200 L900 100 Z" fill="#FFF" opacity="0.1" />
+                <!-- Текстовый лейбл поверх -->
+                <text x="600" y="540" font-family="'Playfair Display', serif" font-size="20" fill="#2C2A27" text-anchor="middle" font-weight="bold" letter-spacing="2">DOMUS VIVA • ИНТЕРЬЕР «БЕЛЫЙ КАМЕНЬ»</text>
+              </svg>
+              <figcaption>Проект «Белый камень» — воплощение тихой роскоши, простора и мягкого света.</figcaption>
+            </figure>
+            
+            <p class="lead">2026 год принёс в дизайн интерьеров долгожданное спокойствие. После десятилетия ярких акцентов, смелых экспериментов и «инстаграмного» дизайна мир наконец выдохнул. На первый план вышли <strong>тихая роскошь, тактильность и глубокая связь с природой</strong>. В этой статье я подробно разберу 5 главных трендов, которые мы реализуем в новых проектах DOMUS VIVA.</p>
+            
+            <p>Как дизайнер с 15-летним опытом и более чем 85 реализованными интерьерами, я могу сказать уверенно: 2026 год — это год <strong>эстетической зрелости</strong>. Клиенты перестали слепо копировать бесконечные ленты Pinterest и начали ценить пространства, созданные под индивидуальный ритм жизни, тишину и тактильное удовольствие.</p>
+
+            <div class="pull-quote">
+              «Дизайн 2026 года — это не про то, как эффектно выглядит дом на фотографии. Это про то, как вы физически чувствуете себя, когда проводите в нём неторопливое воскресное утро.»
+              <cite>— Елена Ковалева</cite>
+            </div>
+            
+            <h2 id="trend-1">Тренд №1: Тихая роскошь (Quiet Luxury)</h2>
+            
+            <div class="trend-card">
+              <div class="trend-card__number">01</div>
+              <div>
+                <h3>Когда качество говорит само за себя</h3>
+                <p>Философия утонченности: отказ от кричащих брендов в пользу безукоризненной ручной работы и природных текстур.</p>
+              </div>
+            </div>
+            
+            <p>Тихая роскошь — это осмысленный антипод показного блеска прошлых лет. Здесь вы не встретите навязчивых золотых деталей, вычурных хрустальных люстр или глянцевого полированного мрамора с активным рисунком. Вместо этого — <strong>безупречное качество материалов, идеальные пропорции и внимание к деталям</strong>, которые раскрываются постепенно.</p>
+            
+            <h3>Ключевые признаки тихой роскоши в 2026 году:</h3>
+            
+            <ul>
+              <li><strong>Материалы:</strong> селективный массив дуба, натуральная шерсть, необработанный лён, матовая керамика</li>
+              <li><strong>Цвета:</strong> сложная палитра — теплый беж, благородный серо-зеленый (шалфей), пепельно-розовый, графит</li>
+              <li><strong>Формы:</strong> чистые тектонические линии, скрытый функционал, интегрированный свет без видимых источников</li>
+              <li><strong>Текстуры:</strong> матовые, пористые, деликатно шероховатые поверхности, сохраняющие природную структуру</li>
+            </ul>
+            
+            <h3>Как это выглядит на практике</h3>
+            
+            <p>Вместо массивной центральной люстры — мягкий отраженный свет (2700K). Вместо дивана кричащей расцветки — глубокая посадочная зона, обитая высококачественной немецкой шерстяной рогожкой. Это интерьеры, в которых «тишина» становится главным декоративным приемом.</p>
+            
+            <div class="gallery-grid">
+              <div class="gallery-grid__item">
+                <svg viewBox="0 0 400 250" fill="none" style="background:#ECE7E1;">
+                  <path d="M50 200 H350" stroke="#A67C52" stroke-width="2"/>
+                  <rect x="100" y="100" width="200" height="100" fill="#FAF8F5" rx="4"/>
+                  <rect x="130" y="70" width="140" height="30" fill="#E0D7CD" rx="15"/>
+                  <circle cx="200" cy="140" r="20" fill="#D2C5B8" />
+                </svg>
+                <div class="gallery-grid__caption">Минималистичная спальня в нейтральных тонах</div>
+              </div>
+              <div class="gallery-grid__item">
+                <svg viewBox="0 0 400 250" fill="none" style="background:#E2DDD5;">
+                  <rect x="80" y="50" width="240" height="150" fill="#FAF8F5" rx="8"/>
+                  <path d="M120 120 C120 100 280 100 280 120" stroke="#A67C52" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="200" y1="50" x2="200" y2="200" stroke="#E2DDD5" stroke-dasharray="4 4"/>
+                </svg>
+                <div class="gallery-grid__caption">Гостиная с акцентом на чистые линии</div>
+              </div>
+            </div>
+            
+            <p><strong>Почему это стало определяющим трендом?</strong> Насыщение цифровым контентом заставляет нас искать дома уединение. Интерьер перестал быть демонстрационным залом для гостей и стал персональным убежищем.</p>
+            
+            <h2 id="trend-2">Тренд №2: Тактильность и сенсорный дизайн</h2>
+            
+            <div class="trend-card">
+              <div class="trend-card__number">02</div>
+              <div>
+                <h3>Дизайн, который рождает прикосновения</h3>
+                <p>Переход от визуального доминирования к богатству ощущений. Каждая поверхность дарит приятный тактильный отклик.</p>
+              </div>
+            </div>
+            
+            <p>Если прошедшее десятилетие было ориентировано на чисто визуальное восприятие (контент для соцсетей), то 2026 год совершает революцию в пользу <strong>тактильного интеллекта</strong>. Мы проектируем пространства, ориентируясь на ощущения от прикосновений.</p>
+            
+            <h3>Материалы-фавориты года:</h3>
+            
+            <ul>
+              <li><strong>Декоративная штукатурка с добавлением волокон</strong> — замена холодным идеально гладким стенам</li>
+              <li><strong>Брашированная древесина</strong> — с глубоким рельефом, подчеркивающим годовые кольца</li>
+              <li><strong>Ремесленная терракота</strong> — плитка ручной формовки с уникальными микронеровностями</li>
+              <li><strong>Букле повышенной плотности и фактурный шенилл</strong> — ткани, обволакивающие теплом</li>
+              <li><strong>Травертин с открытыми порами</strong> — дышащий камень вместо полированного до блеска гранита</li>
+            </ul>
+            
+            <blockquote>
+              <p>«Когда заказчик впервые заходит в реализованный нами дом, я наблюдаю за его руками. Если он интуитивно начинает гладить стены, текстуру дерева, обивку кресел — дизайн удался.»</p>
+              <cite>— Елена Ковалева</cite>
+            </blockquote>
+            
+            <h2 id="trend-3">Тренд №3: Философия Джапанди (Japandi)</h2>
+            
+            <div class="trend-card">
+              <div class="trend-card__number">03</div>
+              <div>
+                <h3>Гармоничный сплав Востока и Севера</h3>
+                <p>Идеальный баланс японского минимализма (ваби-саби) и скандинавской эргономики (хюгге).</p>
+              </div>
+            </div>
+            
+            <p>Джапанди перерос рамки временного увлечения и стал базовой философией для загородных резиденций. Это направление берет лучшее из двух культур, объединенных любовью к лаконичности.</p>
+            
+            <h3>Что дает этот союз интерьеру:</h3>
+            
+            <p><strong>Японский вклад:</strong> глубокое уважение к естественному старению вещей (ваби-саби), использование приземистой мебели, «активная пустота» (пространство как полноценный архитектурный элемент).</p>
+            
+            <p><strong>Скандинавский вклад:</strong> стремление к физическому уюту (хюгге), обилие рассеянного теплого света, функциональная безупречность планировок и практичность в деталях.</p>
+            
+            <h3>6 шагов для воссоздания Japandi:</h3>
+            
+            <ol>
+              <li><strong>Сдержанная гамма:</strong> теплые песочные тона, охра, оливковый и графитово-черный для графичности линий</li>
+              <li><strong>Только теплое дерево:</strong> светлый дуб, ясень, орех, бамбук</li>
+              <li><strong>Низкая мебель:</strong> диваны и кровати на скрытых подиумах, визуально увеличивающие высоту потолков</li>
+              <li><strong>Фокусный декор:</strong> одна выразительная ветвь в грубой глиняной вазе вместо пестрых букетов</li>
+              <li><strong>Абажуры из рисовой бумаги:</strong> мягкое свечение, напоминающее свет солнца сквозь туман</li>
+              <li><strong>Интеграция природы:</strong> комнатные деревья бонсай или лаконичные папоротники</li>
+            </ol>
+            
+            <div class="gallery-grid">
+              <div class="gallery-grid__item">
+                <svg viewBox="0 0 400 250" fill="none" style="background:#F2ECE4;">
+                  <!-- Японская ширма -->
+                  <rect x="50" y="30" width="120" height="190" fill="#FAF8F5" stroke="#D2C5B8"/>
+                  <line x1="110" y1="30" x2="110" y2="220" stroke="#D2C5B8"/>
+                  <line x1="50" y1="125" x2="170" y2="125" stroke="#D2C5B8"/>
+                  <!-- Бонсай -->
+                  <path d="M280 200 C270 170 310 140 290 110" stroke="#6E6A64" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="280" cy="100" r="25" fill="#A8B2A6" opacity="0.8"/>
+                  <circle cx="310" cy="120" r="15" fill="#A8B2A6" opacity="0.6"/>
+                  <rect x="250" y="200" width="80" height="15" fill="#A67C52" rx="4"/>
+                </svg>
+                <div class="gallery-grid__caption">Минимализм джапанди с природным декором</div>
+              </div>
+              <div class="gallery-grid__item">
+                <svg viewBox="0 0 400 250" fill="none" style="background:#EAE5DE;">
+                  <!-- Низкая кровать -->
+                  <rect x="80" y="150" width="240" height="40" fill="#A67C52" rx="2"/>
+                  <rect x="90" y="110" width="220" height="40" fill="#FAF8F5" rx="6"/>
+                  <!-- Светильники-шары -->
+                  <circle cx="150" cy="60" r="20" fill="#FFF" filter="drop-shadow(0 0 10px rgba(255,255,255,0.8))"/>
+                  <line x1="150" y1="0" x2="150" y2="40" stroke="#1E1D1B"/>
+                  <circle cx="250" cy="80" r="15" fill="#FFF" filter="drop-shadow(0 0 10px rgba(255,255,255,0.8))"/>
+                  <line x1="250" y1="0" x2="250" y2="65" stroke="#1E1D1B"/>
+                </svg>
+                <div class="gallery-grid__caption">Освещение и низкие формы мебели</div>
+              </div>
+            </div>
+            
+            <h2 id="trend-4">Тренд №4: Биофильный дизайн (Biophilic Design)</h2>
+            
+            <div class="trend-card">
+              <div class="trend-card__number">04</div>
+              <div>
+                <h3>Жизнь внутри экосистемы</h3>
+                <p>Проектирование пространства вокруг природной среды: естественное освещение, воздух и живые растения как часть архитектуры.</p>
+              </div>
+            </div>
+            
+            <p>Биофильный дизайн выходит за рамки привычного озеленения комнат. Это комплексное проектирование, при котором природные циклы проникают непосредственно в архитектурное решение коттеджа.</p>
+            
+            <h3>Пять уровней биофильной архитектуры:</h3>
+            
+            <ol>
+              <li><strong>Оптимизация панорамного остекления:</strong> стирание физической границы между гостиной и лесопарковой зоной участка</li>
+              <li><strong>Природная геометрия:</strong> использование плавных, лекальных радиусных перегородок, имитирующих русла рек и рельеф холмов</li>
+              <li><strong>Фито-архитектура:</strong> интеграция автоматических вертикальных садов и зимних садов в структуру стен</li>
+              <li><strong>Естественные световые сценарии:</strong> использование зенитных фонарей в кровле для наполнения комнат зенитным солнечным светом</li>
+              <li><strong>Звуковая терапия:</strong> деликатные интерьерные фонтаны, создающие белый шум бегущей воды для глубокого ментального расслабления</li>
+            </ol>
+            
+            <p>Последние нейробиологические исследования доказывают: дома, спроектированные по канонам биофильного дизайна, снижают уровень кортизола в организме жильцов на 37% уже через два часа нахождения в них. Это не просто мода, это <strong>целебная инвестиция в ментальное здоровье</strong> вашей семьи.</p>
+            
+            <h2 id="trend-5">Тренд №5: Эстетика ремесленного труда</h2>
+            
+            <div class="trend-card">
+              <div class="trend-card__number">05</div>
+              <div>
+                <h3>Уникальность против тиражности</h3>
+                <p>Ценность предмета измеряется историей его создания и теплотой рук мастера, сотворившего его.</p>
+              </div>
+            </div>
+            
+            <p>В мире победившего искусственного интеллекта и массового бездушного производства особую ценность обретает то, что хранит тепло человеческих рук. В 2026 году мы все чаще привлекаем локальных ремесленников к созданию уникальных элементов интерьера.</p>
+            
+            <h3>Что становится фокусом внимания:</h3>
+            
+            <ul>
+              <li>Керамическая посуда и вазы с клеймом локальной мастерской вместо штампованного фабричного декора</li>
+              <li>Столы и консоли из спилов вековых деревьев с естественными изъянами, залитыми матовым полимером</li>
+              <li>Тканые вручную ковры из неокрашенной шерсти, имеющие уникальный, неповторимый узор плетения</li>
+              <li>Кованая фурнитура и авторские светильники, созданные в единственном экземпляре</li>
+            </ul>
+            
+            <blockquote>
+              <p>«В эпоху, когда любую деталь можно заказать в один клик, истинным признаком роскоши становится время. Время мастера, бережно создававшего уникальный предмет именно для вашего дома.»</p>
+              <cite>— Елена Ковалева</cite>
+            </blockquote>
+            
+            <h2 id="conclusion">Заключение: как внедрить эти тренды?</h2>
+            
+            <p>Помните: тренды — это не строгие законы, а богатый пластический язык. Они призваны помочь вам лучше понять себя и точнее сформулировать пожелания для вашего архитектора или дизайнера.</p>
+            
+            <h3>Несколько практических советов от меня:</h3>
+            
+            <ol>
+              <li><strong>Инвестируйте в вечное:</strong> выбирайте высококлассные натуральные материалы, которые со временем будут красиво стареть, покрываясь благородной патиной</li>
+              <li><strong>Уважайте пустоту:</strong> не стремитесь заставить каждый свободный угол. Свободный объем — главная роскошь современного дома</li>
+              <li><strong>Пробуйте на ощупь:</strong> выбирая мебель или отделку, доверяйте в первую очередь тактильным ощущениям</li>
+              <li><strong>Проектируйте свет индивидуально:</strong> забудьте об одном источнике света в центре комнаты. Создавайте многослойные уютные сценарии</li>
+            </ol>
+            
+            <p>Дизайн 2026 года создан для комфортной, размеренной жизни, а не для мгновенного кадра в социальной сети. И это, пожалуй, самое зрелое и прекрасное изменение в нашей индустрии за последние десятилетия.</p>
+            
+            <div class="article-cta">
+              <h3>Желаете создать интерьер вне времени?</h3>
+              <p>Запишитесь на персональную консультацию с Еленой Ковалёвой. Мы детально разберем особенности вашего пространства и наметим вектор будущего стиля.</p>
+              <button class="btn btn--primary" data-modal-trigger="consultation">Обсудить проект</button>
+            </div>
+            
+            <div class="article-tags">
+              <strong>Теги:</strong>
+              <a href="#" class="article-tag">#тренды-2026</a>
+              <a href="#" class="article-tag">#дизайн-интерьера</a>
+              <a href="#" class="article-tag">#тихая-роскошь</a>
+              <a href="#" class="article-tag">#джапанди</a>
+              <a href="#" class="article-tag">#биофильный-дизайн</a>
+              <a href="#" class="article-tag">#ремесло</a>
+            </div>
+            
+            <aside class="article-author-bio">
+              <!-- Аватар автора -->
+              <svg width="80" height="80" viewBox="0 0 100 100" style="border-radius: 50%; background: var(--color-accent-light); flex-shrink: 0;">
+                <circle cx="50" cy="50" r="50" fill="url(#avatarGrad)" />
+                <text x="50" y="58" font-family="'Playfair Display', serif" font-size="28" fill="white" font-weight="bold" text-anchor="middle">ЕК</text>
+              </svg>
+              <div>
+                <h4>Об авторе</h4>
+                <strong>Елена Ковалева</strong>
+                <p>Ведущий дизайнер интерьеров студии DOMUS VIVA. Член Союза Дизайнеров России. 15 лет успешной проектной практики, более 85 реализованных объектов премиум-класса. Публиковалась в ведущих профильных изданиях AD, ELLE Decoration, Salon.</p>
+                <a href="../about.html#team" class="btn btn--sm btn--outline-dark">Все материалы автора</a>
+              </div>
+            </aside>
+            
+          </div>
+          
+          <!-- Боковая панель -->
+          <aside class="article-sidebar">
+            
+            <div class="sidebar-widget">
+              <h3>Содержание</h3>
+              <nav aria-label="Содержание статьи">
+                <ul class="toc-list" id="tocList">
+                  <li><a href="#trend-1" class="toc-link">1. Тихая роскошь</a></li>
+                  <li><a href="#trend-2" class="toc-link">2. Тактильность</a></li>
+                  <li><a href="#trend-3" class="toc-link">3. Джапанди</a></li>
+                  <li><a href="#trend-4" class="toc-link">4. Биофильный дизайн</a></li>
+                  <li><a href="#trend-5" class="toc-link">5. Возврат ремесла</a></li>
+                  <li><a href="#conclusion" class="toc-link">Заключение</a></li>
+                </ul>
+              </nav>
+            </div>
+            
+            <div class="sidebar-widget">
+              <h3>Палитра материалов 2026</h3>
+              <ul style="list-style:none;padding:0;margin:0; font-size: 0.95rem;">
+                <li style="padding:10px 0; border-bottom:1px solid var(--color-border); display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 14px; height: 14px; background: #C4A482; border-radius: 50%;"></span>
+                  Натуральный массив дуба
+                </li>
+                <li style="padding:10px 0; border-bottom:1px solid var(--color-border); display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 14px; height: 14px; background: #D27D2D; border-radius: 50%;"></span>
+                  Терракотовая глина
+                </li>
+                <li style="padding:10px 0; border-bottom:1px solid var(--color-border); display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 14px; height: 14px; background: #E6DFD3; border-radius: 50%;"></span>
+                  Пористый травертин
+                </li>
+                <li style="padding:10px 0; border-bottom:1px solid var(--color-border); display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 14px; height: 14px; background: #8E9A86; border-radius: 50%;"></span>
+                  Букле и мохер шалфейных тонов
+                </li>
+                <li style="padding:10px 0; display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 14px; height: 14px; background: #ECE5DC; border-radius: 50%;"></span>
+                  Льняное неокрашенное полотно
+                </li>
+              </ul>
+            </div>
+            
+            <div class="sidebar-widget">
+              <h3>Читайте также</h3>
+              <div class="sidebar-popular">
+                <article class="sidebar-article">
+                  <div class="sidebar-article__image">
+                    <svg viewBox="0 0 80 80" style="background:#E2DDD5;">
+                      <rect x="20" y="20" width="40" height="40" fill="#A67C52" rx="2"/>
+                    </svg>
+                  </div>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-gas-vs-brick.html">Материалы стен: газобетон или кирпич? Сравнение</a></h4>
+                    <time datetime="2026-05-15">15 мая 2026</time>
+                  </div>
+                </article>
+                <article class="sidebar-article">
+                  <div class="sidebar-article__image">
+                    <svg viewBox="0 0 80 80" style="background:#DFE6E8;">
+                      <circle cx="40" cy="40" r="20" fill="#88A3A8"/>
+                    </svg>
+                  </div>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-energy-efficiency.html">Дом класса энергоэффективности A+ в деталях</a></h4>
+                    <time datetime="2026-05-08">8 мая 2026</time>
+                  </div>
+                </article>
+              </div>
+            </div>
+            
+          </aside>
+          
+        </div>
+      </div>
+    </article>
+
+    <!-- Секция призыва к действию (CTA) -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Готовы создать интерьер своей мечты?</h2>
+          <p>Индивидуальная консультация с ведущим дизайнером Еленой Ковалёвой — бесплатно при заказе дизайн-проекта.</p>
+          <button class="btn btn--primary" data-modal-trigger="consultation">Заказать консультацию</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 DOMUS VIVA. Все права защищены. Эксклюзивные загородные интерьеры.</p>
+        <p>Создано с заботой об уюте.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Интерактивное Модальное окно -->
+  <div class="modal" id="consultationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть модальное окно">✕</button>
+      <div class="modal__body">
+        <h3 id="modalTitle">Обсудить ваш проект</h3>
+        <p>Оставьте ваши контакты, и наш специалист свяжется с вами в течение 30 минут для планирования встречи.</p>
+        
+        <form id="consultationForm">
+          <div class="form-group">
+            <label for="clientName">Ваше имя</label>
+            <input type="text" id="clientName" class="form-control" placeholder="Иван Иванов" required>
+          </div>
+          <div class="form-group">
+            <label for="clientPhone">Телефон</label>
+            <input type="tel" id="clientPhone" class="form-control" placeholder="+7 (900) 123-45-67" required>
+          </div>
+          <div class="form-group">
+            <label for="clientMessage">Расскажите о вашем проекте (кратко)</label>
+            <textarea id="clientMessage" class="form-control" rows="3" placeholder="Коттедж 250 кв.м., планируем начать в июне..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%;">Отправить запрос</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Контейнер для всплывающих уведомлений -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Индикатор прокрутки статьи
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = scrolled + '%';
+      });
+
+      // 2. Модальное окно
+      const modal = document.getElementById('consultationModal');
+      const openButtons = document.querySelectorAll('[data-modal-trigger="consultation"]');
+      const closeElements = document.querySelectorAll('[data-close-modal]');
+      
+      function openModal() {
+        modal.classList.add('modal--open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('modal--open');
+        document.body.style.overflow = '';
+      }
+
+      openButtons.forEach(btn => btn.addEventListener('click', openModal));
+      closeElements.forEach(el => el.addEventListener('click', closeModal));
+
+      // Закрытие по клавише Esc
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+          closeModal();
+        }
+      });
+
+      // 3. Обработка отправки формы
+      const form = document.getElementById('consultationForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        closeModal();
+        showToast('✓ Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+        form.reset();
+      });
+
+      // 4. Показ красивых уведомлений (Toasts)
+      const toastContainer = document.getElementById('toastContainer');
+      function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => {
+          toast.style.animation = 'toastIn 0.3s reverse forwards';
+          setTimeout(() => toast.remove(), 300);
+        }, 4000);
+      }
+
+      // 5. Имитация кнопок "Поделиться"
+      const shareBtns = document.querySelectorAll('.share-btn');
+      shareBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = btn.getAttribute('data-share');
+          showToast(`✓ Ссылка успешно скопирована для отправки в ${target}!`);
+        });
+      });
+
+      // 6. Активный пункт содержания при скролле (Intersection Observer)
+      const sections = document.querySelectorAll('h2[id]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('toc-link--active');
+              } else {
+                link.classList.remove('toc-link--active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(sec => observer.observe(sec));
+
+      // Переключение языка
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const STORAGE_KEY = 'domus-viva-lang';
+      
+      function getCurrentLanguage() {
+        return localStorage.getItem(STORAGE_KEY) || 'ru';
+      }
+
+      function setLanguage(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+        langButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Инициализировать активный язык
+      const currentLang = getCurrentLanguage();
+      setLanguage(currentLang);
+    });
+  </script>
+</body>
+</html>

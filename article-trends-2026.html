@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Умный дом в 2026 году: что реально работает, а что маркетинг | DOMUS VIVA</title>
+  <meta name="description" content="Разбираем системы умного дома 2026: KNX, Apple Home, Matter, Zigbee. Реальные возможности, стоимость, окупаемость. Опыт 87 объектов DOMUS VIVA.">
+  <meta name="keywords" content="умный дом 2026, KNX, Apple HomeKit, Matter, Zigbee, автоматизация дома, системы умного дома">
+  <meta name="author" content="Дмитрий Петров">
+  <link rel="canonical" href="https://domusviva.example/pages/article-smart-home.html">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Умный дом в 2026: что реально работает">
+  <meta property="og:description" content="KNX, Apple Home, Matter — разбираем реальные возможности и практическую пользу.">
+  <meta property="og:image" content="../assets/images/blog/smart-home-og.jpg">
+  <meta property="article:published_time" content="2026-04-05T08:00:00+03:00">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#B8945A">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- Иконки Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+  <!-- Стили проекта (обратная совместимость) -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <!-- Фирменный премиальный стиль Domus Viva -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #B8945A;
+      --gold-lt: #F0E4CC;
+      --dark: #18201A;
+      --mid: #2C3A2E;
+      --cream: #F6F3EE;
+      --muted: #7A8A7C;
+      --border-radius-lg: 12px;
+      --border-radius-md: 8px;
+      --color-text-primary: #18201A;
+      --color-text-secondary: #5A665C;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #edeae4;
+      --color-border-secondary: rgba(24, 32, 26, 0.15);
+      --color-border-tertiary: rgba(24, 32, 26, 0.08);
+      --font-sans: 'Roboto', 'Montserrat', sans-serif;
+      --font-serif: 'Merriweather', serif;
+    }
+    
+    body { 
+      font-family: var(--font-sans); 
+      font-size: 16px; 
+      line-height: 1.6; 
+      color: var(--color-text-primary); 
+      background: var(--cream);
+    }
+    
+    .dv h1, .dv h2, .dv h3 { font-weight: 500; line-height: 1.2; }
+
+    /* ── СИСТЕМА ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-l { opacity: 0; transform: translateX(-28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-l.in { opacity: 1; transform: none; }
+    .rv-r { opacity: 0; transform: translateX(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-r.in { opacity: 1; transform: none; }
+    .rv-s { opacity: 0; transform: scale(.94); transition: opacity .55s ease, transform .55s cubic-bezier(.34,1.56,.64,1); }
+    .rv-s.in { opacity: 1; transform: none; }
+    
+    [data-d="1"] { transition-delay: .1s; }
+    [data-d="2"] { transition-delay: .2s; }
+    [data-d="3"] { transition-delay: .3s; }
+    [data-d="4"] { transition-delay: .4s; }
+
+    /* ── НАВИГАЦИОННАЯ ПАНЕЛЬ ── */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: var(--dark); border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 6px; display: grid; place-items: center; font-size: 13px; font-weight: 500; color: #18201A; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .nav-mark:hover { transform: rotate(8deg) scale(1.1); }
+    .nav-name { font-size: 15px; font-weight: 500; color: #fff; }
+    .nav-sub { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { font-size: 13px; color: rgba(255,255,255,.55); padding: 5px 10px; border-radius: 5px; cursor: pointer; transition: color .15s, background .15s; position: relative; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: 2px; left: 10px; right: 10px; height: 1.5px; background: var(--gold); transform: scaleX(0); transition: transform .25s cubic-bezier(.22,1,.36,1); }
+    .nav-link:hover { color: rgba(255,255,255,.9); }
+    .nav-link:hover::after, .nav-link.a::after { transform: scaleX(1); }
+    .nav-link.a { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: #18201A; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 6px; cursor: pointer; border: none; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+    .nav-cta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 20px rgba(184,148,90,.4); }
+    .nav-cta:active { transform: scale(.97); }
+
+    /* ── ХЛЕБНЫЕ КРОШКИ ── */
+    .breadcrumbs { padding: 20px 28px 10px; font-size: 13px; color: var(--muted); max-width: 1200px; margin: 0 auto; width: 100%; }
+    .breadcrumbs__list { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
+    .breadcrumbs__list a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .breadcrumbs__list a:hover { color: var(--color-text-primary); }
+    .breadcrumbs__list li:not(:last-child)::after { content: '•'; margin-left: 8px; color: rgba(24, 32, 26, 0.2); }
+
+    /* ── ЗАГОЛОВОК СТАТЬИ ── */
+    .article-header { background: var(--dark); padding: 52px 28px; position: relative; color: #fff; overflow: hidden; }
+    .article-header__inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    .article-header__meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 12px; margin-bottom: 20px; color: rgba(255,255,255,0.7); }
+    .blog-category { background: var(--gold); color: #18201A; font-weight: 600; padding: 3px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .article-header__title { font-size: 32px; font-family: var(--font-sans); font-weight: 600; margin-bottom: 14px; line-height: 1.25; color: #fff; }
+    .article-header__subtitle { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 24px; }
+    
+    .article-header__author { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; }
+    .article-header__author img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold); }
+    .article-header__author strong { display: block; font-size: 14px; color: #fff; }
+    .article-header__author span { font-size: 12px; color: rgba(255,255,255,0.5); }
+    
+    .article-header__share { display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(255,255,255,0.5); }
+    .share-btn { width: 30px; height: 30px; border-radius: 50%; border: 0.5px solid rgba(184,148,90,.25); display: grid; place-items: center; color: var(--gold); background: transparent; cursor: pointer; transition: background .2s, transform .2s; }
+    .share-btn:hover { background: var(--gold); color: #18201A; transform: scale(1.1); }
+
+    /* ── СТРУКТУРА СТАТЬИ ── */
+    .article-body { padding: 52px 28px; background: var(--cream); }
+    .article-layout { display: grid; grid-template-columns: 1fr 340px; gap: 40px; max-width: 1200px; margin: 0 auto; }
+    
+    .article-content { 
+      font-family: var(--font-serif); 
+      font-size: 17px; 
+      line-height: 1.8; 
+      color: var(--color-text-primary); 
+      background: #fff; 
+      padding: 40px; 
+      border-radius: var(--border-radius-lg); 
+      border: 1px solid var(--color-border-tertiary);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+    
+    .article-content p { margin-bottom: 1.5em; }
+    .article-content p.lead { font-size: 18px; font-weight: 500; color: var(--dark); line-height: 1.7; }
+    .article-content h2 { font-family: var(--font-sans); font-size: 22px; font-weight: 600; margin: 1.8em 0 0.8em; line-height: 1.3; color: var(--dark); border-left: 3px solid var(--gold); padding-left: 14px; }
+    .article-content h3 { font-family: var(--font-sans); font-size: 17px; font-weight: 600; margin: 1.5em 0 0.6em; color: var(--dark); }
+    .article-content ul, .article-content ol { margin: 1.5em 0; padding-left: 1.5em; }
+    .article-content li { margin-bottom: 0.5em; font-size: 16px; }
+    
+    .article-content blockquote { 
+      border-left: 4px solid var(--gold); 
+      padding: 1.5em; 
+      margin: 2em 0; 
+      background: var(--cream); 
+      font-style: italic; 
+      font-size: 16px; 
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      color: var(--color-text-secondary);
+    }
+    .article-content blockquote cite { font-size: 12px; margin-top: 8px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: block; font-style: normal; }
+
+    /* Таблицы сравнения */
+    .article-content table { width: 100%; border-collapse: collapse; margin: 2em 0; font-size: 15px; font-family: var(--font-sans); }
+    .article-content th, .article-content td { padding: 12px; border: 1px solid #E8E2D9; text-align: left; }
+    .article-content th { background: var(--cream); font-weight: 600; color: var(--dark); }
+    .article-content tr:nth-child(even) { background-color: rgba(246, 243, 238, 0.4); }
+
+    /* Изображения */
+    .article-content figure { margin: 2em 0; text-align: center; }
+    .article-content img { max-width: 100%; height: auto; border-radius: var(--border-radius-lg); }
+    .article-content figcaption { text-align: center; font-size: 0.9em; color: var(--muted); margin-top: 8px; font-style: italic; font-family: var(--font-sans); }
+
+    /* Профессиональные карточки стандартов */
+    .system-card { 
+      background: #fff; 
+      border: 1px solid var(--color-border-tertiary); 
+      border-radius: var(--border-radius-lg); 
+      padding: 24px; 
+      margin: 2em 0; 
+      font-family: var(--font-sans);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: border-color 0.25s, transform 0.3s;
+    }
+    .system-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(184,148,90,0.08);
+    }
+    .system-card__badge { 
+      display: inline-block; 
+      padding: 4px 12px; 
+      background: var(--gold); 
+      color: #18201A; 
+      border-radius: 100px; 
+      font-size: 11px; 
+      font-weight: 600; 
+      margin-bottom: 12px; 
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .system-card h3 { font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 10px; }
+    .system-card p { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 8px; }
+    .system-card p strong { color: var(--dark); }
+
+    /* Вердикт блоки */
+    .verdict { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 2.5em 0; font-family: var(--font-sans); }
+    .verdict__item { padding: 20px; background: #fff; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+    .verdict__item--good { border-left: 4px solid #48BB78; }
+    .verdict__item--bad { border-left: 4px solid #F56565; }
+    .verdict__icon { font-size: 24px; margin-bottom: 8px; }
+    .verdict__item strong { font-size: 14px; font-weight: 600; color: var(--dark); display: block; margin-bottom: 6px; }
+    .verdict__item p { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 0; }
+
+    /* Встроенная плашка CTA */
+    .article-cta { background: var(--mid); border: 1px solid rgba(184, 148, 90, 0.3); border-radius: var(--border-radius-lg); padding: 28px; margin: 2.5em 0; color: #fff; font-family: var(--font-sans); }
+    .article-cta h3 { color: var(--gold) !important; font-size: 18px !important; border-left: none !important; padding-left: 0 !important; margin-top: 0 !important; margin-bottom: 8px !important; }
+    .article-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+    
+    .btn--primary { background: var(--gold); color: #18201A; padding: 10px 20px; border-radius: 6px; font-weight: 600; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; font-size: 13px; text-decoration: none; display: inline-block; }
+    .btn--primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184, 148, 90, 0.3); }
+
+    /* Теги */
+    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--color-border-tertiary); font-family: var(--font-sans); font-size: 13px; align-items: center; }
+    .article-tag { background: var(--cream); color: var(--color-text-secondary); text-decoration: none; padding: 4px 10px; border-radius: 4px; font-size: 12px; transition: background 0.2s, color 0.2s; }
+    .article-tag:hover { background: var(--dark); color: var(--gold); }
+
+    /* Авторский блок */
+    .article-author-bio { display: flex; gap: 20px; background: var(--cream); border-radius: var(--border-radius-lg); padding: 24px; margin-top: 40px; font-family: var(--font-sans); align-items: flex-start; }
+    .article-author-bio img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
+    .article-author-bio h4 { font-size: 12px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px; }
+    .article-author-bio strong { font-size: 16px; color: var(--dark); display: block; margin-bottom: 4px; }
+    .article-author-bio p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 12px; }
+    .btn--sm { font-size: 11px; padding: 6px 14px; }
+
+    /* ── БОКОВАЯ ПАНЕЛЬ (SIDEBAR) ── */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-widget { background: #fff; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
+    .sidebar-widget h3 { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 16px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 10px; font-family: var(--font-sans); }
+    
+    /* Оглавление */
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .toc-list a { font-size: 13px; color: var(--color-text-secondary); text-decoration: none; transition: color 0.2s, padding-left 0.2s; display: block; }
+    .toc-list a:hover { color: var(--gold); padding-left: 4px; }
+
+    /* Рекомендованные статьи */
+    .sidebar-popular { display: flex; flex-direction: column; gap: 16px; }
+    .sidebar-article { display: flex; gap: 12px; align-items: center; }
+    .sidebar-article__image { width: 64px; height: 64px; border-radius: var(--border-radius-md); overflow: hidden; flex-shrink: 0; }
+    .sidebar-article__image img { width: 100%; height: 100%; object-fit: cover; }
+    .sidebar-article__content h4 { font-size: 13px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+    .sidebar-article__content h4 a { color: var(--dark); text-decoration: none; transition: color 0.2s; }
+    .sidebar-article__content h4 a:hover { color: var(--gold); }
+    .sidebar-article__content span { font-size: 11px; color: var(--muted); }
+
+    /* ── СЕКЦИЯ CTA ── */
+    .cta-section { padding: 36px 28px; background: var(--dark); }
+    .cta-box { background: var(--mid); border: 0.5px solid rgba(184,148,90,.2); border-radius: var(--border-radius-lg); padding: 36px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; max-width: 1200px; margin: 0 auto; position: relative; overflow: hidden; }
+    .cta-box__content h2 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .cta-box__content p { font-size: 14px; color: rgba(255,255,255,0.6); }
+
+    /* ── ПОДВАЛ (FOOTER) ── */
+    .foot { background: var(--dark); padding: 32px 28px 20px; border-top: 0.5px solid rgba(255,255,255,.07); }
+    .foot-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 0.5px solid rgba(255,255,255,.07); max-width: 1200px; margin: 0 auto; }
+    .foot-desc { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; margin: 12px 0; }
+    .foot-h { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .foot-links { display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-size: 13px; color: rgba(255,255,255,.5); cursor: pointer; transition: color .15s, padding-left .2s; text-decoration: none; }
+    .foot-links a:hover { color: var(--gold); padding-left: 4px; }
+    .foot-contact { display: flex; gap: 8px; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 8px; align-items: flex-start; transition: color .15s; text-decoration: none; }
+    .foot-contact:hover { color: rgba(255,255,255,.8); }
+    .foot-contact i { color: var(--gold); font-size: 15px; margin-top: 2px; flex-shrink: 0; }
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,.3); max-width: 1200px; margin: 0 auto; }
+
+    /* ДОСТУПНОСТЬ И ПРЕЛОАДЕР */
+    .skip-link { position: absolute; top: -100px; left: 0; background: var(--gold); color: #18201A; padding: 10px; z-index: 1000; transition: top 0.3s; font-weight: 500; text-decoration: none; border-radius: 0 0 6px 6px; }
+    .skip-link:focus { top: 0; }
+    
+    .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s; }
+    .preloader.hidden { opacity: 0; visibility: hidden; }
+    .preloader__spinner { width: 40px; height: 40px; border: 3px solid rgba(184,148,90,0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--gold); width: 0%; z-index: 10000; transition: width 0.1s ease; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+    /* АДАПТИВНОСТЬ */
+    @media (max-width: 992px) {
+      .article-layout { grid-template-columns: 1fr; }
+      .verdict { grid-template-columns: repeat(2, 1fr); }
+      .foot-top { grid-template-columns: repeat(2, 1fr); }
+      .cta-box { grid-template-columns: 1fr; text-align: center; }
+      .cta-box__actions { justify-content: center; }
+    }
+    @media (max-width: 576px) {
+      .verdict { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .article-content { padding: 24px; }
+    }
+  </style>
+</head>
+<body class="page-article">
+  
+  <!-- Доступность -->
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  
+  <!-- Прелоадер -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__spinner"></div>
+    <span class="visually-hidden">Загрузка сайта...</span>
+  </div>
+  
+  <!-- Индикатор прогресса чтения -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ГЛАВНАЯ СТРУКТУРНАЯ ОБОЛОЧКА -->
+  <div class="dv">
+
+    <!-- ШАПКА / НАВИГАЦИЯ -->
+    <header class="nav" id="header" role="banner">
+      <a href="../index.html" class="nav-logo" aria-label="Domus Viva - На главную">
+        <div class="nav-mark">DV</div>
+        <div>
+          <div class="nav-name">Domus Viva</div>
+          <div class="nav-sub">Строительство коттеджей</div>
+        </div>
+      </a>
+      
+      <nav class="nav-links" id="mainNav" role="navigation" aria-label="Основное меню">
+        <a href="../index.html" class="nav-link">Главная</a>
+        <a href="/about.html" class="nav-link">О нас</a>
+        <a href="/services.html" class="nav-link">Услуги</a>
+        <a href="/projects.html" class="nav-link a">Проекты</a>
+        <a href="/blog.html" class="nav-link">Блог</a>
+        <a href="/contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      
+      <button class="nav-cta" data-modal="callback">Заказать звонок</button>
+    </header>
+
+    <main id="main-content" role="main">
+      
+      <!-- ХЛЕБНЫЕ КРОШКИ -->
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../blog.html">Блог</a></li>
+          <li><a href="../blog.html?category=tech">Технологии</a></li>
+          <li aria-current="page">Умный дом 2026</li>
+        </ol>
+      </nav>
+
+      <!-- ЗАГОЛОВОК СТАТЬИ -->
+      <header class="article-header rv">
+        <div class="article-header__inner">
+          <div class="article-header__meta">
+            <a href="../blog.html?category=tech" class="blog-category">Технологии</a>
+            <time datetime="2026-04-05">5 апреля 2026</time>
+            <span class="article-read-time">⏱ 11 мин чтения</span>
+          </div>
+          <h1 class="article-header__title">Умный дом в 2026 году: что реально работает, а что маркетинг</h1>
+          <p class="article-header__subtitle">Разбираем KNX, Apple Home, Matter, Zigbee. Реальные возможности, стоимость, окупаемость. Опыт 87 объектов DOMUS VIVA.</p>
+          
+          <div class="article-header__author">
+            <img src="../assets/images/team/petrov.jpg" alt="Дмитрий Петров" loading="lazy" width="60" height="60">
+            <div>
+              <strong>Дмитрий Петров</strong>
+              <span>Технический директор DOMUS VIVA • К.т.н.</span>
+            </div>
+          </div>
+          
+          <div class="article-header__share">
+            <span>Поделиться:</span>
+            <button class="share-btn" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></button>
+            <button class="share-btn" aria-label="VKontakte"><i class="ti ti-brand-vk"></i></button>
+            <button class="share-btn" id="copyLinkBtn" aria-label="Скопировать ссылку">
+              <i class="ti ti-link"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ТЕЛО СТАТЬИ И БОКОВАЯ КОЛОНКА -->
+      <section class="article-body">
+        <div class="article-layout">
+          
+          <!-- Основной контент статьи -->
+          <div class="article-content rv-l rv">
+            
+            <figure>
+              <img src="../assets/images/blog/smart-home-hero.jpg" alt="Интерьер умного дома с панелями управления" loading="eager" width="1200" height="600">
+              <figcaption>Интерьер коттеджа «Горизонт» — полная система KNX с управлением голосом и сценариями</figcaption>
+            </figure>
+            
+            <p class="lead">В 2026 году рынок умных домов наконец-то повзрослел. Ушли в прошлое времена, когда «умный дом» означал «приложение, которое глючит раз в неделю». Сегодня это <strong>надёжная инфраструктура</strong>, которая работает 24/7 без вашего участия. Но маркетинг по-прежнему опережает реальность. В этой статье я разберу, какие системы реально стоит внедрять, а какие — пустая трата денег.</p>
+            
+            <p>За 8 лет мы внедрили умный дом в 87 объектах DOMUS VIVA. От бюджетных решений на базе Apple Home до премиальных KNX-инсталляций за 3+ миллиона. Накоплен достаточный опыт, чтобы говорить предметно.</p>
+            
+            <h2 id="systems">Основные системы умного дома 2026</h2>
+            
+            <div class="system-card rv">
+              <span class="system-card__badge">Профессиональный стандарт</span>
+              <h3>KNX</h3>
+              <p><strong>Что это:</strong> открытый международный стандарт автоматизации зданий. Надежная проводная система со слаботочным централизованным контроллером.</p>
+              <p><strong>Плюсы:</strong> безупречная надёжность в течение 20+ лет, абсолютная совместимость оборудования от 500+ производителей, профессиональный монтаж, централизованное локальное управление.</p>
+              <p><strong>Минусы:</strong> высокая стоимость (от 800 000 ₽ за базовый комплект), требует проектирования на самом раннем этапе строительства, только проводное подключение.</p>
+              <p><strong>Для кого:</strong> премиальные дома от 200 м², где важна надёжность и интеграция всех инженерных систем.</p>
+            </div>
+            
+            <div class="system-card rv">
+              <span class="system-card__badge">Потребительский стандарт</span>
+              <h3>Apple HomeKit</h3>
+              <p><strong>Что это:</strong> беспроводная экосистема Apple для умного дома. Устройства общаются локально или через интернет, управление происходит через Siri и стандартное приложение «Дом».</p>
+              <p><strong>Плюсы:</strong> простое управление голосом, превосходная интеграция с iPhone/Mac, низкий порог входа, красивые устройства.</p>
+              <p><strong>Минусы:</strong> ограниченный выбор тяжелых инженерных устройств, зависимость от стабильности интернета, проблемы с прямой совместимостью non-Apple устройств.</p>
+              <p><strong>Для кого:</strong> семьи с техникой Apple, дома до 150 м², базовая удобная автоматизация.</p>
+            </div>
+            
+            <div class="system-card rv">
+              <span class="system-card__badge">Новый универсальный стандарт</span>
+              <h3>Matter</h3>
+              <p><strong>Что это:</strong> новый открытый протокол прикладного уровня, разработанный Apple, Google, Amazon и другими. Позволяет объединить разрозненные беспроводные экосистемы.</p>
+              <p><strong>Плюсы:</strong> полная кроссплатформенная совместимость между Apple, Google, Amazon, Samsung. Энергоэффективное беспроводное подключение Thread.</p>
+              <p><strong>Минусы:</strong> пока мало устройств на рынке (2026), нестабильность некоторых первых версий, ограниченная функциональность датчиков.</p>
+              <p><strong>Для кого:</strong> любители технологий, готовые к экспериментам и созданию гибких беспроводных систем.</p>
+            </div>
+            
+            <h2 id="comparison">Сравнительная таблица систем</h2>
+            
+            <table class="rv">
+              <thead>
+                <tr><th>Параметр</th><th>KNX</th><th>Apple HomeKit</th><th>Matter</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Стоимость (дом 200 м²)</td><td>1.5-3 млн ₽</td><td>300-600 тыс. ₽</td><td>400-800 тыс. ₽</td></tr>
+                <tr><td>Надёжность</td><td>★★★★★ (20+ лет)</td><td>★★★☆☆ (5-7 лет)</td><td>★★★☆☆ (развивается)</td></tr>
+                <tr><td>Простота установки</td><td>★☆☆☆☆ (только профи)</td><td>★★★★☆ (DIY)</td><td>★★★★☆ (DIY)</td></tr>
+                <tr><td>Интеграция систем</td><td>Полная (ОВ, свет, безопасность)</td><td>Частичная (свет, климат)</td><td>Частичная (развивается)</td></tr>
+                <tr><td>Голосовое управление</td><td>Через интеграции</td><td>Siri (нативно)</td><td>Siri/Alexa/Google</td></tr>
+                <tr><td>Работа без интернета</td><td>Да (локально)</td><td>Частично</td><td>Частично</td></tr>
+                <tr><td>Срок службы</td><td>20-30 лет</td><td>5-10 лет</td><td>Развивается</td></tr>
+              </tbody>
+            </table>
+            
+            <h2 id="what-works">Что реально работает в 2026</h2>
+            
+            <div class="verdict rv">
+              <div class="verdict__item verdict__item--good">
+                <div class="verdict__icon">✅</div>
+                <strong>Автоматическое освещение</strong>
+                <p>Датчики присутствия, тонкие сценарии «кино», «ночь», «отпуск». Работает безупречно.</p>
+              </div>
+              <div class="verdict__item verdict__item--good">
+                <div class="verdict__icon">✅</div>
+                <strong>Климат-контроль</strong>
+                <p>Автоматическое поддержание оптимальной температуры и влажности по расписанию.</p>
+              </div>
+              <div class="verdict__item verdict__item--good">
+                <div class="verdict__icon">✅</div>
+                <strong>Безопасность</strong>
+                <p>Камеры, датчики протечки с запорными кранами, сирена. Моментальные уведомления на телефон.</p>
+              </div>
+              <div class="verdict__item verdict__item--good">
+                <div class="verdict__icon">✅</div>
+                <strong>Управление шторами</strong>
+                <p>Автоматическое открытие утром, закрытие вечером. Сценарии по уровню освещённости.</p>
+              </div>
+              <div class="verdict__item verdict__item--bad">
+                <div class="verdict__icon">⚠️</div>
+                <strong>Голосовое управление всем</strong>
+                <p>Работает, но не всегда идеально. Физические выключатели должны оставаться дублирующей основой.</p>
+              </div>
+              <div class="verdict__item verdict__item--bad">
+                <div class="verdict__icon">❌</div>
+                <strong>AI-ассистенты быта</strong>
+                <p>«Умный холодильник, заказывающий продукты» — пока маркетинговый миф, а не реальность.</p>
+              </div>
+            </div>
+            
+            <h2 id="cost">Сколько стоит умный дом</h2>
+            
+            <table class="rv">
+              <thead>
+                <tr><th>Пакет</th><th>Функции</th><th>Стоимость</th><th>Окупаемость</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Базовый</td><td>Свет + климат + безопасность</td><td>300-500 тыс. ₽</td><td>8-10 лет (энергосбережение)</td></tr>
+                <tr><td>Стандарт</td><td>+ шторы + сценарии + голос</td><td>600-900 тыс. ₽</td><td>10-12 лет</td></tr>
+                <tr><td>Премиум (KNX)</td><td>Полная интеграция всех систем</td><td>1.5-3 млн ₽</td><td>15-20 лет (надежность и долговечность)</td></tr>
+              </tbody>
+            </table>
+            
+            <h2 id="recommendation">Моя рекомендация</h2>
+            
+            <p>Если вы строите дом с нуля и бюджет позволяет — <strong>выбирайте KNX</strong>. Это надежная проводная инвестиция на 20+ лет. Да, дорого. Но через 10 лет вы будете искренне благодарны себе за это решение.</p>
+            
+            <p>Если бюджет ограничен или дом уже построен — <strong>Apple HomeKit + Matter</strong>. Начните с базового пакета (свет + климат + безопасность), потом расширяйте систему по мере необходимости.</p>
+            
+            <blockquote>
+              <p>«Умный дом — это не про технологии. Это про качество жизни. Когда вы приходите домой, а он уже прогрет, свет настроен, музыка играет — это бесценно.»</p>
+              <cite>— Дмитрий Петров, технический директор DOMUS VIVA</cite>
+            </blockquote>
+            
+            <div class="article-cta">
+              <h3>Хотите умный дом в коттедже?</h3>
+              <p>Консультация с техническим директором — подберём оптимальную систему под ваш проект и бюджет</p>
+              <button class="btn btn--primary" data-modal="consultation">Консультация инженера</button>
+            </div>
+            
+            <div class="article-tags">
+              <strong>Теги:</strong>
+              <a href="#" class="article-tag">#умный-дом</a>
+              <a href="#" class="article-tag">#KNX</a>
+              <a href="#" class="article-tag">#Apple-Home</a>
+              <a href="#" class="article-tag">#Matter</a>
+              <a href="#" class="article-tag">#автоматизация</a>
+            </div>
+            
+            <!-- Автор -->
+            <aside class="article-author-bio">
+              <img src="../assets/images/team/petrov.jpg" alt="Дмитрий Петров" loading="lazy" width="100" height="100">
+              <div>
+                <h4>Об авторе</h4>
+                <strong>Дмитрий Петров</strong>
+                <p>Технический директор DOMUS VIVA. К.т.н., 20 лет в инженерии. Сертифицированный инсталлятор систем автоматизации KNX (Германия).</p>
+                <a href="../about.html#team" class="btn btn--sm btn--outline-dark">Все статьи автора</a>
+              </div>
+            </aside>
+            
+          </div>
+          
+          <!-- Article Sidebar -->
+          <aside class="article-sidebar rv-r rv">
+            <div class="sidebar-widget sidebar-widget--toc">
+              <h3>Содержание</h3>
+              <ul class="toc-list">
+                <li><a href="#systems">Основные системы</a></li>
+                <li><a href="#comparison">Сравнение</a></li>
+                <li><a href="#what-works">Что работает</a></li>
+                <li><a href="#cost">Стоимость</a></li>
+                <li><a href="#recommendation">Рекомендация</a></li>
+              </ul>
+            </div>
+            
+            <div class="sidebar-widget highlight-box" style="background:var(--gold);color:white;padding:24px;border-radius:12px;margin-bottom:24px">
+              <h3 style="color:white;margin-top:0">📊 Ключевые цифры</h3>
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="margin-bottom:12px"><strong>87 объектов</strong><br>оснащено системами автоматизации</li>
+                <li style="margin-bottom:12px"><strong>до 30%</strong><br>энергосбережения за счет климат-контроля</li>
+                <li style="margin-bottom:12px"><strong>20+ лет</strong><br>срок службы проводной шины KNX</li>
+                <li><strong>100%</strong><br>локальная безопасность без серверов</li>
+              </ul>
+            </div>
+
+            <div class="sidebar-widget">
+              <h3>Читайте также</h3>
+              <div class="sidebar-popular">
+                <article class="sidebar-article">
+                  <a href="article-energy-efficiency.html" class="sidebar-article__image">
+                    <img src="../assets/images/blog/energy-small.jpg" alt="Энергоэффективность" loading="lazy" width="80" height="80">
+                  </a>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-energy-efficiency.html">Дом класса A+</a></h4>
+                    <span>8 мая 2026</span>
+                  </div>
+                </article>
+                <article class="sidebar-article">
+                  <a href="article-foundation.html" class="sidebar-article__image">
+                    <img src="../assets/images/blog/foundation-small.jpg" alt="Выбор фундамента" loading="lazy" width="80" height="80">
+                  </a>
+                  <div class="sidebar-article__content">
+                    <h4><a href="article-foundation.html">Выбор фундамента</a></h4>
+                    <span>28 марта 2026</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+            
+            <div class="sidebar-widget sidebar-widget--newsletter">
+              <div class="newsletter-box">
+                <h3>Подпишитесь</h3>
+                <p>Инженерные разборы и лайфхаки загородной инженерии раз в неделю.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                  <input type="email" placeholder="Ваш email" autocomplete="email" required>
+                  <button type="submit" class="btn btn--primary btn--block">Подписаться</button>
+                </form>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <section class="section cta-section bg-dark text-white">
+      <div class="container">
+        <div class="cta-box cta-box--dark reveal scale-in">
+          <div class="cta-box__content">
+            <h2>Готовы к умному дому?</h2>
+            <p>Бесплатная консультация с инженером — подберём систему под ваш бюджет</p>
+          </div>
+          <div class="cta-box__actions">
+            <button class="btn btn--accent btn--lg" data-modal="consultation">Консультация</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ПОДВАЛ (FOOTER) -->
+  <footer class="foot" role="contentinfo">
+    <div class="foot-top">
+      <div class="rv">
+        <div class="nav-logo">
+          <div class="nav-mark">DV</div>
+          <div>
+            <div class="nav-name">Domus Viva</div>
+            <div class="nav-sub">Строительство коттеджей</div>
+          </div>
+        </div>
+        <p class="foot-desc">Строим дома, в которых хочется жить. Индивидуальные проекты, премиальные материалы, гарантия 10 лет.</p>
+      </div>
+      
+      <div class="rv" data-d="1">
+        <h4 class="foot-h">Разделы</h4>
+        <div class="foot-links">
+          <a href="/about.html">О компании</a>
+          <a href="/services.html">Услуги</a>
+          <a href="/projects.html">Проекты</a>
+          <a href="/team.html">Команда</a>
+          <a href="/blog.html">Блог</a>
+          <a href="/contacts.html">Контакты</a>
+        </div>
+      </div>
+      
+      <div class="rv" data-d="2">
+        <h4 class="foot-h">Услуги</h4>
+        <div class="foot-links">
+          <a href="/pages/services/service-build.html">Строительство</a>
+          <a href="/pages/services/service-design.html">Проектирование</a>
+          <a href="/pages/services/service-interior.html">Интерьер</a>
+          <a href="/pages/services/service-engineering.html">Инженерия</a>
+          <a href="/pages/services/service-landscape.html">Ландшафт</a>
+          <a href="/calculator.html">Калькулятор</a>
+        </div>
+      </div>
+      
+      <div class="rv" data-d="3">
+        <h4 class="foot-h">Контакты</h4>
+        <a href="tel:+74951234567" class="foot-contact"><i class="ti ti-phone" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+        <a href="mailto:info@domusviva.ru" class="foot-contact"><i class="ti ti-mail" aria-hidden="true"></i>info@domusviva.ru</a>
+        <div class="foot-contact"><i class="ti ti-map-pin" aria-hidden="true"></i>Москва, ул. Строителей, 42</div>
+        <div class="foot-contact"><i class="ti ti-clock" aria-hidden="true"></i>Пн–Пт: 9:00–18:00</div>
+      </div>
+    </div>
+    
+    <div class="foot-bottom">
+      <span>© 2008–2026 Domus Viva. Все права защищены.</span>
+      <a href="/privacy.html" style="color:rgba(255,255,255,.3);cursor:pointer;text-decoration:none;">Политика конфиденциальности</a>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+      <div class="modal__body" id="modalBody">
+        <!-- Сюда динамически инжектится разметка звонка -->
+      </div>
+    </div>
+  </div>
+
+  <!-- КОНТЕЙНЕР ДЛЯ ТОСТОВ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- СКРИПТЫ -->
+  <script src="../js/data.js" defer></script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/modules/header.js" defer></script>
+  <script src="../js/modules/modal.js" defer></script>
+  <script src="../js/modules/form.js" defer></script>
+  <script src="../js/modules/animations.js" defer></script>
+  <script src="../js/main.js" defer></script>
+
+  <!-- Интегрированная JS-логика -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Плавное отключение прелоадера
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+        }, 300);
+      }
+
+      // Индикатор прогресса чтения
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const progressEl = document.getElementById('scrollProgress');
+        if (progressEl) {
+          progressEl.style.width = scrolled + '%';
+        }
+      });
+
+      // Инициализация IntersectionObserver для плавной анимации элементов
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          el.classList.add('in');
+          io.unobserve(el);
+        });
+      }, { threshold: .15, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.rv, .rv-l, .rv-r, .rv-s').forEach(el => io.observe(el));
+
+      // Плавное переключение секций активной навигации при скролле
+      const navLinks = document.querySelectorAll('.toc-list a');
+      const textSections = document.querySelectorAll('h2[id]');
+
+      window.addEventListener('scroll', () => {
+        let currentSec = '';
+        textSections.forEach(sec => {
+          const secTop = sec.offsetTop - 140;
+          if (pageYOffset >= secTop) {
+            currentSec = sec.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.style.color = 'var(--color-text-secondary)';
+          link.style.fontWeight = 'normal';
+          if (link.getAttribute('href').slice(1) === currentSec) {
+            link.style.color = 'var(--gold)';
+            link.style.fontWeight = 'bold';
+          }
+        });
+      });
+
+      // Переключение языка
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const STORAGE_KEY = 'domus-viva-lang';
+      
+      function getCurrentLanguage() {
+        return localStorage.getItem(STORAGE_KEY) || 'ru';
+      }
+
+      function setLanguage(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+        langButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Инициализировать активный язык
+      const currentLang = getCurrentLanguage();
+      setLanguage(currentLang);
+    });
+  </script>
+</body>
+</html>

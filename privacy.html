@@ -1,0 +1,111 @@
+/**
+ * Portfolio Module — фильтры проектов и сравнение
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  let selectedProjects = new Set();
+
+  const filterProjects = (category) => {
+    const cards = $$('.project-card');
+    
+    cards.forEach(card => {
+      const cardCategory = card.dataset.category || '';
+      const shouldShow = category === 'all' || cardCategory.split(' ').includes(category);
+      
+      if (shouldShow) {
+        card.style.display = '';
+        card.hidden = false;
+      } else {
+        card.style.display = 'none';
+        card.hidden = true;
+      }
+    });
+  };
+
+  const toggleCompare = (projectId, btn) => {
+    if (selectedProjects.has(projectId)) {
+      selectedProjects.delete(projectId);
+      btn.classList.remove('project-card__compare--active');
+    } else {
+      if (selectedProjects.size >= 3) {
+        if (typeof window.showToast === 'function') {
+          window.showToast('Можно сравнить не более 3 проектов', 'warning');
+        }
+        return;
+      }
+      selectedProjects.add(projectId);
+      btn.classList.add('project-card__compare--active');
+    }
+
+    updateCompareButton();
+  };
+
+  const updateCompareButton = () => {
+    const compareBtn = $('#compareBtn');
+    const compareCount = $('#compareCount');
+    
+    if (compareBtn) {
+      compareBtn.disabled = selectedProjects.size < 2;
+    }
+    
+    if (compareCount) {
+      compareCount.textContent = selectedProjects.size;
+    }
+  };
+
+  const init = () => {
+    // Фильтры
+    const filterBtns = $$('.filter-btn[data-filter]');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Обновление активного состояния
+        filterBtns.forEach(b => {
+          b.classList.remove('filter-btn--active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        
+        btn.classList.add('filter-btn--active');
+        btn.setAttribute('aria-selected', 'true');
+        
+        // Фильтрация
+        filterProjects(btn.dataset.filter);
+      });
+    });
+
+    // Кнопки сравнения
+    $$('.project-card__compare').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const projectId = btn.dataset.compare;
+        if (projectId) {
+          toggleCompare(projectId, btn);
+        }
+      });
+    });
+
+    // Главная кнопка сравнения
+    const compareBtn = $('#compareBtn');
+    if (compareBtn) {
+      compareBtn.addEventListener('click', () => {
+        if (selectedProjects.size >= 2) {
+          if (typeof window.DOMUS?.Modal?.open === 'function') {
+            window.DOMUS.Modal.open('#modal');
+          }
+          // Здесь можно открыть модалку с таблицей сравнения
+          console.log('Сравнить проекты:', Array.from(selectedProjects));
+        }
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

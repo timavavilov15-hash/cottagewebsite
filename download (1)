@@ -1,0 +1,69 @@
+# ============================================
+# DOMUS VIVA — EditorConfig
+# http://editorconfig.org
+# ============================================
+
+# Корневой файл (не искать конфиги выше)
+root = true
+
+# === Общие правила для всех файлов ===
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# === HTML ===
+[*.html]
+indent_size = 2
+max_line_length = 120
+
+# === CSS / SCSS / LESS ===
+[*.{css,scss,less,sass}]
+indent_size = 2
+max_line_length = 100
+
+# === JavaScript / TypeScript ===
+[*.{js,jsx,ts,tsx,mjs,cjs}]
+indent_size = 2
+quote_type = single
+
+# === JSON ===
+[*.json]
+indent_size = 2
+
+# === Markdown ===
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 80
+
+# === YAML ===
+[*.{yml,yaml}]
+indent_size = 2
+
+# === XML / SVG ===
+[*.{xml,svg}]
+indent_size = 2
+
+# === Makefile ===
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# === Shell скрипты ===
+[*.sh]
+indent_size = 2
+end_of_line = lf
+
+# === Конфиги с особыми требованиями ===
+[{package.json,.prettierrc,.eslintrc*}]
+indent_size = 2
+
+# === Мини-файлы (без форматирования) ===
+[{*.min.js,*.min.css}]
+indent_size = ignore
+trim_trailing_whitespace = false
+insert_final_newline = ignore

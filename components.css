@@ -1,0 +1,411 @@
+/**
+ * Comments Module — система комментариев с localStorage и интеграцией с modal.js
+ * Отображает комментарии под статьями блога и детальными страницами проектов
+ * Поддерживает добавление комментариев через модальное окно, localStorage, валидацию
+ * Использует существующий modal shell (#modal) для формы добавления
+ */
+(function() {
+  'use strict';
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  const STORAGE_KEY_PREFIX = 'domus_comments_';
+  const MAX_COMMENT_LENGTH = 1000;
+  const MIN_NAME_LENGTH = 2;
+
+  // Состояние модуля
+  let commentsData = [];
+  let currentPageId = null;
+  let isModalOpen = false;
+
+  /**
+   * Генерирует уникальный ID для страницы
+   */
+  const getPageId = () => {
+    // Проверяем data-атрибут на body или main
+    const bodyPageId = document.body.dataset?.pageId;
+    if (bodyPageId) return bodyPageId;
+
+    const mainPageId = $('main')?.dataset?.pageId;
+    if (mainPageId) return mainPageId;
+
+    // Генерируем из URL
+    const path = window.location.pathname;
+    const basename = path.split('/').pop().replace('.html', '');
+    return basename || 'unknown';
+  };
+
+  /**
+   * Получает ключ хранилища для текущей страницы
+   */
+  const getStorageKey = () => {
+    return `${STORAGE_KEY_PREFIX}${currentPageId}`;
+  };
+
+  /**
+   * Загружает комментарии из localStorage
+   */
+  const loadComments = () => {
+    try {
+      const stored = localStorage.getItem(getStorageKey());
+      if (stored) {
+        commentsData = JSON.parse(stored);
+        return commentsData;
+      }
+    } catch (e) {
+      console.warn('Failed to load comments:', e);
+    }
+    return [];
+  };
+
+  /**
+   * Сохраняет комментарии в localStorage
+   */
+  const saveComments = () => {
+    try {
+      localStorage.setItem(getStorageKey(), JSON.stringify(commentsData));
+      return true;
+    } catch (e) {
+      console.warn('Failed to save comments:', e);
+      return false;
+    }
+  };
+
+  /**
+   * Генерирует уникальный ID для комментария
+   */
+  const generateCommentId = () => {
+    return `comment_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  };
+
+  /**
+   * Форматирует дату в читаемый вид
+   */
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) {
+      return `Сегодня в ${date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}`;
+    } else if (diffDays === 1) {
+      return `Вчера в ${date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}`;
+    } else if (diffDays < 7) {
+      return date.toLocaleDateString('ru-RU', { weekday: 'long', hour: '2-digit', minute: '2-digit' });
+    } else {
+      return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+    }
+  };
+
+  /**
+   * Создаёт HTML для комментария
+   */
+  const createCommentHTML = (comment) => {
+    const avatarInitial = comment.author?.[0]?.toUpperCase() || '?';
+    
+    return `
+      <article class="comment" id="comment-${comment.id}" data-comment-id="${comment.id}">
+        <div class="comment__avatar" aria-hidden="true">
+          <div class="comment__avatar-circle" style="background: hsl(${Math.random() * 360}, 70%, 70%);">
+            ${avatarInitial}
+          </div>
+        </div>
+        <div class="comment__content">
+          <div class="comment__header">
+            <h4 class="comment__author">${escapeHtml(comment.author)}</h4>
+            <time class="comment__date" datetime="${escapeHtml(comment.date)}">${escapeHtml(formatDate(comment.date))}</time>
+            ${comment.approved ? '<span class="comment__status comment__status--approved" aria-label="Комментарий одобрен">✓</span>' : ''}
+          </div>
+          <div class="comment__body">
+            ${escapeHtml(comment.text)}
+          </div>
+          ${comment.approved ? `
+            <div class="comment__actions">
+              <button class="btn btn--sm btn--outline-dark comment__reply-btn" data-comment-id="${comment.id}">Ответить</button>
+            </div>
+          ` : ''}
+        </div>
+      </article>
+    `;
+  };
+
+  /**
+   * Экранирует HTML-сущности
+   */
+  const escapeHtml = (text) => {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  };
+
+  /**
+   * Рендерит список комментариев
+   */
+  const renderComments = (container) => {
+    if (!container) return;
+
+    // Фильтруем только одобренные комментарии
+    const approvedComments = commentsData.filter(c => c.approved === true);
+
+    if (approvedComments.length === 0) {
+      container.innerHTML = `
+        <div class="comments-empty">
+          <p>Комментариев пока нет. Будьте первым!</p>
+        </div>
+      `;
+      return;
+    }
+
+    const commentsHTML = approvedComments
+      .map(comment => createCommentHTML(comment))
+      .join('');
+
+    container.innerHTML = `
+      <div class="comments-list" role="list" aria-label="Комментарии">
+        ${commentsHTML}
+      </div>
+    `;
+
+    // Добавляем обработчики для кнопок ответа
+    $$('.comment__reply-btn', container).forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const commentId = btn.dataset.commentId;
+        openCommentForm(commentId);
+      });
+    });
+
+    // Анимация появления
+    $$('.comment', container).forEach((comment, index) => {
+      comment.style.animationDelay = `${index * 0.05}s`;
+    });
+  };
+
+  /**
+   * Открывает модальное окно для добавления комментария
+   */
+  const openCommentForm = (replyToCommentId = null) => {
+    const modal = $('#modal');
+    if (!modal) {
+      console.error('Modal not found');
+      return;
+    }
+
+    const modalBody = $('#modalBody');
+    if (!modalBody) {
+      console.error('Modal body not found');
+      return;
+    }
+
+    // Очищаем предыдущий контент
+    modalBody.innerHTML = '';
+
+    const formHTML = `
+      <div class="comment-form">
+        <h3 class="comment-form__title">${replyToCommentId ? 'Ответ на комментарий' : 'Добавить комментарий'}</h3>
+        
+        <form class="comment-form__form" data-comment-form>
+          <div class="form-group">
+            <label for="comment-author" class="form-label">Ваше имя</label>
+            <input 
+              type="text" 
+              id="comment-author" 
+              name="author" 
+              class="form-input" 
+              required 
+              minlength="${MIN_NAME_LENGTH}"
+              placeholder="Иван"
+              autocomplete="name"
+            >
+            <small class="form-hint">Минимум ${MIN_NAME_LENGTH} символа</small>
+          </div>
+
+          <div class="form-group">
+            <label for="comment-text" class="form-label">Комментарий</label>
+            <textarea 
+              id="comment-text" 
+              name="text" 
+              class="form-input" 
+              rows="5" 
+              required 
+              maxlength="${MAX_COMMENT_LENGTH}"
+              placeholder="Ваш комментарий..."
+              aria-describedby="comment-text-hint"
+            ></textarea>
+            <div class="form-hint" id="comment-text-hint">
+              <span class="comment-form__counter">0/${MAX_COMMENT_LENGTH}</span>
+            </div>
+          </div>
+
+          <div class="comment-form__actions">
+            <button type="button" class="btn btn--outline-dark" data-close-modal>Отмена</button>
+            <button type="submit" class="btn btn--primary" disabled>Опубликовать</button>
+          </div>
+        </form>
+
+        ${replyToCommentId ? `
+          <div class="comment-form__reply-info">
+            <span>Ответ на:</span>
+            <span class="comment-form__reply-author">${commentsData.find(c => c.id === replyToCommentId)?.author || 'Пользователь'}</span>
+          </div>
+        ` : ''}
+      </div>
+    `;
+
+    modalBody.innerHTML = formHTML;
+
+    // Открываем модальное окно
+    window.DOMUS.Modal?.open?.();
+    isModalOpen = true;
+
+    // Добавляем обработчики после рендеринга
+    setTimeout(() => {
+      const form = $('[data-comment-form]');
+      const authorInput = $('#comment-author');
+      const textInput = $('#comment-text');
+      const submitBtn = form?.querySelector('button[type="submit"]');
+      const counter = $('.comment-form__counter');
+
+      if (form && authorInput && textInput && submitBtn && counter) {
+        // Фокус на первый инпут
+        authorInput.focus();
+
+        // Счётчик символов
+        textInput.addEventListener('input', () => {
+          const length = textInput.value.length;
+          counter.textContent = `${length}/${MAX_COMMENT_LENGTH}`;
+          
+          // Валидация кнопки
+          submitBtn.disabled = !form.checkValidity() || length === 0;
+        });
+
+        // Валидация формы
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          addComment({
+            author: authorInput.value.trim(),
+            text: textInput.value.trim(),
+            replyTo: replyToCommentId
+          });
+        });
+
+        // Валидация при вводе
+        authorInput.addEventListener('input', () => {
+          submitBtn.disabled = !form.checkValidity() || textInput.value.length === 0;
+        });
+      }
+    }, 100);
+  };
+
+  /**
+   * Добавляет новый комментарий
+   */
+  const addComment = (data) => {
+    if (!data.author || !data.text) {
+      alert('Пожалуйста, заполните все обязательные поля');
+      return false;
+    }
+
+    if (data.text.length > MAX_COMMENT_LENGTH) {
+      alert(`Слишком длинный комментарий. Максимум ${MAX_COMMENT_LENGTH} символов`);
+      return false;
+    }
+
+    if (data.author.length < MIN_NAME_LENGTH) {
+      alert(`Слишком короткое имя. Минимум ${MIN_NAME_LENGTH} символа`);
+      return false;
+    }
+
+    const newComment = {
+      id: generateCommentId(),
+      pageId: currentPageId,
+      author: data.author,
+      text: data.text,
+      date: new Date().toISOString(),
+      approved: false, // По умолчанию требует модерации
+      replyTo: data.replyTo || null
+    };
+
+    commentsData.push(newComment);
+
+    if (!saveComments()) {
+      alert('Не удалось сохранить комментарий. Пожалуйста, попробуйте позже.');
+      return false;
+    }
+
+    // Закрываем модальное окно
+    window.DOMUS.Modal?.close?.();
+    isModalOpen = false;
+
+    // Рендерим обновлённый список
+    renderComments($(`[data-comments-container][data-page-id="${currentPageId}"]`));
+
+    // Событие для других модулей
+    document.dispatchEvent(new CustomEvent('comments:added', { detail: newComment }));
+
+    alert('Спасибо! Ваш комментарий отправлен на модерацию и появится после проверки.');
+
+    return true;
+  };
+
+  /**
+   * Инициализация модуля
+   */
+  const init = () => {
+    // Определяем текущую страницу
+    currentPageId = getPageId();
+
+    // Загружаем комментарии
+    loadComments();
+
+    // Ищем контейнеры комментариев
+    const containers = $$('[data-comments-container][data-page-id]');
+    
+    containers.forEach(container => {
+      const containerPageId = container.dataset.pageId;
+      
+      // Если контейнер относится к текущей странице
+      if (containerPageId === currentPageId) {
+        renderComments(container);
+      }
+    });
+
+    // Обработчик кнопки "Добавить комментарий"
+    document.addEventListener('click', (e) => {
+      const addBtn = e.target.closest('[data-add-comment]');
+      if (addBtn) {
+        e.preventDefault();
+        openCommentForm();
+      }
+    });
+
+    // Обработчик закрытия модального окна для сброса состояния
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        window.DOMUS.Modal?.close?.();
+        isModalOpen = false;
+      }
+    });
+  };
+
+  // Публичный API
+  window.DOMUS = window.DOMUS || {};
+  window.DOMUS.Comments = {
+    init,
+    addComment,
+    renderComments,
+    openCommentForm,
+    loadComments,
+    getComments: () => commentsData,
+    getPageId
+  };
+
+  // Инициализация при загрузке
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

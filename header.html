@@ -1,0 +1,210 @@
+/**
+ * Form Module — валидация, маска телефона, отправка форм
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  // === Маска телефона ===
+  const phoneMask = (input) => {
+    input.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.startsWith('8')) {
+        value = '7' + value.slice(1);
+      }
+      
+      if (!value.startsWith('7')) {
+        value = '7' + value;
+      }
+      
+      value = value.slice(0, 11);
+      
+      let formatted = '+7';
+      if (value.length > 1) formatted += ' (' + value.slice(1, 4);
+      if (value.length >= 5) formatted += ') ' + value.slice(4, 7);
+      if (value.length >= 8) formatted += '-' + value.slice(7, 9);
+      if (value.length >= 10) formatted += '-' + value.slice(9, 11);
+      
+      e.target.value = formatted;
+    });
+
+    input.addEventListener('focus', (e) => {
+      if (!e.target.value) {
+        e.target.value = '+7 (';
+      }
+    });
+
+    input.addEventListener('blur', (e) => {
+      if (e.target.value === '+7 (' || e.target.value === '+7') {
+        e.target.value = '';
+      }
+    });
+  };
+
+  // === Валидация поля ===
+  const validateField = (field) => {
+    const type = field.type;
+    const value = field.value.trim();
+    const required = field.hasAttribute('required');
+    const errorElement = field.parentElement.querySelector('.form-error') || 
+                         field.parentElement.querySelector('.form-field__error');
+
+    let isValid = true;
+    let errorMessage = '';
+
+    // Required
+    if (required && !value) {
+      isValid = false;
+      errorMessage = 'Это поле обязательно';
+    }
+    // Email
+    else if (type === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
+        errorMessage = 'Введите корректный email';
+      }
+    }
+    // Phone
+    else if (type === 'tel' && value) {
+      const phoneDigits = value.replace(/\D/g, '');
+      if (phoneDigits.length !== 11) {
+        isValid = false;
+        errorMessage = 'Введите полный номер телефона';
+      }
+    }
+
+    // Отображение ошибки
+    if (errorElement) {
+      errorElement.textContent = errorMessage;
+      errorElement.classList.toggle('form-error--visible', !isValid);
+    }
+
+    field.classList.toggle('invalid', !isValid);
+    field.setAttribute('aria-invalid', !isValid);
+
+    return isValid;
+  };
+
+  // === Валидация всей формы ===
+  const validateForm = (form) => {
+    const fields = $$('input, textarea, select', form);
+    let isValid = true;
+
+    fields.forEach(field => {
+      if (field.hasAttribute('required') || field.type === 'email' || field.type === 'tel') {
+        if (!validateField(field)) {
+          isValid = false;
+        }
+      }
+    });
+
+    return isValid;
+  };
+
+  // === Отправка формы ===
+  const submitForm = async (form) => {
+    const submitBtn = $('button[type="submit"]', form);
+    const originalText = submitBtn ? submitBtn.textContent : '';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add('btn--loading');
+      submitBtn.textContent = 'Отправка...';
+    }
+
+    try {
+      const formData = new FormData(form);
+      
+      // Имитация отправки (заменить на реальный endpoint)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // const response = await fetch('/api/form', {
+      //   method: 'POST',
+      //   body: formData
+      // });
+      // const data = await response.json();
+
+      // Успех
+      if (typeof window.showToast === 'function') {
+        window.showToast('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
+      }
+      
+      form.reset();
+      
+    } catch (error) {
+      console.error('Form submission error:', error);
+      
+      if (typeof window.showToast === 'function') {
+        window.showToast('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('btn--loading');
+        submitBtn.textContent = originalText;
+      }
+    }
+  };
+
+  // === Инициализация ===
+  const init = () => {
+    // Маска телефона для всех полей tel
+    $$('input[type="tel"]').forEach(phoneMask);
+
+    // Валидация в реальном времени
+    $$('input, textarea').forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+      field.addEventListener('input', () => {
+        if (field.classList.contains('invalid')) {
+          validateField(field);
+        }
+      });
+    });
+
+    // Отправка форм
+    $$('form[data-form]').forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if (validateForm(form)) {
+          submitForm(form);
+        }
+      });
+    });
+
+    // Newsletter формы
+    $$('.newsletter-form').forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const email = $('input[type="email"]', form);
+        if (email && email.value) {
+          if (typeof window.showToast === 'function') {
+            window.showToast('Вы успешно подписались на рассылку!', 'success');
+          }
+          form.reset();
+        }
+      });
+    });
+  };
+
+  // Публичный API
+  window.DOMUS = window.DOMUS || {};
+  window.DOMUS.Form = {
+    validateField,
+    validateForm,
+    submitForm,
+    phoneMask
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

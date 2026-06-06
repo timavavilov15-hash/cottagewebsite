@@ -1,0 +1,443 @@
+/**
+ * DOMUS VIVA — Shared Utilities
+ * Общие функции: роутинг, preloader, scroll-progress, lazy-load, prefetch
+ * Зависимости: нет (загружается первым)
+ */
+(function() {
+  'use strict';
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  // ============================================================================
+  // MODAL SYSTEM
+  // ============================================================================
+  let lastFocusedElement = null;
+
+  // Открыть модальное окно
+  window.openModal = function(modalId) {
+    const modal = document.getElementById(modalId || 'modal');
+    if (!modal) return;
+    
+    lastFocusedElement = document.activeElement;
+    modal.classList.add('modal--active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    
+    // Focus trap: фокус на первый интерактивный элемент
+    setTimeout(() => {
+      const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusable) focusable.focus();
+    }, 100);
+  };
+  
+  // Закрыть модальное окно
+  window.closeModal = function(modalId) {
+    const modal = document.getElementById(modalId || 'modal');
+    if (!modal) return;
+    
+    modal.classList.remove('modal--active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    
+    if (lastFocusedElement) lastFocusedElement.focus();
+  };
+
+  const initModal = () => {
+    const MODAL_SELECTOR = '.modal';
+    const CLOSE_SELECTOR = '[data-close-modal]';
+    
+    // Инициализация всех модальных окон на странице
+    $$(MODAL_SELECTOR).forEach(modal => {
+      const closeBtns = modal.querySelectorAll(CLOSE_SELECTOR);
+      closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          window.closeModal(modal.id);
+        });
+      });
+    });
+    
+    // Глобальные обработчики
+    document.addEventListener('click', (e) => {
+      // Закрытие по клику на data-modal-trigger
+      const trigger = e.target.closest('[data-modal-trigger]');
+      if (trigger) {
+        e.preventDefault();
+        window.openModal(trigger.dataset.modalTrigger);
+      }
+      
+      // Закрытие по клику на data-close-modal
+      const closeBtn = e.target.closest(CLOSE_SELECTOR);
+      if (closeBtn) {
+        const modal = closeBtn.closest(MODAL_SELECTOR);
+        if (modal) {
+          window.closeModal(modal.id);
+        }
+      }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        $$(MODAL_SELECTOR).forEach(modal => {
+          if (modal.classList.contains('modal--active')) {
+            window.closeModal(modal.id);
+          }
+        });
+      }
+    });
+  };
+
+  // ============================================================================
+  // SCROLL PROGRESS BAR
+  // ============================================================================
+  const initScrollProgress = () => {
+    const bar = $('#scrollProgress');
+    if (!bar) return;
+
+    const update = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = `${percent}%`;
+      bar.setAttribute('aria-valuenow', Math.round(percent));
+    };
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  };
+
+  // ============================================================================
+  // PRELOADER
+  // ============================================================================
+  const initPreloader = () => {
+    const preloader = $('#preloader');
+    if (!preloader) return;
+
+    const hide = () => {
+      preloader.classList.add('preloader--loaded');
+      document.body.classList.add('page-ready');
+      
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, prefersReduced ? 0 : 500);
+    };
+
+    if (document.readyState === 'complete') {
+      hide();
+    } else {
+      window.addEventListener('load', () => {
+        setTimeout(hide, 300);
+      });
+    }
+  };
+
+  // ============================================================================
+  // LAZY LOADING IMAGES (если нет нативного loading="lazy")
+  // ============================================================================
+  const initLazyLoad = () => {
+    if ('loading' in HTMLImageElement.prototype) return; // Нативная поддержка
+
+    const images = $$('img[loading="lazy"]');
+    if (images.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+          }
+          img.addEventListener('load', () => {
+            img.classList.add('loaded');
+          }, { once: true });
+          observer.unobserve(img);
+        }
+      });
+    }, { rootMargin: '100px' });
+
+    images.forEach(img => observer.observe(img));
+  };
+
+  // ============================================================================
+  // PREFETCH NEXT PAGES
+  // ============================================================================
+  const prefetchNextPages = () => {
+    const pages = ['about.html', 'services.html', 'projects.html', 'blog.html', 'contacts.html'];
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+    pages.forEach(page => {
+      if (page === currentPath) return;
+
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = page;
+      document.head.appendChild(link);
+    });
+  };
+
+  // ============================================================================
+  // PAGE TRANSITIONS (плавные переходы между страницами)
+  // ============================================================================
+  const initPageTransitions = () => {
+    const transition = document.createElement('div');
+    transition.className = 'page-transition';
+    document.body.appendChild(transition);
+
+    $$('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href) return;
+
+      // Только внутренние .html ссылки
+      const isInternal = (href.endsWith('.html') && !href.startsWith('#')) ||
+                         (href.startsWith('/') && href.endsWith('.html')) ||
+                         (href.startsWith('./') && href.endsWith('.html'));
+
+      if (!isInternal) return;
+      if (link.target === '_blank') return;
+      if (link.hasAttribute('download')) return;
+      if (href.includes('#')) return; // Якоря обрабатываются отдельно
+
+      link.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+        e.preventDefault();
+        transition.classList.add('page-transition--active');
+        document.body.classList.add('page-loading');
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, prefersReduced ? 0 : 300);
+      });
+    });
+  };
+
+  // ============================================================================
+  // SMOOTH SCROLL (для якорных ссылок)
+  // ============================================================================
+  const initSmoothScroll = () => {
+    $$('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const target = $(href);
+        if (!target) return;
+
+        e.preventDefault();
+
+        const header = $('#header');
+        const headerHeight = header ? header.offsetHeight : 84;
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - offset;
+
+        window.scrollTo({
+          top,
+          behavior: prefersReduced ? 'auto' : 'smooth'
+        });
+
+        // Обновить URL без перезагрузки
+        history.pushState(null, '', href);
+      });
+    });
+  };
+
+  // ============================================================================
+  // HEADER SCROLL STATE
+  // ============================================================================
+  const initHeaderScroll = () => {
+    const header = $('#header');
+    if (!header) return;
+
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('header--scrolled');
+      } else {
+        header.classList.remove('header--scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  };
+
+  // ============================================================================
+  // FLOATING BUTTON (кнопка "Наверх")
+  // ============================================================================
+  const initFloatingButton = () => {
+    const btn = $('.floating-btn');
+    if (!btn) return;
+
+    const onScroll = () => {
+      if (window.scrollY > 500) {
+        btn.classList.add('floating-btn--visible');
+      } else {
+        btn.classList.remove('floating-btn--visible');
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReduced ? 'auto' : 'smooth'
+      });
+    });
+  };
+
+  // ============================================================================
+  // MOBILE MENU (бургер-меню)
+  // ============================================================================
+  const initMobileMenu = () => {
+    const burger = $('#burgerBtn');
+    const mobileMenu = $('#mobileMenu');
+    const closeBtns = $('[data-close-menu]');
+    
+    if (!burger || !mobileMenu) return;
+
+    const openMenu = () => {
+      mobileMenu.classList.add('mobile-menu--active');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+      mobileMenu.classList.remove('mobile-menu--active');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    burger.addEventListener('click', () => {
+      if (burger.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    closeBtns.forEach(btn => btn.addEventListener('click', closeMenu));
+
+    // Закрытие по клику на ссылку
+    mobileMenu.querySelectorAll('.mobile-menu__link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Закрытие по клику на backdrop
+    mobileMenu.querySelector('.mobile-menu__backdrop')?.addEventListener('click', closeMenu);
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        burger.focus();
+      }
+    });
+  };
+
+  // ============================================================================
+  // TOAST NOTIFICATIONS
+  // ============================================================================
+  const showToast = (message, type = 'success', duration = 4000) => {
+    let container = $('.toast-container');
+
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'toast-container';
+      document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${type}`;
+    toast.setAttribute('role', 'alert');
+
+    const icons = {
+      success: '✓',
+      error: '✕',
+      warning: '!',
+      info: 'i'
+    };
+
+    toast.innerHTML = `
+      <div class="toast__icon toast__icon--${type}">${icons[type] || '✓'}</div>
+      <div class="toast__message">${message}</div>
+    `;
+
+    container.appendChild(toast);
+
+    // Trigger reflow
+    toast.offsetHeight;
+    toast.classList.add('toast--active');
+
+    setTimeout(() => {
+      toast.classList.remove('toast--active');
+      setTimeout(() => {
+        toast.remove();
+      }, prefersReduced ? 0 : 300);
+    }, duration);
+  };
+
+  // ============================================================================
+  // УТИЛИТЫ
+  // ============================================================================
+  const debounce = (fn, delay) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(this, args), delay);
+    };
+  };
+
+  const throttle = (fn, limit) => {
+    let lastCall = 0;
+    return (...args) => {
+      const now = Date.now();
+      if (now - lastCall >= limit) {
+        lastCall = now;
+        fn.apply(this, args);
+      }
+    };
+  };
+
+  const getCurrentLang = () => {
+    return document.documentElement.getAttribute('lang') || 'ru';
+  };
+
+  // ============================================================================
+  // ИНИЦИАЛИЗАЦИЯ
+  // ============================================================================
+  const init = () => {
+    initModal();
+    initPreloader();
+    initScrollProgress();
+    initLazyLoad();
+    prefetchNextPages();
+    initPageTransitions();
+    initSmoothScroll();
+    initHeaderScroll();
+    initFloatingButton();
+    initMobileMenu();
+
+    // Экспорт в глобальный API
+    window.DOMUS = window.DOMUS || {};
+    window.DOMUS.Shared = {
+      showToast,
+      debounce,
+      throttle,
+      getCurrentLang
+    };
+    window.showToast = showToast;
+    window.initModal = initModal;
+
+    console.log('%c[DOMUS VIVA] Shared utilities initialized', 'color: #567568; font-weight: bold;');
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

@@ -1,0 +1,243 @@
+/**
+ * Slider Module
+ * Карусель отзывов и lightbox галерея
+ */
+
+export class Slider {
+  constructor(selector, options = {}) {
+    this.container = document.querySelector(selector);
+    this.slides = this.container?.querySelectorAll('[data-slide]');
+    this.currentSlide = 0;
+    this.autoplay = options.autoplay !== false;
+    this.autoplayDelay = options.autoplayDelay || 5000;
+    this.loop = options.loop !== false;
+    
+    this.init();
+  }
+
+  init() {
+    if (!this.container) return;
+
+    this.setupControls();
+    this.setupDots();
+    this.startAutoplay();
+  }
+
+  /**
+   * Инициализация управления слайдами
+   */
+  setupControls() {
+    const prevBtn = this.container.querySelector('[data-prev]');
+    const nextBtn = this.container.querySelector('[data-next]');
+
+    prevBtn?.addEventListener('click', () => this.prev());
+    nextBtn?.addEventListener('click', () => this.next());
+  }
+
+  /**
+   * Инициализация точек навигации
+   */
+  setupDots() {
+    const dotsContainer = this.container.querySelector('[data-dots]');
+    if (!dotsContainer) return;
+
+    this.slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.setAttribute('data-dot', index);
+      dot.className = index === 0 ? 'active' : '';
+      dot.addEventListener('click', () => this.goTo(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    this.dots = this.container.querySelectorAll('[data-dot]');
+  }
+
+  /**
+   * Показать слайд
+   */
+  goTo(index) {
+    if (!this.slides) return;
+
+    this.currentSlide = Math.max(0, Math.min(index, this.slides.length - 1));
+    
+    this.slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === this.currentSlide);
+    });
+
+    this.dots?.forEach((dot, i) => {
+      dot.classList.toggle('active', i === this.currentSlide);
+    });
+
+    this.resetAutoplay();
+  }
+
+  /**
+   * Следующий слайд
+   */
+  next() {
+    let nextSlide = this.currentSlide + 1;
+    
+    if (nextSlide >= this.slides.length) {
+      nextSlide = this.loop ? 0 : this.slides.length - 1;
+    }
+
+    this.goTo(nextSlide);
+  }
+
+  /**
+   * Предыдущий слайд
+   */
+  prev() {
+    let prevSlide = this.currentSlide - 1;
+    
+    if (prevSlide < 0) {
+      prevSlide = this.loop ? this.slides.length - 1 : 0;
+    }
+
+    this.goTo(prevSlide);
+  }
+
+  /**
+   * Автовоспроизведение
+   */
+  startAutoplay() {
+    if (!this.autoplay) return;
+
+    this.autoplayTimer = setInterval(() => {
+      this.next();
+    }, this.autoplayDelay);
+  }
+
+  /**
+   * Остановить автоматическое воспроизведение
+   */
+  stopAutoplay() {
+    clearInterval(this.autoplayTimer);
+  }
+
+  /**
+   * Перезапустить автоматическое воспроизведение
+   */
+  resetAutoplay() {
+    this.stopAutoplay();
+    this.startAutoplay();
+  }
+}
+
+/**
+ * Lightbox для галереи
+ */
+export class Lightbox {
+  constructor(selector) {
+    this.items = document.querySelectorAll(selector);
+    this.currentIndex = 0;
+    this.init();
+  }
+
+  init() {
+    this.createLightboxHTML();
+    this.attachEventListeners();
+  }
+
+  /**
+   * Создать HTML структуру лайтбокса
+   */
+  createLightboxHTML() {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Закрыть">&times;</button>
+        <button class="lightbox-prev" aria-label="Предыдущее">&lt;</button>
+        <img class="lightbox-image" src="" alt="">
+        <button class="lightbox-next" aria-label="Следующее">&gt;</button>
+        <div class="lightbox-counter"><span class="current">1</span> / <span class="total">1</span></div>
+      </div>
+    `;
+    
+    document.body.appendChild(lightbox);
+    this.lightbox = lightbox;
+  }
+
+  /**
+   * Присоединить обработчики событий
+   */
+  attachEventListeners() {
+    this.items.forEach((item, index) => {
+      item.addEventListener('click', () => this.open(index));
+    });
+
+    const backdrop = this.lightbox.querySelector('.lightbox-backdrop');
+    const closeBtn = this.lightbox.querySelector('.lightbox-close');
+    const prevBtn = this.lightbox.querySelector('.lightbox-prev');
+    const nextBtn = this.lightbox.querySelector('.lightbox-next');
+
+    backdrop?.addEventListener('click', () => this.close());
+    closeBtn?.addEventListener('click', () => this.close());
+    prevBtn?.addEventListener('click', () => this.prev());
+    nextBtn?.addEventListener('click', () => this.next());
+
+    document.addEventListener('keydown', (e) => {
+      if (!this.lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') this.close();
+      if (e.key === 'ArrowLeft') this.prev();
+      if (e.key === 'ArrowRight') this.next();
+    });
+  }
+
+  /**
+   * Открыть лайтбокс
+   */
+  open(index) {
+    this.currentIndex = index;
+    this.show();
+  }
+
+  /**
+   * Показать текущее изображение
+   */
+  show() {
+    const item = this.items[this.currentIndex];
+    const src = item.src || item.dataset.src;
+    const alt = item.alt || 'Image';
+    
+    const image = this.lightbox.querySelector('.lightbox-image');
+    image.src = src;
+    image.alt = alt;
+
+    const counter = this.lightbox.querySelector('.lightbox-counter');
+    counter.querySelector('.current').textContent = this.currentIndex + 1;
+    counter.querySelector('.total').textContent = this.items.length;
+
+    this.lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  /**
+   * Закрыть лайтбокс
+   */
+  close() {
+    this.lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  /**
+   * Следующее изображение
+   */
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.items.length;
+    this.show();
+  }
+
+  /**
+   * Предыдущее изображение
+   */
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+    this.show();
+  }
+}
+
+export default { Slider, Lightbox };

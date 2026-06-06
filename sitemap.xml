@@ -1,0 +1,111 @@
+{
+  "version": "1.0.0",
+  "description": "General site configuration for DOMUS VIVA",
+  "site": {
+    "name": "DOMUS VIVA",
+    "shortName": "DOMUS VIVA",
+    "description": "Премиальное строительство коттеджей под ключ с гарантией 15 лет",
+    "tagline": "Строим дома, в которых оживает жизнь",
+    "url": "https://domusviva.ru",
+    "baseUrl": "https://domusviva.ru",
+    "repo": "https://github.com/domusviva/website",
+    "foundedYear": 2014,
+    "timezone": "Europe/Moscow"
+  },
+  "company": {
+    "legalName": "ООО «Домус Вива»",
+    "inn": "7701234567",
+    "ogrn": "1234567890123",
+    "registrationDate": "2014-03-15"
+  },
+  "contacts": {
+    "primary": {
+      "phone": "+7 (800) 555-35-35",
+      "phoneHref": "tel:+78005553535",
+      "email": "info@domusviva.ru",
+      "emailHref": "mailto:info@domusviva.ru"
+    },
+    "sales": {
+      "phone": "+7 (495) 123-45-67",
+      "phoneHref": "tel:+74951234567",
+      "email": "sales@domusviva.ru",
+      "emailHref": "mailto:sales@domusviva.ru"
+    }
+  },
+  "addresses": [
+    {
+      "type": "headquarters",
+      "name": "Главный офис",
+      "city": "Москва",
+      "street": "ул. Архитекторов, д. 15, офис 301",
+      "postalCode": "123456",
+      "country": "RU",
+      "coordinates": {
+        "latitude": 55.7558,
+        "longitude": 37.6173
+      },
+      "metro": "Третьяковская",
+      "workingHours": {
+        "weekdays": "09:00–19:00",
+        "saturday": "10:00–16:00",
+        "sunday": "Выходной"
+      }
+    }
+  ],
+  "social": [
+    {
+      "name": "ВКонтакте",
+      "url": "https://vk.com/domusviva",
+      "icon": "vk"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://t.me/domusviva",
+      "icon": "telegram"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@domusviva",
+      "icon": "youtube"
+    }
+  ],
+  "i18n": {
+    "defaultLocale": "ru",
+    "locales": ["ru", "en"],
+    "fallbackLocale": "ru",
+    "currency": {
+      "code": "RUB",
+      "symbol": "₽",
+      "locale": "ru-RU"
+    }
+  },
+  "analytics": {
+    "yandexMetrika": {
+      "id": "12345678",
+      "webvisor": true
+    },
+    "googleAnalytics": {
+      "id": "G-XXXXXXXXXX"
+    }
+  },
+  "features": {
+    "calculator": true,
+    "blog": true,
+    "projects": true,
+    "testimonials": true,
+    "team": true,
+    "faq": true,
+    "multilingual": true,
+    "pwa": true
+  },
+  "performance": {
+    "lazyLoadImages": true,
+    "preloadFonts": ["Montserrat", "Roboto"],
+    "criticalCss": true
+  },
+  "legal": {
+    "privacyPolicy": "/privacy.html",
+    "termsOfService": "/terms.html",
+    "cookiePolicy": "/cookies.html"
+  }
+}

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>Domus Viva | Строительство коттеджей под ключ в Москве и Подмосковье</title>
+  <meta name="description" content="Строим коттеджи в Москве и Подмосковье с 2008 года. Индивидуальные проекты, экологичные материалы, гарантия 10 лет. Более 120 реализованных объектов.">
+  <meta name="keywords" content="строительство коттеджей, дом под ключ, проект дома, загородный дом, строительная компания Москва">
+  <meta name="author" content="Domus Viva">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://domusviva.ru/">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Domus Viva | Строительство коттеджей под ключ">
+  <meta property="og:description" content="Строим дома, в которых хочется жить. Индивидуальные проекты, премиальные материалы, гарантия 10 лет.">
+  <meta property="og:image" content="https://domusviva.ru/assets/images/og/home.jpg">
+  <meta property="og:url" content="https://domusviva.ru/">
+  <meta property="og:site_name" content="Domus Viva">
+  <meta property="og:locale" content="ru_RU">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Domus Viva | Строительство коттеджей под ключ">
+  <meta name="twitter:description" content="Строим дома мечты с гарантией 10 лет. Бесплатная консультация архитектора.">
+  <meta name="twitter:image" content="https://domusviva.ru/assets/images/og/home.jpg">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#B8945A">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/icons/pwa/icon-180x180.png">
+  
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tabler Icons (для рендеринга иконок ti-*) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+  <!-- CSS Modules (оставляем для структуры вашего проекта) -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/utilities.css">
+  <link rel="stylesheet" href="/css/pages.css">
+  
+  <!-- Полный набор оригинальных стилей из domus_viva_animated.html -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #B8945A;
+      --gold-lt: #F0E4CC;
+      --dark: #18201A;
+      --mid: #2C3A2E;
+      --cream: #F6F3EE;
+      --muted: #7A8A7C;
+      --border-radius-lg: 12px;
+      --border-radius-md: 8px;
+      --color-text-primary: #18201A;
+      --color-text-secondary: #5A665C;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #edeae4;
+      --color-border-secondary: rgba(24, 32, 26, 0.15);
+      --color-border-tertiary: rgba(24, 32, 26, 0.08);
+      --font-sans: 'Roboto', 'Montserrat', sans-serif;
+    }
+    
+    body { 
+      font-family: var(--font-sans); 
+      font-size: 16px; 
+      line-height: 1.6; 
+      color: var(--color-text-primary); 
+      background: var(--cream);
+    }
+    
+    .dv h1, .dv h2, .dv h3 { font-weight: 500; line-height: 1.2; }
+
+    /* ── REVEAL SYSTEM ── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-l { opacity: 0; transform: translateX(-28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-l.in { opacity: 1; transform: none; }
+    .rv-r { opacity: 0; transform: translateX(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-r.in { opacity: 1; transform: none; }
+    .rv-s { opacity: 0; transform: scale(.94); transition: opacity .55s ease, transform .55s cubic-bezier(.34,1.56,.64,1); }
+    .rv-s.in { opacity: 1; transform: none; }
+    [data-d="1"] { transition-delay: .1s; }
+    [data-d="2"] { transition-delay: .2s; }
+    [data-d="3"] { transition-delay: .3s; }
+    [data-d="4"] { transition-delay: .4s; }
+    [data-d="5"] { transition-delay: .5s; }
+    [data-d="6"] { transition-delay: .6s; }
+
+    /* ── NAV ── */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: var(--dark); border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 6px; display: grid; place-items: center; font-size: 13px; font-weight: 500; color: #18201A; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .nav-mark:hover { transform: rotate(8deg) scale(1.1); }
+    .nav-name { font-size: 15px; font-weight: 500; color: #fff; }
+    .nav-sub { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { font-size: 13px; color: rgba(255,255,255,.55); padding: 5px 10px; border-radius: 5px; cursor: pointer; transition: color .15s, background .15s; position: relative; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: 2px; left: 10px; right: 10px; height: 1.5px; background: var(--gold); transform: scaleX(0); transition: transform .25s cubic-bezier(.22,1,.36,1); }
+    .nav-link:hover { color: rgba(255,255,255,.9); }
+    .nav-link:hover::after, .nav-link.a::after { transform: scaleX(1); }
+    .nav-link.a { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: #18201A; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 6px; cursor: pointer; border: none; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+    .nav-cta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 20px rgba(184,148,90,.4); }
+    .nav-cta:active { transform: scale(.97); }
+
+    /* ── HERO ── */
+    .hero { background: var(--dark); padding: 52px 28px 44px; position: relative; overflow: hidden; min-height: auto; display: block; }
+    .hero-grid-bg { position: absolute; inset: 0; background: repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(184,148,90,.07) 40px), repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(184,148,90,.07) 40px); animation: gridPan 20s linear infinite; }
+    @keyframes gridPan { from { background-position: 0 0,0 0; } to { background-position: 0 40px,40px 0; } }
+    .hero-glow { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle,rgba(184,148,90,.08) 0%,transparent 70%); right: -100px; top: -100px; animation: glowPulse 4s ease-in-out infinite; }
+    @keyframes glowPulse { 0%,100% { opacity: .6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+    .hero-content { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .hero-left { max-width: 440px; text-align: left; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 0.5px solid rgba(184,148,90,.35); padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; animation: badgeFade .8s ease both .2s; opacity: 0; }
+    @keyframes badgeFade { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: dotPulse 2s ease-in-out infinite; }
+    @keyframes dotPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(184,148,90,.5); } 50% { box-shadow: 0 0 0 6px rgba(184,148,90,0); } }
+    .hero h1 { font-size: 38px; color: #fff; margin-bottom: 14px; line-height: 1.1; animation: heroTitle .9s cubic-bezier(.22,1,.36,1) both .4s; opacity: 0; font-family: var(--font-sans); }
+    @keyframes heroTitle { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 28px; max-width: 38ch; animation: heroTitle .9s cubic-bezier(.22,1,.36,1) both .6s; opacity: 0; }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; animation: heroTitle .9s cubic-bezier(.22,1,.36,1) both .75s; opacity: 0; }
+    
+    .btn-g { background: var(--gold); color: #18201A; font-size: 13px; font-weight: 500; padding: 10px 20px; border-radius: 6px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; text-decoration: none; }
+    .btn-g:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 24px rgba(184,148,90,.4); }
+    .btn-g:active { transform: scale(.97); }
+    .btn-o { background: transparent; color: rgba(255,255,255,.8); font-size: 13px; font-weight: 500; padding: 10px 20px; border-radius: 6px; cursor: pointer; border: 0.5px solid rgba(255,255,255,.25); display: inline-flex; align-items: center; gap: 6px; transition: border-color .2s, color .2s, transform .25s cubic-bezier(.34,1.56,.64,1); text-decoration: none; }
+    .btn-o:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(184,148,90,.15); border: 0.5px solid rgba(184,148,90,.2); border-radius: 12px; overflow: hidden; min-width: 280px; animation: statsSlide .9s cubic-bezier(.22,1,.36,1) both .9s; opacity: 0; }
+    @keyframes statsSlide { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+    .stat { background: rgba(28,36,30,.9); padding: 18px 14px; text-align: center; transition: background .2s; }
+    .stat:hover { background: rgba(184,148,90,.12); }
+    .stat-n { font-size: 26px; font-weight: 500; color: var(--gold); line-height: 1; }
+    .stat-l { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 4px; line-height: 1.4; }
+
+    /* ── SECTION LABEL ── */
+    .sec-label { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .sec-label::before { content: ''; width: 0; height: 1px; background: var(--gold); transition: width .6s cubic-bezier(.22,1,.36,1); }
+    .in .sec-label::before, .sec-label.lx::before { width: 28px; }
+
+    /* ── SERVICES ── */
+    .services { padding: 44px 28px; background: var(--cream); }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 1200px; margin: 0 auto; }
+    .svc { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px 18px; cursor: pointer; transition: border-color .25s, transform .3s cubic-bezier(.22,1,.36,1), box-shadow .25s; text-decoration: none; display: block; color: inherit; }
+    .svc:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(184,148,90,.12); }
+    .svc-icon { width: 44px; height: 44px; background: rgba(184,148,90,.1); border-radius: 8px; display: grid; place-items: center; margin-bottom: 14px; color: var(--gold); font-size: 22px; transition: background .25s, transform .3s cubic-bezier(.34,1.56,.64,1), color .25s; }
+    .svc:hover .svc-icon { background: var(--gold); color: #18201A; transform: scale(1.1) rotate(-4deg); }
+    .svc h3 { font-size: 15px; margin-bottom: 6px; transition: color .2s; }
+    .svc:hover h3 { color: var(--gold); }
+    .svc p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+    .svc-arr { display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; color: var(--gold); margin-top: 12px; transition: gap .3s cubic-bezier(.34,1.56,.64,1); overflow: hidden; }
+    .svc:hover .svc-arr { gap: 10px; }
+    .svc-arr i { transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .svc:hover .svc-arr i { transform: translateX(4px); }
+
+    /* ── PROJECTS ── */
+    .projects { padding: 44px 28px; background: var(--color-background-secondary); }
+    .proj-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .flt { font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); cursor: pointer; background: transparent; color: var(--color-text-secondary); transition: all .2s, transform .2s cubic-bezier(.34,1.56,.64,1); }
+    .flt.a, .flt:hover { background: var(--dark); color: var(--gold); border-color: var(--dark); transform: scale(1.04); }
+    
+    .proj-grid { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: repeat(2, 160px); gap: 8px; max-width: 1200px; margin: 0 auto; }
+    .proj { border-radius: var(--border-radius-lg); overflow: hidden; position: relative; cursor: pointer; background: var(--dark); transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s; }
+    .proj:hover { transform: scale(1.02); box-shadow: 0 16px 40px rgba(0,0,0,.35); z-index: 2; }
+    .proj-fill { width: 100%; height: 100%; display: flex; align-items: flex-end; position: relative; overflow: hidden; }
+    .proj-pattern { position: absolute; inset: 0; transition: transform .6s cubic-bezier(.22,1,.36,1), opacity .3s; }
+    .proj:hover .proj-pattern { transform: scale(1.08); }
+    
+    .p1 .proj-pattern { background: repeating-linear-gradient(45deg,#B8945A,#B8945A 2px,transparent 2px,transparent 12px); opacity: .18; }
+    .p2 .proj-pattern { background: repeating-linear-gradient(135deg,#7a9a7a,#7a9a7a 2px,transparent 2px,transparent 10px); opacity: .15; }
+    .p3 .proj-pattern { background: repeating-linear-gradient(0deg,#8a7a5a,#8a7a5a 2px,transparent 2px,transparent 8px); opacity: .15; }
+    .p4 .proj-pattern { background: radial-gradient(circle at 30% 70%,rgba(184,148,90,.25) 0%,transparent 60%); }
+    
+    .proj-overlay { position: absolute; inset: 0; background: linear-gradient(to top,rgba(18,26,20,.92) 0%,transparent 55%); transition: background .3s; }
+    .proj:hover .proj-overlay { background: linear-gradient(to top,rgba(18,26,20,.96) 0%,rgba(18,26,20,.1) 70%); }
+    .proj-info { position: relative; padding: 14px; z-index: 2; }
+    .proj-cat { font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .proj-title { font-size: 15px; font-weight: 500; color: #fff; transition: color .2s; }
+    .proj:hover .proj-title { color: var(--gold); }
+    .proj-meta { font-size: 11px; color: rgba(255,255,255,.5); }
+    
+    .proj-arrow { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; border: 0.5px solid rgba(184,148,90,0); background: rgba(184,148,90,0); display: grid; place-items: center; color: var(--gold); font-size: 16px; opacity: 0; transition: opacity .25s, background .25s, border-color .25s, transform .3s cubic-bezier(.34,1.56,.64,1); z-index: 2; }
+    .proj:hover .proj-arrow { opacity: 1; background: rgba(184,148,90,.15); border-color: rgba(184,148,90,.4); transform: rotate(0deg); }
+    .proj-big { grid-row: span 2; }
+
+    /* ── WHY ── */
+    .why { padding: 44px 28px; background: var(--dark); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; max-width: 1200px; margin: 0 auto; }
+    .why-items { display: flex; flex-direction: column; gap: 14px; }
+    .wi { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border-radius: var(--border-radius-md); transition: background .2s; }
+    .wi:hover { background: rgba(184,148,90,.06); }
+    .wi-icon { width: 36px; height: 36px; background: rgba(184,148,90,.15); border-radius: 7px; display: grid; place-items: center; color: var(--gold); font-size: 18px; flex-shrink: 0; transition: background .25s, transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .wi:hover .wi-icon { background: rgba(184,148,90,.3); transform: scale(1.1) rotate(-5deg); }
+    .wi-title { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 3px; }
+    .wi-desc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
+    .why-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .wn { background: var(--mid); border: 0.5px solid rgba(255,255,255,.07); border-radius: var(--border-radius-lg); padding: 20px; text-align: center; transition: border-color .25s, transform .3s cubic-bezier(.22,1,.36,1); }
+    .wn:hover { border-color: rgba(184,148,90,.4); transform: translateY(-3px); }
+    .wn.hl { background: var(--gold); }
+    .wn.hl:hover { transform: translateY(-3px) scale(1.02); }
+    .wn-val { font-size: 28px; font-weight: 500; color: var(--gold); line-height: 1; }
+    .wn.hl .wn-val { color: var(--dark); }
+    .wn-lbl { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; line-height: 1.4; }
+    .wn.hl .wn-lbl { color: rgba(18,26,20,.65); }
+
+    /* ── PROCESS ── */
+    .process { padding: 44px 28px; background: var(--mid); }
+    .steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; position: relative; max-width: 1200px; margin: 0 auto; }
+    .steps::before { content: ''; position: absolute; top: 24px; left: 8%; right: 8%; height: 1px; background: rgba(184,148,90,.2); }
+    .step { text-align: center; padding: 0 8px; position: relative; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid rgba(184,148,90,.35); display: grid; place-items: center; margin: 0 auto 14px; font-size: 14px; font-weight: 500; color: var(--gold); background: var(--mid); position: relative; z-index: 1; transition: background .25s, border-color .25s, transform .3s cubic-bezier(.34,1.56,.64,1), color .25s, box-shadow .25s; }
+    .step:hover .step-num { background: var(--gold); color: #18201A; border-color: var(--gold); transform: scale(1.15); box-shadow: 0 0 0 6px rgba(184,148,90,.15); }
+    .step-title { font-size: 12px; font-weight: 500; color: #fff; margin-bottom: 4px; transition: color .2s; }
+    .step:hover .step-title { color: var(--gold); }
+    .step-desc { font-size: 11px; color: rgba(255,255,255,.45); line-height: 1.5; }
+    .steps-line { position: absolute; top: 24px; left: 8%; height: 1px; background: var(--gold); width: 0; transition: width 1.5s cubic-bezier(.22,1,.36,1); z-index: 0; }
+    .steps-wrap.in .steps-line { width: 84%; }
+
+    /* ── TESTIMONIALS ── */
+    .testi { padding: 44px 28px; background: var(--cream); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 1200px; margin: 0 auto; }
+    .tcard { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px; transition: box-shadow .3s, transform .3s cubic-bezier(.22,1,.36,1), border-color .25s; }
+    .tcard:hover { box-shadow: 0 12px 32px rgba(0,0,0,.1); transform: translateY(-4px); border-color: rgba(184,148,90,.3); }
+    .tcard-stars { color: var(--gold); font-size: 14px; margin-bottom: 8px; letter-spacing: 2px; }
+    .tcard-quote { font-size: 32px; color: var(--gold); font-family: 'Montserrat', sans-serif; line-height: 1; margin-bottom: 4px; }
+    .tcard-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 16px; }
+    .tcard-author { display: flex; align-items: center; gap: 10px; border-top: 0.5px solid var(--color-border-tertiary); padding-top: 14px; }
+    .tcard-av { width: 38px; height: 38px; border-radius: 50%; background: rgba(184,148,90,.15); display: grid; place-items: center; font-size: 13px; font-weight: 500; color: var(--gold); flex-shrink: 0; transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .2s; }
+    .tcard:hover .tcard-av { transform: scale(1.1); background: var(--gold); color: #18201A; }
+    .tcard-name { font-size: 13px; font-weight: 500; }
+    .tcard-proj { font-size: 11px; color: var(--color-text-secondary); }
+
+    /* ── CTA ── */
+    .cta { padding: 36px 28px; background: var(--dark); }
+    .cta-box { background: var(--mid); border: 0.5px solid rgba(184,148,90,.2); border-radius: var(--border-radius-lg); padding: 36px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; position: relative; overflow: hidden; transition: border-color .3s; max-width: 1200px; margin: 0 auto; }
+    .cta-box:hover { border-color: rgba(184,148,90,.5); }
+    .cta-shimmer { position: absolute; inset: 0; background: linear-gradient(105deg,transparent 40%,rgba(184,148,90,.04) 50%,transparent 60%); transform: translateX(-100%); animation: shimmer 3s ease-in-out infinite 2s; pointer-events: none; }
+    @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(200%); } }
+    .cta h2 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .cta-sub { font-size: 14px; color: rgba(255,255,255,.55); }
+    .cta-btns { display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 2; }
+    
+    /* Дополнительные стили для полей ввода формы внутри CTA */
+    .cta-form-inputs { display: flex; gap: 10px; margin-top: 15px; }
+    .cta-input { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(184, 148, 90, 0.3); padding: 10px 15px; border-radius: 6px; color: #fff; font-size: 13px; width: 200px; outline: none; transition: border-color 0.2s; }
+    .cta-input:focus { border-color: var(--gold); }
+    .cta-input::placeholder { color: rgba(255,255,255,0.4); }
+
+    /* ── FOOTER ── */
+    .foot { background: var(--dark); padding: 32px 28px 20px; border-top: 0.5px solid rgba(255,255,255,.07); }
+    .foot-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 0.5px solid rgba(255,255,255,.07); max-width: 1200px; margin: 0 auto; }
+    .foot-desc { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; margin: 12px 0; }
+    .foot-h { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .foot-links { display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-size: 13px; color: rgba(255,255,255,.5); cursor: pointer; transition: color .15s, padding-left .2s; text-decoration: none; }
+    .foot-links a:hover { color: var(--gold); padding-left: 4px; }
+    
+    .foot-contact { display: flex; gap: 8px; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 8px; align-items: flex-start; transition: color .15s; text-decoration: none; }
+    .foot-contact:hover { color: rgba(255,255,255,.8); }
+    .foot-contact i { color: var(--gold); font-size: 15px; margin-top: 2px; flex-shrink: 0; }
+    
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,.3); max-width: 1200px; margin: 0 auto; }
+    .socials { display: flex; gap: 8px; }
+    .soc { width: 30px; height: 30px; border-radius: 50%; border: 0.5px solid rgba(184,148,90,.25); display: grid; place-items: center; color: var(--gold); font-size: 14px; cursor: pointer; transition: background .2s, border-color .2s, transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .soc:hover { background: var(--gold); color: #18201A; border-color: var(--gold); transform: scale(1.15) rotate(-5deg); }
+
+    /* ── ACCESSIBILITY & PRELOADER ── */
+    .skip-link { position: absolute; top: -100px; left: 0; background: var(--gold); color: #18201A; padding: 10px; z-index: 1000; transition: top 0.3s; font-weight: 500; text-decoration: none; border-radius: 0 0 6px 6px; }
+    .skip-link:focus { top: 0; }
+    
+    .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s ease, visibility 0.5s; }
+    .preloader.hidden { opacity: 0; visibility: hidden; }
+    .preloader__spinner { width: 40px; height: 40px; border: 3px solid rgba(184,148,90,0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--gold); width: 0%; z-index: 10000; transition: width 0.1s ease; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+    /* ── MOBILE ADAPTIVITY FOR NEW STRUCT ── */
+    @media (max-width: 992px) {
+      .hero-content { flex-direction: column; text-align: center; }
+      .hero-left { max-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .steps::before, .steps-line { display: none; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cta-box { grid-template-columns: 1fr; text-align: center; }
+      .cta-form-inputs { justify-content: center; flex-wrap: wrap; }
+      .foot-top { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 576px) {
+      .svc-grid { grid-template-columns: 1fr; }
+      .proj-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .proj-big { grid-row: auto; }
+      .steps { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; }
+      .nav-links { display: none; } /* Мобильное меню берет контроль */
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Domus Viva",
+    "image": "https://domusviva.ru/assets/images/og/home.jpg",
+    "logo": "https://domusviva.ru/assets/icons/logo.svg",
+    "url": "https://domusviva.ru",
+    "telephone": "+7-495-123-45-67",
+    "email": "info@domusviva.ru",
+    "priceRange": "₽₽₽",
+    "foundingDate": "2008",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Строителей, 42",
+      "addressLocality": "Москва",
+      "postalCode": "101000",
+      "addressCountry": "RU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 55.7558,
+      "longitude": 37.6173
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "120"
+    },
+    "sameAs": [
+      "https://vk.com/domusviva",
+      "https://t.me/domusviva"
+    ]
+  }
+  </script>
+</head>
+<body class="page-home">
+  
+  <!-- Accessibility -->
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__spinner"></div>
+    <span class="visually-hidden">Загрузка сайта...</span>
+  </div>
+  
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- CONTAINER WRAPPER WITH UNIQUE STYLE -->
+  <div class="dv">
+
+    <!-- HEADER / NAVIGATION (Exact appearance from animated template, structural optimization) -->
+    <header class="nav" id="header" role="banner">
+      <a href="/" class="nav-logo" aria-label="Domus Viva - На главную">
+        <div class="nav-mark">DV</div>
+        <div>
+          <div class="nav-name">Domus Viva</div>
+          <div class="nav-sub">Строительство коттеджей</div>
+        </div>
+      </a>
+      
+      <nav class="nav-links" id="mainNav" role="navigation" aria-label="Основное меню">
+        <a href="/" class="nav-link a">Главная</a>
+        <a href="/about.html" class="nav-link">О нас</a>
+        <a href="/services.html" class="nav-link">Услуги</a>
+        <a href="/projects.html" class="nav-link">Проекты</a>
+        <a href="/blog.html" class="nav-link">Блог</a>
+        <a href="/contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      
+      <button class="nav-cta" data-modal="callback">Заказать звонок</button>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER (Semantic HTML5) -->
+    <main id="main-content" role="main">
+      
+      <!-- HERO SECTION -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+          <div class="hero-left">
+            <div class="badge">
+              <div class="badge-dot"></div>С 2008 года · 120+ объектов
+            </div>
+            <h1 id="hero-title">Дом вашей<br><em>мечты</em> —<br>под ключ</h1>
+            <p class="hero-sub">Строим коттеджи в Москве и Подмосковье. Индивидуальные проекты, экологичные материалы, гарантия 10 лет.</p>
+            <div class="hero-btns">
+              <a href="/calculator.html" class="btn-g"><i class="ti ti-calculator" aria-hidden="true"></i>Рассчитать стоимость</a>
+              <a href="/projects.html" class="btn-o"><i class="ti ti-photo" aria-hidden="true"></i>Смотреть проекты</a>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-n"><span class="ctr" data-to="120" data-suffix="+">0+</span></div>
+              <div class="stat-l">домов<br>сдано</div>
+            </div>
+            <div class="stat">
+              <div class="stat-n"><span class="ctr" data-to="16" data-suffix="">0</span></div>
+              <div class="stat-l">лет<br>опыта</div>
+            </div>
+            <div class="stat">
+              <div class="stat-n"><span class="ctr" data-to="98" data-suffix="%">0%</span></div>
+              <div class="stat-l">довольных<br>клиентов</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES SECTION -->
+      <section id="services" class="services" aria-labelledby="services-title">
+        <div class="rv" style="max-width: 1200px; margin: 0 auto 28px;">
+          <div class="sec-label lx">Что мы делаем</div>
+          <h2 id="services-title" style="font-size:28px;margin-bottom:6px">Полный цикл строительства</h2>
+          <p style="font-size:14px;color:var(--color-text-secondary);max-width:52ch">От проектирования до ввода в эксплуатацию — берём на себя все этапы</p>
+        </div>
+        
+        <div class="svc-grid">
+          <a href="/pages/services/service-build.html" class="svc rv" data-d="1">
+            <div class="svc-icon"><i class="ti ti-building-community" aria-hidden="true"></i></div>
+            <h3>Строительство</h3>
+            <p>Коттеджи любой сложности из кирпича, газобетона и дерева. Собственная бригада.</p>
+            <div class="svc-arr">Подробнее <i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+          </a>
+          
+          <a href="/pages/services/service-design.html" class="svc rv" data-d="2">
+            <div class="svc-icon"><i class="ti ti-ruler-2" aria-hidden="true"></i></div>
+            <h3>Проектирование</h3>
+            <p>Индивидуальные архитектурные проекты с учётом рельефа и образа жизни.</p>
+            <div class="svc-arr">Подробнее <i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+          </a>
+          
+          <a href="/pages/services/service-interior.html" class="svc rv" data-d="3">
+            <div class="svc-icon"><i class="ti ti-sofa" aria-hidden="true"></i></div>
+            <h3>Интерьер</h3>
+            <p>Дизайн и чистовая отделка под ключ. Работаем с ведущими поставщиками.</p>
+            <div class="svc-arr">Подробнее <i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+          </a>
+          
+          <a href="/pages/services/service-engineering.html" class="svc rv" data-d="2">
+            <div class="svc-icon"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+            <h3>Инженерные системы</h3>
+            <p>Отопление, водоснабжение, вентиляция, умный дом. Энергоэффективные решения.</p>
+            <div class="svc-arr">Подробнее <i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+          </a>
+          
+          <a href="/pages/services/service-landscape.html" class="svc rv" data-d="3">
+            <div class="svc-icon"><i class="ti ti-trees" aria-hidden="true"></i></div>
+            <h3>Ландшафт</h3>
+            <p>Благоустройство территории: дорожки, газон, беседки, автополив, освещение.</p>
+            <div class="svc-arr">Подробнее <i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+          </a>
+          
+          <a href="/pages/services/service-renovation.html" class="svc rv" data-d="4">
+            <div class="svc-icon"><i class="ti ti-tools" aria-hidden="true"></i></div>
+            <h3>Реконструкция</h3>
+            <p>Расширение, надстройка и капремонт существующего дома без сноса.</p>
+            <div class="svc-arr">Подробнее <i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO SECTION -->
+      <section id="portfolio" class="projects" aria-labelledby="portfolio-title">
+        <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;gap:10px;max-width: 1200px; margin: 0 auto 20px;">
+          <div>
+            <div class="sec-label lx">Портфолио</div>
+            <h2 id="portfolio-title" style="font-size:28px">Наши лучшие проекты</h2>
+          </div>
+          <a href="/projects.html" class="btn-o" style="color:var(--color-text-primary);border:0.5px solid var(--color-border-secondary)">Все проекты <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        
+        <div class="proj-filters rv" style="max-width: 1200px; margin: 0 auto 20px;">
+          <button class="flt a" data-filter="all">Все</button>
+          <button class="flt" data-filter="cottage">Коттеджи</button>
+          <button class="flt" data-filter="wood">Деревянные</button>
+          <button class="flt" data-filter="modern">Современный стиль</button>
+          <button class="flt" data-filter="classic">Классика</button>
+        </div>
+        
+        <div class="proj-grid rv" id="portfolioGrid">
+          <article class="proj proj-big p1" data-category="modern cottage">
+            <div class="proj-fill">
+              <div class="proj-pattern"></div>
+              <div class="proj-overlay"></div>
+              <div class="proj-arrow"><i class="ti ti-arrow-up-right" aria-hidden="true"></i></div>
+              <div class="proj-info">
+                <div class="proj-cat">Современный стиль</div>
+                <h3 class="proj-title">«Белый камень»</h3>
+                <div class="proj-meta">280 м² · Истринский район · 2024</div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="proj p2" data-category="wood cottage">
+            <div class="proj-fill">
+              <div class="proj-pattern"></div>
+              <div class="proj-overlay"></div>
+              <div class="proj-arrow"><i class="ti ti-arrow-up-right" aria-hidden="true"></i></div>
+              <div class="proj-info">
+                <div class="proj-cat">Деревянный дом</div>
+                <h3 class="proj-title">«Сосновый бор»</h3>
+                <div class="proj-meta">190 м² · Подольск · 2024</div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="proj p3" data-category="classic cottage">
+            <div class="proj-fill">
+              <div class="proj-pattern"></div>
+              <div class="proj-overlay"></div>
+              <div class="proj-arrow"><i class="ti ti-arrow-up-right" aria-hidden="true"></i></div>
+              <div class="proj-info">
+                <div class="proj-cat">Классика</div>
+                <h3 class="proj-title">«Терракота»</h3>
+                <div class="proj-meta">320 м² · Рублёвка · 2023</div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="proj p4" style="grid-column:span 2" data-category="modern cottage">
+            <div class="proj-fill">
+              <div class="proj-pattern"></div>
+              <div class="proj-overlay"></div>
+              <div class="proj-arrow"><i class="ti ti-arrow-up-right" aria-hidden="true"></i></div>
+              <div class="proj-info">
+                <div class="proj-cat">Современный стиль</div>
+                <h3 class="proj-title">«Горизонт» — панорамное остекление</h3>
+                <div class="proj-meta">250 м² · Сколково · 2023</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- WHY US SECTION -->
+      <section id="why-us" class="why" aria-labelledby="why-title">
+        <div class="why-grid">
+          <div class="rv-l rv">
+            <div class="sec-label lx">Почему мы</div>
+            <h2 id="why-title" style="color:#fff;font-size:28px;margin-bottom:12px">Качество,<br>проверенное<br>временем</h2>
+            <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:20px">За 16 лет мы построили более 120 объектов. Ни один заказчик не предъявил претензий после сдачи.</p>
+            <div class="why-items">
+              <article class="wi rv" data-d="1">
+                <div class="wi-icon"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="wi-title">Гарантия 10 лет</h3>
+                  <p class="wi-desc">На несущие конструкции и кровлю. Дополнительно 3 года на инженерные системы.</p>
+                </div>
+              </article>
+              <article class="wi rv" data-d="2">
+                <div class="wi-icon"><i class="ti ti-file-certificate" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="wi-title">Официальный договор</h3>
+                  <p class="wi-desc">Фиксируем смету и сроки. Нет скрытых доплат и заморозки стройки.</p>
+                </div>
+              </article>
+              <article class="wi rv" data-d="3">
+                <div class="wi-icon"><i class="ti ti-clock-check" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="wi-title">Сдача в срок</h3>
+                  <p class="wi-desc">Штраф за каждый день просрочки прописан в договоре. Видеоотчёты еженедельно.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          
+          <div class="why-nums rv-r rv">
+            <div class="wn">
+              <div class="wn-val"><span class="ctr" data-to="120" data-suffix="+">0+</span></div>
+              <div class="wn-lbl">домов<br>сдано</div>
+            </div>
+            <div class="wn hl">
+              <div class="wn-val" style="color:var(--dark)"><span class="ctr" data-to="16" data-suffix="">0</span></div>
+              <div class="wn-lbl" style="color:rgba(18,26,20,.65)">лет<br>опыта</div>
+            </div>
+            <div class="wn">
+              <div class="wn-val"><span class="ctr" data-to="98" data-suffix="%">0%</span></div>
+              <div class="wn-lbl">рекомендуют<br>нас друзьям</div>
+            </div>
+            <div class="wn">
+              <div class="wn-val"><span class="ctr" data-to="45" data-suffix="">0</span></div>
+              <div class="wn-lbl">сотрудников<br>в команде</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS SECTION -->
+      <section id="process" class="process" aria-labelledby="process-title">
+        <div class="rv" style="text-align:center">
+          <div class="sec-label lx" style="justify-content:center">Как мы работаем</div>
+          <h2 id="process-title" style="color:#fff;font-size:28px;margin-bottom:8px">Прозрачный процесс</h2>
+          <p style="font-size:14px;color:rgba(255,255,255,.55);margin-bottom:32px">От первой встречи до вручения ключей — шесть чётких этапов</p>
+        </div>
+        
+        <div class="steps-wrap rv">
+          <div class="steps">
+            <div class="steps-line"></div>
+            <div class="step rv-s" data-d="1">
+              <div class="step-num">01</div>
+              <h3 class="step-title">Консультация</h3>
+              <p class="step-desc">Встреча с архитектором, обсуждение пожеланий</p>
+            </div>
+            <div class="step rv-s" data-d="2">
+              <div class="step-num">02</div>
+              <h3 class="step-title">Проект</h3>
+              <p class="step-desc">Архитектурный и конструктивный проект</p>
+            </div>
+            <div class="step rv-s" data-d="3">
+              <div class="step-num">03</div>
+              <h3 class="step-title">Договор</h3>
+              <p class="step-desc">Фиксируем стоимость, сроки и ответственность</p>
+            </div>
+            <div class="step rv-s" data-d="4">
+              <div class="step-num">04</div>
+              <h3 class="step-title">Строительство</h3>
+              <p class="step-desc">Еженедельные фотоотчёты онлайн</p>
+            </div>
+            <div class="step rv-s" data-d="5">
+              <div class="step-num">05</div>
+              <h3 class="step-title">Отделка</h3>
+              <p class="step-desc">Чистовая отделка, монтаж инженерии</p>
+            </div>
+            <div class="step rv-s" data-d="6">
+              <div class="step-num">06</div>
+              <h3 class="step-title">Сдача</h3>
+              <p class="step-desc">Ключи, документы, гарантия 10 лет</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS SECTION -->
+      <section id="testimonials" class="testi" aria-labelledby="reviews-title">
+        <div class="rv" style="max-width: 1200px; margin: 0 auto 24px;">
+          <div class="sec-label lx">Отзывы</div>
+          <h2 id="reviews-title" style="font-size:28px;">Что говорят наши клиенты</h2>
+        </div>
+        
+        <div class="testi-grid">
+          <blockquote class="tcard rv" data-d="1">
+            <div class="tcard-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <div class="tcard-quote">"</div>
+            <p class="tcard-text">Строили дом 14 месяцев — сдали точно в срок. Качество отделки превзошло ожидания. Менеджер был на связи в любое время.</p>
+            <footer class="tcard-author">
+              <div class="tcard-av">ИП</div>
+              <div>
+                <cite class="tcard-name">Иван Петров</cite>
+                <div class="tcard-proj">«Горизонт», 250 м²</div>
+              </div>
+            </footer>
+          </blockquote>
+          
+          <blockquote class="tcard rv" data-d="2">
+            <div class="tcard-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <div class="tcard-quote">"</div>
+            <p class="tcard-text">Живём уже 2 года — всё работает как часы. Умный дом, тёплые полы, рекуперация. Архитектор учёл все наши пожелания.</p>
+            <footer class="tcard-author">
+              <div class="tcard-av">ОК</div>
+              <div>
+                <cite class="tcard-name">Ольга Ковалёва</cite>
+                <div class="tcard-proj">«Белый камень», 280 м²</div>
+              </div>
+            </footer>
+          </blockquote>
+          
+          <blockquote class="tcard rv" data-d="3">
+            <div class="tcard-stars" aria-label="Оценка 5 из 5">★★★★★</div>
+            <div class="tcard-quote">"</div>
+            <p class="tcard-text">Выбирали из пяти компаний. Остановились на Domus Viva из-за прозрачной сметы и видеоотчётов. Ни разу не пожалели.</p>
+            <footer class="tcard-author">
+              <div class="tcard-av">СМ</div>
+              <div>
+                <cite class="tcard-name">Сергей Морозов</cite>
+                <div class="tcard-proj">«Сосновый бор», 190 м²</div>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- FINAL CTA SECTION WITH FORM ACTIONABILITY -->
+      <section class="cta" aria-labelledby="cta-final-title">
+        <form class="cta-box rv" id="ctaForm" novalidate>
+          <div class="cta-shimmer"></div>
+          <div style="position:relative">
+            <div class="sec-label lx">Готовы строить?</div>
+            <h2 id="cta-final-title">Начните с бесплатной консультации</h2>
+            <p class="cta-sub">Расскажите о своём участке — архитектор свяжется с вами в течение рабочего дня</p>
+            
+            <!-- Интегрированная форма ввода данных -->
+            <div class="cta-form-inputs">
+              <input type="text" name="name" class="cta-input" placeholder="Ваше имя" required aria-label="Ваше имя" autocomplete="name">
+              <input type="tel" name="phone" class="cta-input" placeholder="+7 (___) ___-__-__" required aria-label="Номер телефона" autocomplete="tel">
+            </div>
+            
+            <label class="checkbox-label" style="display: block; margin-top: 10px; color: rgba(255,255,255,0.6); font-size: 11px;">
+              <input type="checkbox" name="agree" required checked>
+              <span>Согласен с политикой конфиденциальности</span>
+            </label>
+          </div>
+          <div class="cta-btns">
+            <button type="submit" class="btn-g" style="justify-content:center; width: 100%;">
+              <i class="ti ti-message" aria-hidden="true"></i>Получить консультацию
+            </button>
+            <a href="tel:+74951234567" class="btn-o" style="justify-content:center; width: 100%;">
+              <i class="ti ti-phone" aria-hidden="true"></i>+7 (495) 123-45-67
+            </a>
+          </div>
+        </form>
+      </section>
+      
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="foot" role="contentinfo">
+      <div class="foot-top">
+        <div class="rv">
+          <div class="nav-logo">
+            <div class="nav-mark">DV</div>
+            <div>
+              <div class="nav-name">Domus Viva</div>
+              <div class="nav-sub">Строительство коттеджей</div>
+            </div>
+          </div>
+          <p class="foot-desc">Строим дома, в которых хочется жить. Индивидуальные проекты, премиальные материалы, гарантия 10 лет.</p>
+          <div class="socials">
+            <a href="https://t.me/domusviva" class="soc" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
+            <a href="https://youtube.com/domusviva" class="soc" aria-label="YouTube"><i class="ti ti-brand-youtube"></i></a>
+            <a href="https://vk.com/domusviva" class="soc" aria-label="ВКонтакте"><i class="ti ti-brand-vk"></i></a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="1">
+          <h4 class="foot-h">Разделы</h4>
+          <div class="foot-links">
+            <a href="/about.html">О компании</a>
+            <a href="/services.html">Услуги</a>
+            <a href="/projects.html">Проекты</a>
+            <a href="/team.html">Команда</a>
+            <a href="/blog.html">Блог</a>
+            <a href="/contacts.html">Контакты</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="2">
+          <h4 class="foot-h">Услуги</h4>
+          <div class="foot-links">
+            <a href="/pages/services/service-build.html">Строительство</a>
+            <a href="/pages/services/service-design.html">Проектирование</a>
+            <a href="/pages/services/service-interior.html">Интерьер</a>
+            <a href="/pages/services/service-engineering.html">Инженерия</a>
+            <a href="/pages/services/service-landscape.html">Ландшафт</a>
+            <a href="/calculator.html">Калькулятор</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="3">
+          <h4 class="foot-h">Контакты</h4>
+          <a href="tel:+74951234567" class="foot-contact"><i class="ti ti-phone" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+          <a href="mailto:info@domusviva.ru" class="foot-contact"><i class="ti ti-mail" aria-hidden="true"></i>info@domusviva.ru</a>
+          <div class="foot-contact"><i class="ti ti-map-pin" aria-hidden="true"></i>Москва, ул. Строителей, 42</div>
+          <div class="foot-contact"><i class="ti ti-clock" aria-hidden="true"></i>Пн–Пт: 9:00–18:00</div>
+        </div>
+      </div>
+      
+      <div class="foot-bottom">
+        <span>© 2008–2026 Domus Viva. Все права защищены.</span>
+        <a href="/privacy.html" style="color:rgba(255,255,255,.3);cursor:pointer;text-decoration:none;">Политика конфиденциальности</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- MODAL SHELL -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+      <div class="modal__body" id="modalBody">
+        <!-- Сюда динамически инжектится разметка звонка -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- SCRIPTS -->
+  <script src="/js/data.js" defer></script>
+  <script src="/js/shared.js" defer></script>
+  <script src="/js/modules/header.js" defer></script>
+  <script src="/js/modules/modal.js" defer></script>
+  <script src="/js/modules/form.js" defer></script>
+  <script src="/js/modules/portfolio.js" defer></script>
+  <script src="/js/modules/testimonials.js" defer></script>
+  <script src="/js/modules/animations.js" defer></script>
+  <script src="/js/main.js" defer></script>
+
+  <!-- Интегрированная JS-логика из domus_viva_animated.html -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Плавное отключение прелоадера после инициализации
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+        }, 300);
+      }
+
+      // Индикатор прогресса чтения
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('scrollProgress').style.width = scrolled + '%';
+      });
+
+      // Настройка IntersectionObserver для анимаций
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          el.classList.add('in');
+          if (el.classList.contains('steps-wrap')) {
+            const line = el.querySelector('.steps-line');
+            if (line) line.style.width = '84%';
+          }
+          el.querySelectorAll('.ctr').forEach(ctr => animCount(ctr));
+          io.unobserve(el);
+        });
+      }, { threshold: .15, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.rv, .rv-l, .rv-r, .rv-s, .steps-wrap').forEach(el => io.observe(el));
+
+      // Запуск счетчиков на первом экране
+      document.querySelectorAll('.hero .ctr').forEach(ctr => setTimeout(() => animCount(ctr), 1200));
+
+      function animCount(el) {
+        if (el.classList.contains('counted')) return;
+        el.classList.add('counted');
+        const to = +el.dataset.to, suf = el.dataset.suffix || '';
+        const dur = 1600, start = performance.now();
+        (function tick(now) {
+          const p = Math.min((now - start) / dur, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(ease * to) + suf;
+          if (p < 1) requestAnimationFrame(tick);
+        })(start);
+      }
+
+      // Переключение фильтров портфолио
+      document.querySelectorAll('.flt').forEach(b => {
+        b.addEventListener('click', () => {
+          document.querySelectorAll('.flt').forEach(x => x.classList.remove('a'));
+          b.classList.add('a');
+          
+          // Фильтрация элементов (функционал из portfolio.js)
+          const filterValue = b.getAttribute('data-filter');
+          const projects = document.querySelectorAll('#portfolioGrid .proj');
+          
+          projects.forEach(proj => {
+            if (filterValue === 'all' || proj.getAttribute('data-category').includes(filterValue)) {
+              proj.style.display = 'block';
+              setTimeout(() => { proj.style.opacity = '1'; proj.style.transform = 'scale(1)'; }, 50);
+            } else {
+              proj.style.opacity = '0';
+              proj.style.transform = 'scale(0.95)';
+              setTimeout(() => { proj.style.display = 'none'; }, 300);
+            }
+          });
+        });
+      });
+
+      // Переключение активного состояния пунктов навигации
+      document.querySelectorAll('.nav-link').forEach(b => {
+        b.addEventListener('click', () => {
+          document.querySelectorAll('.nav-link').forEach(x => x.classList.remove('a'));
+          b.classList.add('a');
+        });
+      });
+
+      // Навигация на проекты при клике
+      const projectMap = {
+        'p1': 'pages/projects/project-white-stone.html',
+        'p2': 'pages/projects/project-pine-forest.html',
+        'p3': 'pages/projects/project-terracotta.html',
+        'p4': 'pages/projects/project-horizon.html'
+      };
+
+      document.querySelectorAll('#portfolioGrid .proj').forEach(proj => {
+        proj.addEventListener('click', () => {
+          for (const [className, url] of Object.entries(projectMap)) {
+            if (proj.classList.contains(className)) {
+              window.location.href = url;
+              break;
+            }
+          }
+        });
+        proj.style.cursor = 'pointer';
+      });
+
+      // Переключение языка
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const STORAGE_KEY = 'domus-viva-lang';
+      
+      function getCurrentLanguage() {
+        return localStorage.getItem(STORAGE_KEY) || 'ru';
+      }
+
+      function setLanguage(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+        langButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Инициализировать активный язык
+      const currentLang = getCurrentLanguage();
+      setLanguage(currentLang);
+    });
+  </script>
+</body>
+</html>

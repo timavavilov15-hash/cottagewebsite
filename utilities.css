@@ -1,0 +1,70 @@
+/**
+ * TOC Module — содержание статьи с подсветкой активного раздела
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  const init = () => {
+    const tocLinks = $$('.toc-list a');
+    if (tocLinks.length === 0) return;
+
+    const sections = tocLinks.map(link => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return null;
+      return $(href);
+    }).filter(Boolean);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          
+          tocLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${id}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-80px 0px -80% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll при клике
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        const target = $(href);
+        
+        if (target) {
+          const offset = 100;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          
+          window.scrollTo({
+            top,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

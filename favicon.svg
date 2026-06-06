@@ -1,0 +1,86 @@
+/**
+ * FAQ Module — аккордеон с FAQ
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  const toggleItem = (item) => {
+    const isOpen = item.classList.contains('faq-item--open');
+    const content = $('.faq-answer', item);
+    const trigger = $('.faq-question', item);
+
+    if (isOpen) {
+      item.classList.remove('faq-item--open');
+      trigger.setAttribute('aria-expanded', 'false');
+      if (content) {
+        content.style.maxHeight = '0';
+        content.setAttribute('hidden', '');
+      }
+    } else {
+      item.classList.add('faq-item--open');
+      trigger.setAttribute('aria-expanded', 'true');
+      if (content) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.removeAttribute('hidden');
+      }
+    }
+  };
+
+  const init = () => {
+    const faqItems = $$('.faq-item');
+    
+    faqItems.forEach(item => {
+      const trigger = $('.faq-question', item);
+      if (!trigger) return;
+
+      trigger.addEventListener('click', () => {
+        toggleItem(item);
+      });
+
+      // Keyboard support
+      trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleItem(item);
+        }
+      });
+    });
+
+    // Schema.org FAQ для SEO (динамическая генерация)
+    if (faqItems.length > 0 && !document.querySelector('[itemtype="https://schema.org/FAQPage"]')) {
+      const faqData = faqItems.map(item => {
+        const question = $('.faq-question', item)?.textContent?.trim() || '';
+        const answer = $('.faq-answer', item)?.textContent?.trim() || '';
+        return {
+          "@type": "Question",
+          "name": question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": answer
+          }
+        };
+      });
+
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqData
+      });
+      document.head.appendChild(schemaScript);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

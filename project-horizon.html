@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Проект «Лесная поляна» — 128 м² | DOMUS VIVA</title>
+  <meta name="description" content="Уютный одноэтажный экодом из оцилиндрованного бревна: 128 м², 3 спальни, большая кухня-гостиная. Идеален для семьи из 3-4 человек.">
+  <link rel="canonical" href="https://domusviva.example/pages/project-forest-glade.html">
+  
+  <meta property="og:title" content="Экодом «Лесная поляна» — 128 м²">
+  <meta property="og:image" content="../assets/images/projects/forest-glade-og.jpg">
+  
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tabler Icons (для рендеринга иконок ti-*) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
+  <!-- CSS Modules (для обратной совместимости структуры проекта) -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/utilities.css">
+  <link rel="stylesheet" href="../css/pages.css">
+
+  <!-- Фирменный стиль Domus Viva -->
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #B8945A;
+      --gold-lt: #F0E4CC;
+      --dark: #18201A;
+      --mid: #2C3A2E;
+      --cream: #F6F3EE;
+      --muted: #7A8A7C;
+      --border-radius-lg: 12px;
+      --border-radius-md: 8px;
+      --color-text-primary: #18201A;
+      --color-text-secondary: #5A665C;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #edeae4;
+      --color-border-secondary: rgba(24, 32, 26, 0.15);
+      --color-border-tertiary: rgba(24, 32, 26, 0.08);
+      --font-sans: 'Roboto', 'Montserrat', sans-serif;
+    }
+    
+    body { 
+      font-family: var(--font-sans); 
+      font-size: 16px; 
+      line-height: 1.6; 
+      color: var(--color-text-primary); 
+      background: var(--cream);
+    }
+    
+    .dv h1, .dv h2, .dv h3 { font-weight: 500; line-height: 1.2; }
+
+    /* ── REVEAL SYSTEM ── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv.in { opacity: 1; transform: none; }
+    .rv-l { opacity: 0; transform: translateX(-28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-l.in { opacity: 1; transform: none; }
+    .rv-r { opacity: 0; transform: translateX(28px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+    .rv-r.in { opacity: 1; transform: none; }
+    .rv-s { opacity: 0; transform: scale(.94); transition: opacity .55s ease, transform .55s cubic-bezier(.34,1.56,.64,1); }
+    .rv-s.in { opacity: 1; transform: none; }
+    [data-d="1"] { transition-delay: .1s; }
+    [data-d="2"] { transition-delay: .2s; }
+    [data-d="3"] { transition-delay: .3s; }
+    [data-d="4"] { transition-delay: .4s; }
+    [data-d="5"] { transition-delay: .5s; }
+    [data-d="6"] { transition-delay: .6s; }
+
+    /* ── HEADER ── */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: var(--dark); border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-mark { width: 32px; height: 32px; background: var(--gold); border-radius: 6px; display: grid; place-items: center; font-size: 13px; font-weight: 500; color: #18201A; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+    .nav-mark:hover { transform: rotate(8deg) scale(1.1); }
+    .nav-name { font-size: 15px; font-weight: 500; color: #fff; }
+    .nav-sub { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link { font-size: 13px; color: rgba(255,255,255,.55); padding: 5px 10px; border-radius: 5px; cursor: pointer; transition: color .15s, background .15s; position: relative; text-decoration: none; }
+    .nav-link::after { content: ''; position: absolute; bottom: 2px; left: 10px; right: 10px; height: 1.5px; background: var(--gold); transform: scaleX(0); transition: transform .25s cubic-bezier(.22,1,.36,1); }
+    .nav-link:hover { color: rgba(255,255,255,.9); }
+    .nav-link:hover::after, .nav-link.a::after { transform: scaleX(1); }
+    .nav-link.a { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: #18201A; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 6px; cursor: pointer; border: none; transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+    .nav-cta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 20px rgba(184,148,90,.4); }
+    .nav-cta:active { transform: scale(.97); }
+
+    /* ── BREADCRUMBS ── */
+    .breadcrumbs { padding: 20px 28px 10px; font-size: 13px; color: var(--muted); max-width: 1200px; margin: 0 auto; width: 100%; }
+    .breadcrumbs__list { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
+    .breadcrumbs__list a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    .breadcrumbs__list a:hover { color: var(--color-text-primary); }
+    .breadcrumbs__list li:not(:last-child)::after { content: '•'; margin-left: 8px; color: rgba(24, 32, 26, 0.2); }
+
+    /* ── PROJECT HERO ── */
+    .project-hero { background: var(--dark); padding: 52px 28px; position: relative; overflow: hidden; color: #fff; }
+    .project-hero__bg { position: absolute; inset: 0; opacity: 0.35; z-index: 1; }
+    .project-hero__bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) contrast(1.1); }
+    .project-hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, var(--dark) 100%); z-index: 2; }
+    .project-hero__content { position: relative; z-index: 3; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .project-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 0.5px solid rgba(184,148,90,.35); padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
+    .project-hero__title { font-size: 38px; color: #fff; margin-bottom: 14px; font-weight: 500; }
+    .project-hero__subtitle { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 28px; max-width: 50ch; }
+    .project-hero__quick-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(184,148,90,.15); border: 0.5px solid rgba(184,148,90,.2); border-radius: 12px; overflow: hidden; max-width: 650px; }
+    .quick-stat { background: rgba(28,36,30,.9); padding: 14px 10px; text-align: center; }
+    .quick-stat strong { display: block; font-size: 18px; color: var(--gold); }
+    .quick-stat span { font-size: 11px; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* ── PAGE NAV ── */
+    .page-nav { background: var(--mid); padding: 12px 28px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(184,148,90,0.1); }
+    .page-nav__list { display: flex; gap: 24px; list-style: none; max-width: 1200px; margin: 0 auto; overflow-x: auto; white-space: nowrap; }
+    .page-nav__list a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
+    .page-nav__list a:hover, .page-nav__list a.page-nav__link--active { color: var(--gold); }
+
+    /* ── PROJECT OVERVIEW ── */
+    .project-overview { padding: 52px 28px; background: var(--cream); }
+    .project-overview__grid { display: grid; grid-template-columns: 1fr 340px; gap: 40px; max-width: 1200px; margin: 0 auto; }
+    .project-overview__content h2 { font-size: 24px; margin-bottom: 16px; color: var(--dark); font-weight: 500; }
+    .lead { font-size: 16px; font-weight: 500; margin-bottom: 14px; color: var(--dark); }
+    .project-overview__content p { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 14px; }
+    .project-overview__content h3 { font-size: 18px; margin-top: 24px; margin-bottom: 12px; color: var(--dark); }
+    .check-list { list-style: none; }
+    .check-list li { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .check-list li::before { content: '✓'; color: var(--gold); font-weight: bold; }
+
+    /* SIDEBAR CARD */
+    .project-info-card { background: #fff; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
+    .project-info-card h3 { font-size: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 10px; }
+    .project-info-card__list { display: flex; flex-direction: column; gap: 10px; }
+    .project-info-card__item { display: flex; justify-content: space-between; font-size: 13px; border-bottom: 1px dashed rgba(24, 32, 26, 0.08); padding-bottom: 6px; }
+    .project-info-card__item dt { color: var(--muted); }
+    .project-info-card__item dd { font-weight: 500; color: var(--dark); }
+    .project-info-card__item--accent { border-bottom: none; margin-top: 8px; }
+    .project-info-card__item--accent dt { color: var(--dark); font-weight: 600; }
+    .project-info-card__item--accent dd { color: var(--gold); font-weight: 700; font-size: 16px; }
+    .btn--block { width: 100%; background: var(--gold); color: #18201A; padding: 12px; border-radius: 6px; border: none; font-weight: 600; margin-top: 18px; cursor: pointer; transition: transform 0.25s; text-align: center; }
+    .btn--block:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(184,148,90,0.3); }
+
+    /* ── GALLERY ── */
+    .project-gallery { padding: 52px 28px; background: var(--color-background-secondary); }
+    .section__header { max-width: 1200px; margin: 0 auto 24px; }
+    .section__eyebrow { font-size: 11px; font-weight: 500; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+    .section__title { font-size: 24px; color: var(--dark); font-weight: 500; }
+    .project-gallery__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 1200px; margin: 0 auto; }
+    .gallery-item { position: relative; border-radius: var(--border-radius-lg); overflow: hidden; display: block; height: 180px; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(.22,1,.36,1); }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item--large { grid-column: span 2; height: 372px; grid-row: span 2; }
+
+    /* ── PLAN SECTION ── */
+    .project-plan { padding: 52px 28px; background: var(--cream); }
+    .project-plan__wrapper { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: center; }
+    .floor-plan-svg { width: 100%; height: auto; background: #fff; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary); padding: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.02); }
+    .floor-plan__room { cursor: pointer; transition: opacity 0.2s; }
+    .floor-plan__room rect { fill: #fcfbfa; stroke: var(--muted); stroke-width: 1px; transition: fill 0.3s, stroke 0.3s; }
+    .floor-plan__room:hover rect { fill: var(--gold-lt); stroke: var(--gold); }
+    .floor-plan__room text { fill: var(--dark); font-family: var(--font-sans); }
+    .project-plan__actions { display: flex; flex-direction: column; gap: 12px; }
+    .btn--outline-dark { background: transparent; border: 1px solid var(--dark); color: var(--dark); padding: 12px; border-radius: 6px; font-weight: 500; text-align: center; cursor: pointer; transition: background 0.2s, color 0.2s; text-decoration: none; }
+    .btn--outline-dark:hover { background: var(--dark); color: #fff; }
+
+    /* ── SPECS ── */
+    .project-specs { padding: 52px 28px; background: var(--cream); }
+    .project-specs__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1200px; margin: 0 auto; }
+    .spec-card { background: #fff; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 20px; transition: border-color 0.25s, transform 0.3s; }
+    .spec-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(184,148,90,0.08); }
+    .spec-card h3 { font-size: 14px; margin-bottom: 6px; color: var(--gold); font-weight: 500; }
+    .spec-card p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+
+    /* ── PROCESS TIMELINE ── */
+    .project-process { padding: 52px 28px; background: var(--color-background-secondary); }
+    .process-timeline { display: flex; flex-direction: column; gap: 16px; max-width: 800px; margin: 0 auto; position: relative; }
+    .process-timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 1px; background: rgba(184,148,90,0.3); }
+    .timeline-item { display: flex; gap: 20px; position: relative; }
+    .timeline-item__marker { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--gold); background: var(--cream); display: grid; place-items: center; color: var(--gold); font-weight: 500; z-index: 2; transition: transform 0.3s; }
+    .timeline-item:hover .timeline-item__marker { background: var(--gold); color: var(--dark); transform: scale(1.1); }
+    .timeline-item__content { background: #fff; padding: 20px; border-radius: var(--border-radius-lg); width: 100%; border: 1px solid var(--color-border-tertiary); }
+    .timeline-item__content time { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px; }
+    .timeline-item__content h3 { font-size: 15px; margin-bottom: 6px; color: var(--dark); font-weight: 500; }
+    .timeline-item__content p { font-size: 13px; color: var(--color-text-secondary); }
+
+    /* ── REVIEW ── */
+    .project-review { padding: 52px 28px; background: var(--cream); }
+    .review-card { background: #fff; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 36px; max-width: 800px; margin: 0 auto; position: relative; }
+    .review-card__header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .review-card__photo { width: 60px; height: 60px; border-radius: 50%; background: var(--gold-lt); object-fit: cover; }
+    .review-card__info h3 { font-size: 16px; color: var(--dark); font-weight: 600; }
+    .review-card__info span { font-size: 12px; color: var(--muted); }
+    .review-card__rating { color: var(--gold); font-size: 13px; margin-top: 4px; }
+    .review-card__text { font-size: 14px; color: var(--color-text-secondary); font-style: italic; line-height: 1.8; border-left: 2px solid var(--gold); padding-left: 16px; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 36px 28px; background: var(--dark); }
+    .cta-box { background: var(--mid); border: 0.5px solid rgba(184,148,90,.2); border-radius: var(--border-radius-lg); padding: 36px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; max-width: 1200px; margin: 0 auto; position: relative; overflow: hidden; }
+    .cta-box__content h2 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .cta-box__content p { font-size: 14px; color: rgba(255,255,255,0.6); }
+    .cta-box__actions { display: flex; gap: 10px; }
+
+    /* ── FOOTER ── */
+    .foot { background: var(--dark); padding: 32px 28px 20px; border-top: 0.5px solid rgba(255,255,255,.07); }
+    .foot-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 24px; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 0.5px solid rgba(255,255,255,.07); max-width: 1200px; margin: 0 auto; }
+    .foot-desc { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; margin: 12px 0; }
+    .foot-h { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .foot-links { display: flex; flex-direction: column; gap: 8px; }
+    .foot-links a { font-size: 13px; color: rgba(255,255,255,.5); cursor: pointer; transition: color .15s, padding-left .2s; text-decoration: none; }
+    .foot-links a:hover { color: var(--gold); padding-left: 4px; }
+    .foot-contact { display: flex; gap: 8px; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 8px; align-items: flex-start; transition: color .15s; text-decoration: none; }
+    .foot-contact:hover { color: rgba(255,255,255,.8); }
+    .foot-contact i { color: var(--gold); font-size: 15px; margin-top: 2px; flex-shrink: 0; }
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: rgba(255,255,255,.3); max-width: 1200px; margin: 0 auto; }
+
+    /* ADAPTIVITY */
+    @media (max-width: 992px) {
+      .project-overview__grid, .project-plan__wrapper { grid-template-columns: 1fr; }
+      .project-specs__grid { grid-template-columns: repeat(2, 1fr); }
+      .foot-top { grid-template-columns: repeat(2, 1fr); }
+      .cta-box { grid-template-columns: 1fr; text-align: center; }
+      .cta-box__actions { justify-content: center; }
+    }
+    @media (max-width: 576px) {
+      .project-hero__quick-stats { grid-template-columns: repeat(2, 1fr); }
+      .project-gallery__grid { grid-template-columns: 1fr; }
+      .gallery-item--large { grid-column: span 1; height: 180px; }
+      .project-specs__grid { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="page-project">
+  
+  <!-- Accessibility -->
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__spinner"></div>
+    <span class="visually-hidden">Загрузка сайта...</span>
+  </div>
+  
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- CONTAINER WRAPPER -->
+  <div class="dv">
+
+    <!-- HEADER / NAVIGATION (Премиальное оформление Domus Viva) -->
+    <header class="nav" id="header" role="banner">
+      <a href="../index.html" class="nav-logo" aria-label="Domus Viva - На главную">
+        <div class="nav-mark">DV</div>
+        <div>
+          <div class="nav-name">Domus Viva</div>
+          <div class="nav-sub">Строительство коттеджей</div>
+        </div>
+      </a>
+      
+      <nav class="nav-links" id="mainNav" role="navigation" aria-label="Основное меню">
+        <a href="../index.html" class="nav-link">Главная</a>
+        <a href="/about.html" class="nav-link">О нас</a>
+        <a href="/services.html" class="nav-link">Услуги</a>
+        <a href="/projects.html" class="nav-link a">Проекты</a>
+        <a href="/blog.html" class="nav-link">Блог</a>
+        <a href="/contacts.html" class="nav-link">Контакты</a>
+      </nav>
+      
+      <button class="nav-cta" data-modal="callback">Заказать звонок</button>
+    </header>
+
+    <main id="main-content">
+      
+      <!-- BREADCRUMBS -->
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../projects.html">Проекты</a></li>
+          <li aria-current="page">«Лесная поляна»</li>
+        </ol>
+      </nav>
+
+      <!-- PROJECT HERO -->
+      <section class="project-hero">
+        <div class="project-hero__bg">
+          <img src="../assets/images/projects/forest-glade-hero.jpg" alt="Экодом Лесная поляна" width="1920" height="1080">
+          <div class="project-hero__overlay"></div>
+        </div>
+        <div class="container project-hero__content">
+          <span class="project-badge"><div class="badge-dot"></div>Экодом • Реализован в 2023</span>
+          <h1 class="project-hero__title">Экодом «Лесная поляна»</h1>
+          <p class="project-hero__subtitle">Уютный одноэтажный дом из оцилиндрованного бревна с большой кухней-гостиной и панорамными окнами в сад</p>
+          <div class="project-hero__quick-stats">
+            <div class="quick-stat"><strong>128 м²</strong><span>Площадь</span></div>
+            <div class="quick-stat"><strong>3</strong><span>Спальни</span></div>
+            <div class="quick-stat"><strong>2</strong><span>Санузла</span></div>
+            <div class="quick-stat"><strong>1</strong><span>Этаж</span></div>
+            <div class="quick-stat"><strong>6 мес</strong><span>Срок</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NAVIGATION FOR PAGE SECTIONS -->
+      <nav class="page-nav">
+        <div class="container">
+          <ul class="page-nav__list">
+            <li><a href="#overview" class="page-nav__link page-nav__link--active">Описание</a></li>
+            <li><a href="#gallery" class="page-nav__link">Галерея</a></li>
+            <li><a href="#plan" class="page-nav__link">План</a></li>
+            <li><a href="#specs" class="page-nav__link">Характеристики</a></li>
+            <li><a href="#process" class="page-nav__link">Процесс</a></li>
+            <li><a href="#review" class="page-nav__link">Отзыв</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- OVERVIEW -->
+      <section id="overview" class="section project-overview">
+        <div class="project-overview__grid">
+          <div class="project-overview__content rv-l rv">
+            <h2>Задача и решение</h2>
+            <p class="lead">Молодая семья с ребёнком искала экологичный дом в лесу, где можно жить круглый год в гармонии с природой.</p>
+            <p>Мы спроектировали компактный одноэтажный дом из оцилиндрованного бревна с открытой планировкой. Центральное пространство — большая кухня-гостиная с панорамным остеклением в сад — объединяет семью. Спальни расположены в приватной части дома.</p>
+            <h3>Ключевые особенности</h3>
+            <ul class="check-list">
+              <li>Натуральное оцилиндрованное бревно 240 мм</li>
+              <li>Панорамное остекление в гостиной (5 м)</li>
+              <li>Камин-печь с варочной поверхностью</li>
+              <li>Тёплый пол по всей площади</li>
+              <li>Открытая терраса 24 м² с навесом</li>
+              <li>Экологичные отделочные материалы</li>
+              <li>Система рекуперации тепла</li>
+            </ul>
+          </div>
+          
+          <aside class="project-overview__sidebar rv-r rv">
+            <div class="project-info-card">
+              <h3>Краткие данные</h3>
+              <dl class="project-info-card__list">
+                <div class="project-info-card__item"><dt>Локация</dt><dd>Тверская область</dd></div>
+                <div class="project-info-card__item"><dt>Участок</dt><dd>15 соток</dd></div>
+                <div class="project-info-card__item"><dt>Площадь</dt><dd>128 м²</dd></div>
+                <div class="project-info-card__item"><dt>Этажность</dt><dd>1 этаж</dd></div>
+                <div class="project-info-card__item"><dt>Материал</dt><dd>Бревно</dd></div>
+                <div class="project-info-card__item"><dt>Кровля</dt><dd>Металлочерепица</dd></div>
+                <div class="project-info-card__item"><dt>Фундамент</dt><dd>Свайно-винтовой</dd></div>
+                <div class="project-info-card__item"><dt>Срок</dt><dd>6 месяцев</dd></div>
+                <div class="project-info-card__item"><dt>Год сдачи</dt><dd>2023</dd></div>
+                <div class="project-info-card__item project-info-card__item--accent"><dt>Стоимость</dt><dd>6 850 000 ₽</dd></div>
+              </dl>
+              <button class="btn--block" data-modal="similar" data-project="forest-glade">Хочу такой же дом</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="section project-gallery bg-alt">
+        <header class="section__header rv">
+          <span class="section__eyebrow">Фотогалерея</span>
+          <h2 class="section__title">Уют в каждой детали</h2>
+        </header>
+        
+        <div class="project-gallery__grid">
+          <a href="../assets/images/projects/forest-glade-1.jpg" class="gallery-item gallery-item--large rv-s rv" data-lightbox="forest-glade" data-index="0">
+            <img src="../assets/images/projects/forest-glade-1-thumb.jpg" alt="Главный фасад" loading="lazy">
+          </a>
+          <a href="../assets/images/projects/forest-glade-2.jpg" class="gallery-item rv-s rv del-1" data-lightbox="forest-glade" data-index="1">
+            <img src="../assets/images/projects/forest-glade-2-thumb.jpg" alt="Гостиная с камином" loading="lazy">
+          </a>
+          <a href="../assets/images/projects/forest-glade-3.jpg" class="gallery-item rv-s rv del-2" data-lightbox="forest-glade" data-index="2">
+            <img src="../assets/images/projects/forest-glade-3-thumb.jpg" alt="Кухня" loading="lazy">
+          </a>
+          <a href="../assets/images/projects/forest-glade-4.jpg" class="gallery-item rv-s rv del-3" data-lightbox="forest-glade" data-index="3">
+            <img src="../assets/images/projects/forest-glade-4-thumb.jpg" alt="Спальня" loading="lazy">
+          </a>
+          <a href="../assets/images/projects/forest-glade-5.jpg" class="gallery-item rv-s rv del-4" data-lightbox="forest-glade" data-index="4">
+            <img src="../assets/images/projects/forest-glade-5-thumb.jpg" alt="Терраса" loading="lazy">
+          </a>
+        </div>
+      </section>
+
+      <!-- PLAN -->
+      <section id="plan" class="section project-plan">
+        <header class="section__header rv">
+          <span class="section__eyebrow">Планировка</span>
+          <h2 class="section__title">План единственного этажа</h2>
+        </header>
+        
+        <div class="project-plan__wrapper">
+          <div class="rv-l rv">
+            <svg viewBox="0 0 800 600" class="floor-plan-svg" role="img" aria-label="План этажа дома Лесная поляна">
+              <rect x="50" y="50" width="700" height="500" fill="#FAF9F6" stroke="#B8945A" stroke-width="3"/>
+              <g class="floor-plan__room" data-name="Кухня-гостиная" data-area="48 м²">
+                <rect x="50" y="50" width="400" height="300"/>
+                <text x="250" y="190" text-anchor="middle" font-size="14">Кухня-гостиная</text>
+                <text x="250" y="210" text-anchor="middle" font-size="12" fill="#7A8A7C">48 м²</text>
+              </g>
+              <g class="floor-plan__room" data-name="Мастер-спальня" data-area="18 м²">
+                <rect x="450" y="50" width="300" height="180"/>
+                <text x="600" y="130" text-anchor="middle" font-size="14">Мастер-спальня</text>
+                <text x="600" y="150" text-anchor="middle" font-size="12" fill="#7A8A7C">18 м²</text>
+              </g>
+              <g class="floor-plan__room" data-name="Санузел мастер" data-area="6 м²">
+                <rect x="450" y="230" width="150" height="120"/>
+                <text x="525" y="285" text-anchor="middle" font-size="12">Санузел</text>
+              </g>
+              <g class="floor-plan__room" data-name="Детская" data-area="16 м²">
+                <rect x="600" y="230" width="150" height="120"/>
+                <text x="675" y="285" text-anchor="middle" font-size="13">Детская</text>
+              </g>
+              <g class="floor-plan__room" data-name="Гостевая" data-area="14 м²">
+                <rect x="50" y="350" width="250" height="200"/>
+                <text x="175" y="445" text-anchor="middle" font-size="14">Гостевая</text>
+              </g>
+              <g class="floor-plan__room" data-name="Общий санузел" data-area="5 м²">
+                <rect x="300" y="350" width="150" height="200"/>
+                <text x="375" y="445" text-anchor="middle" font-size="12">Санузел</text>
+              </g>
+              <g class="floor-plan__room" data-name="Прихожая + котельная" data-area="12 м²">
+                <rect x="450" y="350" width="300" height="200"/>
+                <text x="600" y="445" text-anchor="middle" font-size="14">Прихожая + Котельная</text>
+              </g>
+            </svg>
+          </div>
+          
+          <div class="project-plan__actions rv-r rv">
+            <button class="btn--outline-dark" id="downloadPlan">Скачать план (PDF)</button>
+            <button class="nav-cta" data-modal="similar" data-project="forest-glade" style="width: 100%; height: 48px; border-radius: 6px;">Обсудить проект</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPECS -->
+      <section id="specs" class="section project-specs">
+        <header class="section__header rv">
+          <span class="section__eyebrow">Экологичные материалы</span>
+          <h2 class="section__title">Только натуральное</h2>
+        </header>
+        
+        <div class="project-specs__grid">
+          <article class="spec-card rv-s rv" data-d="1">
+            <h3>Стены</h3>
+            <p>Оцилиндрованное бревно 240 мм (сосна) с льняным утеплителем</p>
+          </article>
+          <article class="spec-card rv-s rv" data-d="2">
+            <h3>Фундамент</h3>
+            <p>Свайно-винтовой — минимальное воздействие на природу участка</p>
+          </article>
+          <article class="spec-card rv-s rv" data-d="3">
+            <h3>Кровля</h3>
+            <p>Металлочерепица с утеплением 250 мм эковатой</p>
+          </article>
+          <article class="spec-card rv-s rv" data-d="4">
+            <h3>Окна</h3>
+            <p>Деревянные (сосна) с двухкамерным стеклопакетом</p>
+          </article>
+          <article class="spec-card rv-s rv" data-d="1">
+            <h3>Отопление</h3>
+            <p>Пеллетный котёл + тёплый пол по всей площади</p>
+          </article>
+          <article class="spec-card rv-s rv" data-d="2">
+            <h3>Камин</h3>
+            <p>Печь-камин с варочной поверхностью (можно готовить)</p>
+          </article>
+          <article class="spec-card rv-s rv" data-d="3">
+            <h3>Отделка</h3>
+            <p>Натуральные масла и воски, льняные ткани, керамическая плитка</p>
+          </article>
+          <article class="spec-card rv-s rv" data-d="4">
+            <h3>Вентиляция</h3>
+            <p>Приточно-вытяжная с рекуперацией тепла (экономия 70%)</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROCESS TIMELINE -->
+      <section id="process" class="section project-process bg-alt">
+        <header class="section__header rv">
+          <span class="section__eyebrow">Хронология</span>
+          <h2 class="section__title">6 месяцев создания экодома</h2>
+        </header>
+        
+        <div class="process-timeline">
+          <article class="timeline-item rv-l rv" data-d="1">
+            <div class="timeline-item__marker">01</div>
+            <div class="timeline-item__content">
+              <time>Апрель 2023</time>
+              <h3>Проектирование</h3>
+              <p>4 недели на разработку проекта с учётом лесного участка.</p>
+            </div>
+          </article>
+          <article class="timeline-item rv-l rv" data-d="2">
+            <div class="timeline-item__marker">02</div>
+            <div class="timeline-item__content">
+              <time>Май 2023</time>
+              <h3>Фундамент</h3>
+              <p>2 недели на свайно-винтовой фундамент (без земляных работ).</p>
+            </div>
+          </article>
+          <article class="timeline-item rv-l rv" data-d="3">
+            <div class="timeline-item__marker">03</div>
+            <div class="timeline-item__content">
+              <time>Июнь 2023</time>
+              <h3>Сруб</h3>
+              <p>4 недели на монтаж оцилиндрованного бревна.</p>
+            </div>
+          </article>
+          <article class="timeline-item rv-l rv" data-d="4">
+            <div class="timeline-item__marker">04</div>
+            <div class="timeline-item__content">
+              <time>Июль–Август 2023</time>
+              <h3>Кровля и окна</h3>
+              <p>Монтаж кровли, установка деревянных окон.</p>
+            </div>
+          </article>
+          <article class="timeline-item rv-l rv" data-d="5">
+            <div class="timeline-item__marker">05</div>
+            <div class="timeline-item__content">
+              <time>Сентябрь 2023</time>
+              <h3>Инженерия и отделка</h3>
+              <p>Тёплый пол, пеллетный котёл, экологичная отделка.</p>
+            </div>
+          </article>
+          <article class="timeline-item rv-l rv" data-d="6">
+            <div class="timeline-item__marker">✓</div>
+            <div class="timeline-item__content">
+              <time>Октябрь 2023</time>
+              <h3>Сдача дома</h3>
+              <p>Новоселье перед зимой — в доме тепло и уютно!</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- REVIEW -->
+      <section id="review" class="section project-review">
+        <header class="section__header rv">
+          <span class="section__eyebrow">Отзыв семьи</span>
+          <h2 class="section__title">Мнение владельца дома</h2>
+        </header>
+        
+        <div class="review-card rv-s rv">
+          <div class="review-card__header">
+            <img src="../assets/images/testimonials/olga-k.jpg" alt="Ольга" class="review-card__photo">
+            <div class="review-card__info">
+              <h3>Ольга и Дмитрий</h3>
+              <span>Владельцы экодома «Лесная поляна»</span>
+              <div class="review-card__rating">★★★★★</div>
+            </div>
+          </div>
+          <blockquote class="review-card__text">
+            <p>«Мы мечтали о доме в лесу, где можно жить с ребёнком круглый год. DOMUS VIVA воплотили нашу мечту идеально.</p>
+            <p>Бревно создаёт невероятную атмосферу — запах дерева, тёплые стены, уют. Панорамные окна в гостиной — наш любимый элемент: видно, как меняются времена года.</p>
+            <p>А камин-печь — это вообще чудо! Зимой готовим на ней, а вечерами греемся у огня. Спасибо команде за профессионализм и внимание к нашим пожеланиям!»</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="cta-section" aria-labelledby="cta-title">
+        <div class="cta-box rv">
+          <div class="cta-box__content">
+            <h2 id="cta-title">Хотите экодом своей мечты?</h2>
+            <p>Создадим уютный дом в гармонии с природой.</p>
+          </div>
+          <div class="cta-box__actions">
+            <button class="nav-cta" data-modal="similar" data-project="forest-glade" style="padding: 12px 24px;">Обсудить проект</button>
+            <a href="../calculator.html" class="btn-o" style="display: inline-flex; align-items: center; justify-content: center; height: 48px; border-radius: 6px;">Рассчитать стоимость</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="foot" role="contentinfo">
+      <div class="foot-top">
+        <div class="rv">
+          <div class="nav-logo">
+            <div class="nav-mark">DV</div>
+            <div>
+              <div class="nav-name">Domus Viva</div>
+              <div class="nav-sub">Строительство коттеджей</div>
+            </div>
+          </div>
+          <p class="foot-desc">Строим дома, в которых хочется жить. Индивидуальные проекты, премиальные материалы, гарантия 10 лет.</p>
+        </div>
+        
+        <div class="rv" data-d="1">
+          <h4 class="foot-h">Разделы</h4>
+          <div class="foot-links">
+            <a href="/about.html">О компании</a>
+            <a href="/services.html">Услуги</a>
+            <a href="/projects.html">Проекты</a>
+            <a href="/team.html">Команда</a>
+            <a href="/blog.html">Блог</a>
+            <a href="/contacts.html">Контакты</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="2">
+          <h4 class="foot-h">Услуги</h4>
+          <div class="foot-links">
+            <a href="/pages/services/service-build.html">Строительство</a>
+            <a href="/pages/services/service-design.html">Проектирование</a>
+            <a href="/pages/services/service-interior.html">Интерьер</a>
+            <a href="/pages/services/service-engineering.html">Инженерия</a>
+            <a href="/pages/services/service-landscape.html">Ландшафт</a>
+            <a href="/calculator.html">Калькулятор</a>
+          </div>
+        </div>
+        
+        <div class="rv" data-d="3">
+          <h4 class="foot-h">Контакты</h4>
+          <a href="tel:+74951234567" class="foot-contact"><i class="ti ti-phone" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+          <a href="mailto:info@domusviva.ru" class="foot-contact"><i class="ti ti-mail" aria-hidden="true"></i>info@domusviva.ru</a>
+          <div class="foot-contact"><i class="ti ti-map-pin" aria-hidden="true"></i>Москва, ул. Строителей, 42</div>
+          <div class="foot-contact"><i class="ti ti-clock" aria-hidden="true"></i>Пн–Пт: 9:00–18:00</div>
+        </div>
+      </div>
+      
+      <div class="foot-bottom">
+        <span>© 2008–2026 Domus Viva. Все права защищены.</span>
+        <a href="/privacy.html" style="color:rgba(255,255,255,.3);cursor:pointer;text-decoration:none;">Политика конфиденциальности</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- MODAL SHELL -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle" style="display: none;">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+      <div class="modal__body" id="modalBody">
+        <!-- Сюда динамически инжектится разметка -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- SCRIPTS -->
+  <script src="../js/data.js" defer></script>
+  <script src="../js/shared.js" defer></script>
+  <script src="../js/modules/header.js" defer></script>
+  <script src="../js/modules/modal.js" defer></script>
+  <script src="../js/modules/form.js" defer></script>
+  <script src="../js/modules/animations.js" defer></script>
+  <script src="../js/main.js" defer></script>
+
+  <!-- Интегрированная JS-логика -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Плавное отключение прелоадера
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+        }, 300);
+      }
+
+      // Индикатор прогресса чтения
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('scrollProgress').style.width = scrolled + '%';
+      });
+
+      // Инициализация IntersectionObserver для плавной анимации элементов
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          el.classList.add('in');
+          io.unobserve(el);
+        });
+      }, { threshold: .15, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.rv, .rv-l, .rv-r, .rv-s').forEach(el => io.observe(el));
+
+      // Плавное переключение секций активной навигации при скролле
+      const navLinks = document.querySelectorAll('.page-nav__link');
+      const sections = document.querySelectorAll('section[id]');
+
+      window.addEventListener('scroll', () => {
+        let currentSec = '';
+        sections.forEach(sec => {
+          const secTop = sec.offsetTop - 120;
+          if (pageYOffset >= secTop) {
+            currentSec = sec.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('page-nav__link--active');
+          if (link.getAttribute('href').slice(1) === currentSec) {
+            link.classList.add('page-nav__link--active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дизайн интерьера коттеджей | DOMUS VIVA</title>
+  <meta name="description" content="Дизайн интерьера коттеджей под ключ: концепция, 3D-визуализация, подбор материалов, авторский надзор, комплектация мебелью. Член Союза Дизайнеров России. От 1 500 ₽/м².">
+  <meta name="keywords" content="дизайн интерьера коттеджа, дизайн-проект дома, 3D визуализация интерьера, авторский надзор, комплектация мебелью">
+  <link rel="canonical" href="https://domusviva.example/pages/service-interior.html">
+  
+  <meta property="og:type" content="service">
+  <meta property="og:title" content="Дизайн интерьера коттеджей | DOMUS VIVA">
+  <meta property="og:description" content="Создаём интерьеры, в которых хочется жить. 3D-визуализация, авторский надзор, комплектация. От 1 500 ₽/м².">
+  <meta property="og:image" content="../assets/images/og/service-interior.jpg">
+  <meta property="og:url" content="https://domusviva.example/pages/service-interior.html">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Дизайн интерьера коттеджей | DOMUS VIVA">
+  <meta name="twitter:description" content="Премиальные интерьеры с авторским надзором и комплектацией.">
+  
+  <meta name="theme-color" content="#A67C52">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Премиальная дизайн-система (Quiet Luxury) */
+    :root {
+      --color-bg: #FAF8F5; /* Благородный кремовый / молочный */
+      --color-bg-alt: #F3ECE2; /* Мягкий бежево-песочный */
+      --color-text-main: #2C2A27; /* Мягкий графит */
+      --color-text-muted: #6E6A64;
+      --color-accent: #A67C52; /* Золотисто-древесный */
+      --color-accent-hover: #8E653C;
+      --color-accent-light: #F5EFE6;
+      --color-dark: #1E1D1B; /* Почти черный */
+      --color-border: #E8E2D9;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Базовый сброс и плавность */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Доступность */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      background: var(--color-accent);
+      color: white;
+      padding: 12px 24px;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      border-radius: 4px;
+    }
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    /* Индикатор прокрутки */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--color-accent);
+      width: 0%;
+      z-index: 1100;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Шапка сайта */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--color-dark);
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .logo svg {
+      fill: var(--color-accent);
+    }
+    .nav__list {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    .nav__link {
+      text-decoration: none;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: var(--transition-smooth);
+      position: relative;
+      padding: 6px 0;
+    }
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-accent);
+      transition: var(--transition-smooth);
+    }
+    .nav__link:hover {
+      color: var(--color-accent);
+    }
+    .nav__link:hover::after, 
+    .nav__link--active::after {
+      width: 100%;
+    }
+    .nav__link--active {
+      color: var(--color-accent);
+    }
+
+    .header__actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .header__phone {
+      text-decoration: none;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+    .header__phone:hover {
+      color: var(--color-accent);
+    }
+
+    /* Выбор языка */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    .lang-btn--active {
+      color: var(--color-accent);
+    }
+    .lang-divider {
+      color: var(--color-border);
+    }
+
+    /* Мобильное меню */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px;
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 999;
+    }
+    .mobile-menu--open {
+      display: flex;
+    }
+    .mobile-menu .nav__link {
+      font-size: 1.1rem;
+      padding: 10px 0;
+    }
+
+    /* Кнопки */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+    .btn--primary {
+      background: var(--color-accent);
+      color: white;
+    }
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(166, 124, 82, 0.15);
+    }
+    .btn--sm {
+      padding: 10px 20px;
+      font-size: 0.75rem;
+    }
+    .btn--outline-dark {
+      background: transparent;
+      border: 1px solid var(--color-dark);
+      color: var(--color-dark);
+    }
+    .btn--outline-dark:hover {
+      background: var(--color-dark);
+      color: white;
+    }
+    .btn--outline-light {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+    }
+    .btn--outline-light:hover {
+      background: white;
+      color: var(--color-dark);
+      border-color: white;
+    }
+    .btn--accent {
+      background: var(--color-accent-light);
+      color: var(--color-accent-hover);
+      border: 1px solid rgba(166, 124, 82, 0.3);
+    }
+    .btn--accent:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+    .btn--block {
+      width: 100%;
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+      width: 24px;
+      height: 24px;
+      justify-content: center;
+    }
+    .burger__line {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--color-dark);
+      transition: var(--transition-smooth);
+    }
+    .burger--active .burger__line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .burger--active .burger__line:nth-child(2) {
+      opacity: 0;
+    }
+    .burger--active .burger__line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Хлебные крошки */
+    .breadcrumbs {
+      padding: 32px 0 16px;
+    }
+    .breadcrumbs__list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .breadcrumbs__list a {
+      text-decoration: none;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    .breadcrumbs__list a:hover {
+      color: var(--color-accent);
+    }
+    .breadcrumbs__list li:not(:last-child)::after {
+      content: '/';
+      margin-left: 8px;
+      color: var(--color-border);
+    }
+    .breadcrumbs__list li[aria-current="page"] {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Секция Hero */
+    .service-hero {
+      padding: 48px 0 80px;
+      background: radial-gradient(circle at top right, #F5EFE6 0%, var(--color-bg) 60%);
+    }
+    .service-hero__icon {
+      color: var(--color-accent);
+      margin-bottom: 24px;
+    }
+    .section__eyebrow {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+    .page-header__title {
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      line-height: 1.1;
+      color: var(--color-dark);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .text-accent {
+      color: var(--color-accent);
+      font-style: italic;
+    }
+    .page-header__subtitle {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+    .service-hero__quick-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 700px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 32px;
+    }
+    .quick-info-item strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--color-dark);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .quick-info-item span {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Закрепленная навигация */
+    .page-nav {
+      position: sticky;
+      top: 80px;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 900;
+      transition: var(--transition-smooth);
+    }
+    .page-nav__list {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 16px 0;
+      scrollbar-width: none;
+    }
+    .page-nav__list::-webkit-scrollbar {
+      display: none;
+    }
+    .page-nav__link {
+      text-decoration: none;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      letter-spacing: 0.02em;
+    }
+    .page-nav__link:hover, .page-nav__link--active {
+      color: var(--color-accent);
+    }
+
+    /* Разделы контента */
+    .section {
+      padding: 96px 0;
+    }
+    .section__header {
+      margin-bottom: 48px;
+    }
+    .section__title {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      line-height: 1.2;
+      color: var(--color-dark);
+      font-weight: 500;
+    }
+    .section__subtitle {
+      font-size: 1.15rem;
+      color: var(--color-text-muted);
+      margin-top: 12px;
+      max-width: 600px;
+    }
+    .bg-alt {
+      background-color: var(--color-bg-alt);
+    }
+
+    .service-overview__grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .service-overview__content h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--color-dark);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .lead {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--color-dark);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+    .service-overview__content p {
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 24px;
+      margin-bottom: 32px;
+    }
+    .check-list li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 0.95rem;
+      color: var(--color-text-main);
+    }
+    .check-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--color-accent);
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .quote-block {
+      border-left: 3px solid var(--color-accent);
+      padding: 16px 24px;
+      background: white;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+      margin: 32px 0 0;
+    }
+    .quote-block p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .quote-block cite {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .service-overview__media {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    }
+
+    /* Сетка стилей */
+    .styles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .style-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .style-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent);
+      box-shadow: 0 12px 30px rgba(166, 124, 82, 0.08);
+    }
+    .style-card__image {
+      height: 200px;
+      background: #ECE5DC;
+      overflow: hidden;
+    }
+    .style-card__image svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+    .style-card:hover .style-card__image svg {
+      transform: scale(1.05);
+    }
+    .style-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--color-dark);
+      padding: 24px 24px 8px;
+      font-weight: 600;
+    }
+    .style-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      padding: 0 24px 24px;
+    }
+
+    /* Сетка «Что входит» */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .include-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: var(--transition-smooth);
+    }
+    .include-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(166, 124, 82, 0.08);
+      border-color: var(--color-accent);
+    }
+    .include-card__icon {
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .include-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--color-dark);
+      margin-bottom: 12px;
+    }
+    .include-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Этапы (Timeline) */
+    .process-timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 48px auto 0;
+      padding-left: 48px;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background: var(--color-border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-item__marker {
+      position: absolute;
+      left: -48px;
+      top: 4px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition-smooth);
+      z-index: 2;
+    }
+    .timeline-item__content {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 24px;
+      transition: var(--transition-smooth);
+    }
+    .timeline-item__content time {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+    .timeline-item__content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .timeline-item__content p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .timeline-item:hover .timeline-item__marker {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: white;
+    }
+    .timeline-item:hover .timeline-item__content {
+      border-color: var(--color-accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    }
+    .timeline-item--final .timeline-item__marker {
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    /* Тарифы */
+    .pricing__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: stretch;
+      margin-top: 48px;
+    }
+    .pricing-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 40px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+    }
+    .pricing-card--featured {
+      border: 2px solid var(--color-accent);
+      background: radial-gradient(circle at top right, #FCFBF9 0%, #FFF 100%);
+    }
+    .pricing-card__badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: var(--color-accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+    .pricing-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-dark);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .pricing-card__desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+    .pricing-card__price {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .pricing-card__price-from {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-right: 4px;
+    }
+    .pricing-card__price-value {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      color: var(--color-dark);
+      font-weight: 600;
+    }
+    .pricing-card__price-unit {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-left: 4px;
+    }
+    .pricing-card__divider {
+      height: 1px;
+      background: var(--color-border);
+      margin-bottom: 24px;
+    }
+    .pricing-card__features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-grow: 1;
+    }
+    .pricing-card__features li {
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--color-text-main);
+    }
+    .pricing-card__features .check {
+      color: var(--color-accent);
+      font-weight: bold;
+    }
+    .pricing-card__features .cross {
+      color: #C0B7AD;
+    }
+    .pricing-card__feature--disabled {
+      color: var(--color-text-muted) !important;
+      opacity: 0.6;
+    }
+    .pricing__note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 1rem;
+      color: var(--color-dark);
+    }
+
+    /* Портфолио */
+    .portfolio__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .portfolio-item {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      border-color: var(--color-accent);
+    }
+    .portfolio-item__media {
+      height: 240px;
+      background: #ECE5DC;
+      position: relative;
+      display: block;
+      overflow: hidden;
+    }
+    .portfolio-item__media svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+    .portfolio-item:hover .portfolio-item__media svg {
+      transform: scale(1.05);
+    }
+    .portfolio-item__body {
+      padding: 24px;
+    }
+    .portfolio-item__body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .portfolio-item__body p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .section__cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* Биография дизайнера */
+    .designer-bio__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .designer-bio__photo {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    }
+    .designer-bio__photo svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .designer-bio__content h2 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      color: var(--color-dark);
+      font-weight: 500;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    .designer-bio__role {
+      font-size: 0.95rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .designer-bio__content p {
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .designer-bio__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 32px;
+      margin-bottom: 32px;
+    }
+    .designer-stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--color-dark);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .designer-stat span {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* FAQ */
+    .faq__list {
+      max-width: 800px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-item {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px;
+      text-align: left;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+    }
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      flex-shrink: 0;
+      transition: var(--transition-smooth);
+    }
+    .faq-icon::before, .faq-icon::after {
+      content: '';
+      position: absolute;
+      background-color: var(--color-accent);
+      transition: var(--transition-smooth);
+    }
+    .faq-icon::before {
+      top: 11px;
+      left: 4px;
+      width: 16px;
+      height: 2px;
+    }
+    .faq-icon::after {
+      top: 4px;
+      left: 11px;
+      width: 2px;
+      height: 16px;
+    }
+    .faq-item--active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 24px 24px 24px;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border-top: 1px solid transparent;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s;
+    }
+    .faq-item--active .faq-answer {
+      border-top-color: var(--color-border);
+      padding: 16px 24px 24px;
+    }
+
+    /* Связанные услуги */
+    .related-pages__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .related-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px;
+      text-decoration: none;
+      color: var(--color-text-main);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent);
+      box-shadow: 0 10px 30px rgba(166, 124, 82, 0.05);
+    }
+    .related-card__icon {
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .related-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .related-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .related-card__arrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Секция CTA */
+    .cta-section {
+      background: var(--color-dark);
+      padding: 96px 0;
+      color: white;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .cta-box p {
+      font-size: 1.15rem;
+      color: #A39E95;
+      margin-bottom: 40px;
+    }
+    .cta-box__actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* Футер */
+    .footer {
+      background: var(--color-dark);
+      color: #A39E95;
+      padding: 80px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 64px;
+      margin-bottom: 64px;
+      text-align: left;
+    }
+    .footer__col h4 {
+      color: white;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .footer__col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer__col a {
+      color: #A39E95;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      font-size: 0.95rem;
+    }
+    .footer__col a:hover {
+      color: var(--color-accent);
+    }
+    .footer__about p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+    .social-links a {
+      color: #A39E95;
+      transition: var(--transition-smooth);
+    }
+    .social-links a:hover {
+      color: var(--color-accent);
+    }
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+    .footer__links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer__links a {
+      color: #A39E95;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .footer__links a:hover {
+      color: var(--color-accent);
+    }
+
+    /* Модальное окно */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal--open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 29, 27, 0.6);
+      backdrop-filter: blur(8px);
+    }
+    .modal__content {
+      position: relative;
+      background: var(--color-bg);
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      z-index: 2;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--color-border);
+    }
+    .modal--open .modal__content {
+      transform: translateY(0);
+    }
+    .modal__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    .modal__close:hover {
+      color: var(--color-dark);
+    }
+    .modal__body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .modal__body p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Форма */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      color: var(--color-text-main);
+    }
+    .form-control {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--color-border);
+      background: white;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--color-dark);
+      transition: var(--transition-smooth);
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.1);
+    }
+
+    /* Всплывающие Toasts */
+    .toast-container {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 2100;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .toast {
+      background: var(--color-dark);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: toastIn 0.3s forwards;
+    }
+    @keyframes toastIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Адаптивность */
+    @media (max-width: 1024px) {
+      .service-overview__grid, .designer-bio__grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .includes-grid, .pricing__grid, .portfolio__grid, .styles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .related-pages__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .page-header__title {
+        font-size: 3rem;
+      }
+      .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header__inner {
+        height: 70px;
+      }
+      .nav, .header__actions .lang-switcher, .header__actions .header__phone, .header__actions .btn {
+        display: none;
+      }
+      .burger {
+        display: flex;
+      }
+      .includes-grid, .pricing__grid, .portfolio__grid, .styles-grid, .related-pages__grid {
+        grid-template-columns: 1fr;
+      }
+      .page-header__title {
+        font-size: 2.5rem;
+      }
+      .service-hero__quick-info {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .check-list {
+        grid-template-columns: 1fr;
+      }
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer__bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="page-service">
+  
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Прогресс чтения"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="../index.html" class="logo" aria-label="DOMUS VIVA - На главную">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M9 21V9h6v12" />
+        </svg>
+        <span class="logo__text">DOMUS VIVA</span>
+      </a>
+      <nav class="nav" id="mainNav" role="navigation" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a href="../about.html" class="nav__link">О компании</a></li>
+          <li><a href="../services.html" class="nav__link nav__link--active" aria-current="page">Услуги</a></li>
+          <li><a href="../projects.html" class="nav__link">Проекты</a></li>
+          <li><a href="../blog.html" class="nav__link">Блог</a></li>
+          <li><a href="../contacts.html" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <div class="lang-switcher" role="group" aria-label="Выбор языка">
+          <button class="lang-btn lang-btn--active" data-lang="ru" aria-pressed="true">RU</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="tel:+78005553535" class="header__phone">+7 (800) 555-35-35</a>
+        <button class="btn btn--primary btn--sm" data-modal-trigger="consultation">Консультация</button>
+        <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Мобильное навигационное меню -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../about.html" class="nav__link">О компании</a>
+    <a href="../services.html" class="nav__link nav__link--active">Услуги</a>
+    <a href="../projects.html" class="nav__link">Проекты</a>
+    <a href="../blog.html" class="nav__link">Блог</a>
+    <a href="../contacts.html" class="nav__link">Контакты</a>
+    <button class="btn btn--primary btn--block" style="margin-top: 16px;" data-modal-trigger="consultation">Консультация</button>
+  </div>
+
+  <main id="main-content" role="main">
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol class="breadcrumbs__list">
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../services.html">Услуги</a></li>
+          <li aria-current="page">Дизайн интерьера</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Service Hero -->
+    <section class="service-hero">
+      <div class="container">
+        <div class="page-header__content">
+          <div class="service-hero__icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke-linecap="round"/>
+              <path d="M12 8C13.1046 8 14 7.10457 14 6C14 4.89543 13.1046 4 12 4C10.8954 4 10 4.89543 10 6C10 7.10457 10.8954 8 12 8Z"/>
+              <path d="M6 12C7.10457 12 8 11.1046 8 10C8 8.89543 7.10457 8 6 8C4.89543 8 4 8.89543 4 10C4 11.1046 4.89543 12 6 12Z"/>
+              <path d="M18 12C19.1046 12 20 11.1046 20 10C20 8.89543 19.1046 8 18 8C16.8954 8 16 8.89543 16 10C16 11.1046 16.8954 12 18 12Z"/>
+              <path d="M9 17C10.1046 17 11 16.1046 11 15C11 13.8954 10.1046 13 9 13C7.89543 13 7 13.8954 7 15C7 16.1046 7.89543 17 9 17Z"/>
+              <path d="M15 17C16.1046 17 17 16.1046 17 15C17 13.8954 16.1046 13 15 13C13.8954 13 13 13.8954 13 15C13 16.1046 13.8954 17 15 17Z"/>
+            </svg>
+          </div>
+          <span class="section__eyebrow">Услуга №5</span>
+          <h1 class="page-header__title">Дизайн <span class="text-accent">интерьера</span></h1>
+          <p class="page-header__subtitle">Создаём индивидуальные жилые пространства, сочетающие эстетическую зрелость и тактильный комфорт. Полный авторский контроль на всех этапах реализации.</p>
+          <div class="service-hero__quick-info">
+            <div class="quick-info-item">
+              <strong>от 1 500 ₽/м²</strong>
+              <span>Стоимость</span>
+            </div>
+            <div class="quick-info-item">
+              <strong>4–12 недель</strong>
+              <span>Срок работы</span>
+            </div>
+            <div class="quick-info-item">
+              <strong>85+</strong>
+              <span>Проектов</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Nav -->
+    <nav class="page-nav" aria-label="Навигация по разделу">
+      <div class="container">
+        <ul class="page-nav__list">
+          <li><a href="#overview" class="page-nav__link">Описание</a></li>
+          <li><a href="#styles" class="page-nav__link">Стили</a></li>
+          <li><a href="#includes" class="page-nav__link">Что входит</a></li>
+          <li><a href="#process" class="page-nav__link">Этапы</a></li>
+          <li><a href="#pricing" class="page-nav__link">Тарифы</a></li>
+          <li><a href="#portfolio" class="page-nav__link">Портфолио</a></li>
+          <li><a href="#faq" class="page-nav__link">FAQ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Overview -->
+    <section id="overview" class="section service-overview">
+      <div class="container">
+        <div class="service-overview__grid">
+          <div class="service-overview__content">
+            <h2 id="overview-title">Интерьер — это ваша история</h2>
+            <p class="lead">Хороший интерьер не просто красив — он отражает характер владельцев, поддерживает их ритм жизни и дарит ежедневный тактильный комфорт.</p>
+            <p>В DOMUS VIVA проектированием интерьеров руководит Елена Ковалева — член Союза Дизайнеров России с 15-летним опытом. Мы отказываемся от мимолетных трендов и безликих штампов: каждый проект строится вокруг уникальных потребностей и предпочтений вашей семьи.</p>
+            
+            <h3>Что отличает наши интерьерные решения:</h3>
+            <ul class="check-list">
+              <li>Индивидуальная геометрия и эргономичные планировки</li>
+              <li>Фотореалистичные визуализации во всех ракурсах</li>
+              <li>Прямые контракты с фабриками Италии, Германии и Азии</li>
+              <li>Профессиональная комплектация до последнего элемента декора</li>
+              <li>Регулярный выездной контроль авторского надзора</li>
+              <li>Полноценный и понятный рабочий проект для строителей</li>
+            </ul>
+
+            <blockquote class="quote-block">
+              <p>«Интерьер премиального загородного дома — это не про обложки журналов. Это про то, насколько спокойно и уютно вы ощущаете себя внутри него наедине со своими мыслями.»</p>
+              <cite>— Елена Ковалева, ведущий дизайнер</cite>
+            </blockquote>
+          </div>
+          <aside class="service-overview__media">
+            <!-- Векторный эскиз гостиной премиального коттеджа (SVG) -->
+            <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="background-color: #FDFBF8; border-radius: 8px;">
+              <rect width="500" height="500" fill="#FBF9F6"/>
+              <!-- Пол и стены -->
+              <path d="M30 400 H470" stroke="#1E1D1B" stroke-width="2"/>
+              <path d="M80 400 V100 H420 V400" stroke="#E2DCD5" stroke-width="1"/>
+              
+              <!-- Панорамное окно с видом на сосны -->
+              <rect x="120" y="140" width="260" height="180" fill="#DFE6E8" stroke="#2C2A27" stroke-width="1.5"/>
+              <line x1="250" y1="140" x2="250" y2="320" stroke="#2C2A27" stroke-width="1.5"/>
+              <circle cx="210" cy="240" r="40" fill="#CCD6D3" opacity="0.6"/>
+              <circle cx="280" cy="220" r="30" fill="#CCD6D3" opacity="0.5"/>
+
+              <!-- Стильный диван в стиле "тихой роскоши" -->
+              <rect x="140" y="320" width="220" height="50" rx="4" fill="#E6DFD3" stroke="#2C2A27" stroke-width="1.5"/>
+              <rect x="160" y="290" width="180" height="30" rx="3" fill="#FAF8F5" stroke="#2C2A27" stroke-width="1.5"/>
+              <!-- Декоративные подушки -->
+              <rect x="180" y="275" width="30" height="30" rx="2" fill="#A67C52" transform="rotate(15 180 275)"/>
+              <rect x="290" y="275" width="30" height="30" rx="2" fill="#8E9A86" transform="rotate(-15 290 275)"/>
+
+              <!-- Напольный светильник на изогнутой ножке -->
+              <path d="M390 370 C390 200 280 180 250 180" stroke="#A67C52" stroke-width="2" fill="none"/>
+              <path d="M230 180 L260 170 L260 190 Z" fill="#2C2A27"/>
+
+              <!-- Декоративные чертежные разметки -->
+              <line x1="140" y1="375" x2="360" y2="375" stroke="#A67C52" stroke-width="1"/>
+              <path d="M140 370 V380 M360 370 V380" stroke="#A67C52" stroke-width="1"/>
+              <text x="250" y="392" font-family="monospace" font-size="10" fill="#A67C52" text-anchor="middle">SOFA_L = 2200</text>
+            </svg>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Стили -->
+    <section id="styles" class="section service-styles bg-alt">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Направления</span>
+          <h2 id="styles-title" class="section__title">Эстетические стили, в которых мы работаем</h2>
+          <p class="section__subtitle">Создаем гармонию архитектуры здания и его внутреннего наполнения.</p>
+        </header>
+        
+        <div class="styles-grid">
+          <article class="style-card">
+            <div class="style-card__image">
+              <!-- Векторная графика палитры современного стиля -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#ECE5DC"/>
+                <rect x="50" y="40" width="120" height="120" fill="#FAF8F5" rx="8"/>
+                <rect x="230" y="40" width="120" height="120" fill="#2C2A27" rx="8"/>
+                <circle cx="200" cy="100" r="30" fill="#A67C52"/>
+              </svg>
+            </div>
+            <h3>Современный</h3>
+            <p>Геометрическая чистота линий, сложные монохромные оттенки, премиальные контрасты дерева, металла и камня.</p>
+          </article>
+          
+          <article class="style-card">
+            <div class="style-card__image">
+              <!-- Векторная графика скандинавского уюта -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#FAF8F5"/>
+                <circle cx="150" cy="100" r="50" fill="#F3ECE2"/>
+                <circle cx="250" cy="100" r="40" fill="#8E9A86" opacity="0.6"/>
+                <line x1="100" y1="150" x2="300" y2="150" stroke="#1E1D1B" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Скандинавский</h3>
+            <p>Теплое светлое дерево, обилие рассеянного природного света, мягкий и функциональный гипоаллергенный текстиль.</p>
+          </article>
+          
+          <article class="style-card">
+            <div class="style-card__image">
+              <!-- Векторная графика классической симметрии -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#E6DFD3"/>
+                <line x1="200" y1="20" x2="200" y2="180" stroke="#A67C52" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <rect x="60" y="50" width="100" height="100" fill="#FAF8F5" stroke="#1E1D1B" stroke-width="1.5"/>
+                <rect x="240" y="50" width="100" height="100" fill="#FAF8F5" stroke="#1E1D1B" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Современная классика</h3>
+            <p>Идеальная симметрия планировочных осей, благородные детали, молдинги без избыточного пафоса и тяжести.</p>
+          </article>
+          
+          <article class="style-card">
+            <div class="style-card__image">
+              <!-- Векторная графика брутального лофта -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#1E1D1B"/>
+                <rect x="40" y="40" width="320" height="120" fill="#2C2A27" rx="4"/>
+                <!-- Рисунок кирпичной кладки -->
+                <line x1="60" y1="80" x2="340" y2="80" stroke="#A67C52" stroke-width="1" stroke-dasharray="8 8"/>
+                <line x1="60" y1="120" x2="340" y2="120" stroke="#A67C52" stroke-width="1" stroke-dasharray="8 8"/>
+              </svg>
+            </div>
+            <h3>Лофт и индастриал</h3>
+            <p>Высокие потолки, архитектурный бетон, элементы из обожженного кирпича и состаренного брутального металла.</p>
+          </article>
+          
+          <article class="style-card">
+            <div class="style-card__image">
+              <!-- Векторная графика стиля Japandi -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#F4EFEB"/>
+                <!-- Философия пустоты ваби-саби -->
+                <circle cx="200" cy="100" r="45" stroke="#A67C52" stroke-width="1.5"/>
+                <line x1="120" y1="100" x2="280" y2="100" stroke="#2C2A27" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Джапанди</h3>
+            <p>Тонкое слияние японского аскетизма (ваби-саби) и скандинавской практичности. Экологичность и тишина.</p>
+          </article>
+          
+          <article class="style-card">
+            <div class="style-card__image">
+              <!-- Векторная графика авторской эклектики -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#ECE5DC"/>
+                <polygon points="100,50 150,150 50,150" fill="#A67C52"/>
+                <rect x="180" y="50" width="80" height="100" fill="#8E9A86" rx="4"/>
+                <circle cx="320" cy="100" r="40" fill="#FAF8F5" stroke="#1E1D1B"/>
+              </svg>
+            </div>
+            <h3>Авторская эклектика</h3>
+            <p>Контролируемый микс любимых стилей, семейных артефактов и предметов современного искусства.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Что входит -->
+    <section id="includes" class="section service-includes">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Содержимое</span>
+          <h2 id="includes-title" class="section__title">Полный комплект дизайн-проекта</h2>
+        </header>
+        
+        <div class="includes-grid">
+          <article class="include-card">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
+            <h3>Обмеры и планировка</h3>
+            <p>Выезд на объект, лазерное сканирование пространства, разработка 2-3 вариантов планировочного зонирования.</p>
+          </article>
+          
+          <article class="include-card">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3>Стилистическая концепция</h3>
+            <p>Создание ассоциативных мудбордов, объемных коллажей, подбор цветовых сочетаний и ключевых фактур.</p>
+          </article>
+          
+          <article class="include-card">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                <line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+            </div>
+            <h3>3D-визуализация</h3>
+            <p>Фотореалистичная визуализация всех помещений, включая сложные узлы сопряжения материалов и схемы подсветки.</p>
+          </article>
+          
+          <article class="include-card">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <h3>Рабочие чертежи</h3>
+            <p>Разработка чертежей: планы полов, потолков, привязки выключателей, розеток, развёртки санузлов и кухни.</p>
+          </article>
+          
+          <article class="include-card">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+            </div>
+            <h3>Комплектация объекта</h3>
+            <p>Составление подробных ведомостей чистовых материалов, закупка мебели, осветительных приборов и заказных позиций.</p>
+          </article>
+          
+          <article class="include-card">
+            <div class="include-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <h3>Авторский надзор</h3>
+            <p>Выезды на стройплощадку, консультации строителей, согласование выкрасов на объекте и контроль соответствия проекту.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Этапы -->
+    <section id="process" class="section service-process bg-alt">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Регламент</span>
+          <h2 id="process-title" class="section__title">6 этапов от брифа до готового интерьера</h2>
+        </header>
+        
+        <div class="process-timeline">
+          <article class="timeline-item">
+            <div class="timeline-item__marker">01</div>
+            <div class="timeline-item__content">
+              <time>1 неделя</time>
+              <h3>Анкетирование и замеры</h3>
+              <p>Составляем подробную карту предпочтений семьи. Выезжаем на коттедж для проведения лазерных обмеров и фотофиксации.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item">
+            <div class="timeline-item__marker">02</div>
+            <div class="timeline-item__content">
+              <time>2 недели</time>
+              <h3>Планировочное решение</h3>
+              <p>Создаем функциональные планировки с точной расстановкой мебели. Находим оптимальное архитектурное решение.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item">
+            <div class="timeline-item__marker">03</div>
+            <div class="timeline-item__content">
+              <time>2 недели</time>
+              <h3>Стилистическая концепция</h3>
+              <p>Подготавливаем коллажи по комнатам. Утверждаем тактильные образцы штукатурки, дерева, текстиля и финишные палитры.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item">
+            <div class="timeline-item__marker">04</div>
+            <div class="timeline-item__content">
+              <time>3–4 недели</time>
+              <h3>Фотореалистичное 3D</h3>
+              <p>Строим точную визуализацию интерьера. Вы сможете детально рассмотреть текстуры, швы и распределение света.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item">
+            <div class="timeline-item__marker">05</div>
+            <div class="timeline-item__content">
+              <time>2–3 недели</time>
+              <h3>Рабочая документация</h3>
+              <p>Оформляем детальный чертежный проект для строителей со всеми спецификациями, развертками и схемами узлов.</p>
+            </div>
+          </article>
+          
+          <article class="timeline-item timeline-item--final">
+            <div class="timeline-item__marker">✓</div>
+            <div class="timeline-item__content">
+              <time>Весь срок стройки</time>
+              <h3>Снабжение и авторский надзор</h3>
+              <p>Осуществляем своевременную закупку, контролируем качество отделочных работ на объекте до момента передачи ключей.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section id="pricing" class="section service-pricing">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Бюджетирование</span>
+          <h2 id="pricing-title" class="section__title">Три пакета под разные задачи</h2>
+          <p class="section__subtitle">Стоимость проектных работ зависит от площади. Для крупных объектов действуют персональные условия.</p>
+        </header>
+        
+        <div class="pricing__grid">
+          <article class="pricing-card">
+            <h3 class="pricing-card__name">Эскизный</h3>
+            <p class="pricing-card__desc">Сбалансированное планировочное решение и визуальный концепт-стиль</p>
+            <div class="pricing-card__price">
+              <span class="pricing-card__price-from">от</span>
+              <span class="pricing-card__price-value">1 500 ₽</span>
+              <span class="pricing-card__price-unit">/м²</span>
+            </div>
+            <div class="pricing-card__divider"></div>
+            <ul class="pricing-card__features">
+              <li><span class="check">✓</span> Выездные обмеры и ТЗ</li>
+              <li><span class="check">✓</span> 2-3 варианта планировок</li>
+              <li><span class="check">✓</span> Ассоциативные коллажи</li>
+              <li><span class="check">✓</span> Базовый подбор материалов</li>
+              <li><span class="check">✓</span> 1 итерация правок эскиза</li>
+              <li class="pricing-card__feature--disabled"><span class="cross">✕</span> Полноценное 3D-моделирование</li>
+              <li class="pricing-card__feature--disabled"><span class="cross">✕</span> Рабочий чертежный пакет</li>
+              <li class="pricing-card__feature--disabled"><span class="cross">✕</span> Выезды на авторский надзор</li>
+            </ul>
+            <button class="btn btn--outline-dark btn--block" data-modal-trigger="consultation" data-plan="Эскизный">Выбрать</button>
+          </article>
+
+          <article class="pricing-card pricing-card--featured">
+            <span class="pricing-card__badge">Популярный выбор</span>
+            <h3 class="pricing-card__name">Полный</h3>
+            <p class="pricing-card__desc">Полноценный дизайн-проект с фотореалистичным 3D и чертежами для строителей</p>
+            <div class="pricing-card__price">
+              <span class="pricing-card__price-from">от</span>
+              <span class="pricing-card__price-value">2 500 ₽</span>
+              <span class="pricing-card__price-unit">/м²</span>
+            </div>
+            <div class="pricing-card__divider"></div>
+            <ul class="pricing-card__features">
+              <li><span class="check">✓</span> Все опции «Эскизного» пакета</li>
+              <li><span class="check">✓</span> Фотореалистичные 3D-рендеры комнат</li>
+              <li><span class="check">✓</span> Полный комплект рабочих чертежей</li>
+              <li><span class="check">✓</span> Схемы электрики и сантехники</li>
+              <li><span class="check">✓</span> Развертки стен по всем помещениям</li>
+              <li><span class="check">✓</span> Спецификации отделочных материалов</li>
+              <li><span class="check">✓</span> До двух итераций правок</li>
+              <li class="pricing-card__feature--disabled"><span class="cross">✕</span> Авторский надзор и закупка</li>
+            </ul>
+            <button class="btn btn--primary btn--block" data-modal-trigger="consultation" data-plan="Полный">Выбрать</button>
+          </article>
+
+          <article class="pricing-card">
+            <h3 class="pricing-card__name">VIP</h3>
+            <p class="pricing-card__desc">Максимальный пакет сопровождения «под ключ» от концепта до финишного декорирования</p>
+            <div class="pricing-card__price">
+              <span class="pricing-card__price-from">от</span>
+              <span class="pricing-card__price-value">4 000 ₽</span>
+              <span class="pricing-card__price-unit">/м²</span>
+            </div>
+            <div class="pricing-card__divider"></div>
+            <ul class="pricing-card__features">
+              <li><span class="check">✓</span> Все опции «Полного» пакета</li>
+              <li><span class="check">✓</span> Комплексное снабжение и закупки</li>
+              <li><span class="check">✓</span> Прямое взаимодействие с фабриками</li>
+              <li><span class="check">✓</span> Чертежи мебели индивидуального изготовления</li>
+              <li><span class="check">✓</span> Полноценный авторский надзор</li>
+              <li><span class="check">✓</span> Финишное декорирование текстилем</li>
+              <li><span class="check">✓</span> Безлимитные правки концепции</li>
+              <li><span class="check">✓</span> Персональный менеджер-дизайнер</li>
+            </ul>
+            <button class="btn btn--outline-dark btn--block" data-modal-trigger="consultation" data-plan="VIP">Выбрать</button>
+          </article>
+        </div>
+
+        <div class="pricing__note">
+          <p><strong>Особый бонус:</strong> при заказе дизайна интерьера совместно с генеральным подрядом на строительство — 3D-визуализация в подарок.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="section service-portfolio bg-alt">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Портфолио</span>
+          <h2 id="portfolio-title" class="section__title">Реализованные интерьеры резиденций</h2>
+          <p class="section__subtitle">Каждое решение — пример гармоничного слияния уюта и архитектурной чистоты</p>
+        </header>
+        
+        <div class="portfolio__grid">
+          <article class="portfolio-item">
+            <a href="../projects/project-pine-forest.html" class="portfolio-item__media">
+              <!-- Векторная абстракция спальни "Сосновый бор" -->
+              <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="300" fill="#E2DDD5"/>
+                <rect x="50" y="240" width="300" height="10" fill="#2C2A27"/>
+                <rect x="100" y="140" width="200" height="100" fill="#FAF8F5" rx="6" stroke="#2C2A27" stroke-width="1.5"/>
+                <circle cx="200" cy="100" r="30" fill="#A67C52" opacity="0.8"/>
+              </svg>
+            </a>
+            <div class="portfolio-item__body">
+              <h3>«Сосновый бор» — Современный минимализм</h3>
+              <p>186 м² • 4 спальни • Пакет «VIP»</p>
+              <a href="../projects/project-pine-forest.html" class="btn btn--sm btn--outline-dark">Смотреть проект</a>
+            </div>
+          </article>
+          
+          <article class="portfolio-item">
+            <a href="../projects/project-quiet-harbor.html" class="portfolio-item__media">
+              <!-- Векторная абстракция столовой "Тихая гавань" -->
+              <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="300" fill="#ECE5DC"/>
+                <rect x="120" y="210" width="160" height="10" fill="#2C2A27"/>
+                <!-- Обеденные стулья и стол -->
+                <rect x="140" y="160" width="120" height="50" fill="#FAF8F5" stroke="#2C2A27" stroke-width="1.5"/>
+                <circle cx="200" cy="90" r="20" fill="#8E9A86" opacity="0.7"/>
+              </svg>
+            </a>
+            <div class="portfolio-item__body">
+              <h3>«Тихая гавань» — Скандинавский уют</h3>
+              <p>245 м² • 5 спален • Пакет «Полный»</p>
+              <a href="../projects/project-quiet-harbor.html" class="btn btn--sm btn--outline-dark">Смотреть проект</a>
+            </div>
+          </article>
+          
+          <article class="portfolio-item">
+            <a href="../projects/project-white-stone.html" class="portfolio-item__media">
+              <!-- Векторная абстракция холла "Белый камень" -->
+              <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="300" fill="#FAF8F5"/>
+                <!-- Колонны и симметрия -->
+                <line x1="100" y1="20" x2="100" y2="280" stroke="#E2DCD5" stroke-width="4"/>
+                <line x1="300" y1="20" x2="300" y2="280" stroke="#E2DCD5" stroke-width="4"/>
+                <circle cx="200" cy="140" r="40" stroke="#A67C52" stroke-width="1.5"/>
+              </svg>
+            </a>
+            <div class="portfolio-item__body">
+              <h3>«Белый камень» — Современная классика</h3>
+              <p>380 м² • 6 спален • Пакет «VIP»</p>
+              <a href="../projects/project-white-stone.html" class="btn btn--sm btn--outline-dark">Смотреть проект</a>
+            </div>
+          </article>
+        </div>
+        
+        <div class="section__cta">
+          <a href="../projects.html" class="btn btn--outline-dark">Все проекты портфолио</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section faq-section">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Частые вопросы</span>
+          <h2 id="faq-title" class="section__title">Особенности создания интерьера</h2>
+        </header>
+        
+        <div class="faq__list" id="faqList">
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Каковы реальные сроки разработки дизайн-проекта?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Продолжительность проектирования составляет от 4 до 12 недель в зависимости от площади коттеджа и выбранного тарифа. Сборка эскизной части занимает около месяца, в то время как полноценный рабочий чертежный пакет с 3D-визуализацией готовится в среднем 8-10 недель.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Можно ли вносить корректировки на этапе готовых чертежей?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Да, на стадии концепта правки вносятся в неограниченном количестве в рамках ТЗ. После финального рендеринга 3D и формирования рабочей документации серьезные перепланировки потребуют пересчета всех смежных чертежей (электрика, вентиляция).</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Интегрируете ли вы в новый дизайн уже имеющуюся мебель?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Безусловно. Мы бережно замерим ваши любимые предметы искусства, антиквариат или ценные семейные реликвии и гармонично впишем их в стилистическое решение нового дома, придав ему уникальную индивидуальность.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Как распределяется и планируется бюджет реализации?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Мы рассчитываем предварительную смету комплектации уже на стадии эскизов. Это позволяет избежать ситуаций, когда проект красив на бумаге, но нереализуем по финансовым соображениям. Мы всегда подбираем материалы строго в рамках оговоренного бюджета.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Что входит в обязанности авторского надзора?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Дизайнер регулярно посещает строительную площадку, сверяет размеры и привязки по чертежам, согласовывает со строителями сложные узлы, подбирает тона краски в зависимости от освещения непосредственно на стенах объекта.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Руководитель направления -->
+    <section class="section designer-bio bg-alt">
+      <div class="container">
+        <div class="designer-bio__grid">
+          <div class="designer-bio__photo">
+            <!-- Высокохудожественный векторный портрет/силуэт дизайнера (SVG) -->
+            <svg viewBox="0 0 350 450" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:#FAF8F5;">
+              <rect width="350" height="450" fill="#FAF8F5" rx="8"/>
+              <!-- Фон портрета -->
+              <circle cx="175" cy="225" r="130" fill="#E6DFD3"/>
+              <!-- Стилизованный абстрактный профиль дизайнера -->
+              <path d="M175 140 C140 140 130 170 130 200 C130 240 150 280 175 280 C200 280 220 240 220 200 C220 170 210 140 175 140 Z" fill="#2C2A27"/>
+              <path d="M110 370 C110 310 140 290 175 290 C210 290 240 310 240 370 H110 Z" fill="#2C2A27"/>
+              <!-- Изящное золотое перо / аксессуар как символ творчества -->
+              <path d="M230 150 L250 110 L260 120 Z" fill="#A67C52"/>
+            </svg>
+          </div>
+          <div class="designer-bio__content">
+            <span class="section__eyebrow">Руководитель направления</span>
+            <h2 id="designer-title">Елена Ковалева</h2>
+            <p class="designer-bio__role">Член Союза Дизайнеров России • 15 лет в индустрии</p>
+            <p>Елена руководит архитектурно-интерьерным отделом DOMUS VIVA с 2016 года. Под её началом было создано более 85 премиальных интерьеров резиденций как в России, так и за ее пределами.</p>
+            <p>Авторские работы Елены регулярно украшают страницы ведущих отраслевых медиа: AD Magazine, Salon Interior и ELLE Decoration. Главный принцип её работы — создание осмысленной среды, которая сохраняет свою визуальную актуальность и ценность на протяжении многих десятилетий.</p>
+            
+            <div class="designer-bio__stats">
+              <div class="designer-stat">
+                <strong>85+</strong>
+                <span>Интерьеров</span>
+              </div>
+              <div class="designer-stat">
+                <strong>15</strong>
+                <span>Лет опыта</span>
+              </div>
+              <div class="designer-stat">
+                <strong>12+</strong>
+                <span>Публикаций</span>
+              </div>
+            </div>
+            
+            <button class="btn btn--primary" data-modal-trigger="consultation" data-plan="Консультация с Еленой Ковалевой">Консультация с Еленой</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Готовы создать интерьер вашей мечты?</h2>
+          <p>Запишитесь на ознакомительную сессию. Мы обсудим архитектуру вашего дома, пожелания по планировке и стилистике.</p>
+          <div class="cta-box__actions">
+            <button class="btn btn--accent btn--lg" data-modal-trigger="consultation">Бесплатная консультация</button>
+            <a href="../calculator.html" class="btn btn--outline-light btn--lg">Онлайн калькулятор</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Pages -->
+    <section class="section related-pages" aria-labelledby="related-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="related-title" class="section__title">Связанные услуги компании</h2>
+        </header>
+        <div class="related-pages__grid">
+          <a href="service-design.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+            <h3>Проектирование</h3>
+            <p>Индивидуальные архитектурные решения вашего будущего дома.</p>
+            <span class="related-card__arrow">Перейти →</span>
+          </a>
+          <a href="service-build.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 21V9h6v12" />
+              </svg>
+            </div>
+            <h3>Строительство</h3>
+            <p>Генеральный подряд и возведение резиденции под ключ.</p>
+            <span class="related-card__arrow">Перейти →</span>
+          </a>
+          <a href="service-landscape.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="M12 6v12M6 12h12"/>
+              </svg>
+            </div>
+            <h3>Ландшафт</h3>
+            <p>Проектирование садов, благоустройство и озеленение участков.</p>
+            <span class="related-card__arrow">Перейти →</span>
+          </a>
+          <a href="service-engineering.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v8M8 12h8" />
+              </svg>
+            </div>
+            <h3>Инженерия</h3>
+            <p>Проектирование отопления, вентиляции и сетей «Умный дом».</p>
+            <span class="related-card__arrow">Перейти →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__about">
+          <a href="../index.html" class="logo" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="fill: transparent;">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M9 21V9h6v12" />
+            </svg>
+            <span class="logo__text" style="color: white;">DOMUS VIVA</span>
+          </a>
+          <p>Премиальное индивидуальное проектирование, строительство и дизайн интерьера загородных резиденций с 2014 года.</p>
+          <div class="social-links">
+            <a href="#" aria-label="VKontakte">VK</a>
+            <a href="#" aria-label="Telegram">TG</a>
+            <a href="#" aria-label="Pinterest">PIN</a>
+          </div>
+        </div>
+        
+        <div class="footer__col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="../about.html">О нас</a></li>
+            <li><a href="../services.html">Услуги</a></li>
+            <li><a href="../projects.html">Наши проекты</a></li>
+            <li><a href="../blog.html">Блог архитекторов</a></li>
+            <li><a href="../contacts.html">Наши контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer__col">
+          <h4>Направления</h4>
+          <ul>
+            <li><a href="service-design.html">Проектирование</a></li>
+            <li><a href="service-build.html">Строительство</a></li>
+            <li><a href="service-engineering.html">Инженерия</a></li>
+            <li><a href="service-landscape.html">Ландшафтный дизайн</a></li>
+            <li><a href="service-interior.html">Дизайн интерьера</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer__col footer__contacts">
+          <h4>Контакты</h4>
+          <p style="margin-bottom: 12px;"><a href="tel:+78005553535" style="color: white; font-weight: 600; text-decoration: none;">+7 (800) 555-35-35</a></p>
+          <p style="margin-bottom: 12px;"><a href="mailto:info@domusviva.ru">info@domusviva.ru</a></p>
+          <p>Москва, ул. Архитекторов, 12<br>Пн-Пт: 9:00–19:00</p>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p>&copy; 2026 DOMUS VIVA. Все права защищены. Эксклюзивная загородная архитектура и интерьер.</p>
+        <div class="footer__links">
+          <a href="#">Конфиденциальность</a>
+          <a href="#">Карта сайта</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Интерактивное модальное окно -->
+  <div class="modal" id="consultationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+      <div class="modal__body">
+        <h3 id="modalTitle">Интерьерный проект</h3>
+        <p>Заполните контактную форму, и наш ведущий дизайнер свяжется с вами в течение получаса.</p>
+        
+        <form id="consultationForm">
+          <div class="form-group">
+            <label for="clientName">Ваше имя</label>
+            <input type="text" id="clientName" class="form-control" placeholder="Константин" required>
+          </div>
+          <div class="form-group">
+            <label for="clientPhone">Номер телефона</label>
+            <input type="tel" id="clientPhone" class="form-control" placeholder="+7 (999) 123-45-67" required>
+          </div>
+          <div class="form-group">
+            <label for="clientMessage">Ваш комментарий к интерьеру</label>
+            <textarea id="clientMessage" class="form-control" rows="3" placeholder="Площадь коттеджа 320 кв.м., нравится стиль джапанди..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%;">Отправить запрос</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Прогресс чтения вверху страницы
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = scrolled + '%';
+      });
+
+      // 2. Бургер-меню (адаптивная мобильная навигация)
+      const burgerBtn = document.getElementById('burgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      burgerBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('mobile-menu--open');
+        burgerBtn.classList.toggle('burger--active');
+        burgerBtn.setAttribute('aria-expanded', isOpen);
+      });
+
+      // 3. Работа с модальным окном
+      const modal = document.getElementById('consultationModal');
+      const openModalTriggers = document.querySelectorAll('[data-modal-trigger="consultation"]');
+      const closeModalElements = document.querySelectorAll('[data-close-modal]');
+      const clientMessageTextarea = document.getElementById('clientMessage');
+
+      function openModal(e) {
+        // Подставим выбранный тариф, если кликнули на кнопку тарифа
+        const plan = e.currentTarget.getAttribute('data-plan');
+        if (plan) {
+          clientMessageTextarea.value = `Интересует расчет стоимости дизайн-проекта по тарифу «${plan}».`;
+        } else {
+          clientMessageTextarea.value = '';
+        }
+        
+        modal.classList.add('modal--open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('modal--open');
+        document.body.style.overflow = '';
+      }
+
+      openModalTriggers.forEach(trigger => trigger.addEventListener('click', openModal));
+      closeModalElements.forEach(el => el.addEventListener('click', closeModal));
+
+      // Закрытие модального по кнопке Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+          closeModal();
+        }
+      });
+
+      // 4. Отправка формы консультации
+      const form = document.getElementById('consultationForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        closeModal();
+        showToast('✓ Благодарим! Заявка на расчет интерьера принята. Елена Ковалева свяжется с вами.');
+        form.reset();
+      });
+
+      // 5. Тост-уведомления
+      const toastContainer = document.getElementById('toastContainer');
+      function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => {
+          toast.style.animation = 'toastIn 0.3s reverse forwards';
+          setTimeout(() => toast.remove(), 300);
+        }, 5000);
+      }
+
+      // 6. Аккордеон FAQ с плавной CSS-анимацией высоты
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        question.addEventListener('click', () => {
+          const isOpen = item.classList.contains('faq-item--active');
+          
+          // Закроем все остальные вкладки
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('faq-item--active');
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+          });
+
+          if (!isOpen) {
+            item.classList.add('faq-item--active');
+            question.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+
+      // 7. Подсветка активной секции в Page-Nav при скролле (Intersection Observer)
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.page-nav__link');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-80px 0px -40% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('page-nav__link--active');
+              } else {
+                link.classList.remove('page-nav__link--active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(sec => observer.observe(sec));
+
+      // Переключение языка
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const STORAGE_KEY = 'domus-viva-lang';
+      
+      function getCurrentLanguage() {
+        return localStorage.getItem(STORAGE_KEY) || 'ru';
+      }
+
+      function setLanguage(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+        langButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Инициализировать активный язык
+      const currentLang = getCurrentLanguage();
+      setLanguage(currentLang);
+    });
+  </script>
+</body>
+</html>

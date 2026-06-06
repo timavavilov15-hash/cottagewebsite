@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Политика конфиденциальности | DOMUS VIVA</title>
+  <meta name="description" content="Политика обработки персональных данных компании DOMUS VIVA. Соответствие 152-ФЗ и GDPR.">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Премиальная дизайн-система (Quiet Luxury) */
+    :root {
+      --color-bg: #FAF8F5; /* Благородный кремовый / молочный */
+      --color-bg-alt: #F3ECE2; /* Мягкий бежево-песочный */
+      --color-text-main: #2C2A27; /* Мягкий графит */
+      --color-text-muted: #6E6A64;
+      --color-accent: #A67C52; /* Золотисто-древесный */
+      --color-accent-hover: #8E653C;
+      --color-accent-light: #F5EFE6;
+      --color-dark: #1E1D1B; /* Почти черный */
+      --color-border: #E8E2D9;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Базовый сброс и плавность */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-sans);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Индикатор прокрутки */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--color-accent);
+      width: 0%;
+      z-index: 1100;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Шапка сайта (упрощённая) */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--color-dark);
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .logo svg {
+      fill: var(--color-accent);
+    }
+
+    /* Кнопки */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+    .btn--outline {
+      background: transparent;
+      border: 1px solid var(--color-dark);
+      color: var(--color-dark);
+    }
+    .btn--outline:hover {
+      background: var(--color-dark);
+      color: white;
+    }
+
+    /* Контент политики конфиденциальности */
+    .privacy-content {
+      max-width: 800px;
+      margin: 48px auto;
+      padding: 0 24px;
+    }
+
+    .privacy-content h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      line-height: 1.15;
+      color: var(--color-dark);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .privacy-content h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-top: 48px;
+      margin-bottom: 20px;
+      color: var(--color-dark);
+      border-bottom: 1px solid var(--color-accent);
+      padding-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .privacy-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: var(--color-dark);
+      font-weight: 600;
+    }
+
+    .privacy-content p {
+      margin-bottom: 20px;
+      color: var(--color-text-main);
+    }
+
+    .privacy-content a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      border-bottom: 1px solid transparent;
+    }
+    .privacy-content a:hover {
+      color: var(--color-accent-hover);
+      border-bottom-color: var(--color-accent-hover);
+    }
+
+    .privacy-content ul,
+    .privacy-content ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+    }
+
+    .privacy-content li {
+      margin-bottom: 8px;
+      color: var(--color-text-main);
+    }
+
+    .privacy-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      font-size: 0.9rem;
+    }
+
+    .privacy-content th,
+    .privacy-content td {
+      padding: 16px;
+      border: 1px solid var(--color-border);
+      text-align: left;
+    }
+
+    .privacy-content th {
+      background-color: var(--color-bg-alt);
+      font-weight: 600;
+      color: var(--color-dark);
+    }
+
+    .privacy-meta {
+      background-color: var(--color-bg-alt);
+      padding: 24px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+      border: 1px solid var(--color-border);
+    }
+
+    .privacy-meta p {
+      margin: 8px 0;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .privacy-meta p:first-child {
+      margin-top: 0;
+    }
+    .privacy-meta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .privacy-update {
+      background-color: var(--color-accent-light);
+      padding: 20px;
+      border-left: 3px solid var(--color-accent);
+      border-radius: 0 8px 8px 0;
+      margin: 32px 0;
+      font-size: 0.95rem;
+      color: var(--color-dark);
+    }
+
+    /* Футер (упрощённый) */
+    .footer {
+      background: var(--color-dark);
+      color: #A39E95;
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: auto;
+    }
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+    .footer__links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer__links a {
+      color: #A39E95;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .footer__links a:hover {
+      color: var(--color-accent);
+    }
+
+    @media (max-width: 768px) {
+      .privacy-content h1 {
+        font-size: 2.2rem;
+      }
+      .privacy-content h2 {
+        font-size: 1.5rem;
+      }
+      .privacy-content table {
+        display: block;
+        overflow-x: auto;
+      }
+      .footer__bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="page-privacy">
+
+  <!-- Индикатор прокрутки -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Прогресс прокрутки"></div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="/" class="logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M9 21V9h6v12" />
+        </svg>
+        <span class="logo__text">DOMUS VIVA</span>
+      </a>
+      <a href="/" class="btn btn--outline">← На главную</a>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <article class="privacy-content">
+      
+      <h1>Политика конфиденциальности</h1>
+      
+      <div class="privacy-meta">
+        <p><strong>Дата вступления в силу:</strong> 1 января 2026 года</p>
+        <p><strong>Последнее обновление:</strong> 20 мая 2026 года</p>
+        <p><strong>Редакция:</strong> 2.0</p>
+      </div>
+
+      <p>
+        Настоящая Политика конфиденциальности (далее — «Политика») описывает, как компания 
+        <strong>DOMUS VIVA</strong> (ООО «Домус Вива», ИНН 7701234567, ОГРН 1234567890123, 
+        далее — «Компания», «мы», «нас») собирает, использует, хранит и защищает 
+        персональные данные пользователей сайта 
+        <a href="https://domusviva.ru">domusviva.ru</a> (далее — «Сайт»).
+      </p>
+
+      <p>
+        Используя Сайт и предоставляя свои персональные данные, вы соглашаетесь с условиями 
+        настоящей Политики. Если вы не согласны с условиями, пожалуйста, воздержитесь от 
+        использования Сайта и не предоставляйте свои данные.
+      </p>
+
+      <div class="privacy-update">
+        <strong>📢 Обновление от 20.05.2026:</strong> Добавлены разделы о работе с cookies 
+        и международными пользователями в соответствии с GDPR.
+      </div>
+
+      <h2>1. Какие данные мы собираем</h2>
+
+      <h3>1.1. Данные, которые вы предоставляете добровольно</h3>
+      <ul>
+        <li><strong>Контактные данные:</strong> имя, номер телефона, адрес электронной почты</li>
+        <li><strong>Данные из форм обратной связи:</strong> сообщения, комментарии, запросы</li>
+        <li><strong>Данные калькулятора:</strong> параметры расчёта (площадь, материал, этажность)</li>
+        <li><strong>Данные подписки:</strong> email для рассылки новостей</li>
+        <li><strong>Данные из комментариев:</strong> имя, email, текст комментария</li>
+      </ul>
+
+      <h3>1.2. Данные, собираемые автоматически</h3>
+      <ul>
+        <li><strong>Технические данные:</strong> IP-адрес, тип браузера, операционная система</li>
+        <li><strong>Данные об устройстве:</strong> модель устройства, разрешение экрана</li>
+        <li><strong>Данные о посещении:</strong> страницы, время на сайте, источник перехода</li>
+        <li><strong>Cookies:</strong> файлы cookie для работы сайта и аналитики</li>
+      </ul>
+
+      <h2>2. Как мы используем ваши данные</h2>
+
+      <p>Мы используем собранные данные для следующих целей:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Цель обработки</th>
+            <th>Категории данных</th>
+            <th>Правовое основание</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Обработка заявок и консультаций</td>
+            <td>Имя, телефон, email, сообщение</td>
+            <td>Согласие пользователя (ст. 9 152-ФЗ)</td>
+          </tr>
+          <tr>
+            <td>Предоставление доступа к Сайту</td>
+            <td>Технические данные, cookies</td>
+            <td>Исполнение договора (ст. 6 152-ФЗ)</td>
+          </tr>
+          <tr>
+            <td>Улучшение качества услуг</td>
+            <td>Данные аналитики, обратная связь</td>
+            <td>Законный интерес (ст. 6 152-ФЗ)</td>
+          </tr>
+          <tr>
+            <td>Рассылка новостей (с согласия)</td>
+            <td>Email</td>
+            <td>Согласие пользователя (ст. 9 152-ФЗ)</td>
+          </tr>
+          <tr>
+            <td>Соблюдение законодательства</td>
+            <td>Любые необходимые данные</td>
+            <td>Исполнение закона (ст. 6 152-ФЗ)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>3. Cookies и технологии отслеживания</h2>
+
+      <h3>3.1. Типы cookies, которые мы используем</h3>
+
+      <p><strong>Обязательные cookies</strong> — необходимы для работы Сайта:</p>
+      <ul>
+        <li>Сессия пользователя (идентификатор сессии)</li>
+        <li>Запоминание настроек (язык, валюта)</li>
+        <li>Безопасность (CSRF-токен)</li>
+      </ul>
+
+      <p><strong>Аналитические cookies</strong> — помогают понять, как используется Сайт:</p>
+      <ul>
+        <li>Яндекс.Метрика — статистика посещений, вебвизор</li>
+        <li>Google Analytics 4 — анализ поведения пользователей</li>
+      </ul>
+
+      <p><strong>Функциональные cookies</strong> — улучшают работу с Сайтом:</p>
+      <ul>
+        <li>Сохранение результатов калькулятора</li>
+        <li>Запоминание открытых модальных окон</li>
+      </ul>
+
+      <h3>3.2. Управление cookies</h3>
+
+      <p>Вы можете управлять cookies через настройки браузера:</p>
+      <ul>
+        <li><strong>Chrome:</strong> Настройки → Конфиденциальность и безопасность → Cookies</li>
+        <li><strong>Safari:</strong> Настройки → Конфиденциальность → Cookies</li>
+        <li><strong>Firefox:</strong> Настройки → Приватность и защита → Cookies</li>
+      </ul>
+
+      <p>
+        <strong>Важно:</strong> Отключение обязательных cookies может нарушить работу Сайта.
+      </p>
+
+      <h2>4. Передача данных третьим лицам</h2>
+
+      <p>
+        Мы не продаём и не передаём ваши персональные данные третьим лицам, за исключением 
+        следующих случаев:
+      </p>
+
+      <h3>4.1. Партнёры и сервисы</h3>
+      <ul>
+        <li><strong>Хостинг-провайдер (Netlify):</strong> хранение данных Сайта</li>
+        <li><strong>Сервисы аналитики:</strong> Яндекс.Метрика, Google Analytics</li>
+        <li><strong>CRM-система:</strong> обработка заявок (Bitrix24)</li>
+        <li><strong>Email-сервис:</strong> рассылка новостей (Unisender)</li>
+      </ul>
+
+      <h3>4.2. Юридические основания</h3>
+      <ul>
+        <li>По требованию государственных органов (в рамках закона)</li>
+        <li>Для защиты прав и законных интересов Компании</li>
+        <li>С вашего явного согласия</li>
+      </ul>
+
+      <h2>5. Защита данных</h2>
+
+      <p>Мы применяем следующие меры для защиты ваших данных:</p>
+
+      <ul>
+        <li><strong>Шифрование:</strong> все данные передаются по протоколу HTTPS (TLS 1.3)</li>
+        <li><strong>Доступ:</strong> ограниченный доступ сотрудников по принципу необходимости</li>
+        <li><strong>Хранение:</strong> данные хранятся на защищённых серверах в РФ</li>
+        <li><strong>Резервное копирование:</strong> ежедневное резервное копирование данных</li>
+        <li><strong>Мониторинг:</strong> постоянный мониторинг безопасности и уязвимостей</li>
+      </ul>
+
+      <h2>6. Срок хранения данных</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Категория данных</th>
+            <th>Срок хранения</th>
+            <th>Основание</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Заявки на консультацию</td>
+            <td>3 года</td>
+            <td>Договорные отношения</td>
+          </tr>
+          <tr>
+            <td>Данные калькулятора</td>
+            <td>Сессионно (до закрытия браузера)</td>
+            <td>Техническая необходимость</td>
+          </tr>
+          <tr>
+            <td>Подписка на рассылку</td>
+            <td>До отписки пользователя</td>
+            <td>Согласие пользователя</td>
+          </tr>
+          <tr>
+            <td>Данные аналитики</td>
+            <td>26 месяцев</td>
+            <td>Законный интерес</td>
+          </tr>
+          <tr>
+            <td>Cookies</td>
+            <td>Согласно политике cookies (от сессии до 1 года)</td>
+            <td>Согласие пользователя</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>7. Ваши права (152-ФЗ и GDPR)</h2>
+
+      <p>В соответствии с законодательством РФ и ЕС вы имеете право:</p>
+
+      <ul>
+        <li><strong>На доступ:</strong> узнать, какие данные о вас обрабатываются</li>
+        <li><strong>На исправление:</strong> изменить неточные данные</li>
+        <li><strong>На удаление:</strong> требовать удаления ваших данных («право на забвение»)</li>
+        <li><strong>На ограничение:</strong> ограничить обработку данных</li>
+        <li><strong>На переносимость:</strong> получить ваши данные в машиночитаемом формате</li>
+        <li><strong>На возражение:</strong> возражать против обработки данных</li>
+        <li><strong>Отозвать согласие:</strong> отозвать ранее данное согласие</li>
+      </ul>
+
+      <p>
+        Для реализации ваших прав напишите нам на 
+        <a href="mailto:privacy@domusviva.ru">privacy@domusviva.ru</a>. 
+        Мы ответим в течение 30 дней.
+      </p>
+
+      <h2>8. Международные пользователи (GDPR)</h2>
+
+      <p>
+        Если вы находитесь в Европейском Союзе, Великобритании или Швейцарии, настоящая 
+        Политика также соответствует требованиям GDPR (Общий регламент по защите данных).
+      </p>
+
+      <h3>8.1. Правовые основания обработки (GDPR)</h3>
+      <ul>
+        <li><strong>Согласие (Art. 6(1)(a)):</strong> формы обратной связи, подписка</li>
+        <li><strong>Исполнение договора (Art. 6(1)(b)):</strong> предоставление доступа к Сайту</li>
+        <li><strong>Законный интерес (Art. 6(1)(f)):</strong> аналитика, безопасность</li>
+        <li><strong>Юридическая обязанность (Art. 6(1)(c)):</strong> соблюдение законодательства</li>
+      </ul>
+
+      <h3>8.2. Передача данных за пределы ЕС</h3>
+      <p>
+        Данные могут передаваться в страны, не входящие в ЕС (включая РФ и США). 
+        В таких случаях мы обеспечиваем надлежащий уровень защиты через:
+      </p>
+      <ul>
+        <li>Стандартные договорные clauses (SCC)</li>
+        <li>Сертификацию Privacy Shield (для США)</li>
+        <li>Явное согласие пользователя</li>
+      </ul>
+
+      <h2>9. Дети и несовершеннолетние</h2>
+
+      <p>
+        Сайт не предназначен для лиц младше 18 лет. Мы сознательно не собираем данные 
+        несовершеннолетних. Если вы узнали, что ребёнок предоставил нам данные, 
+        свяжитесь с нами для их удаления.
+      </p>
+
+      <h2>10. Изменения в Политике</h2>
+
+      <p>
+        Мы можем обновлять настоящую Политику. Все изменения публикуются на этой странице 
+        с указанием даты обновления. При существенных изменениях мы уведомим вас:
+      </p>
+
+      <ul>
+        <li>Через уведомление на Сайте</li>
+        <li>По электронной почте (если вы подписаны на рассылку)</li>
+        <li>Через всплывающее окно при следующем посещении</li>
+      </ul>
+
+      <h2>11. Контакты</h2>
+
+      <p>
+        По всем вопросам, связанным с обработкой персональных данных, обращайтесь:
+      </p>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Компания:</strong></td>
+            <td>ООО «Домус Вива» (DOMUS VIVA)</td>
+          </tr>
+          <tr>
+            <td><strong>Адрес:</strong></td>
+            <td>123456, г. Москва, ул. Архитекторов, д. 15, офис 301</td>
+          </tr>
+          <tr>
+            <td><strong>Телефон:</strong></td>
+            <td><a href="tel:+74951234567">+7 (495) 123-45-67</a></td>
+          </tr>
+          <tr>
+            <td><strong>Email:</strong></td>
+            <td><a href="mailto:privacy@domusviva.ru">privacy@domusviva.ru</a></td>
+          </tr>
+          <tr>
+            <td><strong>Ответственный за обработку ПД:</strong></td>
+            <td>Иванов И.И., dpo@domusviva.ru</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>12. Реквизиты для жалоб</h2>
+
+      <p>
+        Если вы считаете, что ваши права нарушены, вы можете обратиться:
+      </p>
+
+      <h3>12.1. В России</h3>
+      <ul>
+        <li>
+          <strong>Роскомнадзор:</strong> 
+          <a href="https://rkn.gov.ru" target="_blank" rel="noopener">rkn.gov.ru</a>
+        </li>
+        <li>Адрес: 109074, г. Москва, Китайгородский проезд, д. 7</li>
+      </ul>
+
+      <h3>12.2. В Европейском Союзе</h3>
+      <ul>
+        <li>
+          <strong>Национальный орган по защите данных:</strong> 
+          список на 
+          <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener">edpb.europa.eu</a>
+        </li>
+      </ul>
+
+      <div class="privacy-update">
+        <p style="margin: 0;">
+          <strong>Последняя проверка:</strong> 20 мая 2026 года<br>
+          <strong>Следующая проверка:</strong> 20 мая 2027 года
+        </p>
+      </div>
+
+      <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <em>
+          Настоящая Политика составлена в соответствии с Федеральным законом от 27.07.2006 
+          № 152-ФЗ «О персональных данных» и Регламентом ЕС 2016/679 (GDPR).
+        </em>
+      </p>
+
+    </article>
+  </main>
+
+  <!-- Footer (упрощённый) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 DOMUS VIVA. Все права защищены. Эксклюзивная загородная архитектура.</p>
+        <div class="footer__links">
+          <a href="/">Главная</a>
+          <a href="/contacts.html">Контакты</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Скрипт индикатора прокрутки -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const scrollProgress = document.getElementById('scrollProgress');
+      if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+          const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = (winScroll / height) * 100;
+          scrollProgress.style.width = scrolled + '%';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

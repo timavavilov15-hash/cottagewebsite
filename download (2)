@@ -1,0 +1,94 @@
+# ============================================
+# DOMUS VIVA — Git Ignore Rules
+# ============================================
+
+# === Зависимости ===
+node_modules/
+vendor/
+.pnp
+.pnp.js
+
+# === Сборка и генерация ===
+dist/
+build/
+.cache/
+.output/
+.nuxt/
+.next/
+
+# === IDE и редакторы ===
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# === OS файлы ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# === Логи ===
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === Переменные окружения ===
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.staging
+
+# === Временные файлы ===
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.vs/
+
+# === Тесты и покрытие ===
+coverage/
+.nyc_output/
+*.lcov
+.cypress/
+
+# === Кэш ===
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# === Документация (генерируемая) ===
+docs/api/
+storybook-static/
+
+# === Ассеты (опционально, если хранятся в CDN) ===
+# assets/videos/
+# assets/images/originals/
+
+# === Локальные конфиги ===
+.netlify/
+.vercel/
+.firebase/
+
+# === Прочее ===
+*.bak
+*.orig
+*.backup
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

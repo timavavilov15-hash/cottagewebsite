@@ -1,0 +1,82 @@
+# ============================================
+# DOMUS VIVA — Robots.txt
+# https://domusviva.ru/robots.txt
+# ============================================
+
+# Разрешаем индексацию для всех ботов
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных страниц
+Disallow: /404.html
+Disallow: /privacy.html
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_headers
+Disallow: /netlify.toml
+Disallow: /.git/
+Disallow: /.github/
+
+# Разрешаем доступ к ассетам
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
+
+# Запрещаем дубли страниц с параметрами
+Disallow: /*?utm_
+Disallow: /*?fbclid
+Disallow: /*?gclid
+Disallow: /*?yclid
+Disallow: /*?_openstat
+Disallow: /*?from
+Disallow: /*?source
+Disallow: /*?ref
+
+# Запрещаем индексацию поисковых результатов (если будут)
+Disallow: /search?*
+Disallow: /filter?*
+
+# Указываем карту сайта
+Sitemap: https://domusviva.ru/sitemap.xml
+
+# Задержки для ботов (опционально)
+Crawl-delay: 1
+
+# Специальные правила для Яндекса
+User-agent: Yandex
+Allow: /
+Disallow: /404.html
+Disallow: /privacy.html
+Disallow: /*?utm_
+Disallow: /*?fbclid
+Disallow: /*?gclid
+Disallow: /*?yclid
+Disallow: /*?_openstat
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&fbclid&gclid&yclid&_openstat&from&source&ref
+
+# Специальные правила для Google
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Disallow: /404.html
+Disallow: /privacy.html
+
+# Запрещаем AI-ботам (опционально)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /

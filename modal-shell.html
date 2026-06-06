@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  
+  "name": "DOMUS VIVA — Премиальное строительство коттеджей",
+  "short_name": "DOMUS VIVA",
+  "description": "Строим дома, в которых оживает жизнь. Премиальные коттеджи под ключ с гарантией 15 лет. Индивидуальная архитектура, прозрачная смета, фиксированные сроки.",
+  
+  "lang": "ru-RU",
+  "dir": "ltr",
+  
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "id": "domus-viva-pwa",
+  
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  
+  "background_color": "#FAF9F6",
+  "theme_color": "#A67C52",
+  
+  "categories": ["business", "lifestyle", "productivity"],
+  
+  "icons": [
+    {
+      "src": "/assets/icons/pwa/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/pwa/icon-vector.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/mobile-hero.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Главная страница DOMUS VIVA на мобильном устройстве"
+    },
+    {
+      "src": "/assets/screenshots/mobile-calculator.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Калькулятор стоимости строительства"
+    },
+    {
+      "src": "/assets/screenshots/mobile-projects.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Портфолио реализованных проектов"
+    },
+    {
+      "src": "/assets/screenshots/desktop-hero.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Главная страница DOMUS VIVA на десктопе"
+    },
+    {
+      "src": "/assets/screenshots/desktop-calculator.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Калькулятор стоимости на десктопе"
+    }
+  ],
+  
+  "shortcuts": [
+    {
+      "name": "Рассчитать стоимость",
+      "short_name": "Калькулятор",
+      "description": "Быстрый расчёт стоимости строительства коттеджа",
+      "url": "/calculator.html?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/assets/icons/pwa/shortcut-calculator.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Смотреть проекты",
+      "short_name": "Проекты",
+      "description": "Портфолио реализованных коттеджей",
+      "url": "/projects.html?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/assets/icons/pwa/shortcut-projects.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Связаться с нами",
+      "short_name": "Контакты",
+      "description": "Телефон, адрес, форма обратной связи",
+      "url": "/contacts.html?source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/assets/icons/pwa/shortcut-contacts.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Бесплатная консультация",
+      "short_name": "Консультация",
+      "description": "Записаться на бесплатную консультацию архитектора",
+      "url": "/contacts.html?modal=consultation&source=pwa_shortcut",
+      "icons": [
+        {
+          "src": "/assets/icons/pwa/shortcut-consultation.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  
+  "share_target": {
+    "action": "/contacts.html",
+    "method": "GET",
+    "params": {
+      "title": "share_title",
+      "text": "share_text",
+      "url": "share_url"
+    }
+  },
+  
+  "protocol_handlers": [
+    {
+      "protocol": "web+domusviva",
+      "url": "/handle-protocol?uri=%s"
+    }
+  ],
+  
+  "related_applications": [],
+  "prefer_related_applications": false,
+  
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  
+  "handle_links": "preferred",
+  
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  
+  "iarc_rating_id": "",
+  
+  "serviceworker": {
+    "src": "/sw.js",
+    "scope": "/",
+    "use_cache": true
+  }
+}

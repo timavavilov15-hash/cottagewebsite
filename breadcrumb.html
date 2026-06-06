@@ -1,0 +1,79 @@
+/**
+ * Blog Module — фильтры и пагинация блога
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  const filterPosts = (category) => {
+    const posts = $$('.blog-card');
+    
+    posts.forEach(post => {
+      const postCategory = post.dataset.category || '';
+      const shouldShow = category === 'all' || postCategory === category;
+      
+      if (shouldShow) {
+        post.style.display = '';
+        post.hidden = false;
+      } else {
+        post.style.display = 'none';
+        post.hidden = true;
+      }
+    });
+  };
+
+  const init = () => {
+    // Фильтры категорий
+    const filterBtns = $$('.filter-btn[data-blog-filter]');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('filter-btn--active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        
+        btn.classList.add('filter-btn--active');
+        btn.setAttribute('aria-selected', 'true');
+        
+        filterPosts(btn.dataset.blogFilter);
+      });
+    });
+
+    // Sidebar категории
+    const sidebarCategories = $$('.sidebar-category[data-category]');
+    sidebarCategories.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = link.dataset.category;
+        filterPosts(category);
+        
+        // Скролл к списку постов
+        const postsSection = $('.blog-posts');
+        if (postsSection) {
+          postsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Пагинация (если есть)
+    const paginationBtns = $$('.pagination__btn');
+    paginationBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        paginationBtns.forEach(b => b.classList.remove('pagination__btn--active'));
+        btn.classList.add('pagination__btn--active');
+        
+        // Здесь должна быть логика загрузки следующей страницы
+        // Для статического сайта — просто визуальное переключение
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

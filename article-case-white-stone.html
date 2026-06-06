@@ -1,0 +1,198 @@
+/**
+ * DOMUS VIVA — Animations Module
+ * Управляет scroll-анимациями, счётчиками и плавной прокруткой
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  // Проверка на предпочтения пользователя по уменьшению анимаций (Accessibility)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  // ==========================================================================
+  // 1. SCROLL REVEAL ANIMATIONS (Появление элементов при скролле)
+  // ==========================================================================
+  const initScrollReveal = () => {
+    if (prefersReducedMotion) {
+      // Если пользователь предпочитает уменьшенные анимации, делаем всё видимым сразу
+      $$('.reveal, .fade-in, .slide-in-left, .section-animate').forEach(el => {
+        el.classList.add('reveal--active', 'visible');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      return;
+    }
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px' // Срабатывает чуть раньше, чем элемент полностью появится
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Добавляем классы активности в зависимости от исходного класса элемента
+          if (entry.target.classList.contains('reveal')) {
+            entry.target.classList.add('reveal--active');
+          } else {
+            entry.target.classList.add('visible');
+          }
+          
+          // Прекращаем наблюдение после появления (одноразовая анимация)
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Наблюдаем за всеми элементами с классами анимации
+    $$('.reveal, .fade-in, .slide-in-left, .section-animate').forEach(el => {
+      revealObserver.observe(el);
+    });
+  };
+
+  // ==========================================================================
+  // 2. COUNTER ANIMATIONS (Анимация цифр/счётчиков)
+  // ==========================================================================
+  const animateCounter = (element) => {
+    const target = parseFloat(element.getAttribute('data-target')) || 0;
+    const suffix = element.getAttribute('data-suffix') || '';
+    const decimals = parseInt(element.getAttribute('data-decimals')) || 0;
+    const duration = 2000; // 2 секунды на анимацию
+    const startTime = performance.now();
+
+    // Функция плавности (easeOutCubic)
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const update = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutCubic(progress);
+      
+      const current = easedProgress * target;
+      
+      // Форматируем число с нужным количеством знаков после запятой
+      element.textContent = current.toFixed(decimals) + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        // Гарантируем точное конечное значение
+        element.textContent = target.toFixed(decimals) + suffix;
+        element.classList.add('animated'); // Для дополнительных CSS-эффектов
+      }
+    };
+
+    requestAnimationFrame(update);
+  };
+
+  const initCounters = () => {
+    if (prefersReducedMotion) {
+      // Сразу показываем финальные значения без анимации
+      $$('.counter').forEach(el => {
+        const target = parseFloat(el.getAttribute('data-target')) || 0;
+        const suffix = el.getAttribute('data-suffix') || '';
+        const decimals = parseInt(el.getAttribute('data-decimals')) || 0;
+        el.textContent = target.toFixed(decimals) + suffix;
+      });
+      return;
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 }); // Счётчик начинает анимацию, когда на 50% виден
+
+    $$('.counter').forEach(el => {
+      counterObserver.observe(el);
+    });
+  };
+
+  // ==========================================================================
+  // 3. SMOOTH SCROLL (Плавная прокрутка к якорям)
+  // ==========================================================================
+  const initSmoothScroll = () => {
+    $$('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+
+        const targetElement = $(href);
+        if (!targetElement) return;
+
+        e.preventDefault();
+
+        // Учитываем высоту фиксированной шапки (header)
+        const header = $('#header');
+        const headerHeight = header ? header.offsetHeight : 80;
+        const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+
+        window.scrollTo({
+          top: offsetTop,
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+
+        // Обновляем URL без перезагрузки страницы
+        history.pushState(null, null, href);
+      });
+    });
+  };
+
+  // ==========================================================================
+  // 4. PARALLAX EFFECT (Опционально, для элементов с классом .parallax)
+  // ==========================================================================
+  const initParallax = () => {
+    if (prefersReducedMotion) return;
+
+    const parallaxElements = $$('.parallax');
+    if (parallaxElements.length === 0) return;
+
+    let ticking = false;
+
+    const updateParallax = () => {
+      const scrolled = window.scrollY;
+      parallaxElements.forEach(el => {
+        const speed = parseFloat(el.dataset.speed) || 0.5;
+        // Применяем трансформацию только если элемент в области видимости (оптимизация)
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.style.transform = `translateY(${scrolled * speed}px)`;
+        }
+      });
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  };
+
+  // ==========================================================================
+  // INITIALIZATION
+  // ==========================================================================
+  const init = () => {
+    initScrollReveal();
+    initCounters();
+    initSmoothScroll();
+    initParallax();
+    
+    console.log('%c[DOMUS VIVA] Animations module initialized', 'color: #A67C52; font-weight: bold;');
+  };
+
+  // Запуск после загрузки DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();

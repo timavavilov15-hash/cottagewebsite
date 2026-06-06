@@ -1,0 +1,154 @@
+/**
+ * Modal Module — модальные окна с focus trap и управлением через data-атрибуты
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  let lastFocusedElement = null;
+  let focusableElements = [];
+  let firstFocusable = null;
+  let lastFocusable = null;
+
+  const FOCUSABLE_SELECTORS = [
+    'a[href]',
+    'button:not([disabled])',
+    'textarea:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(', ');
+
+  const openModal = (modalId, data = {}) => {
+    const modal = modalId ? $(modalId) : $('#modal');
+    if (!modal) return;
+
+    lastFocusedElement = document.activeElement;
+    modal.classList.add('modal--active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    document.body.style.overflow = 'hidden';
+
+    // Обновление фокусируемых элементов
+    updateFocusableElements(modal);
+
+    // Фокус на первый элемент
+    setTimeout(() => {
+      if (firstFocusable) firstFocusable.focus();
+    }, prefersReduced ? 0 : 100);
+  };
+
+  const closeModal = (modalId) => {
+    const modal = modalId ? $(modalId) : $('#modal');
+    if (!modal) return;
+
+    modal.classList.remove('modal--active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+
+    // Возврат фокуса
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  };
+
+  const updateFocusableElements = (modal) => {
+    focusableElements = $$(FOCUSABLE_SELECTORS, modal).filter(el => {
+      return !el.closest('[hidden]') && 
+             getComputedStyle(el).visibility !== 'hidden' &&
+             getComputedStyle(el).display !== 'none';
+    });
+
+    firstFocusable = focusableElements[0];
+    lastFocusable = focusableElements[focusableElements.length - 1];
+  };
+
+  const trapFocus = (e) => {
+    if (e.key !== 'Tab' || focusableElements.length === 0) return;
+
+    if (e.shiftKey) {
+      if (document.activeElement === firstFocusable) {
+        e.preventDefault();
+        lastFocusable.focus();
+      }
+    } else {
+      if (document.activeElement === lastFocusable) {
+        e.preventDefault();
+        firstFocusable.focus();
+      }
+    }
+  };
+
+  const init = () => {
+    const modal = $('#modal');
+    if (!modal) return;
+
+    // Открытие через data-modal
+    $$('[data-modal]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modalType = trigger.dataset.modal;
+        
+        // Динамический контент по типу модалки
+        if (modalType && typeof window.renderModalContent === 'function') {
+          window.renderModalContent(modalType, trigger.dataset);
+        }
+        
+        openModal();
+      });
+    });
+
+    // Закрытие через data-close-modal
+    $$('[data-close-modal]').forEach(closeBtn => {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+      });
+    });
+
+    // Закрытие по клику на backdrop
+    const backdrop = $('.modal__backdrop', modal);
+    if (backdrop) {
+      backdrop.addEventListener('click', () => closeModal());
+    }
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('modal--active')) {
+        closeModal();
+      }
+      
+      // Focus trap
+      if (modal.classList.contains('modal--active')) {
+        trapFocus(e);
+      }
+    });
+
+    // Предотвращение прокрутки при клике на контент
+    const content = $('.modal__content', modal);
+    if (content) {
+      content.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+  };
+
+  // Публичный API
+  window.DOMUS = window.DOMUS || {};
+  window.DOMUS.Modal = {
+    open: openModal,
+    close: closeModal
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

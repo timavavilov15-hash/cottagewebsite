@@ -1,0 +1,176 @@
+{
+  "version": "1.0.0",
+  "description": "Schema.org structured data for DOMUS VIVA",
+  "base": {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://domusviva.ru/#organization",
+    "name": "DOMUS VIVA",
+    "alternateName": "Домус Вива",
+    "legalName": "ООО «Домус Вива»",
+    "description": "Премиальное строительство коттеджей под ключ с гарантией 15 лет. Индивидуальная архитектура, прозрачная смета, фиксированные сроки.",
+    "slogan": "Строим дома, в которых оживает жизнь",
+    "foundingDate": "2014",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Москва, Россия"
+    },
+    "url": "https://domusviva.ru",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://domusviva.ru/assets/icons/logo.svg",
+      "width": 240,
+      "height": 60
+    },
+    "image": [
+      "https://domusviva.ru/assets/images/og/home.jpg",
+      "https://domusviva.ru/assets/images/og/home-square.jpg"
+    ],
+    "telephone": "+7-800-555-35-35",
+    "email": "info@domusviva.ru",
+    "priceRange": "₽₽₽",
+    "currenciesAccepted": "RUB",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Архитекторов, д. 15, офис 301",
+      "addressLocality": "Москва",
+      "addressRegion": "Московская область",
+      "postalCode": "123456",
+      "addressCountry": "RU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 55.7558,
+      "longitude": 37.6173
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Россия" },
+      { "@type": "AdministrativeArea", "name": "Московская область" },
+      { "@type": "AdministrativeArea", "name": "Ленинградская область" }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+7-800-555-35-35",
+        "email": "info@domusviva.ru",
+        "availableLanguage": ["Russian", "English"],
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+7-495-123-45-67",
+        "email": "sales@domusviva.ru",
+        "availableLanguage": ["Russian", "English"]
+      }
+    ],
+    "sameAs": [
+      "https://vk.com/domusviva",
+      "https://t.me/domusviva",
+      "https://www.youtube.com/@domusviva",
+      "https://wa.me/78005553535",
+      "https://zen.yandex.ru/domusviva"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "214",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Услуги строительства коттеджей",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Проектирование",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Индивидуальное проектирование коттеджа"
+              },
+              "price": "1200",
+              "priceCurrency": "RUB",
+              "unitText": "м²"
+            }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Строительство",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Строительство коттеджа под ключ"
+              },
+              "price": "35000",
+              "priceCurrency": "RUB",
+              "unitText": "м²"
+            }
+          ]
+        }
+      ]
+    },
+    "knowsAbout": [
+      "Строительство коттеджей",
+      "Проектирование домов",
+      "Инженерные системы",
+      "Ландшафтный дизайн",
+      "Дизайн интерьера",
+      "Энергоэффективные дома",
+      "Умный дом"
+    ],
+    "award": [
+      "Лучший подрядчик года 2025",
+      "ISO 9001:2015",
+      "Золотой знак качества 2024"
+    ],
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": 48
+    }
+  },
+  "website": {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://domusviva.ru/#website",
+    "url": "https://domusviva.ru",
+    "name": "DOMUS VIVA",
+    "publisher": { "@id": "https://domusviva.ru/#organization" },
+    "inLanguage": ["ru-RU", "en-US"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://domusviva.ru/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+}

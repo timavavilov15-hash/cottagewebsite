@@ -1,0 +1,399 @@
+/**
+ * DOMUS VIVA — Main Entry Point
+ * Инициализация всех модулей, глобальные функции
+ * Зависимости: data.js, shared.js, все js/modules/*.js
+ */
+(function() {
+  'use strict';
+
+  console.log('%c╔════════════════════════════════════════╗', 'color: #A67C52; font-weight: bold;');
+  console.log('%c║         DOMUS VIVA                     ║', 'color: #A67C52; font-weight: bold;');
+  console.log('%c║  Premium cottage construction site     ║', 'color: #A67C52; font-weight: bold;');
+  console.log('%c╚════════════════════════════════════════╝', 'color: #A67C52; font-weight: bold;');
+  console.log('%cAll modules loaded successfully', 'color: #48BB78;');
+
+  // ============================================================================
+  // ДИНАМИЧЕСКИЙ РЕНДЕР КОНТЕНТА МОДАЛОК
+  // ============================================================================
+  const modalTemplates = {
+    consultation: (data = {}) => `
+      <h3 class="modal__title">Бесплатная консультация</h3>
+      <p class="modal__text">Оставьте заявку, и наш архитектор свяжется с вами в течение 15 минут.</p>
+      <form data-form class="modal-form">
+        <div class="form-group">
+          <label class="form-label form-label--required">Ваше имя</label>
+          <input type="text" name="name" class="form-input" required placeholder="Иван Иванов">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label form-label--required">Телефон</label>
+          <input type="tel" name="phone" class="form-input" required placeholder="+7 (___) ___-__-__">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Сообщение</label>
+          <textarea name="message" class="form-textarea" rows="4" placeholder="Расскажите о вашем проекте..."></textarea>
+        </div>
+        <label class="form-checkbox">
+          <input type="checkbox" name="agree" required checked>
+          <span class="form-checkbox__label">Согласен с <a href="#">политикой конфиденциальности</a></span>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block">Отправить заявку</button>
+      </form>
+    `,
+
+    callback: (data = {}) => `
+      <h3 class="modal__title">Заказать звонок</h3>
+      <p class="modal__text">Мы перезвоним вам в течение 15 минут в рабочее время.</p>
+      <form data-form class="modal-form">
+        <div class="form-group">
+          <label class="form-label form-label--required">Ваше имя</label>
+          <input type="text" name="name" class="form-input" required>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label form-label--required">Телефон</label>
+          <input type="tel" name="phone" class="form-input" required placeholder="+7 (___) ___-__-__">
+          <div class="form-error"></div>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Перезвоните мне</button>
+      </form>
+    `,
+
+    estimate: (data = {}) => `
+      <h3 class="modal__title">Получить детальную смету</h3>
+      <p class="modal__text">Подготовим подробную смету и отправим на email в течение 24 часов.</p>
+      <form data-form class="modal-form">
+        <div class="form-group">
+          <label class="form-label form-label--required">Ваше имя</label>
+          <input type="text" name="name" class="form-input" required>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label form-label--required">Email</label>
+          <input type="email" name="email" class="form-input" required placeholder="example@mail.ru">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label form-label--required">Телефон</label>
+          <input type="tel" name="phone" class="form-input" required placeholder="+7 (___) ___-__-__">
+          <div class="form-error"></div>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Получить смету</button>
+      </form>
+    `,
+
+    service: (data = {}) => {
+      const serviceName = data.service || 'услугу';
+      return `
+        <h3 class="modal__title">Заказать ${serviceName}</h3>
+        <p class="modal__text">Оставьте заявку — мы подготовим индивидуальное предложение.</p>
+        <form data-form class="modal-form">
+          <div class="form-group">
+            <label class="form-label form-label--required">Ваше имя</label>
+            <input type="text" name="name" class="form-input" required>
+            <div class="form-error"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label--required">Телефон</label>
+            <input type="tel" name="phone" class="form-input" required placeholder="+7 (___) ___-__-__">
+            <div class="form-error"></div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">Заказать</button>
+        </form>
+      `;
+    },
+
+    inspection: (data = {}) => `
+      <h3 class="modal__title">Записаться на экскурсию</h3>
+      <p class="modal__text">Покажем наши объекты вживую. Ответим на все вопросы.</p>
+      <form data-form class="modal-form">
+        <div class="form-group">
+          <label class="form-label form-label--required">Ваше имя</label>
+          <input type="text" name="name" class="form-input" required>
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label form-label--required">Телефон</label>
+          <input type="tel" name="phone" class="form-input" required placeholder="+7 (___) ___-__-__">
+          <div class="form-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Удобная дата</label>
+          <input type="date" name="date" class="form-input">
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Записаться</button>
+      </form>
+    `
+  };
+
+  // Глобальный рендер модалок
+  window.renderModalContent = (type, data = {}) => {
+    const modalBody = document.querySelector('#modalBody');
+    if (!modalBody) return;
+
+    const template = modalTemplates[type] || modalTemplates.consultation;
+    modalBody.innerHTML = template(data);
+
+    // Переинициализация маски телефона для новых полей
+    const newPhoneInput = modalBody.querySelector('input[type="tel"]');
+    if (newPhoneInput && window.DOMUS?.Form?.phoneMask) {
+      window.DOMUS.Form.phoneMask(newPhoneInput);
+    }
+  };
+
+  // ============================================================================
+  // ДИНАМИЧЕСКИЙ РЕНДЕР КОНТЕНТА (для SPA-подобных страниц)
+  // ============================================================================
+  window.DOMUS = window.DOMUS || {};
+  window.DOMUS.Render = {
+    // Рендер проектов
+    projects: (containerSelector, projects, options = {}) => {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+
+      const lang = window.DOMUS?.i18n?.getLanguage?.() || 'ru';
+      const grid = document.createElement('div');
+      grid.className = 'projects__grid';
+
+      projects.forEach((project, index) => {
+        const card = document.createElement('article');
+        card.className = 'project-card reveal';
+        card.dataset.category = project.category.join(' ');
+        card.dataset.project = project.slug;
+        if (index > 0) card.classList.add(`reveal--delay-${(index % 3) + 1}`);
+
+        card.innerHTML = `
+          <div class="project-card__media">
+            <img src="${project.thumbnail}" alt="${window.DV.t(project.title, lang)}" loading="lazy" width="600" height="450">
+            <span class="project-card__badge">${window.DV.t(project.badge, lang)}</span>
+            <button class="project-card__compare" data-compare="${project.slug}" aria-label="Добавить к сравнению">
+              <svg width="20" height="20"><use href="assets/icons/sprite.svg#compare"></use></svg>
+            </button>
+            <div class="project-card__overlay">
+              <span class="project-card__view">Смотреть проект →</span>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">${window.DV.t(project.title, lang)}</h3>
+            <div class="project-card__specs">
+              <span class="project-card__spec">
+                <svg width="16" height="16"><use href="assets/icons/sprite.svg#area"></use></svg>
+                ${project.area} м²
+              </span>
+              <span class="project-card__spec">
+                <svg width="16" height="16"><use href="assets/icons/sprite.svg#bedroom"></use></svg>
+                ${project.rooms} спальни
+              </span>
+              <span class="project-card__spec">
+                <svg width="16" height="16"><use href="assets/icons/sprite.svg#material"></use></svg>
+                ${window.DV.t(project.material, lang)}
+              </span>
+            </div>
+            <div class="project-card__price">от ${window.DV.formatPrice(project.price)} ₽</div>
+            <a href="pages/projects/project-${project.slug}.html" class="btn btn--sm btn--outline-dark">Подробнее</a>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      container.innerHTML = '';
+      container.appendChild(grid);
+
+      // Переинициализация reveal
+      if (window.DOMUS?.Animations?.initReveal) {
+        window.DOMUS.Animations.initReveal();
+      }
+    },
+
+    // Рендер услуг
+    services: (containerSelector, services) => {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+
+      const lang = window.DOMUS?.i18n?.getLanguage?.() || 'ru';
+      const grid = document.createElement('div');
+      grid.className = 'services__grid';
+
+      services.forEach((service, index) => {
+        const card = document.createElement('article');
+        card.className = `service-card reveal reveal--delay-${(index % 3) + 1}`;
+        card.dataset.service = service.slug;
+
+        card.innerHTML = `
+          <div class="service-card__media">
+            <img src="assets/images/services/${service.slug}.jpg" alt="${window.DV.t(service.title, lang)}" loading="lazy" width="600" height="400">
+          </div>
+          <div class="service-card__body">
+            <div class="service-card__icon">
+              <svg width="28" height="28"><use href="assets/icons/sprite.svg#${service.icon}"></use></svg>
+            </div>
+            <h3 class="service-card__title">${window.DV.t(service.title, lang)}</h3>
+            <p class="service-card__text">${window.DV.t(service.description, lang)}</p>
+            <button class="btn btn--accent btn--sm" data-modal="service" data-service="${window.DV.t(service.title, lang)}">Подробнее →</button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      container.innerHTML = '';
+      container.appendChild(grid);
+    },
+
+    // Рендер статей блога
+    blog: (containerSelector, posts, options = {}) => {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+
+      const lang = window.DOMUS?.i18n?.getLanguage?.() || 'ru';
+      const grid = document.createElement('div');
+      grid.className = 'blog__grid';
+
+      const postsToShow = options.limit ? posts.slice(0, options.limit) : posts;
+
+      postsToShow.forEach((post, index) => {
+        const card = document.createElement('article');
+        card.className = `blog-card reveal reveal--delay-${(index % 3) + 1}`;
+        card.dataset.category = post.category;
+        card.dataset.blog = post.id;
+
+        const author = window.DV.getTeamById(post.author);
+
+        card.innerHTML = `
+          <a href="pages/article-${post.slug}.html" class="blog-card__media">
+            <img src="${post.thumbnail}" alt="${window.DV.t(post.title, lang)}" loading="lazy" width="600" height="400">
+            <span class="blog-card__category blog-category--${post.category}">
+              ${post.category === 'tech' ? 'Технологии' : post.category === 'design' ? 'Дизайн' : post.category === 'tips' ? 'Советы' : 'Кейсы'}
+            </span>
+          </a>
+          <div class="blog-card__body">
+            <time class="blog-card__date" datetime="${post.date}">${window.DV.formatDate(post.date, lang)}</time>
+            <h3 class="blog-card__title">
+              <a href="pages/article-${post.slug}.html">${window.DV.t(post.title, lang)}</a>
+            </h3>
+            <p class="blog-card__excerpt">${window.DV.t(post.excerpt, lang)}</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__read-time">⏱ ${post.readTime} мин</span>
+              <a href="pages/article-${post.slug}.html" class="blog-card__link">Читать →</a>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      container.innerHTML = '';
+      container.appendChild(grid);
+    },
+
+    // Рендер команды
+    team: (containerSelector, members) => {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+
+      const lang = window.DOMUS?.i18n?.getLanguage?.() || 'ru';
+      const grid = document.createElement('div');
+      grid.className = 'team__grid';
+
+      members.forEach((member, index) => {
+        const card = document.createElement('article');
+        card.className = `team-card reveal reveal--delay-${(index % 4) + 1}`;
+
+        card.innerHTML = `
+          <div class="team-card__photo">
+            <img src="${member.photo}" alt="${window.DV.t(member.name, lang)}" loading="lazy" width="400" height="500">
+          </div>
+          <div class="team-card__body">
+            <h3 class="team-card__name">${window.DV.t(member.name, lang)}</h3>
+            <span class="team-card__role">${window.DV.t(member.role, lang)}</span>
+            <p class="team-card__bio">${window.DV.t(member.bio, lang)}</p>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      container.innerHTML = '';
+      container.appendChild(grid);
+    },
+
+    // Рендер отзывов
+    testimonials: (containerSelector, testimonials) => {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+
+      const lang = window.DOMUS?.i18n?.getLanguage?.() || 'ru';
+
+      testimonials.forEach((testimonial, index) => {
+        const card = document.createElement('article');
+        card.className = 'testimonial-card';
+
+        card.innerHTML = `
+          <div class="testimonial-card__rating" aria-label="Оценка ${testimonial.rating} из 5">
+            ${'★'.repeat(testimonial.rating)}${'☆'.repeat(5 - testimonial.rating)}
+          </div>
+          <blockquote class="testimonial-card__text">
+            ${window.DV.t(testimonial.text, lang)}
+          </blockquote>
+          <footer class="testimonial-card__author">
+            <img src="${testimonial.photo}" alt="${window.DV.t(testimonial.author, lang)}" class="testimonial-card__photo" loading="lazy" width="60" height="60">
+            <div>
+              <strong class="testimonial-card__name">${window.DV.t(testimonial.author, lang)}</strong>
+              <span class="testimonial-card__project">${window.DV.t(testimonial.project, lang)}</span>
+            </div>
+          </footer>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+  };
+
+  // ============================================================================
+  // АВТО-РЕНДЕР НА ГЛАВНОЙ СТРАНИЦЕ
+  // ============================================================================
+  const initAutoRender = () => {
+    // Только если есть контейнеры с data-render атрибутом
+    $$('[data-render]').forEach(container => {
+      const type = container.dataset.render;
+      const limit = parseInt(container.dataset.limit, 10) || 0;
+
+      switch (type) {
+        case 'projects':
+          window.DOMUS.Render.projects(container.id ? `#${container.id}` : '.projects__grid', window.DV.projects.slice(0, limit || 6));
+          break;
+        case 'services':
+          window.DOMUS.Render.services(container.id ? `#${container.id}` : '.services__grid', window.DV.services);
+          break;
+        case 'blog':
+          window.DOMUS.Render.blog(container.id ? `#${container.id}` : '.blog__grid', window.DV.blog, { limit });
+          break;
+        case 'team':
+          window.DOMUS.Render.team(container.id ? `#${container.id}` : '.team__grid', window.DV.team);
+          break;
+        case 'testimonials':
+          window.DOMUS.Render.testimonials(container, window.DV.testimonials);
+          break;
+      }
+    });
+  };
+
+  // ============================================================================
+  // INIT
+  // ============================================================================
+  const init = () => {
+    initAutoRender();
+
+    console.log('%c[DOMUS VIVA] Main entry point initialized', 'color: #A67C52; font-weight: bold;');
+    console.log('  Render API:', Object.keys(window.DOMUS.Render));
+    console.log('  Global API:', Object.keys(window.DOMUS));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

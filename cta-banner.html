@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>Контакты DOMUS VIVA | Свяжитесь с нами любым удобным способом</title>
+  <meta name="description" content="Контакты строительной компании DOMUS VIVA: телефоны, адреса офисов в Москве, Санкт-Петербурге и Казани, email, часы работы. Бесплатная консультация архитектора.">
+  <meta name="keywords" content="контакты DOMUS VIVA, адрес офиса, телефон строительной компании, консультация архитектора, связаться с нами">
+  <meta name="author" content="DOMUS VIVA">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://domusviva.example/contacts.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Контакты DOMUS VIVA | 3 офиса в России">
+  <meta property="og:description" content="Москва, Санкт-Петербург, Казань. Бесплатная консультация архитектора. Работаем Пн-Сб.">
+  <meta property="og:image" content="assets/images/og/contacts-cover.jpg">
+  <meta property="og:url" content="https://domusviva.example/contacts.html">
+  <meta property="og:site_name" content="DOMUS VIVA">
+  <meta property="og:locale" content="ru_RU">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Контакты DOMUS VIVA">
+  <meta name="twitter:description" content="3 офиса в России. Звоните, пишите, приезжайте.">
+  <meta name="twitter:image" content="assets/images/og/contacts-cover.jpg">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#A67C52">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Премиальная дизайн-система (Quiet Luxury) */
+    :root {
+      --color-bg: #FAF8F5; /* Благородный кремовый / молочный */
+      --color-bg-alt: #F3ECE2; /* Мягкий бежево-песочный */
+      --color-text-main: #2C2A27; /* Мягкий графит */
+      --color-text-muted: #6E6A64;
+      --color-accent: #A67C52; /* Золотисто-древесный */
+      --color-accent-hover: #8E653C;
+      --color-accent-light: #F5EFE6;
+      --color-dark: #1E1D1B; /* Почти черный */
+      --color-border: #E8E2D9;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Базовый сброс и плавность */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Доступность */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      background: var(--color-accent);
+      color: white;
+      padding: 12px 24px;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      border-radius: 4px;
+    }
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    /* Индикатор прокрутки */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--color-accent);
+      width: 0%;
+      z-index: 1100;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Шапка сайта */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--color-dark);
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .logo svg {
+      fill: var(--color-accent);
+    }
+    .nav__list {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    .nav__link {
+      text-decoration: none;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: var(--transition-smooth);
+      position: relative;
+      padding: 6px 0;
+    }
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-accent);
+      transition: var(--transition-smooth);
+    }
+    .nav__link:hover {
+      color: var(--color-accent);
+    }
+    .nav__link:hover::after, 
+    .nav__link--active::after {
+      width: 100%;
+    }
+    .nav__link--active {
+      color: var(--color-accent);
+    }
+
+    .header__actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .header__phone {
+      text-decoration: none;
+      color: var(--color-text-main);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+    .header__phone:hover {
+      color: var(--color-accent);
+    }
+
+    /* Выбор языка */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    .lang-btn.active {
+      color: var(--color-accent);
+    }
+    .lang-divider {
+      color: var(--color-border);
+    }
+
+    /* Мобильное меню */
+    .mobile-menu {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px;
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 999;
+    }
+    .mobile-menu--open {
+      display: flex;
+    }
+    .mobile-menu .nav__link {
+      font-size: 1.1rem;
+      padding: 10px 0;
+    }
+
+    /* Кнопки */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+      gap: 8px;
+    }
+    .btn--primary {
+      background: var(--color-accent);
+      color: white;
+    }
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(166, 124, 82, 0.15);
+    }
+    .btn--sm {
+      padding: 10px 20px;
+      font-size: 0.75rem;
+    }
+    .btn--outline-dark {
+      background: transparent;
+      border: 1px solid var(--color-dark);
+      color: var(--color-dark);
+    }
+    .btn--outline-dark:hover {
+      background: var(--color-dark);
+      color: white;
+    }
+    .btn--outline-light {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+    }
+    .btn--outline-light:hover {
+      background: white;
+      color: var(--color-dark);
+      border-color: white;
+    }
+    .btn--accent {
+      background: var(--color-accent-light);
+      color: var(--color-accent-hover);
+      border: 1px solid rgba(166, 124, 82, 0.3);
+    }
+    .btn--accent:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+    .btn--block {
+      width: 100%;
+    }
+
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 6px;
+      width: 24px;
+      height: 24px;
+      justify-content: center;
+    }
+    .burger__line {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--color-dark);
+      transition: var(--transition-smooth);
+    }
+    .burger--active .burger__line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .burger--active .burger__line:nth-child(2) {
+      opacity: 0;
+    }
+    .burger--active .burger__line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Хлебные крошки */
+    .breadcrumbs {
+      padding: 32px 0 16px;
+    }
+    .breadcrumbs__list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .breadcrumbs__list a {
+      text-decoration: none;
+      color: var(--color-text-muted);
+      transition: var(--transition-smooth);
+    }
+    .breadcrumbs__list a:hover {
+      color: var(--color-accent);
+    }
+    .breadcrumbs__list li:not(:last-child)::after {
+      content: '/';
+      margin-left: 8px;
+      color: var(--color-border);
+    }
+    .breadcrumbs__list li[aria-current="page"] {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Секция Hero */
+    .page-header { 
+      padding: 48px 0 80px; 
+      background: radial-gradient(circle at top right, #F5EFE6 0%, var(--color-bg) 60%); 
+    }
+    .section__eyebrow {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+    .page-header__title {
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      line-height: 1.1;
+      color: var(--color-dark);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .text-accent {
+      color: var(--color-accent);
+      font-style: italic;
+    }
+    .page-header__subtitle {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      max-width: 720px;
+    }
+
+    /* Разделы */
+    .section {
+      padding: 96px 0;
+    }
+    .bg-alt {
+      background-color: var(--color-bg-alt);
+    }
+    .section__header {
+      margin-bottom: 48px;
+    }
+    .section__title {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      line-height: 1.2;
+      color: var(--color-dark);
+      font-weight: 500;
+    }
+    .section__subtitle {
+      font-size: 1.15rem;
+      color: var(--color-text-muted);
+      margin-top: 12px;
+      max-width: 600px;
+    }
+
+    /* Быстрые контакты */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .contact-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px;
+      text-decoration: none;
+      color: var(--color-text-main);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(166, 124, 82, 0.08);
+      border-color: var(--color-accent);
+    }
+    .contact-card__icon {
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .contact-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .contact-card__value {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      color: var(--color-dark);
+    }
+    .contact-card__desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Схема контактов: Контент + Форма */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .contact-info .lead {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      margin-bottom: 48px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .contact-detail {
+      display: flex;
+      gap: 20px;
+    }
+    .contact-detail__icon {
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-detail__content strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .contact-detail__content a {
+      display: inline-block;
+      color: var(--color-text-main);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      margin-right: 12px;
+    }
+    .contact-detail__content a:hover {
+      color: var(--color-accent);
+    }
+    .contact-detail__content p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--color-accent-light);
+      color: var(--color-accent-hover);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 4px;
+    }
+    .link-accent {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+    .link-accent:hover {
+      color: var(--color-accent-hover);
+    }
+
+    .schedule {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+      max-width: 320px;
+    }
+    .schedule__row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .schedule__row--closed {
+      color: #A34A4A;
+    }
+
+    /* Соцсети и мессенджеры */
+    .contact-social {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+    }
+    .contact-social h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--color-dark);
+      margin-bottom: 24px;
+    }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .social-messenger {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--color-dark);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      border: 1px solid var(--color-border);
+    }
+    .social-messenger svg {
+      fill: currentColor;
+    }
+    .social-messenger--whatsapp:hover {
+      background: #E8F5E9;
+      color: #2E7D32;
+      border-color: #A5D6A7;
+    }
+    .social-messenger--telegram:hover {
+      background: #E3F2FD;
+      color: #1565C0;
+      border-color: #90CAF9;
+    }
+    .social-messenger--vk:hover {
+      background: #E8EAF6;
+      color: #283593;
+      border-color: #9FA8DA;
+    }
+    .social-messenger--youtube:hover {
+      background: #FFEBEE;
+      color: #C62828;
+      border-color: #EF9A9A;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    /* Оформление формы */
+    .contact-form-wrapper {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 48px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    }
+    .contact-form-box__header {
+      margin-bottom: 32px;
+    }
+    .contact-form-box__header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--color-dark);
+      margin-bottom: 12px;
+    }
+    .contact-form-box__header p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .form-field {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      color: var(--color-text-main);
+    }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid var(--color-border);
+      background: white;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--color-dark);
+      transition: var(--transition-smooth);
+      outline: none;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(166, 124, 82, 0.1);
+    }
+    .form-field__error {
+      font-size: 0.75rem;
+      color: #A34A4A;
+      margin-top: 4px;
+      display: none;
+    }
+
+    /* Файловый загрузчик */
+    .file-upload {
+      position: relative;
+    }
+    .file-upload input[type="file"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    .file-upload__label {
+      border: 1px dashed var(--color-accent) !important;
+      background: var(--color-accent-light) !important;
+      padding: 16px !important;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: var(--transition-smooth);
+    }
+    .file-upload:hover .file-upload__label {
+      background: var(--color-bg-alt) !important;
+    }
+    .file-upload__list {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .file-upload-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .file-upload-item__remove {
+      background: none;
+      border: none;
+      color: #A34A4A;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      margin-bottom: 24px;
+    }
+    .checkbox-label input {
+      margin-top: 3px;
+    }
+    .checkbox-label a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .form-notice {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .form-notice svg {
+      color: var(--color-accent);
+    }
+
+    /* Секция карт */
+    .map-wrapper {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    }
+    .map-info {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      z-index: 10;
+      max-width: 360px;
+    }
+    .map-info__card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .map-info__card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--color-dark);
+      margin-bottom: 12px;
+    }
+    .map-info__card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .map-info__actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    /* Сетка офисов */
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .office-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .office-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      border-color: var(--color-accent);
+    }
+    .office-card__image {
+      height: 200px;
+      background: var(--color-accent-light);
+      position: relative;
+    }
+    .office-card__image svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .office-card__badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--color-accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .office-card__body {
+      padding: 24px;
+    }
+    .office-card__body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+    }
+    .office-card__info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .office-card__info p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .office-card__info svg {
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    .office-card__info a {
+      color: var(--color-text-main);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .office-card__info a:hover {
+      color: var(--color-accent);
+    }
+    .office-card__actions {
+      display: flex;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 16px;
+    }
+
+    /* FAQ */
+    .faq__list {
+      max-width: 800px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-item {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px;
+      text-align: left;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+    }
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      flex-shrink: 0;
+      transition: var(--transition-smooth);
+    }
+    .faq-icon::before, .faq-icon::after {
+      content: '';
+      position: absolute;
+      background-color: var(--color-accent);
+      transition: var(--transition-smooth);
+    }
+    .faq-icon::before {
+      top: 11px;
+      left: 4px;
+      width: 16px;
+      height: 2px;
+    }
+    .faq-icon::after {
+      top: 4px;
+      left: 11px;
+      width: 2px;
+      height: 16px;
+    }
+    .faq-item--active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 24px 24px 24px;
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border-top: 1px solid transparent;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s;
+    }
+    .faq-item--active .faq-answer {
+      border-top-color: var(--color-border);
+      padding: 16px 24px 24px;
+    }
+
+    /* Призыв к действию (CTA) */
+    .cta-section {
+      background: var(--color-dark);
+      padding: 96px 0;
+      color: white;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .cta-box p {
+      font-size: 1.15rem;
+      color: #A39E95;
+      margin-bottom: 40px;
+    }
+    .cta-box__actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* Связанные страницы */
+    .related-pages__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .related-card {
+      background: white;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px;
+      text-decoration: none;
+      color: var(--color-text-main);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent);
+      box-shadow: 0 10px 30px rgba(166, 124, 82, 0.05);
+    }
+    .related-card__icon {
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .related-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .related-card p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .related-card__arrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Плавающая кнопка вызова */
+    .floating-call {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--color-accent);
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(166, 124, 82, 0.3);
+      text-decoration: none;
+      z-index: 1000;
+      transition: var(--transition-smooth);
+    }
+    .floating-call:hover {
+      background: var(--color-accent-hover);
+      transform: scale(1.05);
+    }
+    .floating-call svg {
+      fill: currentColor;
+    }
+
+    /* Футер */
+    .footer {
+      background: var(--color-dark);
+      color: #A39E95;
+      padding: 80px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 64px;
+      margin-bottom: 64px;
+      text-align: left;
+    }
+    .footer__col h4 {
+      color: white;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .footer__col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer__col a {
+      color: #A39E95;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      font-size: 0.95rem;
+    }
+    .footer__col a:hover {
+      color: var(--color-accent);
+    }
+    .footer__about p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .social-links a {
+      color: #A39E95;
+      transition: var(--transition-smooth);
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      color: var(--color-accent);
+    }
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+    .footer__links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer__links a {
+      color: #A39E95;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .footer__links a:hover {
+      color: var(--color-accent);
+    }
+
+    /* Адаптивность сеток */
+    @media (max-width: 1024px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .contact-cards, .offices-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .page-header__title {
+        font-size: 3rem;
+      }
+      .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px;
+      }
+      .related-pages__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header__inner {
+        height: 70px;
+      }
+      .nav, .header__actions .lang-switcher, .header__actions .header__phone, .header__actions .btn {
+        display: none;
+      }
+      .burger {
+        display: flex;
+      }
+      .contact-cards, .offices-grid, .related-pages__grid {
+        grid-template-columns: 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .contact-form-wrapper {
+        padding: 32px 24px;
+      }
+      .map-info {
+        position: static;
+        max-width: 100%;
+        margin-bottom: 24px;
+      }
+      .map-info__card {
+        padding: 24px;
+      }
+      .page-header__title {
+        font-size: 2.5rem;
+      }
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer__bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="page-contacts">
+  
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+  
+  <!-- Индикатор прокрутки -->
+  <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Прогресс чтения"></div>
+
+  <!-- Header -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="DOMUS VIVA - На главную">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M9 21V9h6v12" />
+        </svg>
+        <span class="logo__text">DOMUS VIVA</span>
+      </a>
+      
+      <nav class="nav" id="mainNav" role="navigation" aria-label="Основное меню">
+        <ul class="nav__list">
+          <li><a href="about.html" class="nav__link">О компании</a></li>
+          <li><a href="services.html" class="nav__link">Услуги</a></li>
+          <li><a href="projects.html" class="nav__link">Проекты</a></li>
+          <li><a href="blog.html" class="nav__link">Блог</a></li>
+          <li><a href="contacts.html" class="nav__link nav__link--active" aria-current="page">Контакты</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header__actions">
+        <div class="lang-switcher" role="group" aria-label="Выбор языка">
+          <button class="lang-btn active" data-lang="ru" aria-pressed="true">RU</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="tel:+78005553535" class="header__phone">+7 (800) 555-35-35</a>
+        <button class="btn btn--primary btn--sm" data-modal-trigger="consultation">Консультация</button>
+        <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="nav__link">Главная</a>
+    <a href="about.html" class="nav__link">О компании</a>
+    <a href="services.html" class="nav__link">Услуги</a>
+    <a href="projects.html" class="nav__link">Проекты</a>
+    <a href="blog.html" class="nav__link">Блог</a>
+    <a href="contacts.html" class="nav__link nav__link--active" aria-current="page">Контакты</a>
+    <button class="btn btn--primary btn--block" style="margin-top: 16px;" data-modal-trigger="consultation">Консультация</button>
+  </div>
+
+  <main id="main-content" role="main">
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol class="breadcrumbs__list">
+          <li><a href="index.html">Главная</a></li>
+          <li aria-current="page">Контакты</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header__content">
+          <span class="section__eyebrow">DOMUS VIVA Контакты</span>
+          <h1 class="page-header__title">Свяжитесь с нами <span class="text-accent">удобным способом</span></h1>
+          <p class="page-header__subtitle">
+            Звоните, пишите или приезжайте в один из наших офисов в Москве, Санкт-Петербурге или Казани. Архитектор ответит на все вопросы в течение 15 минут.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Contact Cards -->
+    <section class="section quick-contacts" aria-label="Быстрые способы связи">
+      <div class="container">
+        <div class="contact-cards">
+          
+          <a href="tel:+78005553535" class="contact-card">
+            <div class="contact-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">Телефон</h3>
+            <span class="contact-card__value">+7 (800) 555-35-35</span>
+            <span class="contact-card__desc">Бесплатно по всей России</span>
+          </a>
+
+          <a href="mailto:info@domusviva.ru" class="contact-card">
+            <div class="contact-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">Email</h3>
+            <span class="contact-card__value">info@domusviva.ru</span>
+            <span class="contact-card__desc">Ответ в течение 2 часов</span>
+          </a>
+
+          <a href="#map" class="contact-card">
+            <div class="contact-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">Главный офис</h3>
+            <span class="contact-card__value">Москва</span>
+            <span class="contact-card__desc">ул. Архитекторов, 12</span>
+          </a>
+
+          <div class="contact-card">
+            <div class="contact-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">Режим работы</h3>
+            <span class="contact-card__value">Пн–Пт: 9:00–19:00</span>
+            <span class="contact-card__desc">Суббота: 10:00–16:00</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Contact Layout: Form + Info -->
+    <section class="section contact-main" id="contact-form">
+      <div class="container">
+        <div class="contact-layout">
+          
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h2>Мы всегда на связи</h2>
+            <p class="lead">Выбирайте удобный для вас способ связи или оставьте заявку — мы ответим максимально оперативно.</p>
+            
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-detail__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div class="contact-detail__content">
+                  <strong>Телефоны</strong>
+                  <p>
+                    <a href="tel:+78005553535">+7 (800) 555-35-35</a> <span class="badge">Бесплатно</span>
+                  </p>
+                  <p style="margin-top: 6px;">
+                    <a href="tel:+74951234567">+7 (495) 123-45-67</a> <span class="badge">Москва</span>
+                  </p>
+                  <p style="margin-top: 6px;">
+                    <a href="tel:+78121234567">+7 (812) 123-45-67</a> <span class="badge">СПб</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-detail__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="contact-detail__content">
+                  <strong>Электронная почта</strong>
+                  <p>
+                    <a href="mailto:info@domusviva.ru">info@domusviva.ru</a> <span class="badge">Вопросы</span>
+                  </p>
+                  <p style="margin-top: 6px;">
+                    <a href="mailto:sales@domusviva.ru">sales@domusviva.ru</a> <span class="badge">Продажи</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-detail__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="contact-detail__content">
+                  <strong>Главный офис</strong>
+                  <p>Москва, ул. Архитекторов, 12, БЦ «Архитектор», офис 402</p>
+                  <a href="#map" class="link-accent" style="margin-top: 6px; display: inline-block;">Показать на карте →</a>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-detail__icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div class="contact-detail__content">
+                  <strong>Часы работы</strong>
+                  <div class="schedule">
+                    <div class="schedule__row">
+                      <span>Будние дни (Пн-Пт)</span>
+                      <strong>9:00 – 19:00</strong>
+                    </div>
+                    <div class="schedule__row">
+                      <span>Суббота</span>
+                      <strong>10:00 – 16:00</strong>
+                    </div>
+                    <div class="schedule__row schedule__row--closed">
+                      <span>Воскресенье</span>
+                      <strong>Выходной</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social & Messengers -->
+            <div class="contact-social">
+              <h3>Мы в соцсетях и мессенджерах</h3>
+              <div class="social-grid">
+                <a href="https://wa.me/78005553535" class="social-messenger social-messenger--whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+                  <span>WhatsApp чат</span>
+                </a>
+                <a href="https://t.me/domusviva" class="social-messenger social-messenger--telegram" aria-label="Telegram" target="_blank" rel="noopener">
+                  <span>Telegram канал</span>
+                </a>
+                <a href="https://vk.com/domusviva" class="social-messenger social-messenger--vk" aria-label="VKontakte" target="_blank" rel="noopener">
+                  <span>VKontakte группа</span>
+                </a>
+                <a href="https://youtube.com/@domusviva" class="social-messenger social-messenger--youtube" aria-label="YouTube" target="_blank" rel="noopener">
+                  <span>YouTube канал</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="contact-actions">
+              <button class="btn btn--primary btn--block" data-modal-trigger="consultation">
+                Заказать бесплатный звонок
+              </button>
+              <button class="btn btn--outline-dark btn--block" data-modal-trigger="consultation" data-plan="Визит в офис">
+                Записаться на визит в офис
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <div class="contact-form-box">
+              <div class="contact-form-box__header">
+                <h2>Оставьте заявку</h2>
+                <p>Архитектор свяжется с вами в течение 15 минут для бесплатной консультации</p>
+              </div>
+              
+              <form class="contact-form" id="contactForm" novalidate>
+                
+                <!-- Subject selector -->
+                <div class="form-field">
+                  <label for="contactSubject">Тема обращения *</label>
+                  <select id="contactSubject" name="subject" required class="form-control">
+                    <option value="">Выберите интересующую тему</option>
+                    <option value="consultation">Консультация архитектора</option>
+                    <option value="project">Обсудить проект дома</option>
+                    <option value="calculator">Расчёт стоимости сметы</option>
+                    <option value="excursion">Экскурсия на строящийся объект</option>
+                    <option value="partnership">Сотрудничество и поставки</option>
+                    <option value="other">Другой вопрос</option>
+                  </select>
+                  <span class="form-field__error" id="subjectError">Пожалуйста, выберите тему обращения</span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="contactName">Ваше имя *</label>
+                    <input type="text" id="contactName" name="name" required placeholder="Александр" autocomplete="name" class="form-control">
+                    <span class="form-field__error" id="nameError">Пожалуйста, введите имя</span>
+                  </div>
+                  <div class="form-field">
+                    <label for="contactPhone">Телефон *</label>
+                    <input type="tel" id="contactPhone" name="phone" required placeholder="+7 (999) 123-45-67" autocomplete="tel" class="form-control">
+                    <span class="form-field__error" id="phoneError">Пожалуйста, введите телефон</span>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="contactEmail">Email для связи</label>
+                  <input type="email" id="contactEmail" name="email" placeholder="example@mail.ru" autocomplete="email" class="form-control">
+                  <span class="form-field__error" id="emailError">Введите корректный email</span>
+                </div>
+
+                <div class="form-field">
+                  <label for="contactMessage">Детали проекта или вопрос</label>
+                  <textarea id="contactMessage" name="message" rows="5" placeholder="Например: площадь участка 15 соток, планируем кирпичный дом 200 м²..." class="form-control"></textarea>
+                </div>
+
+                <!-- File upload -->
+                <div class="form-field form-field--file">
+                  <label for="contactFile">Прикрепить техническое задание или набросок (необязательно)</label>
+                  <div class="file-upload">
+                    <input type="file" id="contactFile" name="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+                    <label for="contactFile" class="file-upload__label">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 8px;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                      </svg>
+                      <span>Выберите файлы (PDF, DOC, JPG до 10 МБ)</span>
+                    </label>
+                    <div class="file-upload__list" id="fileList"></div>
+                  </div>
+                </div>
+
+                <label class="checkbox-label">
+                  <input type="checkbox" name="agree" required checked id="agreeCheckbox">
+                  <span>Согласен с политикой конфиденциальности и обработкой персональных данных</span>
+                </label>
+
+                <button type="submit" class="btn btn--primary btn--block">
+                  <span class="btn__text">Отправить заявку</span>
+                </button>
+
+                <p class="form-notice">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 6px;">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                  Ваши данные надежно защищены шифрованием
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="section map-section bg-alt" aria-labelledby="map-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Главный офис на карте</span>
+          <h2 id="map-title" class="section__title">Приезжайте на чашку кофе</h2>
+          <p class="section__subtitle">Наш главный офис находится в историческом центре Москвы. Удобные подъездные пути, бесплатный подземный паркинг для клиентов DOMUS VIVA.</p>
+        </header>
+        
+        <div class="map-wrapper">
+          <div class="map-info">
+            <div class="map-info__card">
+              <h3>DOMUS VIVA Москва</h3>
+              <p><strong>Адрес:</strong> Москва, ул. Архитекторов, 12, БЦ «Архитектор», офис 402</p>
+              <p><strong>Метро:</strong> Третьяковская (5 минут пешком)</p>
+              <p><strong>Парковка:</strong> Бесплатная подземная парковка для наших клиентов</p>
+              <div class="map-info__actions">
+                <a href="https://yandex.ru/maps/?text=Москва,+ул.+Архитекторов,+12" 
+                   target="_blank" rel="noopener" class="btn btn--primary btn--sm">
+                  Маршрут в Яндекс.Навигатор
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Векторная схема проезда вместо iframe для премиального отображения -->
+          <svg viewBox="0 0 1200 500" width="100%" height="500" style="background-color: #ECE5DC; display: block;">
+            <rect width="1200" height="500" fill="#EAE5DE"/>
+            <!-- Сетка дорог -->
+            <path d="M 0 150 L 1200 150 M 0 350 L 1200 350 M 400 0 L 400 500 M 800 0 L 800 500" stroke="#FAF8F5" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 0 150 L 1200 150 M 0 350 L 1200 350 M 400 0 L 400 500 M 800 0 L 800 500" stroke="#2C2A27" stroke-width="1" stroke-dasharray="8 8"/>
+            
+            <!-- Названия улиц -->
+            <text x="200" y="156" font-family="'Inter', sans-serif" font-size="12" fill="#6E6A64" font-weight="600" letter-spacing="1">КЛИЕНТСКИЙ ПРОЕЗД</text>
+            <text x="1000" y="356" font-family="'Inter', sans-serif" font-size="12" fill="#6E6A64" font-weight="600" letter-spacing="1">УЛ. АРХИТЕКТОРОВ</text>
+            
+            <!-- Скверы / Парковые зоны -->
+            <rect x="50" y="50" width="300" height="70" fill="#CCD6D3" opacity="0.6" rx="6"/>
+            <text x="200" y="90" font-family="'Playfair Display', serif" font-size="14" fill="#2C2A27" font-style="italic" text-anchor="middle">Сквер Искусств</text>
+            
+            <rect x="450" y="180" width="300" height="140" fill="#CCD6D3" opacity="0.6" rx="6"/>
+            <text x="600" y="260" font-family="'Playfair Display', serif" font-size="16" fill="#2C2A27" font-style="italic" text-anchor="middle">Бизнес Центр «Архитектор»</text>
+
+            <!-- Маркер офиса -->
+            <g transform="translate(600, 210)">
+              <circle cx="0" cy="0" r="16" fill="#A67C52" filter="drop-shadow(0 4px 10px rgba(166,124,82,0.5))"/>
+              <circle cx="0" cy="0" r="6" fill="#FAF8F5"/>
+              <path d="M0 -15 L10 -35 H-10 Z" fill="#A67C52"/>
+              <text x="0" y="-45" font-family="'Inter', sans-serif" font-size="12" fill="#2C2A27" font-weight="bold" text-anchor="middle">DOMUS VIVA</text>
+            </g>
+
+            <!-- Станция метро -->
+            <g transform="translate(900, 150)">
+              <circle cx="0" cy="0" r="14" fill="#C62828"/>
+              <text x="0" y="5" font-family="'Inter', sans-serif" font-size="14" fill="#FAF8F5" font-weight="bold" text-anchor="middle">М</text>
+              <text x="0" y="28" font-family="'Inter', sans-serif" font-size="11" fill="#2C2A27" font-weight="600" text-anchor="middle">м. Третьяковская</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offices Grid -->
+    <section class="section offices" id="offices">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Наши филиалы</span>
+          <h2 id="offices-title" class="section__title">Три представительства в России</h2>
+          <p class="section__subtitle">Каждый офис располагает комфортабельной демонстрационной зоной материалов и переговорными комнатами.</p>
+        </header>
+        
+        <div class="offices-grid">
+          
+          <!-- Moscow -->
+          <article class="office-card">
+            <div class="office-card__image">
+              <!-- Векторный фасад Московского офиса (SVG) -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#E8E2D9"/>
+                <rect x="50" y="50" width="300" height="150" fill="#FAF8F5" stroke="#2C2A27" stroke-width="2"/>
+                <line x1="150" y1="50" x2="150" y2="200" stroke="#2C2A27" stroke-width="2"/>
+                <line x1="250" y1="50" x2="250" y2="200" stroke="#2C2A27" stroke-width="2"/>
+                <!-- Окна витрины -->
+                <rect x="70" y="80" width="60" height="80" fill="#DFE6E8" stroke="#2C2A27" stroke-width="1.5"/>
+                <rect x="270" y="80" width="60" height="80" fill="#DFE6E8" stroke="#2C2A27" stroke-width="1.5"/>
+                <text x="200" y="120" font-family="'Playfair Display', serif" font-size="14" fill="#A67C52" text-anchor="middle" font-weight="bold" letter-spacing="1">DOMUS VIVA</text>
+              </svg>
+              <span class="office-card__badge">Главный офис</span>
+            </div>
+            <div class="office-card__body">
+              <h3>Москва</h3>
+              <div class="office-card__info">
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  ул. Архитекторов, 12, БЦ «Архитектор», офис 402
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <a href="mailto:msk@domusviva.ru">msk@domusviva.ru</a>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  Пн–Пт: 9:00–19:00, Сб: 10:00–16:00
+                </p>
+              </div>
+              <div class="office-card__actions">
+                <a href="https://yandex.ru/maps/?text=Москва,+ул.+Архитекторов,+12" target="_blank" rel="noopener" class="btn btn--primary btn--sm">На карте</a>
+                <button class="btn btn--outline-dark btn--sm" data-modal-trigger="consultation" data-plan="Визит в офис Москва">Записаться</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Saint Petersburg -->
+          <article class="office-card">
+            <div class="office-card__image">
+              <!-- Векторный фасад Питерского офиса (SVG) -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#ECE5DC"/>
+                <rect x="60" y="40" width="280" height="160" fill="#FAF8F5" stroke="#2C2A27" stroke-width="2"/>
+                <!-- Арочные исторические окна Невского проспекта -->
+                <path d="M100 130 V90 A20 20 0 0 1 140 90 V130 Z" fill="#DFE6E8" stroke="#2C2A27" stroke-width="1.5"/>
+                <path d="M260 130 V90 A20 20 0 0 1 300 90 V130 Z" fill="#DFE6E8" stroke="#2C2A27" stroke-width="1.5"/>
+                <text x="200" y="170" font-family="'Playfair Display', serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="bold">DOMUS VIVA SPB</text>
+              </svg>
+            </div>
+            <div class="office-card__body">
+              <h3>Санкт-Петербург</h3>
+              <div class="office-card__info">
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  Невский пр., 78, офис 305
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  <a href="tel:+78121234567">+7 (812) 123-45-67</a>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <a href="mailto:spb@domusviva.ru">spb@domusviva.ru</a>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  Пн–Пт: 9:00–19:00, Сб: 10:00–16:00
+                </p>
+              </div>
+              <div class="office-card__actions">
+                <a href="https://yandex.ru/maps/?text=СПб,+Невский+пр.,+78" target="_blank" rel="noopener" class="btn btn--primary btn--sm">На карте</a>
+                <button class="btn btn--outline-dark btn--sm" data-modal-trigger="consultation" data-plan="Визит в офис Санкт-Петербург">Записаться</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Kazan -->
+          <article class="office-card">
+            <div class="office-card__image">
+              <!-- Векторный фасад Казанского офиса (SVG) -->
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#FAF8F5"/>
+                <rect x="70" y="30" width="260" height="170" fill="#E6DFD3" stroke="#2C2A27" stroke-width="2"/>
+                <!-- Традиционные узоры татарской архитектуры на фасаде -->
+                <path d="M120 100 L150 50 L180 100 H120 Z" fill="#FAF8F5" stroke="#2C2A27" stroke-width="1.5"/>
+                <path d="M220 100 L250 50 L280 100 H220 Z" fill="#FAF8F5" stroke="#2C2A27" stroke-width="1.5"/>
+                <text x="200" y="150" font-family="'Playfair Display', serif" font-size="12" fill="#A67C52" text-anchor="middle" font-weight="bold">DOMUS VIVA KAZAN</text>
+              </svg>
+            </div>
+            <div class="office-card__body">
+              <h3>Казань</h3>
+              <div class="office-card__info">
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  ул. Баумана, 44, офис 210
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  <a href="tel:+78431234567">+7 (843) 123-45-67</a>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <a href="mailto:kazan@domusviva.ru">kazan@domusviva.ru</a>
+                </p>
+                <p>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  Пн–Пт: 9:00–18:00, Сб: 10:00–15:00
+                </p>
+              </div>
+              <div class="office-card__actions">
+                <a href="https://yandex.ru/maps/?text=Казань,+ул.+Баумана,+44" target="_blank" rel="noopener" class="btn btn--primary btn--sm">На карте</a>
+                <button class="btn btn--outline-dark btn--sm" data-modal-trigger="consultation" data-plan="Визит в офис Казань">Записаться</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section contact-faq bg-alt" aria-labelledby="contact-faq-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">FAQ</span>
+          <h2 id="contact-faq-title" class="section__title">Частые вопросы о сотрудничестве</h2>
+        </header>
+        
+        <div class="faq__list" id="contactFaqList">
+          
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Как быстро вы отвечаете на новые заявки?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>В будние дни в рабочее время (с 9:00 до 19:00) дежурный архитектор перезванивает в течение 15 минут с момента отправки формы. В выходные дни обработка заявок занимает от 1 до 2 часов. Письменные коммерческие предложения мы готовим в течение 24 часов.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Можно ли приехать в шоу-рум материалов без предварительной записи?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Да, наши офисы и шоу-румы открыты для свободного посещения в рабочее время. Однако мы настоятельно рекомендуем согласовать время визита заранее, чтобы ведущий архитектор-проектировщик был полностью свободен и смог уделить максимум времени вашему эскизу.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>В каких регионах России вы ведете проектирование и строительство?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Основные регионы нашего присутствия со штатными строительными звеньями — Московская и Ленинградская области, а также Республика Татарстан. Мы также осуществляем архитектурное проектирование, авторский надзор и шеф-монтаж по всей территории РФ и СНГ.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Как организована экскурсия на ваши строящиеся объекты?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Мы гордимся культурой и качеством работы на наших площадках. Вы можете выбрать удобный строящийся дом в нашей базе и договориться о совместном выезде с инженером технадзора. На месте вы лично оцените качество вязки арматуры, геометрию стен и аккуратность городка.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Предоставляете ли вы образцы строительных материалов клиентам?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer">
+              <p>Да, в наших переговорных зонах представлены образцы кирпича ручной формовки, поризованных блоков, кровельных мембран и планкена лиственницы. Нашим клиентам мы часто предоставляем образцы для тестовых выкрасов непосредственно на участке под разным освещением.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2 id="cta-contacts-title">Готовы построить резиденцию вашей мечты?</h2>
+          <p>Запишитесь на ознакомительную сессию. Мы разработаем концептуальный эскизный план, подберем премиальные материалы и подготовим прозрачный сметный расчет.</p>
+          <div class="cta-box__actions">
+            <button class="btn btn--accent btn--lg" data-modal-trigger="consultation">Бесплатная консультация</button>
+            <a href="calculator.html" class="btn btn--outline-light btn--lg">Онлайн калькулятор</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Pages -->
+    <section class="section related-pages" aria-labelledby="related-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="related-title" class="section__title">Что посмотреть дальше</h2>
+        </header>
+        <div class="related-pages__grid">
+          <a href="projects.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M9 21V9h6v12"/>
+              </svg>
+            </div>
+            <h3>Наши проекты</h3>
+            <p>214 реализованных резиденций с реальными фотографиями и планировками.</p>
+            <span class="related-card__arrow">Смотреть →</span>
+          </a>
+          <a href="services.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77"/>
+                <path d="M4.8 19.2l-2.3 2.3M12.2 11.8l-2.3 2.3"/>
+              </svg>
+            </div>
+            <h3>Услуги</h3>
+            <p>Комплексный цикл создания коттеджей: от фундамента до декора.</p>
+            <span class="related-card__arrow">Смотреть →</span>
+          </a>
+          <a href="about.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3>О компании</h3>
+            <p>12 лет опыта, 48 специалистов загородного проектирования.</p>
+            <span class="related-card__arrow">Читать →</span>
+          </a>
+          <a href="calculator.html" class="related-card">
+            <div class="related-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12" y2="18"/>
+              </svg>
+            </div>
+            <h3>Калькулятор</h3>
+            <p>Быстрый расчет сметы на индивидуальное строительство резиденции.</p>
+            <span class="related-card__arrow">Рассчитать →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__about">
+          <a href="index.html" class="logo" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="fill: transparent;">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M9 21V9h6v12" />
+            </svg>
+            <span class="logo__text" style="color: white;">DOMUS VIVA</span>
+          </a>
+          <p>Премиальное индивидуальное проектирование и строительство коттеджей с 2014 года. Гарантия 15 лет, прозрачная смета.</p>
+          <div class="social-links">
+            <a href="https://vk.com/domusviva" aria-label="VKontakte">VK</a>
+            <a href="https://t.me/domusviva" aria-label="Telegram">TG</a>
+          </div>
+        </div>
+        
+        <div class="footer__col">
+          <h4>Разделы</h4>
+          <ul>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Проекты</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer__col">
+          <h4>Офисы</h4>
+          <ul>
+            <li><a href="#map">Москва (главный)</a></li>
+            <li><a href="#offices">Санкт-Петербург</a></li>
+            <li><a href="#offices">Казань</a></li>
+            <li><a href="#contact-form">Выезд архитектора</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer__col footer__contacts">
+          <h4>Контакты</h4>
+          <p style="margin-bottom: 12px;"><a href="tel:+78005553535" style="color: white; font-weight: 600; text-decoration: none;">+7 (800) 555-35-35</a></p>
+          <p style="margin-bottom: 12px;"><a href="mailto:info@domusviva.ru">info@domusviva.ru</a></p>
+          <p>Москва, ул. Архитекторов, 12<br>Пн-Пт: 9:00–19:00</p>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <p>&copy; 2026 DOMUS VIVA. Все права защищены. Премиальное загородное строительство.</p>
+        <div class="footer__links">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Карта сайта</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Интерактивное модальное окно обратной связи -->
+  <div class="modal" id="consultationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__content">
+      <button class="modal__close" data-close-modal aria-label="Закрыть">✕</button>
+      <div class="modal__body">
+        <h3 id="modalTitle">Запросить консультацию</h3>
+        <p>Заполните контактную форму ниже, и архитектор-эксперт DOMUS VIVA свяжется с вами в течение 30 минут.</p>
+        
+        <form id="consultationForm">
+          <div class="form-group">
+            <label for="clientName">Ваше имя *</label>
+            <input type="text" id="clientNameModal" class="form-control" placeholder="Александр" required>
+          </div>
+          <div class="form-group">
+            <label for="clientPhone">Номер телефона *</label>
+            <input type="tel" id="clientPhoneModal" class="form-control" placeholder="+7 (999) 123-45-67" required>
+          </div>
+          <div class="form-group">
+            <label for="clientMessage">Ваш комментарий к проекту</label>
+            <textarea id="clientMessageModal" class="form-control" rows="3" placeholder="Расскажите о ваших планах на строительство..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width: 100%;">Отправить запрос</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Floating Call Button (Mobile) -->
+  <a href="tel:+78005553535" class="floating-call" aria-label="Позвонить нам">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Прогресс чтения вверху страницы
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = scrolled + '%';
+      });
+
+      // 2. Бургер-меню (адаптивная мобильная навигация)
+      const burgerBtn = document.getElementById('burgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      burgerBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('mobile-menu--open');
+        burgerBtn.classList.toggle('burger--active');
+        burgerBtn.setAttribute('aria-expanded', isOpen);
+      });
+
+      // 3. Работа с модальным окном
+      const modal = document.getElementById('consultationModal');
+      const openModalTriggers = document.querySelectorAll('[data-modal-trigger="consultation"]');
+      const closeModalElements = document.querySelectorAll('[data-close-modal]');
+      const clientMessageTextareaModal = document.getElementById('clientMessageModal');
+
+      function openModal(e) {
+        const plan = e.currentTarget.getAttribute('data-plan');
+        if (plan) {
+          clientMessageTextareaModal.value = `Интересует: ${plan}.`;
+        } else {
+          clientMessageTextareaModal.value = '';
+        }
+        modal.classList.add('modal--open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('modal--open');
+        document.body.style.overflow = '';
+      }
+
+      openModalTriggers.forEach(trigger => trigger.addEventListener('click', openModal));
+      closeModalElements.forEach(el => el.addEventListener('click', closeModal));
+
+      // Закрытие модального по кнопке Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+          closeModal();
+        }
+      });
+
+      // 4. Отправка модальной формы
+      const modalForm = document.getElementById('consultationForm');
+      modalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        closeModal();
+        showToast('✓ Благодарим! Заявка успешно принята. Наш архитектор DOMUS VIVA свяжется с вами.');
+        modalForm.reset();
+      });
+
+      // 5. Обработка файлов в форме на странице
+      const fileInput = document.getElementById('contactFile');
+      const fileListContainer = document.getElementById('fileList');
+      let uploadedFiles = [];
+
+      if (fileInput) {
+        fileInput.addEventListener('change', (e) => {
+          const files = e.target.files;
+          for (let i = 0; i < files.length; i++) {
+            uploadedFiles.push(files[i]);
+          }
+          renderFileList();
+        });
+      }
+
+      function renderFileList() {
+        if (!fileListContainer) return;
+        fileListContainer.innerHTML = '';
+        uploadedFiles.forEach((file, index) => {
+          const fileItem = document.createElement('div');
+          fileItem.className = 'file-upload-item';
+          fileItem.innerHTML = `
+            <span>📄 ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} МБ)</span>
+            <button type="button" class="file-upload-item__remove" data-index="${index}">✕</button>
+          `;
+          fileListContainer.appendChild(fileItem);
+        });
+
+        // Навесим события удаления
+        const removeButtons = fileListContainer.querySelectorAll('.file-upload-item__remove');
+        removeButtons.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const index = parseInt(e.target.getAttribute('data-index'));
+            uploadedFiles.splice(index, 1);
+            renderFileList();
+          });
+        });
+      }
+
+      // 6. Валидация и отправка формы на странице
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          let isValid = true;
+          
+          const subject = document.getElementById('contactSubject');
+          const name = document.getElementById('contactName');
+          const phone = document.getElementById('contactPhone');
+          const email = document.getElementById('contactEmail');
+          const agree = document.getElementById('agreeCheckbox');
+
+          const subjectError = document.getElementById('subjectError');
+          const nameError = document.getElementById('nameError');
+          const phoneError = document.getElementById('phoneError');
+          const emailError = document.getElementById('emailError');
+
+          // Сброс ошибок
+          document.querySelectorAll('.form-field__error').forEach(err => err.style.display = 'none');
+
+          if (!subject.value) {
+            subjectError.style.display = 'block';
+            isValid = false;
+          }
+          if (!name.value.trim()) {
+            nameError.style.display = 'block';
+            isValid = false;
+          }
+          if (!phone.value.trim()) {
+            phoneError.style.display = 'block';
+            isValid = false;
+          }
+          if (email.value.trim() && !email.value.includes('@')) {
+            emailError.style.display = 'block';
+            isValid = false;
+          }
+          if (!agree.checked) {
+            showToast('✕ Требуется согласие на обработку персональных данных');
+            isValid = false;
+          }
+
+          if (isValid) {
+            showToast('✓ Заявка успешно отправлена! Наш ведущий архитектор уже изучает детали.');
+            contactForm.reset();
+            uploadedFiles = [];
+            renderFileList();
+          }
+        });
+      }
+
+      // 7. Тост-уведомления
+      const toastContainer = document.getElementById('toastContainer');
+      function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => {
+          toast.style.animation = 'toastIn 0.3s reverse forwards';
+          setTimeout(() => toast.remove(), 300);
+        }, 5000);
+      }
+
+      // 8. Аккордеон FAQ
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        question.addEventListener('click', () => {
+          const isOpen = item.classList.contains('faq-item--active');
+          
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('faq-item--active');
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+          });
+
+          if (!isOpen) {
+            item.classList.add('faq-item--active');
+            question.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+
+      // Переключение языка
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const STORAGE_KEY = 'domus-viva-lang';
+      
+      function getCurrentLanguage() {
+        return localStorage.getItem(STORAGE_KEY) || 'ru';
+      }
+
+      function setLanguage(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+        langButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      // Инициализировать активный язык
+      const currentLang = getCurrentLanguage();
+      setLanguage(currentLang);
+    });
+  </script>
+</body>
+</html>

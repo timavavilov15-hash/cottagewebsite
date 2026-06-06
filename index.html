@@ -1,0 +1,256 @@
+/**
+ * i18n Module — переключение языков RU/EN
+ * Зависимости: нет
+ */
+(function() {
+  'use strict';
+
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  const STORAGE_KEY = 'domus-viva-lang';
+  const DEFAULT_LANG = 'ru';
+
+  // Полные переводы
+  const translations = {
+    ru: {
+      // Navigation
+      'nav.about': 'О компании',
+      'nav.services': 'Услуги',
+      'nav.projects': 'Проекты',
+      'nav.blog': 'Блог',
+      'nav.contacts': 'Контакты',
+      
+      // CTA
+      'cta.consultation': 'Консультация',
+      'cta.callback': 'Заказать звонок',
+      'cta.request': 'Запросить расчет',
+      'cta.call': 'Позвонить нам',
+      
+      // Common
+      'common.readMore': 'Читать далее',
+      'common.learnMore': 'Узнать больше',
+      'common.send': 'Отправить',
+      'common.close': 'Закрыть',
+      'common.loading': 'Загрузка...',
+      'common.error': 'Ошибка',
+      'common.success': 'Отправлено!',
+      
+      // SEO
+      'seo.title': 'Строительство коттеджей под ключ | DOMUS VIVA',
+      'seo.description': 'Строительство коттеджей под ключ: от фундамента до финишной отделки. Фиксированная смета, еженедельные отчёты, гарантия 15 лет.',
+      'seo.keywords': 'строительство коттеджей под ключ, построить дом, строительство загородного дома, подрядчик',
+      
+      // Form
+      'form.name.placeholder': 'Ваше имя',
+      'form.phone.placeholder': 'Телефон',
+      'form.email.placeholder': 'Email',
+      'form.message.placeholder': 'Сообщение',
+      'form.name.error': 'Введите имя',
+      'form.phone.error': 'Введите телефон',
+      'form.email.error': 'Введите email',
+      'form.email.invalid': 'Некорректный email',
+      
+      // FAQ
+      'faq.question1': 'Сколько длится строительство?',
+      'faq.answer1': 'От 4 до 12 месяцев в зависимости от сложности.',
+      'faq.question2': 'Можно ли строиться зимой?',
+      'faq.answer2': 'Да, мы строим круглый год.',
+      'faq.question3': 'Как контролируется качество?',
+      'faq.answer3': 'На каждом этапе работает независимый технадзор.',
+      
+      // Pricing
+      'pricing.basic': 'Базовый',
+      'pricing.standard': 'Стандарт',
+      'pricing.premium': 'Премиум',
+      'pricing.from': 'от',
+      'pricing.perSqM': '/м²',
+      
+      // Attrs (для data-i18n-attr)
+      'attr.title': 'Переключить язык',
+      'attr.placeholder': '',
+      'attr.alt': 'DOMUS VIVA'
+    },
+    en: {
+      // Navigation
+      'nav.about': 'About',
+      'nav.services': 'Services',
+      'nav.projects': 'Projects',
+      'nav.blog': 'Blog',
+      'nav.contacts': 'Contacts',
+      
+      // CTA
+      'cta.consultation': 'Consultation',
+      'cta.callback': 'Request a call',
+      'cta.request': 'Request calculation',
+      'cta.call': 'Call us',
+      
+      // Common
+      'common.readMore': 'Read more',
+      'common.learnMore': 'Learn more',
+      'common.send': 'Send',
+      'common.close': 'Close',
+      'common.loading': 'Loading...',
+      'common.error': 'Error',
+      'common.success': 'Sent!',
+      
+      // SEO
+      'seo.title': 'Turnkey Cottage Construction | DOMUS VIVA',
+      'seo.description': 'Turnkey cottage construction: from foundation to finishing. Fixed budget, weekly reports, 15-year warranty.',
+      'seo.keywords': 'turnkey cottage construction, build house, suburban construction, contractor',
+      
+      // Form
+      'form.name.placeholder': 'Your name',
+      'form.phone.placeholder': 'Phone',
+      'form.email.placeholder': 'Email',
+      'form.message.placeholder': 'Message',
+      'form.name.error': 'Enter name',
+      'form.phone.error': 'Enter phone',
+      'form.email.error': 'Enter email',
+      'form.email.invalid': 'Invalid email',
+      
+      // FAQ
+      'faq.question1': 'How long does construction take?',
+      'faq.answer1': '4 to 12 months depending on complexity.',
+      'faq.question2': 'Can you build in winter?',
+      'faq.answer2': 'Yes, we build year-round.',
+      'faq.question3': 'How is quality controlled?',
+      'faq.answer3': 'Independent technical supervision at each stage.',
+      
+      // Pricing
+      'pricing.basic': 'Basic',
+      'pricing.standard': 'Standard',
+      'pricing.premium': 'Premium',
+      'pricing.from': 'from',
+      'pricing.perSqM': '/sqm',
+      
+      // Attrs (для data-i18n-attr)
+      'attr.title': 'Switch language',
+      'attr.placeholder': '',
+      'attr.alt': 'DOMUS VIVA'
+    }
+  };
+
+  const getLanguage = () => {
+    // Приоритет 1: URL-параметр ?lang=
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('lang')) {
+      const urlLang = urlParams.get('lang');
+      if (urlLang === 'ru' || urlLang === 'en') {
+        localStorage.setItem(STORAGE_KEY, urlLang);
+        // Удаляем параметр из URL для чистоты
+        history.replaceState(null, '', window.location.pathname);
+        return urlLang;
+      }
+    }
+    
+    // Приоритет 2: localStorage
+    return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+  };
+
+  const setLanguage = (lang) => {
+    localStorage.setItem(STORAGE_KEY, lang);
+    applyTranslations(lang);
+    updateLangButtons(lang);
+    updateMetaTags(lang);
+    updateAttributes(lang);
+    document.documentElement.setAttribute('lang', lang);
+  };
+
+  const applyTranslations = (lang) => {
+    const texts = translations[lang];
+    if (!texts) return;
+
+    // Текстовые элементы
+    $$('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (texts[key]) {
+        el.textContent = texts[key];
+      } else {
+        console.warn(`Translation key not found: ${key} (${lang})`);
+      }
+    });
+  };
+
+  const updateAttributes = (lang) => {
+    const texts = translations[lang];
+    if (!texts) return;
+
+    // Атрибуты (data-i18n-attr)
+    $$('[data-i18n-attr]').forEach(el => {
+      const attrs = el.dataset.i18nAttr.split(',');
+      attrs.forEach(attr => {
+        const key = `attr.${attr}`;
+        if (texts[key]) {
+          el.setAttribute(attr, texts[key]);
+        }
+      });
+    });
+  };
+
+  const updateMetaTags = (lang) => {
+    const texts = translations[lang];
+    if (!texts) return;
+
+    // Meta-теги (data-i18n-meta)
+    $$('[data-i18n-meta]').forEach(el => {
+      const meta = el.dataset.i18nMeta;
+      const key = `meta.${meta}`;
+      if (texts[key]) {
+        el.setAttribute('content', texts[key]);
+      }
+    });
+  };
+
+  const updateLangButtons = (activeLang) => {
+    $$('.lang-btn').forEach(btn => {
+      const isActive = btn.dataset.lang === activeLang;
+      btn.classList.toggle('lang-btn--active', isActive);
+      btn.setAttribute('aria-pressed', isActive);
+    });
+  };
+
+  // Pre-init инициализация (для предотвращения мигания контента)
+  const preInit = () => {
+    const lang = getLanguage();
+    updateLangButtons(lang);
+    applyTranslations(lang);
+    updateAttributes(lang);
+    updateMetaTags(lang);
+    
+    // Устанавливаем атрибут lang сразу
+    document.documentElement.setAttribute('lang', lang);
+  };
+
+  const init = () => {
+    const langButtons = $$('.lang-btn');
+    if (langButtons.length === 0) return;
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        if (lang && lang !== getLanguage()) {
+          setLanguage(lang);
+        }
+      });
+    });
+
+    // Публичный API
+    window.DOMUS = window.DOMUS || {};
+    window.DOMUS.i18n = {
+      getLanguage,
+      setLanguage,
+      translations
+    };
+  };
+
+  // Выполняем pre-init сразу (не ждем DOMContentLoaded)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+  // Pre-init (до загрузки CSS для предотвращения FOUC)
+  preInit();
+})();
